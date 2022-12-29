@@ -1,0 +1,48 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #231c8a;
+  --ifm-color-primary-dark: #1f197c;
+  --ifm-color-primary-darker: #1e1875;
+  --ifm-color-primary-darkest: #181461;
+  --ifm-color-primary-light: #261f98;
+  --ifm-color-primary-lighter: #28209f;
+  --ifm-color-primary-lightest: #2d24b3;
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary-lightest);
+  --ifm-link-color: var(--ifm-color-primary-lightest);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #9790fe;
+  --ifm-color-primary-dark: #857cfe;
+  --ifm-color-primary-darker: #7970fe;
+  --ifm-color-primary-darkest: #6b61fe;
+  --ifm-color-primary-light: #bcb7fe;
+  --ifm-color-primary-lighter: #cecbff;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary-lighter);
+  --ifm-link-color: var(--ifm-color-primary-lighter);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hero {
+  background-image: linear-gradient(45deg,#462a83 29%,#231b8a 89%);
+  color: #ffffff;
+}
+
+.theme-doc-markdown table img {
+  height: 20px;
+  width: auto;
+  max-width: unset;
+}
+
+.footer__link-item:hover {
+  color: #b5afff;
+}

@@ -1,0 +1,46 @@
+{
+  "link.title.Docs": {
+    "message": "Docs",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.More": {
+    "message": "Mehr",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Documentation": {
+    "message": "Dokumentation",
+    "description": "The label of footer link with label=Documentation linking to /docs/category/about"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/mosparo/mosparo"
+  },
+  "copyright": {
+    "message": "Copyright © 2022 mosparo",
+    "description": "The footer copyright"
+  },
+  "link.title.Website": {
+    "message": "Website",
+    "description": "The title of the footer links column with title=Website in the footer"
+  },
+  "link.item.label.Translations": {
+    "message": "Übersetzungen",
+    "description": "The label of footer link with label=Translations linking to /docs/category/about"
+  },
+  "link.item.label.Testing": {
+    "message": "Testing",
+    "description": "The label of footer link with label=Testing linking to /docs/category/about"
+  },
+  "link.item.label.Homepage": {
+    "message": "Startseite",
+    "description": "The label of footer link with label=Homepage linking to https://mosparo.io"
+  },
+  "link.item.label.Version history": {
+    "message": "Versions-Historie",
+    "description": "The label of footer link with label=Version history linking to https://mosparo.io/releases/"
+  },
+  "link.item.label.News": {
+    "message": "Neuigkeiten",
+    "description": "The label of footer link with label=News linking to https://mosparo.io/news/"
+  }
+}

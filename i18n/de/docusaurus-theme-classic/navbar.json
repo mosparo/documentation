@@ -1,0 +1,22 @@
+{
+  "item.label.Documentation": {
+    "message": "Dokumentation",
+    "description": "Navbar item with label Documentation"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "title": {
+    "message": "Docs",
+    "description": "The title in the navbar"
+  },
+  "item.label.Testing": {
+    "message": "Testing",
+    "description": "Navbar item with label Testing"
+  },
+  "item.label.Translating": {
+    "message": "Übersetzen",
+    "description": "Navbar item with label Translating"
+  }
+}

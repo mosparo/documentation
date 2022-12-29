@@ -1,0 +1,90 @@
+{
+  "version.label": {
+    "message": "Nächste",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.About": {
+    "message": "Über",
+    "description": "The label for category About in sidebar docs"
+  },
+  "sidebar.docs.category.About.link.generated-index.title": {
+    "message": "Über",
+    "description": "The generated-index page title for category About in sidebar docs"
+  },
+  "sidebar.docs.category.About.link.generated-index.description": {
+    "message": "Was ist mosparo? Wie funktioniert mosparo? Sie finden alle Antworten hier.",
+    "description": "The generated-index page description for category About in sidebar docs"
+  },
+  "sidebar.docs.category.Installation": {
+    "message": "Installation",
+    "description": "The label for category Installation in sidebar docs"
+  },
+  "sidebar.docs.category.Installation.link.generated-index.title": {
+    "message": "Installation",
+    "description": "The generated-index page title for category Installation in sidebar docs"
+  },
+  "sidebar.docs.category.Installation.link.generated-index.description": {
+    "message": "Lernen Sie, wie Sie mosparo auf Ihrem Server instasllieren können.",
+    "description": "The generated-index page description for category Installation in sidebar docs"
+  },
+  "sidebar.docs.category.Install": {
+    "message": "Installieren",
+    "description": "The label for category Install in sidebar docs"
+  },
+  "sidebar.docs.category.Install.link.generated-index.title": {
+    "message": "Installieren",
+    "description": "The generated-index page title for category Install in sidebar docs"
+  },
+  "sidebar.docs.category.Install.link.generated-index.description": {
+    "message": "Wählen Sie zwischen den verfügbaren Installationsmethoden um mosparo zu installieren.",
+    "description": "The generated-index page description for category Install in sidebar docs"
+  },
+  "sidebar.docs.category.Usage": {
+    "message": "Benutzung",
+    "description": "The label for category Usage in sidebar docs"
+  },
+  "sidebar.docs.category.Usage.link.generated-index.title": {
+    "message": "Benutzung",
+    "description": "The generated-index page title for category Usage in sidebar docs"
+  },
+  "sidebar.docs.category.Usage.link.generated-index.description": {
+    "message": "Lesen Sie, wie Sie mosparo verwenden können und welche Funktionalität mosparo bietet.",
+    "description": "The generated-index page description for category Usage in sidebar docs"
+  },
+  "sidebar.docs.category.Account": {
+    "message": "Account",
+    "description": "The label for category Account in sidebar docs"
+  },
+  "sidebar.docs.category.Account.link.generated-index.title": {
+    "message": "Account",
+    "description": "The generated-index page title for category Account in sidebar docs"
+  },
+  "sidebar.docs.category.Account.link.generated-index.description": {
+    "message": "Lernen Sie, wie Sie Ihr Benutzerprofil verwenden können.",
+    "description": "The generated-index page description for category Account in sidebar docs"
+  },
+  "sidebar.docs.category.Administration": {
+    "message": "Administration",
+    "description": "The label for category Administration in sidebar docs"
+  },
+  "sidebar.docs.category.Administration.link.generated-index.title": {
+    "message": "Administration",
+    "description": "The generated-index page title for category Administration in sidebar docs"
+  },
+  "sidebar.docs.category.Administration.link.generated-index.description": {
+    "message": "Lernen Sie, wie Sie Ihre mosparo Installation konfigurieren, wie Sie Benutzer verwalten und wie Sie mosparo aktualisieren können.",
+    "description": "The generated-index page description for category Administration in sidebar docs"
+  },
+  "sidebar.docs.category.Integration": {
+    "message": "Integration",
+    "description": "The label for category Integration in sidebar docs"
+  },
+  "sidebar.docs.category.Integration.link.generated-index.title": {
+    "message": "Integration",
+    "description": "The generated-index page title for category Integration in sidebar docs"
+  },
+  "sidebar.docs.category.Integration.link.generated-index.description": {
+    "message": "Wenn Sie mosparo verwenden wollen, müssen Sie mosparo in Ihre Website integrieren. Lernen Sie alles dazu hier.",
+    "description": "The generated-index page description for category Integration in sidebar docs"
+  }
+}
