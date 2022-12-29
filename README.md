@@ -1,41 +1,18 @@
-# Website
+&nbsp;
+<p align="center">
+    <img src="https://github.com/mosparo/mosparo/blob/master/assets/images/mosparo-logo.svg?raw=true" alt="mosparo logo contains a bird with the name Mo and the mosparo text"/>
+</p>
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+<h1 align="center">
+    Documentation
+</h1>
+<p align="center">
+    The official documentation for mosparo, built with [Docusaurus 2](https://docusaurus.io/).
+</p>
 
-### Installation
+-----
 
-```
-$ yarn
-```
+## Description
+This is the official documentation for mosparo. The built version of this documentation is available at https://documentation.mosparo.io/.
 
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+We've used Docusaurus 2 to build this documentation.
