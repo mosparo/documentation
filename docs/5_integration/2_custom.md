@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
-sidebar_label: Manually
+sidebar_label: Custom integration
 ---
 
-# Manually
+# Custom integration
 
 You can easily integrate mosparo into your own website. To use mosparo, you need a form that contains one or more form fields.
 
