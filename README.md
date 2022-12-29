@@ -7,7 +7,7 @@
     Documentation
 </h1>
 <p align="center">
-    The official documentation for mosparo, built with [Docusaurus 2](https://docusaurus.io/).
+    The official documentation for mosparo, built with Docusaurus 2 (https://docusaurus.io/).
 </p>
 
 -----
