@@ -64,7 +64,7 @@ const FeatureList = [
 
 function Feature({img, title, description, linkTo}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4 feature-box')}>
       <div className="text--center">
         <img src={img.one} srcSet={`${img.one} 1x, ${img.two} 2x, ${img.three} 3x`} className={styles.featureSvg} role="img" alt="" />
       </div>

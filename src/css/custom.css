@@ -46,3 +46,27 @@
 .footer__link-item:hover {
   color: #b5afff;
 }
+
+@media screen and (max-width: 996px) {
+  .navbar__logo {
+    max-width: 100%;
+  }
+
+  .feature-box {
+    margin: 2rem 0;
+  }
+
+  .searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+    position: unset !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .pagination-nav {
+    display: block;
+  }
+
+  .pagination-nav__link.pagination-nav__link--next {
+    margin-top: 1rem;
+  }
+}
