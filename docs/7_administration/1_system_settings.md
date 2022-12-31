@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: System settings
+description: An overview of the available system settings.
 ---
 
 # System settings

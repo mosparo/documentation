@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: Features
+description: The summary of the features of mosparo.
 ---
 
 # Features

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: Two-factor authentication
+description: Learn how to configure two-factor authentication.
 ---
 
 # Two-factor authentication
@@ -9,13 +10,13 @@ To improve the protection of your account, you should set up two-factor authenti
 
 ## Setting up two-factor authentication
 
-To set up two-factor authentication, you need an authenticator app on your phone, such as Google Authenticator orMicrosoft Authenticator, or another compatible app.
+To set up two-factor authentication, you need an authenticator app on your phone, such as Google Authenticator or Microsoft Authenticator, or another compatible app.
 
 Then use your smartphone to scan the displayed QR code or type in the displayed code manually. Then click "Next".
 
-To confirm, enter the code displayed in the app in the corresponding field and click Verify.
+To confirm, enter the code displayed in the app in the corresponding field and click "Verify".
 
-If everything went well , you will see a list of recovery codes. Store these recovery codes in a secure location. If you lose access to your smartphone, you can still log in with these recovery codes and reset two-factor authentication or register with a new smartphone.
+If everything went well, you will see a list of recovery codes. Store these recovery codes in a secure location. If you lose access to your smartphone, you can still log in with these recovery codes and reset two-factor authentication or register with a new smartphone.
 
 ## Reconfiguring two-factor authentication
 

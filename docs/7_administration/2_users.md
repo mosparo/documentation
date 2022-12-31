@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: Users
+description: Manage the users of your mosparo installation.
 ---
 
 # Users
@@ -17,4 +18,4 @@ If you want the user to have administrator permission, you can grant a user admi
 
 ## Deleting Users
 
-If you no longer want a user to be able to access mosparo, you can either mark the user as an inactive user or delete the user. If  you want to remove a user from only one project, you must remove the user as a project member in the project settings.
+If you no longer want a user to be able to access mosparo, you can either mark the user as an inactive user or delete the user. If you want to remove a user from only one project, you must remove the user as a project member in the project settings.

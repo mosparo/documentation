@@ -1,11 +1,12 @@
 ---
 sidebar_position: 1
 sidebar_label: Prerequisites
+description: All requirements that must be fulfilled for mosparo to function correctly.
 ---
 
 # Prerequisites
 
-In order for mosparo to be installed on a server, there are the following prerequisites, which must be met:
+To install mosparo on a server, the following prerequisites must be met:
 
 - Domain or subdomain you own
 - maximum 100 MB free disk space
@@ -16,14 +17,14 @@ In order for mosparo to be installed on a server, there are the following prereq
   :::
 - The following PHP extensions:
   - ctype
-  - Iconv
-  - Intl
+  - iconv
+  - intl
   - json
   - pdo
   - pdo_mysql
   - openssl
   - zip
-  - Posix (optional)
+  - posix (optional)
   - sodium (optional)
   - Zend OPCache (optional)
 - MySQL database

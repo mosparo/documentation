@@ -22,17 +22,24 @@ Zusätzlich zu den beschriebenen [Voraussetzungen](../prerequisites) betreffend 
 git clone git@github.com:mosparo/mosparo.git
 ```
 2. Wechseln Sie in das Verzeichnis des Repositories
-3. Führen Sie Composer aus 
+3. _(Optional)_ Wenn Sie die letzte stabile Version verwenden möchten, sollten Sie zum entsprechenden Tag der letzten Version wechseln
+```
+git checkout tags/[lastVersionTag]
+```
+:::note
+Bitte ersetzen Sie `[lastVersionTag]` mit dem Namen des letzten Tags (siehe https://github.com/mosparo/mosparo/tags).
+:::
+4. Führen Sie Composer aus 
 ```
 composer composer install –-no-dev
 ```
-4. Installieren Sie alle Frontend-Pakete
+5. Installieren Sie alle Frontend-Pakete
 ```
 npm install
 ```
-5. Generieren Sie alle Frontend-Ressourcen
+6. Generieren Sie alle Frontend-Ressourcen
 ```
 ./node_modules/.bin/encore prod
 ```
-6. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu
-7. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
+7. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu
+8. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren

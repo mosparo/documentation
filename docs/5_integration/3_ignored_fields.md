@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: Ignored fields
+description: Find out which fields are ignored by mosparo.
 ---
 
 # Ignored fields
@@ -11,11 +12,11 @@ mosparo automatically ignores the following fields:
 
 - All fields which **do not** have a name (attribute `name`)
 - HTML field type
-    - _Password_
-    - _File_
-    - _Hidden_
-    - _Checkbox_
-    - _Radio_
+    - _password_
+    - _file_
+    - _hidden_
+    - _checkbox_
+    - _radio_
     - _submit_
     - _reset_
 - HTML button type

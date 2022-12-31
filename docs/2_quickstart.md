@@ -5,11 +5,11 @@ sidebar_label: Quickstart
 
 # Quickstart
 
-To start with mosparo, some basic steps are required.
+Some basic steps are required to start with mosparo.
 
 ## 1. Install mosparo
 
-To start with mosparo, you need a mosparo installation. This is the most important step, otherwise all the other steps are useless.
+You need a mosparo installation to start with mosparo. This is the most important step, otherwise all the other steps are useless.
 
 To install mosparo, please head over to our [installation documentation](/docs/category/installation).
 

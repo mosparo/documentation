@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: Install from source
+description: Install mosparo directly with the source.
 ---
 
 # Install from source
@@ -9,7 +10,7 @@ Alternatively, you can install mosparo directly from our Git repository. The ins
 
 ## Prerequisites
 
-In addition to the requirements described in the [prerequisites](../prerequisites) regarding your web hosting, you need for this variant
+In addition to the requirements described in the [prerequisites](../prerequisites) regarding your web hosting, you need for this method
 - Git
 - Composer
 - NPM
@@ -21,17 +22,24 @@ In addition to the requirements described in the [prerequisites](../prerequisite
 git clone git@github.com:mosparo/mosparo.git
 ```
 2. Change to the directory of the mosparo repository
-3. Run 
+3. _(Optional)_ If you want use the latest stable version, you should checkout the tag of the last version
+```
+git checkout tags/[lastVersionTag]
+```
+:::note
+Please replace `[lastversionTag]` with the name of the latest tag (see https://github.com/mosparo/mosparo/tags).
+:::
+4. Run 
 ```
 composer composer install –-no-dev
 ```
-4. Install all frontend packages
+5. Install all frontend packages
 ```
 npm install
 ```
-5. Generate all frontend resources
+6. Generate all frontend resources
 ```
 ./node_modules/.bin/encore prod
 ```
-6. Open your browser and access the website
-7. Follow the installation wizard to install mosparo
+7. Open your browser and access the website
+8. Follow the installation wizard to install mosparo

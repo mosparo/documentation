@@ -21,10 +21,10 @@ Fügen Sie in Ihrem Formular an der Stelle, an welcher die mosparo-Box angezeigt
 Im Kopf Ihrer Website müssen Sie die CSS-Ressourcen von mosparo einbinden. Fügen Sie dazu folgenden Code im HTML-Head-Bereich ein:
 
 ```html
-<link href="https://{$host}/resources/{$uuid}. css" rel="stylesheet"> 
+<link href="https://[host]/resources/[uuid]. css" rel="stylesheet"> 
 ```
 
-Ersetzen Sie dabei `{$host}` mit der Adresse Ihrer mosparo-Installation. Tragen Sie bei {$uuid} die eindeutige Identifikationsnummer Ihres mosparo-Projektes ein.
+Ersetzen Sie dabei `[host]` mit der Adresse Ihrer mosparo-Installation. Tragen Sie bei `[uuid]` die eindeutige Identifikationsnummer Ihres mosparo-Projektes ein.
 
 :::info
 Sie können die CSS-Ressourcen auch direkt vom Script beim Initialisieren der mosparo-Box einbinden. Verwenden Sie dazu die Option loadCssResource bei der Initialisierung (siehe [Parameter der mosparo-Klasse](#parameter-der-mosparo-klasse)).
@@ -35,16 +35,16 @@ Sie können die CSS-Ressourcen auch direkt vom Script beim Initialisieren der mo
 Binden Sie das Script von mosparo auf Ihrer Website ein. Initialisieren Sie danach mosparo mit dem untenstehenden Code.
 
 ```html
-<script  src="https://{$host}/build/mosparo-frontend.js" defer></script>
+<script  src="https://[host]/build/mosparo-frontend.js" defer></script>
 <script>
     var m;
     window.onload = function(){
         m = new mosparo(
-               '$htmlId', 
-               '$host', 
-               '$uuid',
-               '$publicKey', 
-               $options
+               '[htmlId]', 
+               '[host]', 
+               '[uuid]',
+               '[publicKey]', 
+               [options]
         );
     };
 </script>
@@ -52,13 +52,13 @@ Binden Sie das Script von mosparo auf Ihrer Website ein. Initialisieren Sie dana
 
 ### Parameter der mosparo Klasse
 
-| Parameter  | Typ    | Erforderlich | Beschreibung                                                               |
-|------------|--------|--------------|----------------------------------------------------------------------------|
-| $htmlId    | String | Erforderlich | HTML-ID des Div-Containers, welchen Sie in Ihrem Formular eingefügt haben. |
-| $host      | String | Erforderlich | Host Ihrer mosparo-Installation                                            |
-| $uuid      | String | Erforderlich | Eindeutige Identifikationsnummer des Projektes in mosparo                  |
-| $publicKey | String | Erforderlich | Öffentlicher Schlüssel des Projektes in mosparo                            |
-| $options   | Objekt | Optional     | Zusätzliche Optionen                                                       |
+| Parameter     | Typ    | Erforderlich | Beschreibung                                                               |
+|---------------|--------|--------------|----------------------------------------------------------------------------|
+| `[htmlId]`    | String | Erforderlich | HTML-ID des Div-Containers, welchen Sie in Ihrem Formular eingefügt haben. |
+| `[host]`      | String | Erforderlich | Host Ihrer mosparo-Installation                                            |
+| `[uuid]`      | String | Erforderlich | Eindeutige Identifikationsnummer des Projektes in mosparo                  |
+| `[publicKey]` | String | Erforderlich | Öffentlicher Schlüssel des Projektes in mosparo                            |
+| `[options]`   | Objekt | Optional     | Zusätzliche Optionen                                                       |
 
 ### Zusätzliche Optionen
 
@@ -73,15 +73,6 @@ Binden Sie das Script von mosparo auf Ihrer Website ein. Initialisieren Sie dana
 | onCheckForm              | Callable  | _leer_                                | Definiert ein Callback, welches aufgerufen wird, sobald das Formular überprüft wurde.                                                                                                                                                                                                                                      |
 | requestSubmitTokenOnInit | Boolean   | `true`                                | Gibt an, ob bei der Initialisierung automatisch ein Einsendecode angefordert werden soll. Wenn zum Beispiel direkt nach der Initialisierung des Formulars das Formular zurückgesetzt wird (mit `reset()`) braucht es bei der Initialisierung keinen Einsendecode, da mit dem Zurücksetzen ein neuer Code angefordert wird. |
 
-### Funktionsbibliotheken
-
-Um die Verifizierung auf Ihrer Website zu vereinfachen, gibt es Funktionsbibliotheken, welche die Verifizierung vereinfachen. Falls Sie die Verifizierung ohne Funktionsbibliothek durchführen möchten, siehe [Verifizierung manuell durchführen](#verifizierung-manuell-durchführen).
-
-| Name           | Sprache    | Verwaltet durch         | Website                                   |
-|----------------|------------|-------------------------|-------------------------------------------|
-| PHP API client | PHP        | mosparo Core Developers | https://github.com/mosparo/php-api-client |
-| JS API Client  | JavaScript | mosparo Core Developers | https://github.com/mosparo/js-api-client  | 
-
 ## Verifizierung durchführen
 
 Nachdem das Formular abgesendet wurde, muss überprüft werden, ob die Einsendung überhaupt erlaubt war. Rein technisch wäre es vorstellbar, dass jemand zwar die Prüfung von mosparo besteht, danach mit technischen Mitteln die Anfrage wieder verändert und erst dann das Formular absendet. Daher ist es zwingend erforderlich, zu überprüfen, ob die getätigten Eingaben gültig waren.
@@ -95,6 +86,15 @@ Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder 
 Anschliessend können Sie mit der Funktionsbibliothek die Verifizierung durchführen. Dazu benötigen Sie den Host Ihrer mosparo-Installation, den öffentlichen sowie den privaten Schlüssel sowie die bereinigten Formulardaten.
 
 Konsultieren Sie für die genaue Vorgehensweise die Dokumentation der von Ihnen verwendeten Funktionsbibliothek.
+
+#### Funktionsbibliotheken
+
+Um die Verifizierung auf Ihrer Website zu vereinfachen, gibt es Funktionsbibliotheken, welche die Verifizierung vereinfachen. Falls Sie die Verifizierung ohne Funktionsbibliothek durchführen möchten, siehe [Verifizierung manuell durchführen](#verifizierung-manuell-durchführen).
+
+| Name           | Sprache    | Verwaltet durch         | Website                                   |
+|----------------|------------|-------------------------|-------------------------------------------|
+| PHP API client | PHP        | mosparo Core Developers | https://github.com/mosparo/php-api-client |
+| JS API Client  | JavaScript | mosparo Core Developers | https://github.com/mosparo/js-api-client  | 
 
 ### Verifizierung manuell durchführen
 

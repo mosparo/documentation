@@ -52,7 +52,9 @@ Falls ein Projektmitglied keinen Zugriff mehr auf ein Projekt haben soll, könne
 
 Mit der Mindestzeit kann festgelegt werden, wie viel Zeit zwischen der initialen Anfrage und dem Überprüfen des Formulars vergehen muss, bevor die Anfrage akzeptiert wird. Bots können Formularanfragen innerhalb von Sekunden absenden, während dessen ein normaler Benutzer mehrere Minuten braucht.
 
+:::info
 Bitte beachten Sie, dass gewisse Benutzer schneller und andere langsamer im Tippen sind. Die Mindestzeit sollte möglichst klein sein, um keine korrekten Anfragen fälschlicherweise abzulehnen.
+:::
 
 ### Honeypot-Feld
 

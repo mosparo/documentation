@@ -1,11 +1,12 @@
 ---
 sidebar_position: 3
 sidebar_label: GeoIP2
+description: Learn how to configure GeoIP2.
 ---
 
 # GeoIP2
 
-When a user calls up a form, mosparo will transmit the IP address of that user. However, the IP address is only a combination of numbers (and letters in IPv6), which provide almost no information about the origin directly.
+When a user calls up a form, mosparo will receive the IP address of that user. However, the IP address is only a combination of numbers (and letters in IPv6), which provide almost no information about the origin directly.
 
 In order to know where a user comes from, there are databases with which the IP address can be assigned to a country and a provider.
 
@@ -20,10 +21,10 @@ If you don't have an account, create one first. Then request a license key for G
 You can then press the "Download database" button on the right side to download the database. If everything worked correctly, you will see a message that GeoIP2 is available. In addition, the update time of the databases is displayed.
 
 :::info
-If you have requested the license key again, it will take some time until the license key can be used by mosparo. Therefore,an error message may be displayed when downloading the database. In this case, wait a few minutes and try again.
+If you have requested the license key, it will take some time until the license key can be used by mosparo. Therefore, an error message may be displayed when downloading the database. In this case, wait a few minutes and try again.
 :::
 
-We recommend that you set up automatic updating using the cronjob. See [Set up Cron jobs](../installation/cron_jobs)
+We recommend that you set up automatic updating using the cronjob (see [Set up Cron jobs](../installation/cron_jobs)).
 
 :::caution
 Please note that the database is not an accurate and guaranteed method of locating a user. If you use GeoIP2 to block countries, you should note that you could also block good users.

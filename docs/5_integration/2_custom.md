@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: Custom integration
+description: Learn how to integrate mosparo into your website without a plugin.
 ---
 
 # Custom integration
@@ -20,10 +21,10 @@ In your form, at the place where the mosparo box should be displayed, insert an 
 In the header of your website, you need to include mosparo's CSS resources. To do this, paste the following code into the HTML head area:
 
 ```html
-<link href="https://{$host}/resources/{$uuid}. css" rel="stylesheet"> 
+<link href="https://[host]/resources/[uuid].css" rel="stylesheet"> 
 ```
 
-Replace {$host} with the address of your mosparo installation. Enter the unique identification number of your mosparo project at {$uuid}.
+Replace `[host]` with the address of your mosparo installation. Enter the unique identification number of your mosparo project at `[uuid]`.
 
 :::info
 You can also include the CSS resources directly from the script when initializing the mosparo box. To do this, use the `loadCssResource` option during initialization (see [mosparo class parameters](#parameters-of-the-mosparo-class)).
@@ -34,16 +35,16 @@ You can also include the CSS resources directly from the script when initializin
 Embed the mosparo script on your website. Then initialize mosparo with the code below.
 
 ```html
-<script  src="https://{$host}/build/mosparo-frontend.js" defer></script>
+<script src="https://{$host}/build/mosparo-frontend.js" defer></script>
 <script>
     var m;
     window.onload = function(){
         m = new mosparo(
-               '$htmlId', 
-               '$host', 
-               '$uuid',
-               '$publicKey', 
-               $options
+               '[htmlId]', 
+               '[host]', 
+               '[uuid]',
+               '[publicKey]', 
+               [options]
         );
     };
 </script>
@@ -51,39 +52,30 @@ Embed the mosparo script on your website. Then initialize mosparo with the code 
 
 ### Parameters of the mosparo class
 
-| Parameter  | Type   | Required | Description                                               |
-|------------|--------|----------|-----------------------------------------------------------|
-| $htmlId    | String | Required | HTML ID of the div container you inserted into your form. |
-| $host      | String | Required | Host of your mosparo installation                         |
-| $uuid      | String | Required | Unique identification number of the project in mosparo    |
-| $publicKey | String | Required | Public key of the project in mosparo                      |
-| $options   | Object | Optional | Additional options                                        |
+| Parameter     | Type   | Required | Description                                               |
+|---------------|--------|----------|-----------------------------------------------------------|
+| `[htmlId]`    | String | Required | HTML ID of the div container you inserted into your form. |
+| `[host]`      | String | Required | Host of your mosparo installation                         |
+| `[uuid]`      | String | Required | Unique identification number of the project in mosparo    |
+| `[publicKey]` | String | Required | Public key of the project in mosparo                      |
+| `[options]`   | Object | Optional | Additional options                                        |
 
 ### Additional options
 
 | Parameter                | Type     | Default value                         | Description                                                                                                                                                                                                                                                                    |
 |--------------------------|----------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | allowBrowserValidation   | Boolean  | true                                  | Specifies whether browser validation should be active.                                                                                                                                                                                                                         |
-| cssResourceUrl           | String   | _leer_                                | Defines the address at which the CSS resources can be loaded. Can be used if the correct resource address is cached.                                                                                                                                                           |
+| cssResourceUrl           | String   | _empty_                               | Defines the address at which the CSS resources can be loaded. Can be used if the correct resource address is cached.                                                                                                                                                           |
 | designMode               | Boolean  | false                                 | Used to display the mosparo box in the different states in the mosparo backend. The mosparo box is not functional if this option is set to `true`.                                                                                                                             |
 | inputFieldSelector       | String   | `[name]:not(.mosparo__ignored-field)` | Defines the selector with which the fields are searched.                                                                                                                                                                                                                       |
 | loadCssResource          | Boolean  | false                                 | Determines whether the CSS resources should also be loaded during initialisation (see [Embed CSS Resources](#embed-css-resources)).                                                                                                                                           |
-| name                     | String   | _leer_                                | Defines the name of the HTML checkbox. By default, a random ID is used for it.                                                                                                                                                                                                 |
-| onCheckForm              | Callable | _leer_                                | Defines a callback that is called as soon as the form has been checked.                                                                                                                                                                                                        |
+| name                     | String   | _empty_                               | Defines the name of the HTML checkbox. By default, a random ID is used for it.                                                                                                                                                                                                 |
+| onCheckForm              | Callable | _empty_                               | Defines a callback that is called as soon as the form has been checked.                                                                                                                                                                                                        |
 | requestSubmitTokenOnInit | Boolean  | `true`                                | Specifies whether a submit code should be automatically requested during initialisation. If, for example, the form is reset directly after initialisation (with `reset()`), there is no need for a send code during initialisation, as a new code is requested with the reset. |
-
-### Function libraries
-
-To simplify verification on your website, there are function libraries that simplify verification. If you want to perform verification without a function library, see Performing verification manually.
-
-| Name           | Language   | Managed by               | Website                                   |
-|----------------|------------|--------------------------|-------------------------------------------|
-| php api client | PHP        | mosparo Core Developers  | https://github.com/mosparo/php-api-client |
-| JS API Client  | JavaScript | mosparo Core Developers  | https://github.com/mosparo/js-api-client  | 
 
 ## Performing verification
 
-Once the form has been submitted, it must be checked whether the submission was allowed at all. From a purely technical point of view, it would be conceivable that someone passes the examination of mosparo, then changes the request again with technical means and only then sends the form. Therefore, it is imperative to check whether the entries made were valid.
+Once the form has been submitted, it must be checked whether the submission was allowed at all. From a purely technical point of view, it would be conceivable that someone passes the validation by mosparo, then changes the request again with technical means and then sends the form. Therefore, it is imperative to check whether the entries made were valid.
 
 ### Preparing Form Data
 
@@ -95,12 +87,19 @@ You can then use the function library to perform the verification. You need the 
 
 For the exact procedure, consult the documentation of the function library you are using.
 
+#### Available function libraries
+
+| Name           | Language   | Managed by               | Website                                   |
+|----------------|------------|--------------------------|-------------------------------------------|
+| PHP API client | PHP        | mosparo Core Developers  | https://github.com/mosparo/php-api-client |
+| JS API client  | JavaScript | mosparo Core Developers  | https://github.com/mosparo/js-api-client  |
+
 ### Perform verification manually
 
 If you do not want to use a function library or if no function library is available for your programming language, you can easily carry out the verification manually.
 
 :::info
-All code examples in this section are written in the programming language PHP (from the [PHP API client](https://github.com/mosparo/php-api-client/)). Basically, however, this is only for better presentation and any programming language can be used.
+All code examples in this section are written in the programming language PHP (from the [PHP API client](https://github.com/mosparo/php-api-client/)). This is only for better presentation and any programming language can be used.
 :::
 
 #### Prepare form data for request
@@ -127,7 +126,7 @@ $formSignature = hmac_hash('sha256', json_encode($formData), $privateKey);
 Note that empty arrays `[]` in the JSON string should be represented as empty objects `{}`, otherwise problems may occur.
 :::
 
-Then create a signature of the validation code that was transmitted in the form by mosparo.
+Then create a signature of the validation token that was transmitted in the form by mosparo.
 
 ```php
 $validationSignature = hmac_hash('sha256', $validationToken, $privateKey);
@@ -139,7 +138,7 @@ To make it impossible to change the data, a verification signature must then be 
 $verificationSignature = hmac_hash('sha256', $validationSignature . $formSignature, $privateKey);
 ```
 
-These signatures must be sent to mosparo together with the submission code and the form data.
+These signatures must be sent to mosparo together with the submission token and the form data.
 
 ```php
 $apiEndpoint = '/api/v1/verification/verify';
@@ -161,7 +160,7 @@ $requestSignature = hmac_hash('sha256', $apiEndpoint . json_encode($requestData)
 
 To start the request, send a POST request to the host of your mosparo installation. Use the API endpoint `/api/v1/verification/verify` and the request data.
 
-To ensure the authenticity of your request, please send the public key and the request signature in the authorisation header.
+To ensure the authenticity of your request, please send the public key and the request signature in the Authorization header.
 
 ```php
 $data = [
@@ -196,15 +195,15 @@ In the field `issues` possible problems that were found during the verification 
 
 The field `verifiedFields` is used to document which fields have been verified and what the result of the respective field is.
 
-##### Values for `verifiedFields
+##### Values for `verifiedFields`
 
 | Value   | Description                                                                                                                                  |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| valid   | The field was correctly checked and is valid.                                                                                                |
+| valid   | The field was correctly verified and is valid.                                                                                               |
 | invalid | The field was not validated correctly, i.e. the value submitted during verification does not match the value originally entered in the form. |
 
 If an error occurred during the check, the `error` and `errorMessage` fields are set. The two fields indicate that an error has occurred and what the error message is. This happens, for example, if the public key or one of the signatures was invalid or another problem occurred.
 
 #### After verification
 
-If the field `valid` contains the value `true` and the verification signature could be checked correctly, the form input can be processed, for example by sending the e-mail or saving the data in the database.
+If the field `valid` contains the value `true` and the verification signatures are equal, the form input can be processed, for example by sending the e-mail or saving the data in the database.
