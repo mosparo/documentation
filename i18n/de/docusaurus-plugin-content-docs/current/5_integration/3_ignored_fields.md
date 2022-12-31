@@ -12,11 +12,11 @@ mosparo ignoriert automatisch folgende Felder:
 
 - Alle Felder, welche **keinen** Namen haben (Attribut `name`)
 - HTML-Feldtyp
-  - _Password_
-  - _File_
-  - _Hidden_
-  - _Checkbox_
-  - _Radio_
+  - _password_
+  - _file_
+  - _hidden_
+  - _checkbox_
+  - _radio_
   - _submit_
   - _reset_
 - HTML-Buttontyp
