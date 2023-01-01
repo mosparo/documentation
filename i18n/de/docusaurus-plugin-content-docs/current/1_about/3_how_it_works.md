@@ -26,15 +26,15 @@ Der erste Schritt ist die Anfrage beim Öffnen des Formulars. Wenn das Formular 
 
 Sobald alle Elemente erstellt wurden, sendet das Script eine Anfrage an die mosparo-Installation. Bei dieser ersten Anfrage wird geprüft, ob die IP-Adresse des Benutzers in der letzten Zeit nicht zu viele Anfragen gesendet hat und/oder nicht durch die IP-Filterliste blockiert wird. Falls von einer IP-Adresse aus zu viele Anfragen gesendet wurden, wird entweder eine Verzögerung eingebaut oder die Anfrage blockiert (siehe [Sicherheits-Einstellungen](../usage/settings#sicherheits-einstellungen)).
 
-Wenn keine Einwände vorhanden sind, wird die Anfrage zugelassen. Es wird ein temporärer Einsende-Code erstellt. Dieser Einsende-Code wird dem Browser des Benutzers zurückgegeben. Zusätzlich werden die korrekten Übersetzungen für die vom Benutzer verwendete Sprache (falls vorhanden) oder die Übersetzungen in der mosparo-Standard-Sprache zurückgegeben.
+Wenn keine Einwände vorhanden sind, wird die Anfrage zugelassen. Es wird ein temporärer Einsendecode erstellt. Dieser Einsendecode wird dem Browser des Benutzers zurückgegeben. Zusätzlich werden die korrekten Übersetzungen für die vom Benutzer verwendete Sprache (falls vorhanden) oder die Übersetzungen in der mosparo-Standard-Sprache zurückgegeben.
 
 Der Browser des Benutzers speichert diese Informationen im Browser und stellt die mosparo-Box entsprechend dar.
 
-Falls bei der ersten Anfrage eine Verzögerung zurückgegeben wurde, versucht mosparo automatisch nach Ablauf der Verzögerung erneut, einen Einsende-Code zu erhalten und wiederholt die Anfrage.
+Falls bei der ersten Anfrage eine Verzögerung zurückgegeben wurde, versucht mosparo automatisch nach Ablauf der Verzögerung erneut, einen Einsendecode zu erhalten und wiederholt die Anfrage.
 
 ### Überprüfung
 
-Nachdem der Benutzer das Formular ausgefüllt hat, aktiviert er die mosparo-Checkbox. Bei dieser Aktivierung werden automatisch alle Informationen des Formulars gesammelt und zusammen mit dem Einsende-Code mit einer Anfrage an die mosparo-Installation zur Überprüfung übermittelt. Die gesammelten Formulardaten enthalten unter anderem den Namen des Feldes, den Typ des Feldes (HTML5-Typ) und den eingegebenen Wert.
+Nachdem der Benutzer das Formular ausgefüllt hat, aktiviert er die mosparo-Checkbox. Bei dieser Aktivierung werden automatisch alle Informationen des Formulars gesammelt und zusammen mit dem Einsendecode mit einer Anfrage an die mosparo-Installation zur Überprüfung übermittelt. Die gesammelten Formulardaten enthalten unter anderem den Namen des Feldes, den Typ des Feldes (HTML5-Typ) und den eingegebenen Wert.
 
 :::info
 Gewisse Felder werden ignoriert, da diese keine für die Prüfung relevanten Daten beinhalten können (siehe [ignorierte Felder](../integration/ignored_fields)).
@@ -56,7 +56,7 @@ Sofern eine Anfrage als gültig erkannt wird, wird eine Signatur der Anfrage erz
 
 Dem Benutzer wird entsprechend dargestellt, ob die Überprüfung erfolgreich war oder ob ein Problem auftrat. Wenn die Überprüfung erfolgreich war, kann der Benutzer das Formular absenden.
 
-Der zufällig generierte Verifizierungscode wird im Formular zusammen mit dem Einsende-Code gespeichert.
+Der zufällig generierte Verifizierungscode wird im Formular zusammen mit dem Einsendecode gespeichert.
 
 ### Verifizierung
 

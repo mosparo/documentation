@@ -34,7 +34,7 @@ Wenn Sie eine Einsendung anschauen, sehen Sie viele weitere Informationen zur Ei
 | Überprüft am      | Gibt an, wann die Einsendung überprüft wurde.                                                                                                                                        |
 | Seiten-Titel      | Titel der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                      |
 | Seiten-URL        | Adresse der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                    |
-| Angefordert am    | Zeigt das Datum und die Uhrzeit an, zu welcher das Formular aufgerufen wurde und der Einsende-Code beantragt wurde.                                                                  |
+| Angefordert am    | Zeigt das Datum und die Uhrzeit an, zu welcher das Formular aufgerufen wurde und der Einsendecode beantragt wurde.                                                                   |
 | Ignorierte Felder | Listet alle Felder auf, welche nicht von mosparo überprüft wurden, weil es sich bei den Feldern zum Beispiel um versteckte Felder oder um Checkbox-Feldern gehandelt hat.            |
 | Formulardaten     | Zeigt eine Liste aller Felder an, welche im Formular vorhanden sind und ggf. ausgefüllt wurden. Siehe 3.5.2.1 Formulardaten                                                          |
 | IP-Adresse        | Die IP-Adresse des Benutzers, welcher das Formular aufgerufen hat.                                                                                                                   |

@@ -25,6 +25,6 @@ Weitere Daten, welche nichts mit den Einsendungen zu tun haben (zum Beispiel Ben
 
 ## Löschen
 
-Alle Einsendungen werden nach 14 Tagen als veraltet betrachtet. Sobald das nächste Mal eine Systembereinigung ausgeführt wird, werden alle veralteten Daten automatisch gelöscht. Eine Systembereinigung wird entweder automatisch beim Öffnen eines Formulars (Anfordern eines Einsende-Codes), beim Benutzen von mosparo oder automatisch durch die Bereinigungsaktion ausgeführt. Die automatische Bereinigungsaktion muss jedoch als Cronjob manuell konfiguriert werden.
+Alle Einsendungen werden nach 14 Tagen als veraltet betrachtet. Sobald das nächste Mal eine Systembereinigung ausgeführt wird, werden alle veralteten Daten automatisch gelöscht. Eine Systembereinigung wird entweder automatisch beim Öffnen eines Formulars (Anfordern eines Einsendecodes), beim Benutzen von mosparo oder automatisch durch die Bereinigungsaktion ausgeführt. Die automatische Bereinigungsaktion muss jedoch als Cronjob manuell konfiguriert werden.
 
-Einsende-Codes (und damit die dafür verwendete IP-Adresse), welche nicht verwendet wurden, werden nach 24 Stunden als veraltet betrachtet und bei der nächsten Systembereinigung gelöscht.
+Einsendecodes (und damit die dafür verwendete IP-Adresse), welche nicht verwendet wurden, werden nach 24 Stunden als veraltet betrachtet und bei der nächsten Systembereinigung gelöscht.
