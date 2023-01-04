@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
 sidebar_label: Prerequisites
-description: All requirements that must be fulfilled for mosparo to function correctly.
+description: All requirements that you must fulfill for mosparo to function correctly.
 ---
 
 # Prerequisites
 
-To install mosparo on a server, the following prerequisites must be met:
+To install mosparo on a server, your server must meet the following prerequisites:
 
 - Domain or subdomain you own
 - maximum 100 MB free disk space

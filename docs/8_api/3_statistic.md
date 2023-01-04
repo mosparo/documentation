@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 sidebar_label: Statistic
-description: With the statistic API you're able to get the numbers about your project.
+description: With the statistic API, you can get the numbers about your project.
 ---
 
 # Statistic
@@ -11,7 +11,7 @@ description: With the statistic API you're able to get the numbers about your pr
 **Method**: GET<br />
 **Endpoint**: /api/v1/statistic/by-date<br />
 
-Returns the exact numbers how many spam and valid submissions your project received in the last days.
+Returns the exact numbers of how many spam and valid submissions your project received in the last days.
 
 :::caution
 Because mosparo deletes the submissions after 14 days, the statistic API will only return the data from the last 14 days.
@@ -19,7 +19,7 @@ Because mosparo deletes the submissions after 14 days, the statistic API will on
 
 ### Authentication
 
-To secure the API endpoint, an authentication is required. For this, the `Authorization` header must be sent with the request. In the header, the public key of the project must be set as username. For the password, a HMAC SHA256 hash of the API endpoint url combined with the request data, serialized as JSON, must be set. The private key will be used as key for the HMAC SHA256 hash.
+To secure the API endpoint, authentication is required. The `Authorization` header must be sent with the request. You must set the project's public key in the header as the username. An HMAC SHA256 hash of the API endpoint URL combined with the request data, serialized as JSON, must be set as the password. The private key will be used as the key for the HMAC SHA256 hash.
 
 ```http request
 Authorization: [publicKey]:[hmacHash]
@@ -45,7 +45,7 @@ Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:a72e56cb93b70a1f79dc6
 
 | Name                  | Type    | Required | Description                                                                                                                                                                |
 |-----------------------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `range`               | Integer | Optional | The number of seconds for which the number should be returned (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used. |
+| `range`               | Integer | Optional | The number of seconds for which mosparo should return the numbers (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used. |
 
 ### Response
 
@@ -72,26 +72,26 @@ Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:a72e56cb93b70a1f79dc6
 
 #### Properties
 
-If the request was completed successfully, the following properties will be present in the answer:
+If mosparo completed the request successfully, the following properties would be present in the answer:
 
 | Name             | Type    | Description                                                                    |
 |------------------|---------|--------------------------------------------------------------------------------|
-| `result`         | Boolean | If the request was successful, the `result` property is set to true.           |
+| `result`         | Boolean | If the request was successful, the `result` property is true.           |
 | `data`           | Object  | Contains the statistic data (see [Properties of `data`](#properties-of-data)). |
 
-If an error occurred, only the following properties will be present in the answer:
+If an error occurred, only the following properties would be present in the answer:
 
 | Name           | Type    | Description                                   |
 |----------------|---------|-----------------------------------------------|
 | `error`        | Boolean | If true, an error occurred.                   |
-| `errorMessage` | String  | The description of the error, which occurred. |
+| `errorMessage` | String  | The description of the error which occurred. |
 
 ##### Properties of `data`
 
 | Name                       | Type    | Description                                                                                                                          |
 |----------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------|
 | `numberOfValidSubmissions` | Integer | The number of valid submissions in the selected range.                                                                               |
-| `numberOfSpamSubmissions`  | Integer | The number of sumbissions as spam in the selected range.                                                                             |
+| `numberOfSpamSubmissions`  | Integer | The number of submissions as spam in the selected range.                                                                             |
 | `numbersByDate`            | Object  | Contains the statistic data for every day in the selected range (see [Properties of `numbersByDate`](#properties-of-numbersbydate)). |
 
 ##### Properties of `numbersByDate`
@@ -99,4 +99,4 @@ If an error occurred, only the following properties will be present in the answe
 | Name                       | Type    | Description                                     |
 |----------------------------|---------|-------------------------------------------------|
 | `numberOfValidSubmissions` | Integer | The number of valid submissions for the date.   |
-| `numberOfSpamSubmissions`  | Integer | The number of sumbissions as spam for the date. |
+| `numberOfSpamSubmissions`  | Integer | The number of submissions as spam for the date. |

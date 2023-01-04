@@ -6,9 +6,9 @@ description: If you use nginx as your webserver, you need some special adjustmen
 
 # nginx
 
-In case you're hosting your website on a nginx webserver, you need some special adjustment since nginx cannot work with `.htaccess` files.
+If you're hosting your website on an nginx webserver, you need some special adjustments since nginx cannot work with `.htaccess` files.
 
-Here you can find an example configuration for mosparo. All location blocks which are marked with `Required` have to be in your configuration file. Otherwise mosparo will not work correctly.
+Here you can find an example configuration for mosparo. All location blocks marked with `Required` must be in your configuration file. Otherwise, mosparo will not work correctly.
 
 ```editorconfig
 server {

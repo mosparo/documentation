@@ -17,14 +17,14 @@ mosparo only processes the data that is transmitted when validating the form dat
 
 ## Saving
 
-All personal data stored for a submission is automatically encrypted. If someone should gain unauthorized access to the mosparo database, they can see all submissions, but not the data which the user has submitted, as the data is encrypted.
+All personal data stored for submission is automatically encrypted. If someone should gain unauthorized access to the mosparo database, they can see all submissions but not the data the user has submitted, as the data is encrypted.
 
-In certain places, the IP address of the user is not stored encrypted. In order to enable the security measures, it is important that the system can search for the IP address. However, the non-encrypted IP addresses are stored as a hash and are no longer directly recognizable.
+In certain places, the user's IP address is not stored encrypted. To enable security measures, it is essential that the system can search for the IP address. However, the non-encrypted IP addresses are stored as a hash and are no longer directly recognizable.
 
-Other data that has nothing to do with the submissions (e.g. user accounts, settings, rules) will not  be stored in encrypted form.
+Other data that has nothing to do with the submissions (for example, user accounts, settings, and rules) will not be stored in encrypted form.
 
 ## Delete
 
-All submissions will be considered obsolete after 14 days. The next time a system cleanup is performed, all stale data is automatically deleted. A system cleanup is performed either automatically when opening a form (requesting a submission token), when using mosparo, or automatically by the cleanup cron job. However, the automatic cleanup action must be configured manually as a cron job.
+All submissions will be considered obsolete after 14 days. The next time a system cleanup is performed, all stale data is automatically deleted. A system cleanup is performed either automatically when opening a form (requesting a submission token) when using mosparo or automatically by the cleanup cron job. However, the automatic cleanup action must be configured manually as a cron job.
 
-Submission token (and the IP address used for it), which were not used, are considered obsolete after 24 hours and deleted during the next system cleanup.
+Submission tokens (and the IP address used for it), which were not used, are considered obsolete after 24 hours and deleted during the next system cleanup.

@@ -21,7 +21,7 @@ If you are using GeoIP2, please configure the following cron job:
 25 4 * * * php [mosparoPath]/bin/console mosparo:geoip2:download-database
 ```
 
-You can freely choose the execution times. However, it is recommended to run the cleanup of the database (`mosparo:cleanup-database`) several times a day, while updating the rule packages and the GeoIP2 database is only useful once a day.
+You can freely choose the execution times. However, it is recommended to run the cleanup of the database (`mosparo:cleanup-database`) several times a day while updating the rule packages. The GeoIP2 database is updatable only once a day.
 
 Please replace `[mosparoPath]` with the absolute path of the mosparo installation. This may vary depending on hosting and server type.
 

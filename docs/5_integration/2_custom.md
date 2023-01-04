@@ -6,11 +6,11 @@ description: Learn how to integrate mosparo into your website without a plugin.
 
 # Custom integration
 
-You can easily integrate mosparo into your own website. To use mosparo, you need a form that contains one or more form fields.
+You can easily integrate mosparo into your website. To use mosparo, you need a form that contains one or more form fields.
 
 ## Add container
 
-In your form, at the place where the mosparo box should be displayed, insert an empty div container with an ID attribute:
+In your form, at the place where you want to display the mosparo box, insert an empty div container with an ID attribute:
 
 ```html
 <div id="mosparo-box"></div>
@@ -18,7 +18,7 @@ In your form, at the place where the mosparo box should be displayed, insert an 
 
 ## Embed CSS Resources
 
-In the header of your website, you need to include mosparo's CSS resources. To do this, paste the following code into the HTML head area:
+In your website's header, you need to include mosparo's CSS resources. To do this, paste the following code into the HTML head area:
 
 ```html
 <link href="https://[host]/resources/[uuid].css" rel="stylesheet"> 
@@ -65,27 +65,27 @@ Embed the mosparo script on your website. Then initialize mosparo with the code 
 | Parameter                  | Type     | Default value                         | Description                                                                                                                                                                                                                                                                    |
 |----------------------------|----------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `allowBrowserValidation`   | Boolean  | true                                  | Specifies whether browser validation should be active.                                                                                                                                                                                                                         |
-| `cssResourceUrl`           | String   | _empty_                               | Defines the address at which the CSS resources can be loaded. Can be used if the correct resource address is cached.                                                                                                                                                           |
+| `cssResourceUrl`           | String   | _empty_                               | Defines the address at which the browser can load the CSS resources. You can use it if the correct resource address is cached.                                                                                                                                                           |
 | `designMode`               | Boolean  | false                                 | Used to display the mosparo box in the different states in the mosparo backend. The mosparo box is not functional if this option is set to `true`.                                                                                                                             |
 | `inputFieldSelector`       | String   | `[name]:not(.mosparo__ignored-field)` | Defines the selector with which the fields are searched.                                                                                                                                                                                                                       |
-| `loadCssResource`          | Boolean  | false                                 | Determines whether the CSS resources should also be loaded during initialisation (see [Embed CSS Resources](#embed-css-resources)).                                                                                                                                           |
+| `loadCssResource`          | Boolean  | false                                 | Determines whether the script should also load the CSS resources during initialization (see [Embed CSS Resources](#embed-css-resources)).                                                                                                                                           |
 | `name`                     | String   | _empty_                               | Defines the name of the HTML checkbox. By default, a random ID is used for it.                                                                                                                                                                                                 |
 | `onCheckForm`              | Callable | _empty_                               | Defines a callback that is called as soon as the form has been checked.                                                                                                                                                                                                        |
-| `requestSubmitTokenOnInit` | Boolean  | `true`                                | Specifies whether a submit code should be automatically requested during initialisation. If, for example, the form is reset directly after initialisation (with `reset()`), there is no need for a send code during initialisation, as a new code is requested with the reset. |
+| `requestSubmitTokenOnInit` | Boolean  | `true`                                | Specifies whether a submit token should be automatically requested during initialization. If, for example, the form is reset directly after initialization (with `reset()`), there is no need for a submit token during initialization, as a new code is requested with the reset. |
 
 ## Performing verification
 
-Once the form has been submitted, it must be checked whether the submission was allowed at all. From a purely technical point of view, it would be conceivable that someone passes the validation by mosparo, then changes the request again with technical means and then sends the form. Therefore, it is imperative to check whether the entries made were valid.
+Once the form has been submitted, the backend of your website must check whether the submission was allowed at all. From a purely technical point of view, it would be conceivable that someone passes the validation by mosparo, then changes the request again with technical means, and then sends the form. Therefore, it is imperative to check whether the entries made were valid.
 
 ### Preparing Form Data
 
-All fields ignored by mosparo must be removed from the submitted form data (see [Ignored Fields](../integration/ignored_fields)).
+The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields)).
 
-### Verifying with function library
+### Verifying with a function library
 
 You can then use the function library to perform the verification. You need the host of your mosparo installation, the public and private keys, and the cleaned form data.
 
-For the exact procedure, consult the documentation of the function library you are using.
+For the exact procedure, consult the documentation of the function library you use.
 
 #### Available function libraries
 
@@ -96,10 +96,10 @@ For the exact procedure, consult the documentation of the function library you a
 
 ### Perform verification manually
 
-If you do not want to use a function library or if no function library is available for your programming language, you can easily carry out the verification manually.
+You can easily carry out the verification manually if you do not want to use a function library or if no function library is available for your programming language.
 
 :::info
-All code examples in this section are written in the programming language PHP (from the [PHP API client](https://github.com/mosparo/php-api-client/)). This is only for better presentation and any programming language can be used.
+All code examples in this section are written in the programming language PHP (from the [PHP API client](https://github.com/mosparo/php-api-client/)). This is only for better presentation; you can use any programming language.
 :::
 
 #### Prepare form data for request
@@ -107,24 +107,24 @@ All code examples in this section are written in the programming language PHP (f
 After the form data has been cleaned (see [Preparing form data](#preparing-form-data)), you need to do some additional cleaning:
 
 1. Extract the submission token `_mosparo_submitToken` and the validation token `_mosparo_validationToken` from the form data and store these values in a variable.
-2. All form fields whose name begins with `_mosparo_` must be removed from the form data. These are the submission token and the validation token from mosparo, which you need for verification, but which must not be present in the form data.
-3. In all fields CRLF line breaks must be replaced with LF line breaks (convert `\r\n` to `\n`).
+2. All form fields whose name begins with `_mosparo_` must be removed from the form data. These are the submission token and the validation token from mosparo, which you need for verification but must be absent from the form data.
+3. In all fields, you must replace CRLF line breaks with LF line breaks (convert `\r\n` to `\n`).
 4. Generate the signature (HMAC SHA256 hash) for every value (see [Arguments](../api/verification#arguments)).
-5. The names of the form data must be converted to lower case letters
-6. The form fields must be sorted by name in alphabetical ascending order (A-Z)
+5. The names of the form data must be converted to lowercase letters
+6. The form fields must be sorted by name in ascending alphabetical order (A-Z)
 
 #### Generating the signatures
 
-After the form data has been cleaned and sorted, you must create the necessary signatures and then send the data to mosparo.
+After the form data has been cleaned and sorted, you must create the necessary signatures and send the data to mosparo.
 
-First generate a signature of the form data. Convert the form data to a JSON string. Then generate an HMAC hash with the hash algorithm SHA256 and the private API key as the key.
+First, generate a signature of the form data. Convert the form data to a JSON string. Then generate an HMAC hash with the hash algorithm SHA256 and the private API key as the key.
 
 ```php
 $formSignature = hmac_hash('sha256', json_encode($formData), $privateKey);
 ```
 
 :::note
-Note that empty arrays `[]` in the JSON string should be represented as empty objects `{}`, otherwise problems may occur.
+In the JSON string, empty arrays `[]` should be represented as empty objects `{}`. Otherwise, problems may occur.
 :::
 
 Then create a signature of the validation token that was transmitted in the form by mosparo.
@@ -133,13 +133,13 @@ Then create a signature of the validation token that was transmitted in the form
 $validationSignature = hmac_hash('sha256', $validationToken, $privateKey);
 ```
 
-To make it impossible to change the data, a verification signature must then be generated, which consists of the validation signature and the form data signature.
+A verification signature must then be generated, which consists of the validation signature and the form data signature, to make it impossible to change the data.
 
 ```php
 $verificationSignature = hmac_hash('sha256', $validationSignature . $formSignature, $privateKey);
 ```
 
-These signatures must be sent to mosparo together with the submission token and the form data.
+You must send these signatures to mosparo with the submission token and the form data.
 
 ```php
 $apiEndpoint = '/api/v1/verification/verify';
@@ -151,7 +151,7 @@ $requestData = [
 ];
 ```
 
-To confirm the authenticity of the request, a request signature is generated, which consists of the API endpoint and the request data as a JSON string.
+A request signature is generated, which consists of the API endpoint and the request data as a JSON string, to confirm the authenticity of the request.
 
 ```php
 $requestSignature = hmac_hash('sha256', $apiEndpoint . json_encode($requestData), $privateKey);
@@ -175,24 +175,24 @@ $data = [
 $res = $this->sendRequest('POST', $apiEndpoint, $data);
 ```
 
-#### Evaluate the answer
+#### Evaluate the response
 
 The response of the mosparo API indicates whether a response is correct or whether a request is invalid. The following fields can be included in the request:
 
 | Field                   | Type    | Description                                                                                                                           |
 |-------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `valid`                 | Boolean | Indicates whether a request is valid (i.e. may be sent) or invalid (manipulated).                                                     |
+| `valid`                 | Boolean | Indicates whether a request is valid (i.e., may be sent) or invalid (manipulated).                                                     |
 | `verificationSignature` | String  | mosparo calculates its own verification signature, which must match the verification signature calculated before sending the request. |
-| `issues`                | Array   | An array of all problems found during the audit.                                                                                      |
+| `issues`                | Array   | All problems found during the audit.                                                                                      |
 | `verifiedFields`        | Object  | Indicates which fields of the form data have been checked and what the state of each field is.                                        | 
 | `error`                 | Boolean | If an error has occurred, this field is set to `true`.                                                                                |
 | `errorMessage`          | String  | The error message of the error.                                                                                                |
 
 The first thing to check is whether the `valid` field is set and set to `true`. If this is not the case, the form data is invalid.
 
-Subsequently, the `verificationSignature` should be checked. For a request to be valid, the verification signature that was created before the request was sent must match the verification signature returned by the API. If this is not the case, the request has been tampered with and is therefore invalid.
+Subsequently, the `verificationSignature` should be checked. For a request to be valid, the verification signature created before you send the request must match the verification signature returned by the API. If this is not the case, the request has been tampered with and is invalid.
 
-In the field `issues` possible problems that were found during the verification are recorded.
+In the field `issues`, possible problems that mosparo found during the verification are recorded.
 
 The field `verifiedFields` is used to document which fields have been verified and what the result of the respective field is.
 
@@ -201,10 +201,10 @@ The field `verifiedFields` is used to document which fields have been verified a
 | Value     | Description                                                                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | `valid`   | The field was correctly verified and is valid.                                                                                               |
-| `invalid` | The field was not validated correctly, i.e. the value submitted during verification does not match the value originally entered in the form. |
+| `invalid` | mosparo did not validate the field correctly, i.e., the value submitted during verification does not match the value originally entered in the form. |
 
-If an error occurred during the check, the `error` and `errorMessage` fields are set. The two fields indicate that an error has occurred and what the error message is. This happens, for example, if the public key or one of the signatures was invalid or another problem occurred.
+The `error` and `errorMessage` fields are set if an error occurred during the check. The two fields indicate that an error has occurred and what the error message is. This happens, for example, if the public key or one of the signatures is invalid or another problem occurred.
 
 #### After verification
 
-If the field `valid` contains the value `true` and the verification signatures are equal, the form input can be processed, for example by sending the e-mail or saving the data in the database.
+If the field `valid` contains the value `true` and the verification signatures are equal, the form input can be processed, for example, by sending the e-mail or saving the data in the database.

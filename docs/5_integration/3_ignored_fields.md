@@ -12,16 +12,16 @@ mosparo automatically ignores the following fields:
 
 - All fields which **do not** have a name (attribute `name`)
 - HTML field type
-    - _password_
-    - _file_
-    - _hidden_
-    - _checkbox_
-    - _radio_
-    - _submit_
-    - _reset_
+  - _password_
+  - _file_
+  - _hidden_
+  - _checkbox_
+  - _radio_
+  - _submit_
+  - _reset_
 - HTML button type
-    - _submit_
-    - _button_
+  - _submit_
+  - _button_
 - Fields containing `_mosparo_` in the name
 
 ## Manually ignored fields
@@ -32,4 +32,4 @@ If you give a form field the CSS class `mosparo__ignored-field`, the field will 
 
 ### JavaScript initialisation
 
-When initialising the JavaScript functionality, the selector can be defined with which the fields are searched (see [Parameters of the mosparo class](custom/#parameters-of-the-mosparo-class)).
+When initializing the JavaScript functionality, you can define the selector with which the fields are searched (see [Parameters of the mosparo class](custom/#parameters-of-the-mosparo-class)).

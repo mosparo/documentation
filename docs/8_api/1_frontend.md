@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Frontend
-description: The Frontend API is used by the JavaScript to load the mosparo box.
+description: JavaScript uses the Frontend API to load the mosparo box.
 ---
 
 # Frontend
@@ -16,7 +16,7 @@ Returns a new submit token to the browser.
 
 ### Authentication
 
-No authentication is required. To identify the project, each request must contain the public key of a project.
+No authentication is required. Each request must contain the public key of a project to identify the project.
 
 ### Request
 
@@ -53,9 +53,9 @@ No authentication is required. To identify the project, each request must contai
 
 | Name                | Type   | Description                                                   |
 |---------------------|--------|---------------------------------------------------------------|
-| `submitToken`       | String | The submit token, needed for the validation and verification. |
+| `submitToken`       | String | The submit token is needed for the validation and verification. |
 | `messages`          | Object | The translations for the different texts.                     |
-| `honeypotFieldName` | String | The name of the honeypot field, if this function is active.   |
+| `honeypotFieldName` | String | The name of the honeypot field if this function is active.   |
 
 ## `check-form-data`
 
@@ -67,7 +67,7 @@ Validates the form data and returns a validation token if the data does not cont
 
 ### Authentication
 
-No authentication is required. To identify the project, each request must contain the public key of a project.
+No authentication is required. Each request must contain the public key of a project to identify the project.
 
 ### Request
 
@@ -76,12 +76,12 @@ No authentication is required. To identify the project, each request must contai
 | Name          | Type   | Required | Description                                                                                           |
 |---------------|--------|----------|-------------------------------------------------------------------------------------------------------|
 | `publicKey`   | String | Required | The public key of the project.                                                                        |
-| `submitToken` | String | Required | The submit token which was requested with the method [`request-submit-token`](#request-submit-token). |
+| `submitToken` | String | Required | The submit token requested with the method [`request-submit-token`](#request-submit-token). |
 | `formData`    | Array  | Required | An array with all the form data, see [Structure of `formData`](#structure-of-formdata).               |
 
 #### Structure of `formData`
 
-The form data is an array with objects. Every object needs the following properties:
+The form data is an array of objects. Every object needs the following properties:
 
 | Name        | Type   | Description                                            |
 |-------------|--------|--------------------------------------------------------|
@@ -91,7 +91,7 @@ The form data is an array with objects. Every object needs the following propert
 
 #### Field path
 
-The field path is a combination of the HTML element tag and the name of the field.
+The field path combines the HTML element tag and the field's name.
 
 :::note Examples
 `textarea.message`<br />
@@ -119,6 +119,6 @@ The HTML type must be added to the field path if it is an `input` element.
 
 | Name                | Type    | Description                                                        |
 |---------------------|---------|--------------------------------------------------------------------|
-| `valid`             | Boolean | If true, the form data does not contain spam.                      |
-| `validationToken`   | String  | The token, which needs to be sent to mosparo for the verification. |
+| `valid`             | Boolean | The form data does not contain spam if true.                      |
+| `validationToken`   | String  | The token needs to be sent to mosparo for verification. |
 

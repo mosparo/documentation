@@ -8,20 +8,21 @@ description: Learn more about the use of rule packages and the structure of a ru
 
 ## Manage rule packages
 
-Rules are a combination of one or more rules created by someone and hosted on an external server. These rules can be added and are automatically updated at a regular interval.
+Rules are a combination of one or more rules created by someone and hosted on an external server. These rules can be added and are automatically updated at regular intervals.
 
-To ensure the integrity of the rule parameters, a checksum is automatically created and checked when the rule package is updated.
+A checksum is automatically created and checked when the rule package is updated to ensure the integrity of the rule parameters.
 
-In mosparo you can manage your rule packages. You can add new rule package. All you need is the URL of the rule package. You can also specify a factor with which the rule package can be strengthened or weakened. 
+In mosparo, you can manage your rule packages. You can add a new rule package. All you need is the URL of the rule package. You can also specify a factor with which the rule package can be strengthened or weakened.
 
 After a rule package is added, you can view the rules contained in the rule package. However, you cannot edit or delete the rules in the rules package.
 
 ## Format of rule packages
 
 ### Saving the Rule Package
-A rule package consists of a JSON file, which is made available for download on a web server. The JSON file must conform to the rule package and rules pattern. The schema for the rule package and the rules are available in the [specifications repository](https://github.com/mosparo/specifications).
 
-In addition to the JSON file, the checksum of the JSON file must be stored on the same web server at the same address. To do this, the SHA256 hash of the file must be created and saved with the same file name, but with the suffix ".sha256".
+A rule package consists of a JSON file, which is available for download on a web server. The JSON file must conform to the rule package and rules pattern. The schema for the rule package and the rules are available in the [specifications repository](https://github.com/mosparo/specifications).
+
+In addition to the JSON file, you must store the checksum of the JSON file on the same web server at the same address. The SHA256 hash of the file must be created and saved with the same file name but with the suffix ".sha256".
 
 :::note Example
 Address of the rule package (entered in mosparo)<br />
@@ -37,8 +38,8 @@ The JSON structure of the rule package is built as a JSON object. The object has
 
 | Property        | Type     | Description                                                                                                                                                                                       |
 |-----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lastUpdatedAt   | DateTime | Indicates when the rule package was last modified. This value is used to decide whether mosparo needs to update the rule package or whether the latest version is already available.              |
-| refreshInterval | Integer  | Defines the time in seconds when mosparo is allowed to retrieve the rule package again. mosparo stores the rule package in a cache and only after this time the rule package is downloaded again. |
+| lastUpdatedAt   | DateTime | Indicates when the rule package was last modified. This value is used to decide whether mosparo needs to update the rule package or if the latest version is already available.              |
+| refreshInterval | Integer  | Defines the time in seconds when mosparo is allowed to retrieve the rule package again. mosparo stores the rule package in a cache and the rule package is downloaded again only after this time. |
 | rules           | Array    | Is an array that contains all rules as a JSON object                                                                                                                                              |
 
 ### Building a rule
@@ -52,7 +53,7 @@ A rule's JSON object consists of the following properties:
 | description      | String | Description of the rule                                                                                                                                                 |
 | type             | String | Type of rule (for example: `word` or `user-agent`)                                                                                                                      |
 | items            | Array  | Array with all rule item                                                                                                                                                |
-| spamRatingFactor | Float  | Rating factor of the rule to strengthen or weaken the entries of the rule. A value greater than 1.0 strengthens the entries, a value less than 1.0 weakens the entries. |
+| spamRatingFactor | Float  | Rating factor of the rule to strengthen or weaken the rule items. A value greater than 1.0 strengthens the items, and a value less than 1.0 weakens the items. |
 
 ### Structure of a rule item
 
@@ -63,5 +64,5 @@ The JSON object of a rule item consists of the following properties:
 | uuid     | UUID   | A unique identification number of the rule item                                                                   |
 | type     | String | Defines the type of rule (for example: `text` or `regex`)                                                         | 
 | value    | String | The actual value of the item                                                                                      |
-| rating   | Float  | Defines the spam value of the item. This value is multiplied by the spam score to give the score of a submission. |
+| rating   | Float  | Defines the spam value of the item. This value is multiplied by the spam score to give the submission score. |
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: Projects
-description: In order to use mosparo in a website, a project must be created for the website.
+description: To use mosparo on a website, you must create a project for the website.
 ---
 
 # Projects

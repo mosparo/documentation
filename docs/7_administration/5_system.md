@@ -5,4 +5,4 @@ sidebar_label: System
 
 # System
 
-Under System you will find a compilation of the most important data for the installation, but also all licenses and external packages used.
+Under System, you will find a compilation of the essential data for the installation and all licenses and external packages used.
