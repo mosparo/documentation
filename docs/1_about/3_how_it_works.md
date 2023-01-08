@@ -49,7 +49,7 @@ If the honeypot function is active and the user has filled in the honeypot field
 :::
 
 :::info
-If the request minimum time function is active and the time between the first request and the form data validation is less than the set time, the submission will be considered spam.
+If the request minimum time function is active and the time between the first request and the form data validation is less than the set time, the submission will be detected as spam.
 :::
 
 If a request is recognized as valid, a signature of the request is generated, and all data is stored together with the signature. In addition, a verification token is generated and returned to the user's browser, along with the validation result.

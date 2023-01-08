@@ -12,7 +12,7 @@ With the help of rules, mosparo recognizes whether a submission is spam or valid
 
 To create a rule, select "Rules" in the navigation and then "Create rule" on the right. After that, a list of all rule types is displayed. Select the rule type you want to use to create a rule.
 
-After you have selected a rule type, you see the editing surface of a rule. Give the rule a name so that you have a better overview when managing the rules.
+After you have selected a rule type, you see the editing interface of a rule. Give the rule a name so that you have a better overview when managing the rules.
 
 In addition, you can enter a more detailed description of the rule in the "Description" field. You can also choose whether the rule should be active or inactive.
 

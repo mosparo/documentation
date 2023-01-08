@@ -43,7 +43,7 @@ const sidebars = {
         keywords: ['installation'],
       },
       items: [
-        'installation/prerequisites',
+        'installation/requirements',
         {
           type: 'category',
           label: 'Install',

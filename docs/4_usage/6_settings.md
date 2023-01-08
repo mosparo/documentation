@@ -56,7 +56,7 @@ If you no longer want a project member to have access to a project, you can remo
 You can use the minimum time to specify how much time must elapse between the initial request and the form verification before the request is accepted. Bots can submit form requests within seconds. A typical user may need several minutes.
 
 :::info
-Some users are faster, and others are slower in typing. The minimum time should be as short as possible to avoid erroneously rejecting valid requests.
+Some users are faster, and others are slower in typing. The minimum time should be as short as possible to avoid incorrectly rejecting valid requests.
 :::
 
 ### Honeypot field
