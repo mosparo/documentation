@@ -157,7 +157,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} mosparo`,
+        copyright: `Copyright © 2021-${new Date().getFullYear()} mosparo Core Developers and contributors`,
       },
       prism: {
         theme: lightCodeTheme,
