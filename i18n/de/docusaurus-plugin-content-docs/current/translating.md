@@ -29,7 +29,7 @@ Die Frontend-Übersetzungsdateien beginnen mit `frontend`.
 
 Das Backend von mosparo verfügt über deutlich mehr Strings als das Frontend. Als Backend wird die Administrationsoberfläche von mosparo verstanden.
 
-Weblate Backend: https://hosted.weblate.org/projects/mosparo/backend/ <br>
+Weblate Backend: https://hosted.weblate.org/projects/mosparo/backend/ <br />
 Weblate Validators: https://hosted.weblate.org/projects/mosparo/validators/
 
 #### Source code

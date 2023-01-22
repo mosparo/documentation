@@ -33,7 +33,7 @@ The frontend translation files start with `frontend`.
 
 The backend of mosparo has significantly more strings than the frontend. The backend is understood to be the administration interface of mosparo.
 
-Weblate Backend: https://hosted.weblate.org/projects/mosparo/backend/ <br>
+Weblate Backend: https://hosted.weblate.org/projects/mosparo/backend/ <br />
 Weblate Validators: https://hosted.weblate.org/projects/mosparo/validators/
 
 #### Source code
