@@ -24,7 +24,7 @@ You can then press the "Download database" button on the right side to download 
 If you have requested the license key, it will take some time to use it by mosparo. Therefore, an error message may be displayed when downloading the database. In this case, wait a few minutes and try again.
 :::
 
-We recommend that you set up automatic updating using the cronjob (see [Set up Cron jobs](../installation/cron_jobs)).
+We recommend that you set up automatic updating using the cronjob (see [Set up Cron jobs](../installation/cron_jobs/)).
 
 :::caution
 Please note that the database is not an accurate and guaranteed method of locating a user. If you use GeoIP2 to block countries, you should note that you could also block good users.

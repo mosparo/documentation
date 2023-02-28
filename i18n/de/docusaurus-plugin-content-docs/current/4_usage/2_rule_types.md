@@ -82,7 +82,7 @@ Es wird empfohlen, Ihre Eingabe mit dem Protokoll oder zwei Slashes für eine Pr
 Um den Anbieter-Regelart verwenden zu können, ist es erforderlich, dass die MindMax GeoLite2 Datenbank konfiguriert ist. Ansonsten hat der Regeltyp keinen Einfluss. Zusätzlich muss bedacht werden, dass für diese Regeltypen keine korrekte Funktionsweise garantiert werden kann. Die Zuordnung von AS Nummer und Land zu einer IP-Adresse können veraltet oder allgemein fehlerhaft sein.
 
 :::info
-Bevor Sie die Regelart Anbieter verwenden können, müssen Sie GeoIP2 konfigurieren (siehe [GeoIP2](../administration/geoip)).
+Bevor Sie die Regelart Anbieter verwenden können, müssen Sie GeoIP2 konfigurieren (siehe [GeoIP2](../administration/geoip/)).
 :::
 
 ### AS Nummer

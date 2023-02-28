@@ -79,7 +79,7 @@ Nachdem das Formular abgesendet wurde, muss überprüft werden, ob die Einsendun
 
 ### Vorbereiten der Formulardaten
 
-Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder entfernt werden (siehe [ignorierte Felder](../integration/ignored_fields)).
+Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder entfernt werden (siehe [ignorierte Felder](../integration/ignored_fields/)).
 
 ### Verifizieren mit Funktionsbibliothek
 
@@ -111,7 +111,7 @@ Nachdem die Formulardaten gereinigten wurden (siehe [Vorbereiten der Formulardat
 1. Extrahieren Sie den Einsendecode `_mosparo_submitToken` sowie den Validierungscode `_mosparo_validationToken` aus den Formulardaten und speichern Sie diese Werte in einer Variable.
 2. Alle Formularfelder, deren Name mit `_mosparo_` beginnt, müssen aus den Formulardaten entfernt werden. Es handelt sich dabei unter anderem um den Einsendecode sowie den Validierungscode von mosparo, welchen Sie für die Verifizierung benötigen, jedoch nicht in den Formulardaten vorhanden sein dürfen.
 3. In allen Feldern müssen CRLF-Zeilenumbrüche mit LF-Zeilenumbrüchen ersetzt werden (`\r\n` zu `\n` konvertieren)
-4. Generierung der Signatur (HMAC SHA256 Hash) für jeden Wert (siehe [Argumente](../api/verification#argumente)).
+4. Generierung der Signatur (HMAC SHA256 Hash) für jeden Wert (siehe [Argumente](../api/verification/#argumente)).
 5. Die Namen der Formulardaten müssen zu Kleinbuchstaben konvertiert werden
 6. Die Formularfelder sollen nach Namen alphabetisch aufsteigend (A-Z) sortiert werden
 

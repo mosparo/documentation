@@ -10,7 +10,7 @@ Alternativ können Sie mosparo direkt von unserem Git-Repository installieren. D
 
 ## Voraussetzungen
 
-Zusätzlich zu den beschriebenen [Voraussetzungen](../requirements) betreffend Ihrem Webhosting brauchen Sie für diese Variante noch
+Zusätzlich zu den beschriebenen [Voraussetzungen](../requirements/) betreffend Ihrem Webhosting brauchen Sie für diese Variante noch
 - Git
 - Composer
 - NPM

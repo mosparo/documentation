@@ -16,7 +16,7 @@ Falls Ihre Regeln zu restriktiv sind, kann es auch passieren, dass gute Einsendu
 
 Sie sollten daher regelmässig prüfen, dass keine erwünschten Einsendungen als Spam erkannt wurden und/oder Spam-Anfragen nicht erkannt wurden. Falls dies der Fall sein sollte, sollten Sie Ihre Regeln anpassen.
 
-Die Funktionsweise von mosparo basiert grundsätzlich auf zwei Komponenten. Zum einen muss in Ihrem Formular ein spezielles Script eingebaut werden, welches ein Kontrollkästchen zu Ihrem Formular hinzufügt. Zum anderen muss vor dem Verarbeiten Ihres Formulars geprüft werden, ob die Einsendung gültig ist. Für die Integration von mosparo stehen Ihnen je nach CMS oder Framework entsprechende Lösung zur Verfügung (siehe [Integration](/docs/category/integration)).
+Die Funktionsweise von mosparo basiert grundsätzlich auf zwei Komponenten. Zum einen muss in Ihrem Formular ein spezielles Script eingebaut werden, welches ein Kontrollkästchen zu Ihrem Formular hinzufügt. Zum anderen muss vor dem Verarbeiten Ihres Formulars geprüft werden, ob die Einsendung gültig ist. Für die Integration von mosparo stehen Ihnen je nach CMS oder Framework entsprechende Lösung zur Verfügung (siehe [Integration](/docs/category/integration/)).
 
 ## Detaillierte Funktionsweise
 
@@ -24,7 +24,7 @@ Die Funktionsweise von mosparo basiert grundsätzlich auf zwei Komponenten. Zum 
 
 Der erste Schritt ist die Anfrage beim Öffnen des Formulars. Wenn das Formular geöffnet wird, wird automatisch eine JavaScript-Datei von mosparo geladen. Dieses Script erstellt an der gekennzeichneten Stelle die notwendigen Elemente, aus welchen die Box besteht.
 
-Sobald alle Elemente erstellt wurden, sendet das Script eine Anfrage an die mosparo-Installation. Bei dieser ersten Anfrage wird geprüft, ob die IP-Adresse des Benutzers in der letzten Zeit nicht zu viele Anfragen gesendet hat und/oder nicht durch die IP-Filterliste blockiert wird. Falls von einer IP-Adresse aus zu viele Anfragen gesendet wurden, wird entweder eine Verzögerung eingebaut oder die Anfrage blockiert (siehe [Sicherheits-Einstellungen](../usage/settings#sicherheits-einstellungen)).
+Sobald alle Elemente erstellt wurden, sendet das Script eine Anfrage an die mosparo-Installation. Bei dieser ersten Anfrage wird geprüft, ob die IP-Adresse des Benutzers in der letzten Zeit nicht zu viele Anfragen gesendet hat und/oder nicht durch die IP-Filterliste blockiert wird. Falls von einer IP-Adresse aus zu viele Anfragen gesendet wurden, wird entweder eine Verzögerung eingebaut oder die Anfrage blockiert (siehe [Sicherheits-Einstellungen](../usage/settings/#sicherheits-einstellungen)).
 
 Wenn keine Einwände vorhanden sind, wird die Anfrage zugelassen. Es wird ein temporärer Einsendecode erstellt. Dieser Einsendecode wird dem Browser des Benutzers zurückgegeben. Zusätzlich werden die korrekten Übersetzungen für die vom Benutzer verwendete Sprache (falls vorhanden) oder die Übersetzungen in der mosparo-Standard-Sprache zurückgegeben.
 
@@ -37,7 +37,7 @@ Falls bei der ersten Anfrage eine Verzögerung zurückgegeben wurde, versucht mo
 Nachdem der Benutzer das Formular ausgefüllt hat, aktiviert er die mosparo-Checkbox. Bei dieser Aktivierung werden automatisch alle Informationen des Formulars gesammelt und zusammen mit dem Einsendecode mit einer Anfrage an die mosparo-Installation zur Überprüfung übermittelt. Die gesammelten Formulardaten enthalten unter anderem den Namen des Feldes, den Typ des Feldes (HTML5-Typ) und den eingegebenen Wert.
 
 :::info
-Gewisse Felder werden ignoriert, da diese keine für die Prüfung relevanten Daten beinhalten können (siehe [ignorierte Felder](../integration/ignored_fields)).
+Gewisse Felder werden ignoriert, da diese keine für die Prüfung relevanten Daten beinhalten können (siehe [ignorierte Felder](../integration/ignored_fields/)).
 :::
 
 Die mosparo-Installation überprüft die eingesendeten Daten. Mit Hilfe des Typs des Feldes kann entschieden werden, welche Regelarten angewendet werden sollen. Pro Feld wird dann geprüft, ob die eingegebenen Werte auf eine der vorhandenen Regeln zutreffen. Falls dies für eine Regel der Fall ist, wird dieser Treffer gezählt. Pro Treffer wird ein Punkt gerechnet. Dieser Punkt kann aber mit dem Faktor des Regel-Eintrags und dem Faktor der Regel erhöht oder verringert werden (siehe [Spam-Erkennung](#spam-erkennung)).
@@ -71,11 +71,11 @@ Wenn alles korrekt war, sind die Signaturen identisch und daher als gültige Anf
 Die Einsendung wird entsprechend gekennzeichnet und der Website wird das Ergebnis der Überprüfung zurückgegeben.
 
 :::info
-Gewisse Felder werden ignoriert, da diese keine für die Prüfung relevanten Daten beinhalten können (siehe [ignorierte Felder](../integration/ignored_fields)).
+Gewisse Felder werden ignoriert, da diese keine für die Prüfung relevanten Daten beinhalten können (siehe [ignorierte Felder](../integration/ignored_fields/)).
 :::
 
 :::info
-Die genaue API-Funktionsweise und das Erstellen der Signatur finden Sie unter [Verifizierung durchführen](../integration/custom#verifizierung-durchführen).
+Die genaue API-Funktionsweise und das Erstellen der Signatur finden Sie unter [Verifizierung durchführen](../integration/custom/#verifizierung-durchführen).
 :::
 
 ## Spam-Erkennung

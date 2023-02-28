@@ -79,7 +79,7 @@ Once the form has been submitted, the backend of your website must check whether
 
 ### Preparing Form Data
 
-The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields)).
+The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields/)).
 
 ### Verifying with a function library
 
@@ -109,7 +109,7 @@ After the form data has been cleaned (see [Preparing form data](#preparing-form-
 1. Extract the submission token `_mosparo_submitToken` and the validation token `_mosparo_validationToken` from the form data and store these values in a variable.
 2. All form fields whose name begins with `_mosparo_` must be removed from the form data. These are the submission token and the validation token from mosparo, which you need for verification but must be absent from the form data.
 3. In all fields, you must replace CRLF line breaks with LF line breaks (convert `\r\n` to `\n`).
-4. Generate the signature (HMAC SHA256 hash) for every value (see [Arguments](../api/verification#arguments)).
+4. Generate the signature (HMAC SHA256 hash) for every value (see [Arguments](../api/verification/#arguments)).
 5. The names of the form data must be converted to lowercase letters
 6. The form fields must be sorted by name in ascending alphabetical order (A-Z)
 
