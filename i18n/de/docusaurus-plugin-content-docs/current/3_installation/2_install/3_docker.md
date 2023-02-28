@@ -5,4 +5,116 @@ sidebar_label: Docker
 
 # Docker
 
-Eine einfache Installation mit Docker ist geplant, jedoch noch nicht umgesetzt.
+Docker ist eine Software, welche Ihnen erlaubt, bereits vorbereitete Images (Pakete) einer Software ohne spezifische Konfiguration betreiben zu können. Ein installiertes Docker Image nennt man Container. Mit einem Docker Image müssen Sie für die Installation keine Dateien hochladen, Webserver konfigurieren (ausser den Reverse Proxy) und Sie müssen sich nicht um die PHP-Einstellungen kümmern.
+
+## Anforderungen
+
+Um das Docker Image zu verwenden, benötigen Sie mindestens
+To use the Docker image, you need at least
+
+- Docker in der Version 20.10.20 oder neuer
+- Eine MySQL-Datenbank, entweder in einem Docker Container oder Remote
+
+## Benutzen des Images
+
+Es gibt zwei Möglichkeiten, wie das Docker Image verwendet werden kann. Die erste und empfohlene Möglichkeit ist die Verwendung von Docker Compose. Mit Docker Compose können Sie alle benötigten Container mit mehr oder weniger einem Befehl erstellen lassen. Sie können Ihren Container aber auch manuell direkt mit dem Docker Image erstellen.
+
+### Mit Docker Compose
+
+Um diese Methode zu verwenden, installieren Sie bitte zuerst Docker Compose. Sie können die Anleitung dafür hier finden: https://docs.docker.com/compose/install/
+
+Erstellen Sie anschliessend ein Verzeichnis auf Ihrem Server. Erstellen Sie in diesem Verzeichnis eine Datei, welche Sie `docker-compose.yaml` nennen.
+
+Fügen Sie den folgenden Inhalt in diese Datei:
+
+```yaml
+services:
+  db:
+    # We recommend the mariadb image
+    image: mariadb:10.10
+    # If you want to use MySQL, uncomment the following line (and comment the one above)
+    #image: mysql:8.0.27
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=mosparo_root_pw
+      - MYSQL_DATABASE=mosparo
+      - MYSQL_USER=mosparo
+      - MYSQL_PASSWORD=mosparo_password
+    expose:
+      - 3306
+      - 33060
+  mosparo_web:
+    image: mosparo/mosparo:latest
+    ports:
+      - 127.0.0.1:8080:80
+    restart: always
+    environment:
+      - MOSPARO_ENABLE_WEBSERVER=1
+      - MOSPARO_ENABLE_CRON=0
+    volumes:
+      - mosparo_data:/mosparo-data
+  mosparo_cron:
+    image: mosparo/mosparo:latest
+    restart: always
+    environment:
+      - MOSPARO_ENABLE_WEBSERVER=0
+      - MOSPARO_ENABLE_CRON=1
+    volumes:
+      - mosparo_data:/mosparo-data
+volumes:
+  db_data:
+  mosparo_data:
+```
+
+Öffnen Sie ein Terminal, nachdem Sie die Datei mit dem Inhalt oberhalb erstellt haben. Wechseln Sie in das erstellte Verzeichnis und führen Sie folgenden Befehl aus um die Container zu starten:
+
+```
+docker-compose up -d
+```
+
+Sie sollten nun sehen, wie die Images heruntergeladen und die Container erstellt werden.
+
+Nach einer gewissen Zeit sind die Arbeiten abgeschlossen und die mosparo Container wurden erstellt. Der mosparo Container ist nun installiert.
+
+Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
+
+Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy/).
+
+### Direkt das Image benutzen
+
+Statt Docker Compose für das Erstellen der Container zu verwenden, können Sie natürlich auch direkt das Image als Docker Container starten. Führen Sie folgenden Befehl aus um den Docker Container zu erstellen:
+
+```
+docker run -p 127.0.0.1:8080:80 -d mosparo/mosparo
+```
+
+Das Image wird anschliessend heruntergeladen und der Container erstellt. Wenn Sie eine MySQL-Datenbank in einem Docker Container verwenden möchten, müssen Sie den mosparo Container mit dem MySQL Container verknüpfen.
+
+```
+docker run –link mysql-server -p 127.0.0.1:8080:80 -d mosparo/mosparo
+```
+
+:::info
+Bitte passen Sie den Container-Name `mysql-server` an den von Ihnen gewählten Namen an.
+:::
+
+Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
+
+Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](4_reverse_proxy).
+
+## Umgebungsvariablen
+
+mosparo in einem Docker Container speichert die Konfiguration von mosparo in einer PHP-Datei wie auch bei einer normalen Installation. Sie können die Konfiguration von mosparo daher nicht über Umgebungsvariablen definieren.
+
+Aber es gibt ein paar zusätzliche Umgebungsvariablen, mit welchen Sie das Verhalten vom Docker Image beeinflussen können.
+
+| Name                     | Standard-Wert           | Beschreibung                                                                                                                                                                                                                     |
+|--------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MOSPARO_ENABLE_WEBSERVER | `1`                     | Erlaubt den Webserver des mosparo Image zu aktivieren oder deaktivieren.                                                                                                                                                         |
+| MOSPARO_ENABLE_CRON      | `1`                     | Erlaubt die Cronjobs des mosparo Image zu aktivieren oder deaktivieren.                                                                                                                                                          |
+| MOSPARO_UPDATES_ENABLED  | `0`                     | Erlaubt die Updates in mosparo zu aktivieren oder deaktivieren. Im Docker Container sollten die Updates immer deaktiviert sein, weil mosparo in einer Docker-Umgebung mit einem neuen Image aktualisiert werden sollte.          |
+| TRUSTED_PROXIES          | `127.0.0.1,REMOTE_ADDR` | Definiert, welche Proxies mosparo vertrauen soll. Die Standard-Einstellung erlaubt alle Reverse Proxies. Das ist der Grund, warum Sie einen Reverse Proxy benötigen und mosparo nie direkt öffentlich zugänglich machen sollten. |
+

@@ -43,7 +43,7 @@ server {
     location ~ \.php$ {  # Erforderlich
         include fastcgi_params;
         fastcgi_intercept_errors on;
-        fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock; # An Ihr Setup anpassen
         fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
     }
 

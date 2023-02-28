@@ -13,12 +13,24 @@ When you use a reverse proxy, you must set the `X-Forwareded-For` header in the 
 Additionally, you have to set the header `X-Forwarded-Proto`, in case your connection behind the reverse proxy is not encrypted with SSL.
 
 ### Example nginx
-```
-location / {
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto https;
-    proxy_pass http://127.0.0.1:8080;
+```editorconfig
+server {
+    listen 443 ssl http2;
+
+    server_name [domain];
+
+    index  index.html index.htm index.php;
+
+    # Reverse proxy configuration - Start
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_pass http://127.0.0.1:8080;
+    }
+    # Reverse proxy configuration - End
+
+    [sslConfiguration] # Configure accordingly to your needs
 }
 ```
 
@@ -45,5 +57,5 @@ TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR
 :::
 
 :::warning
-This method can be dangerous, and you should only use it if needed. You should never expose a mosparo installation to the public directly with the `REMOTE_ADDR` option in the trusted proxies variable.
+This method can be dangerous, and you should only use it if needed. You should never expose a mosparo installation to the public directly (without reverse proxy) with the `REMOTE_ADDR` option in the trusted proxies variable.
 :::
