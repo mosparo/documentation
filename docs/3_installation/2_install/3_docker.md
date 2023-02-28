@@ -80,7 +80,7 @@ After some time, the work should be completed and the mosparo container created.
 
 You should be able to access mosparo when you enter `127.0.0.1:8080` in your browser.
 
-Because of security reasons, you should not make the port 8080 of the mosparo image publicly available. Instead, you have to set up a reverse proxy. For this, see [reverse proxy](4_reverse_proxy).
+Because of security reasons, you should not make the port 8080 of the mosparo image publicly available. Instead, you have to set up a reverse proxy. For this, see [reverse proxy](../reverse_proxy/).
 
 ### Use the image directly
 

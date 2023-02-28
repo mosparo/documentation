@@ -103,7 +103,7 @@ Bitte passen Sie den Container-Name `mysql-server` an den von Ihnen gewählten N
 
 Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
 
-Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](4_reverse_proxy).
+Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy/).
 
 ## Umgebungsvariablen
 
