@@ -12,6 +12,10 @@ mosparo verfügt über ein Update-System, welches Ihnen hilft, die neueste Versi
 Bitte beachten Sie, dass die Versionen im Kanal “Entwicklung” nicht für den produktiven Betrieb gedacht sind und Fehler enthalten können.
 :::
 
+:::info
+Falls beim Prüfen auf neue Updates ein Fehler auftritt, kann es sein, dass keine Verbindung mit dem Internet möglich ist. Bitte prüfen Sie die Hinweise in den [Voraussetzungen](../installation/requirements#verbindung-zum-internet).
+:::
+
 ## Update über Webinterface installieren
 
 Um zu prüfen, ob eine neue Version verfügbar ist, klicken Sie bitte auf die Schaltfläche “Nach Updates suchen”. mosparo nimmt anschliessend mit dem mosparo Update-Service Verbindung auf und ruft die aktuellen Versionsinformationen ab. Anschliessend wird ermittelt, ob die installierte Version älter als die neueste verfügbare Version ist. Ist das der Fall, wird Ihnen eine zusätzliche Schaltfläche “Update installieren” angezeigt, mit dem Sie mosparo aktualisieren können.

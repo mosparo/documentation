@@ -12,6 +12,10 @@ mosparo has an update system to help you install the latest version of mosparo. 
 Please note that the "Develop" channel versions are not intended for production use and may contain bugs or issues.
 :::
 
+:::info
+mosparo may have no internet connection if you see an error message when you check for updates. Please check the internet access recommendations in the [requirements](../installation/requirements#access-to-the-internet).
+:::
+
 ## Installing the update via the web interface
 
 Click on the "Check for update" button to check if a new version is available. mosparo will then contact the mosparo update service and retrieve the current version information. It then determines whether the installed version is older than the latest available version. If this is the case, a button will present with which you can update mosparo.
