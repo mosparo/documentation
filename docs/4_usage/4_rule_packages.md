@@ -18,7 +18,7 @@ After a rule package is added, you can view the rules contained in the rule pack
 
 ## Format of rule packages
 
-### Saving the Rule Package
+### Saving the rule package
 
 A rule package consists of a JSON file, which is available for download on a web server. The JSON file must conform to the rule package and rules pattern. The schema for the rule package and the rules are available in the [specifications repository](https://github.com/mosparo/specifications).
 
