@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'mosparo Docs',
   tagline: 'The modern spam protection',
-  url: 'https://mosparo-doc-build.local',
+  url: 'https://documentation.mosparo.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -73,6 +73,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+          { property: 'og:image', content: 'https://mosparo.io/wp-content/uploads/2022/12/cropped-sig_transparency.png' },
+          { property: 'og:image:width', content: '512' },
+          { property: 'og:image:height', conten: '512' },
+          { property: 'og:image:type', content: 'image/png' }
+      ],
       navbar: {
         title: 'Docs',
         logo: {
