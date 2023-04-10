@@ -74,10 +74,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [
-          { property: 'og:image', content: 'https://mosparo.io/wp-content/uploads/2022/12/cropped-sig_transparency.png' },
-          { property: 'og:image:width', content: '512' },
-          { property: 'og:image:height', conten: '512' },
-          { property: 'og:image:type', content: 'image/png' }
+        { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: 'https://mosparo.io/wp-content/uploads/2022/12/cropped-sig_transparency.png' },
+        { property: 'og:image:width', content: '512' },
+        { property: 'og:image:height', content: '512' },
+        { property: 'og:image:type', content: 'image/png' }
       ],
       navbar: {
         title: 'Docs',
