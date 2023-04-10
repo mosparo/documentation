@@ -13,7 +13,8 @@ Alternatively, you can install mosparo directly from our Git repository. The ins
 In addition to the requirements described in the [requirements](../requirements/) regarding your web hosting, you need for this method
 - Git
 - Composer
-- NPM
+- Yarn
+- Node.js (18)
 
 ## Installation
 
@@ -35,11 +36,11 @@ composer install –-no-dev
 ```
 5. Install all frontend packages
 ```
-npm install
+yarn install
 ```
 6. Generate all frontend resources
 ```
-./node_modules/.bin/encore prod
+yarn encore production
 ```
-7. Open your browser and access the website
+7. Open your browser and access the virtual host (for example, by accessing the subdomain in your browser)
 8. Follow the installation wizard to install mosparo
