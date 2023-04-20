@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://documentation.mosparo.io/sitemap.xml
