@@ -91,10 +91,11 @@ Konsultieren Sie für die genaue Vorgehensweise die Dokumentation der von Ihnen 
 
 Um die Verifizierung auf Ihrer Website zu vereinfachen, gibt es Funktionsbibliotheken, welche die Verifizierung vereinfachen. Falls Sie die Verifizierung ohne Funktionsbibliothek durchführen möchten, siehe [Verifizierung manuell durchführen](#verifizierung-manuell-durchführen).
 
-| Name           | Sprache    | Verwaltet durch         | Website                                   |
-|----------------|------------|-------------------------|-------------------------------------------|
-| PHP API client | PHP        | mosparo Core Developers | https://github.com/mosparo/php-api-client |
-| JS API Client  | JavaScript | mosparo Core Developers | https://github.com/mosparo/js-api-client  | 
+| Name              | Sprache    | Gepflegt durch          | Website                                      |
+|-------------------|------------|-------------------------|----------------------------------------------|
+| JS API client     | JavaScript | mosparo Core Developers | https://github.com/mosparo/js-api-client     |
+| PHP API client    | PHP        | mosparo Core Developers | https://github.com/mosparo/php-api-client    |
+| Python API client | Python     | mosparo Core Developers | https://github.com/mosparo/python-api-client |
 
 ### Verifizierung manuell durchführen
 
