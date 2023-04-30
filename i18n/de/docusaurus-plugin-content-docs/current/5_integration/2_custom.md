@@ -209,4 +209,4 @@ Falls bei der Überprüfung ein Fehler aufgetreten ist, wird das Feld `error` so
 
 #### Nach der Verifizierung
 
-Wenn das Feld `valid` den Wert `true` enthält und die Verifikationssignatur korrekt überprüft werden konnte, kann die Formulareingabe verarbeitet werden, zum Beispiel in dem das E-Mail abgesendet wird oder die Daten in der Datenbank gespeichert werden.
+Wenn das Feld `valid` den Wert `true` enthält und die Verifikationssignatur korrekt überprüft werden konnte, müssen Sie sicherstellen, dass der Schutz nicht umgangen wurde. Lesen Sie mehr darüber unter [Umgehungsschutz](bypass_protection). Anschliessend können die Formulareingabe verarbeitet werden, zum Beispiel in dem das E-Mail abgesendet wird oder die Daten in der Datenbank gespeichert werden.

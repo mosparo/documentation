@@ -6,6 +6,10 @@ description: Erfahren Sie, welche Felder von mosparo ignoriert werden.
 
 # Ingorierte Felder
 
+:::caution
+Weil mosparo einige Felder ignoriert, ist es möglich, die Validierung der Felder zu umgehen. Lesen Sie mehr darüber unter [Umgehungsschutz](bypass_protection).
+:::
+
 ## Automatisch ignorierte Felder
 
 mosparo ignoriert automatisch folgende Felder:

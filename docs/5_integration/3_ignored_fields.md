@@ -6,6 +6,10 @@ description: Find out which fields are ignored by mosparo.
 
 # Ignored fields
 
+:::caution
+Because mosparo ignores some fields, it is possible to bypass the field validation. Read more about this in [Bypass protection](bypass_protection).
+:::
+
 ## Automatically ignored fields
 
 mosparo automatically ignores the following fields:

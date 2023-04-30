@@ -207,4 +207,4 @@ The `error` and `errorMessage` fields are set if an error occurred during the ch
 
 #### After verification
 
-If the field `valid` contains the value `true` and the verification signatures are equal, the form input can be processed, for example, by sending the e-mail or saving the data in the database.
+If the field `valid` contains the value `true` and the verification signatures are equal, you should ensure that the protection was not bypassed. Read more about that in the [Bypass protection](bypass_protection). After that, the form input can be processed, for example, by sending an e-mail or saving the data in the database.
