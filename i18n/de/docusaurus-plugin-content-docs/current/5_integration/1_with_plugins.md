@@ -9,15 +9,19 @@ description: Am einfachsten integrieren Sie mosparo mit einem bestehenden Plugin
 Die einfachste Möglichkeit, um mosparo in Ihre Website zu integrieren, ist die Verwendung bestehender Plugins.
 
 :::note
-Je nach System werden die Plugins auch Module oder Add-ons genannt.
+Je nach System werden die Plugins auch Module, Bundles, Apps oder Add-ons genannt.
 :::
 
 ## Verfügbare Plugins
 
-| Name                  | Typ              | Verwaltet durch         | Link                                        |
-|-----------------------|------------------|-------------------------|---------------------------------------------|
-| mosparo for WordPress | WordPress Plugin | mosparo Core Developers | https://github.com/mosparo/wordpress-plugin |
-| mosparo for osTicket  | osTicket Plugin  | mosparo Core Developers | https://github.com/mosparo/osticket-plugin  |
+| Name                          | Typ              | Gepflegt durch          | Link                                               |
+|-------------------------------|------------------|-------------------------|----------------------------------------------------|
+| mosparo Django Integration    | Django App       | mosparo Core Developers | https://github.com/mosparo/django-integration      |
+| mosparo Drupal Integration    | Drupal Modul     | mosparo Core Developers | https://www.drupal.org/project/mosparo_integration |
+| mosparo Mautic Integration    | Mautic Plugin    | mosparo Core Developers | https://github.com/mosparo/osticket-plugin         |
+| mosparo for osTicket          | osTicket Plugin  | mosparo Core Developers | https://github.com/mosparo/osticket-plugin         |
+| mosparo Symfony Bundle        | Symfony Bundle   | Arnaud Ritti            | https://github.com/arnaud-ritti/mosparo-bundle     |
+| mosparo WordPress Integration | WordPress Plugin | mosparo Core Developers | https://github.com/mosparo/wordpress-plugin        |
 
 ## Plugin installieren
 
