@@ -14,14 +14,14 @@ Je nach System werden die Plugins auch Module, Bundles, Apps oder Add-ons genann
 
 ## Verfügbare Plugins
 
-| Name                          | Typ              | Gepflegt durch          | Link                                               |
-|-------------------------------|------------------|-------------------------|----------------------------------------------------|
-| mosparo Django Integration    | Django App       | mosparo Core Developers | https://github.com/mosparo/django-integration      |
-| mosparo Drupal Integration    | Drupal Modul     | mosparo Core Developers | https://www.drupal.org/project/mosparo_integration |
-| mosparo Mautic Integration    | Mautic Plugin    | mosparo Core Developers | https://github.com/mosparo/osticket-plugin         |
-| mosparo for osTicket          | osTicket Plugin  | mosparo Core Developers | https://github.com/mosparo/osticket-plugin         |
-| mosparo Symfony Bundle        | Symfony Bundle   | Arnaud Ritti            | https://github.com/arnaud-ritti/mosparo-bundle     |
-| mosparo WordPress Integration | WordPress Plugin | mosparo Core Developers | https://github.com/mosparo/wordpress-plugin        |
+| Name                               | Typ              | Gepflegt durch          | Link                                               |
+|------------------------------------|------------------|-------------------------|----------------------------------------------------|
+| mosparo Django Integration (Beta)  | Django App       | mosparo Core Developers | https://github.com/mosparo/django-integration      |
+| mosparo Drupal Integration (Alpha) | Drupal Modul     | mosparo Core Developers | https://www.drupal.org/project/mosparo_integration |
+| mosparo Mautic Integration (Beta)  | Mautic Plugin    | mosparo Core Developers | https://github.com/mosparo/osticket-plugin         |
+| mosparo for osTicket               | osTicket Plugin  | mosparo Core Developers | https://github.com/mosparo/osticket-plugin         |
+| mosparo Symfony Bundle             | Symfony Bundle   | Arnaud Ritti            | https://github.com/arnaud-ritti/mosparo-bundle     |
+| mosparo WordPress Integration      | WordPress Plugin | mosparo Core Developers | https://github.com/mosparo/wordpress-plugin        |
 
 ## Plugin installieren
 
