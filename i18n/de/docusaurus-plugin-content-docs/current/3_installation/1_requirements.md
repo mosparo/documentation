@@ -17,6 +17,7 @@ Damit mosparo auf einem Server installiert werden kann, gibt es folgende Vorauss
   :::
 - Folgende PHP-Erweiterungen:
   - ctype
+  - gd
   - iconv
   - intl
   - json

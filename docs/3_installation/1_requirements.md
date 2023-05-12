@@ -17,6 +17,7 @@ To install mosparo on a server, your server must meet the following requirements
   :::
 - The following PHP extensions:
   - ctype
+  - gd
   - iconv
   - intl
   - json
