@@ -40,21 +40,7 @@ Symfony, auf welchem mosparo basiert, erlaubt zusätzliche HTTP-Kopfzeilen wie `
 
 Damit das korrekt funktioniert, müssen Sie die IP-Adressen der Proxy-Server in der Konfiguration von mosparo hinterlegen, damit mosparo die Kopfzeilen `X-Forwarded-Proto` und `X-Forwarded-For` akzeptieren kann.
 
-Setzen Sie eine Umgebungsvariable `TRUSTED_PROXIES` mit den IP-Adressen Ihrer Proxy-Server. Trennen Sie mehrere IP-Adressen mit einem Komma.
-
-:::note Beispiel
-```
-TRUSTED_PROXIES=127.0.0.1,192.168.0.1
-```
-:::
-
-Wenn Sie die IP-Adressen Ihres Reverse Proxy nicht kennen, können Sie auch `REMOTE_ADDR` als erlaubte IP-Adresse hinzufügen, um allen möglichen Proxies die Verwendung der Kopfzeilen `X-Forwarded-*` zu erlauben.
-
-:::note Beispiel
-```
-TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR
-```
-:::
+Gehen Sie in die mosparo Administrationsoberfläche und wählen Sie "Sicherheits-Einstellungen". In den Sicherheits-Einstellungen können Sie die Einstellungen für Ihren Reverse Proxy für mosparo konfigurieren (aber natürlich nicht für Ihren Webserver). Fügen Sie alle vertrauenswürdigen Proxys in die Liste der vertrauenswürdigen Proxys ein. Bei Bedarf können Sie durch Setzen des Flags den Wert `REMOTE_ADDR` hinzufügen. Zusätzlich können Sie die Namen der Adress- und Proto-Header setzen, wenn Ihr Proxy dies erfordert.
 
 :::warning
 Diese Methode kann gefährlich sein und Sie sollten Sie nur nutzen, falls notwendig. Sie sollten eine mosparo Installation nie direkt (ohne Reverse Proxy) in der Öffentlichkeit zugänglich machen, wenn Sie die Option `REMOTE_ADDR` in der Liste der vertrauenswürdigen Proxies hinterlegt haben.
