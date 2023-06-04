@@ -11,10 +11,7 @@ Damit mosparo auf einem Server installiert werden kann, gibt es folgende Vorauss
 - Domain oder Subdomain in Ihrem Besitz
 - maximal 100 MB freier Speicherplatz
 - SSL-Zertifikat für die gewählte Domain oder Subdomain
-- PHP 7.4 oder neuer
-  :::caution
-  Wenn Sie PHP 8.1 verwenden, müssen Sie mindestens 8.1.10 verwenden
-  :::
+- PHP 8.1.10 oder neuer
 - Folgende PHP-Erweiterungen:
   - ctype
   - curl
