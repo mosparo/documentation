@@ -99,7 +99,7 @@ Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anf
 
 ### Automatische Sperre
 
-Wenn eine IP-Adresse sehr viele Anfragen sendet, kann mit der automatischen Sperre eine IP-Adresse automatisch für eine gewisse Zeit blockiert werden. Die Sperre wird automatisch vorgenommen und greift sofort. Sobald die eingestellte Zeit abgelaufen ist, kann die IP-Adresse wieder einen Einsendecode erhalten.
+Wenn eine IP-Adresse sehr viele Einsendungen absendet, kann mit der automatischen Sperre eine IP-Adresse automatisch für eine gewisse Zeit blockiert werden. Die Sperre wird automatisch vorgenommen und greift sofort. Sobald die eingestellte Zeit abgelaufen ist, kann die IP-Adresse wieder eine Einsendung absenden.
 
 :::caution
 Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung mit mehreren Benutzern oder in einer Firma.
@@ -111,12 +111,12 @@ Die Sperre der IP-Adressen erfolgt über die gesamte mosparo-Installation. Wenn 
 
 #### Felder
 
-| Feld                      | Beschreibung                                                                                                                                            |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Anzahl erlaubter Anfragen | Das Feld definiert die Anzahl der Anfragen, die ein Benutzer innerhalb eines Zeitraums machen kann, bevor die IP-Sperre aktiv wird.                     |
-| Erkennungszeitraum        | Definiert die Zeit in Sekunden, in welcher die Anfragen gemacht werden müssen, bevor die IP-Sperre aktiv wird.                                          |
-| Anfangssperrzeit          | Definiert die Zeit in Sekunden, welche der Benutzer gesperrt wird und keine Anfragen senden kann.                                                       |
-| Multiplikator             | Der Multiplikator wird auf die Anfangssperrzeit angewendet und erhöht (oder verringert) die Sperrzeit bei erneuten Anfragen innerhalb dieser Sperrzeit. |
+| Feld                      | Beschreibung                                                                                                                                                |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Anzahl erlaubter Anfragen | Das Feld definiert die Anzahl der Einsendungen, die ein Benutzer innerhalb eines Zeitraums absenden kann, bevor die IP-Sperre aktiv wird.                   |
+| Erkennungszeitraum        | Definiert die Zeit in Sekunden, in welcher die Einsendungen gemacht werden müssen, bevor die IP-Sperre aktiv wird.                                          |
+| Anfangssperrzeit          | Definiert die Zeit in Sekunden, welche der Benutzer gesperrt wird und keine Einsendungen absenden kann.                                                     |
+| Multiplikator             | Der Multiplikator wird auf die Anfangssperrzeit angewendet und erhöht (oder verringert) die Sperrzeit bei erneuten Einsendungen innerhalb dieser Sperrzeit. |
 
 #### Beispiel
 
@@ -124,8 +124,8 @@ Die Sperre der IP-Adressen erfolgt über die gesamte mosparo-Installation. Wenn 
 Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anfangssperrzeit: 300 sek, Multiplikator: 1.5
 :::
 
-- Ein Benutzer macht innerhalb von 20 Sekunden 30 Anfragen. Die IP-Sperre wird aktiv und der Benutzer wird für 300 Sekunden gesperrt.
-- Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Anfrage macht, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
+- Ein Benutzer sendet innerhalb von 20 Sekunden 30 Einsendungen. Die IP-Sperre wird aktiv und der Benutzer wird für 300 Sekunden gesperrt.
+- Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Einsendung absendet, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
 - Bei einer weiteren Anfrage innerhalb dieser 450 Sekunden erhöht sich die Zeit auf 675 Sekunden.
 
 ### Liste der erlaubten IP-Adressen

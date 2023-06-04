@@ -102,7 +102,7 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base delay time: 6
 
 ### IP lockout
 
-If an IP address sends a large number of requests, an IP address can be automatically blocked for a certain period with automatic blocking. The lock is made automatically and takes effect immediately. As soon as the set time has elapsed, the IP address can receive a submission token again.
+If an IP address submits a large number of submissions, an IP address can be automatically blocked for a certain period with automatic blocking. The lock is made automatically and takes effect immediately. As soon as the set time has elapsed, the IP address can submit a submission again.
 
 :::caution
 Users can share the same IP address, for example, in a multi-user apartment or a company.
@@ -114,12 +114,12 @@ IP addresses are blocked throughout the entire mosparo installation. If an IP ad
 
 #### Fields
 
-| Field                      | Description                                                                                                                                    |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Number of allowed requests | The field defines the number of requests a user can make within a period before the IP lockout becomes active.                         |
-| Detection time frame       | Defines the time, in seconds, in which the requests must be made before the IP lockout becomes active.                                         |
-| Base lockout time          | Defines the time, in seconds, that the user is locked and cannot send requests.                                                                |
-| Multiplicator              | The multiplicator is applied to the base lockout time and increases (or decreases) the lockout time for new requests within that lockout time. |
+| Field                      | Description                                                                                                                                       |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Number of allowed requests | The field defines the number of submissions a user can submit within a period before the IP lockout becomes active.                               |
+| Detection time frame       | Defines the time, in seconds, in which the submissions must be made before the IP lockout becomes active.                                         |
+| Base lockout time          | Defines the time, in seconds, that the user is locked and cannot submit submissions.                                                              |
+| Multiplicator              | The multiplicator is applied to the base lockout time and increases (or decreases) the lockout time for new submissions within that lockout time. |
 
 #### Example
 
@@ -127,9 +127,9 @@ IP addresses are blocked throughout the entire mosparo installation. If an IP ad
 Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time: 300 sec, Multiplicator: 1.5
 :::
 
-- A user makes 30 requests within 20 seconds. The IP lockout becomes active, and the user is banned for 300 seconds.
-- If the user makes another request within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
-- For a further request within these 450 seconds, the time increases to 675 seconds.
+- A user submits 30 submissions within 20 seconds. The IP lockout becomes active, and the user is banned for 300 seconds.
+- If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
+- For a further submission within these 450 seconds, the time increases to 675 seconds.
 
 ### List of allowed IP addresses
 
