@@ -62,16 +62,60 @@ Embed the mosparo script on your website. Then initialize mosparo with the code 
 
 ### Additional options
 
-| Parameter                  | Type     | Default value                         | Description                                                                                                                                                                                                                                                                    |
-|----------------------------|----------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `allowBrowserValidation`   | Boolean  | true                                  | Specifies whether browser validation should be active.                                                                                                                                                                                                                         |
-| `cssResourceUrl`           | String   | _empty_                               | Defines the address at which the browser can load the CSS resources. You can use it if the correct resource address is cached.                                                                                                                                                           |
-| `designMode`               | Boolean  | false                                 | Used to display the mosparo box in the different states in the mosparo backend. The mosparo box is not functional if this option is set to `true`.                                                                                                                             |
-| `inputFieldSelector`       | String   | `[name]:not(.mosparo__ignored-field)` | Defines the selector with which the fields are searched.                                                                                                                                                                                                                       |
-| `loadCssResource`          | Boolean  | false                                 | Determines whether the script should also load the CSS resources during initialization (see [Embed CSS Resources](#embed-css-resources)).                                                                                                                                           |
-| `name`                     | String   | _empty_                               | Defines the name of the HTML checkbox. By default, a random ID is used for it.                                                                                                                                                                                                 |
-| `onCheckForm`              | Callable | _empty_                               | Defines a callback that is called as soon as the form has been checked.                                                                                                                                                                                                        |
+| Parameter                  | Type     | Default value                         | Description                                                                                                                                                                                                                                                                        |
+|----------------------------|----------|---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `allowBrowserValidation`   | Boolean  | `true`                                | Specifies whether browser validation should be active.                                                                                                                                                                                                                             |
+| `cssResourceUrl`           | String   | _empty_                               | Defines the address at which the browser can load the CSS resources. You can use it if the correct resource address is cached.                                                                                                                                                     |
+| `customMessages`           | Object   | `{}`                                  | Option to override the messages which the frontend box uses (see [Custom Messages](#custom-messages)).                                                                                                                                                                             |                                   
+| `designMode`               | Boolean  | `false`                               | Used to display the mosparo box in the different states in the mosparo backend. The mosparo box is not functional if this option is set to `true`.                                                                                                                                 |
+| `inputFieldSelector`       | String   | `[name]:not(.mosparo__ignored-field)` | Defines the selector with which the fields are searched.                                                                                                                                                                                                                           |
+| `loadCssResource`          | Boolean  | `false`                               | Determines whether the script should also load the CSS resources during initialization (see [Embed CSS Resources](#embed-css-resources)).                                                                                                                                          |
+| `name`                     | String   | _empty_                               | Defines the name of the HTML checkbox. By default, a random ID is used for it.                                                                                                                                                                                                     |
+| `onCheckForm`              | Callable | _empty_                               | Defines a callback that is called as soon as the form has been checked.                                                                                                                                                                                                            |
 | `requestSubmitTokenOnInit` | Boolean  | `true`                                | Specifies whether a submit token should be automatically requested during initialization. If, for example, the form is reset directly after initialization (with `reset()`), there is no need for a submit token during initialization, as a new code is requested with the reset. |
+
+#### Custom Messages
+
+With the `customMessages` option, it is possible to adjust the messages visible in the frontend box. The option accepts an object where the property name is the locale, and the value is an object.
+
+In the object for a locale, the property name is the name of the message, while the value is the translated text (see [Messages](#messages)).
+
+The functionality uses the language information from the browser by accessing `navigator.languages`. If that property is unavailable, the script will use the translations it received from the mosparo backend. All available locales in the `navigator.languages` property will be tested, while the first one that matches and is not empty will be used. If there is a dash in the locale name (`-`, for example, `de-CH`), it will be replaced by an underscore (`_`, for example, `de_CH`).
+
+##### Messages
+
+| Message name                  | Usage                                                                                                                | Default value |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------|---------------|
+| `label`                       | This is the main sentence of the box.                                                                                | I accept that the form entries are checked for spam and stored encrypted for 14 days. |
+| `accessibilityCheckingData`   | This is a status update when mosparo checks the data. It is only visible to screen readers.                    | We're checking your data. Please wait. |
+| `accessibilityDataValid`      | This is a status update when mosparo checked the data, and everything is okay. It is only visible to screen readers. | Your data are valid. You can submit the form. |
+| `errorGotNoToken`             | Visible when no submit token was returned from mosparo.                                                             | mosparo returned no submit token. |
+| `errorInternalError`          | Visible when mosparo had an internal error.                                                                         | An error occurred. Please try again. |
+| `errorNoSubmitTokenAvailable` | Visible when the submit token is removed from the form, maybe because something manipulated the form.               | No submit token available. Validation of this form is not possible. |
+| `errorSpamDetected`           | Visible when mosparo detected spam in the submission.                                                               | Your data got catched by our spam protection. |
+| `errorLockedOut`              | Visible when the user submits too many submissions and mosparo locks the user out.                                | You are locked out. Please try again after `%datetime%` |
+| `errorDelay`                  | Visible when the user requests too many submit tokens and gets delayed.                                             | Your request was delayed. Please wait for `%seconds%` seconds. |
+| `hpLeaveEmpty`                | This message is hidden, visible mostly to screen readers for the honeypot field.                          | Leave this field blank |
+
+
+##### Example
+
+```javascript
+mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
+    customMessages: {
+        de_CH: {
+            label: 'Ich akzeptiere aus der Schweiz'
+        },
+        en_GB: {
+            label: 'I accept from United Kingdom'
+        },
+        en_AU: {
+            label: 'I accept from Australia',
+            errorSpamDetected: 'Spam from Australia? Impossible!'
+        }
+    }
+});
+```
 
 ## Performing verification
 
