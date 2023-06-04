@@ -18,7 +18,7 @@ Um ein Projekt zu erstellen, klicken Sie bitte auf die Schaltfläche "Projekt er
 
 Nachdem Sie das Projekt erstellt haben, sehen Sie den Assistenten zur Projekterstellung. Mit diesem können Sie die wichtigsten Dinge für Ihr Projekt konfigurieren.
 
-Der erste Schritt ist die Auswahl des Designs der Frontend-Box. Mit den vier sichtbaren Feldern können Sie die Farben und die Größe der Box im einfachen Modus einstellen. Wählen Sie die Hintergrund-, Vordergrund- sowie Akzentfarbe Ihrer Website. mosparo ermittelt automatisch die besten verfügbaren Farben für den Erfolgs- und Fehlerstatus.
+Der erste Schritt ist die Auswahl des Designs der Frontend-Box. Mit den vier sichtbaren Feldern können Sie die Farben und die Grösse der Box im einfachen Modus einstellen. Wählen Sie die Hintergrund-, Vordergrund- sowie Akzentfarbe Ihrer Website. mosparo ermittelt automatisch die besten verfügbaren Farben für den Erfolgs- und Fehlerstatus.
 
 Wenn Sie weitere Optionen zur Anpassung der Darstellung wünschen, können Sie nach Abschluss des Projektierungsassistenten in den Designeinstellungen in den erweiterten Modus wechseln.
 
