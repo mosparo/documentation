@@ -39,14 +39,9 @@ To install mosparo on a server, your server must meet the following requirements
 
 A working internet connection is required to download the updates and the rule packages.
 
-:::info
-In the mosparo version before 0.4, no clear error message is visible when the connection cannot be established successfully. If you see an error 500 while checking for updates, please ensure the settings are correct, as described above.
-:::
-
 mosparo itself works without an external connection. To keep the maximum possible security, you can disable `curl_exec` and `curl_multi_exec` and set `allow_url_fopen` to 0 in the PHP configuration for your webserver. Do not add the functions or do not set the setting to 0 in the configuration for the CLI. To be able to update mosparo, you have to use the CLI command instead of the web interface. The cron job to refresh the rule packages is already a CLI process, so it should work with that solution.
+
+Updating the GeoIP2 database is only possible with the `curl` extension.
 
 Please keep in mind that at the place where you integrate mosparo (for example, your WordPress website), access to remote URLs is required, so `allow_url_fopen` has to be set to `1` and the functions `curl_exec` and `curl_multi_exec` cannot be listed as disabled functions.
 
-:::info
-With v0.4, we will add a check to the setup to display a warning if the configuration will block updates and rule package downloads. Additionally, in all cases where mosparo will download something, a better error message will be visible if the settings block a download.
-:::
