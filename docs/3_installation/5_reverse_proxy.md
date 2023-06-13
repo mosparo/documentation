@@ -40,21 +40,7 @@ Symfony, on which mosparo is based, allows HTTP headers like `X-Forwarded-For` o
 
 For this, you have to specify the IP addresses of your proxy servers so that mosparo can accept the headers `X-Forwarded-Proto` and `X-Forwarded-For`.
 
-To define your proxies IP address, set the environment variable `TRUSTED_PROXIES`. Add all IP addresses of your proxies as comma separated list.
-
-:::note Example
-```
-TRUSTED_PROXIES=127.0.0.1,192.168.0.1
-```
-:::
-
-When you don't know the IP address of your reverse proxy, you can add `REMOTE_ADDR` to allow all possible proxies to use the `X-Forwarded-*` headers.
-
-:::note Example
-```
-TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR
-```
-:::
+Go to the mosparo Administration interface and choose "Security settings". In the security settings, you can configure the settings for your reverse proxy for mosparo (but not for your web server, of course). Add all trusted proxies to the list of trusted proxies. If you need, you can add `REMOTE_ADDR` by setting the flag. Additionally, you can set the names of the address and proto headers if your proxy requires that.
 
 :::warning
 This method can be dangerous, and you should only use it if needed. You should never expose a mosparo installation to the public directly (without reverse proxy) with the `REMOTE_ADDR` option in the trusted proxies variable.

@@ -102,7 +102,7 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base delay time: 6
 
 ### IP lockout
 
-If an IP address sends a large number of requests, an IP address can be automatically blocked for a certain period with automatic blocking. The lock is made automatically and takes effect immediately. As soon as the set time has elapsed, the IP address can receive a submission token again.
+If an IP address submits a large number of submissions, an IP address can be automatically blocked for a certain period with automatic blocking. The lock is made automatically and takes effect immediately. As soon as the set time has elapsed, the IP address can submit a submission again.
 
 :::caution
 Users can share the same IP address, for example, in a multi-user apartment or a company.
@@ -114,12 +114,12 @@ IP addresses are blocked throughout the entire mosparo installation. If an IP ad
 
 #### Fields
 
-| Field                      | Description                                                                                                                                    |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Number of allowed requests | The field defines the number of requests a user can make within a period before the IP lockout becomes active.                         |
-| Detection time frame       | Defines the time, in seconds, in which the requests must be made before the IP lockout becomes active.                                         |
-| Base lockout time          | Defines the time, in seconds, that the user is locked and cannot send requests.                                                                |
-| Multiplicator              | The multiplicator is applied to the base lockout time and increases (or decreases) the lockout time for new requests within that lockout time. |
+| Field                      | Description                                                                                                                                       |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Number of allowed requests | The field defines the number of submissions a user can submit within a period before the IP lockout becomes active.                               |
+| Detection time frame       | Defines the time, in seconds, in which the submissions must be made before the IP lockout becomes active.                                         |
+| Base lockout time          | Defines the time, in seconds, that the user is locked and cannot submit submissions.                                                              |
+| Multiplicator              | The multiplicator is applied to the base lockout time and increases (or decreases) the lockout time for new submissions within that lockout time. |
 
 #### Example
 
@@ -127,9 +127,9 @@ IP addresses are blocked throughout the entire mosparo installation. If an IP ad
 Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time: 300 sec, Multiplicator: 1.5
 :::
 
-- A user makes 30 requests within 20 seconds. The IP lockout becomes active, and the user is banned for 300 seconds.
-- If the user makes another request within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
-- For a further request within these 450 seconds, the time increases to 675 seconds.
+- A user submits 30 submissions within 20 seconds. The IP lockout becomes active, and the user is banned for 300 seconds.
+- If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
+- For a further submission within these 450 seconds, the time increases to 675 seconds.
 
 ### List of allowed IP addresses
 
@@ -139,9 +139,11 @@ If you want specific IP addresses to be excluded from the request delay and IP l
 Users can share the same IP address, for example, in a multi-user apartment or a company.
 :::
 
-## Appearance
+## Design
 
-mosparo offers you the possibility to change the appearance of the mosparo box as far as possible and adapt it to your website. Use the built-in configuration editor.
+mosparo offers you the possibility to change the design of the mosparo box as far as possible and adapt it to your website. Use the design settings to adjust the look and feal. To make it easier to configure mosparo, there are two modes. With the simple mode, you choose the most important colors for your website and the size of the box and mosparo handles the rest.
+
+If you want to configure all options, you can switch to the advanced mode and change every single color and other options. You can change between these two modes any time you want.
 
 :::info
 Since mosparo works with standard HTML elements and CSS rules, you can override the entire appearance of the mosparo box with appropriate CSS rules. However, because this requires programming experience, this possibility is not further described in this documentation.
@@ -151,23 +153,35 @@ Since mosparo works with standard HTML elements and CSS rules, you can override 
 Overriding the CSS rules is at your own risk and is not officially recommended by mosparo.
 :::
 
-### Box size and radius
+### Simple mode
+
+New projects using the simple mode by default. In the project wizard, you're able to configure these four fields directly after creating the project. mosparo will automatically calculate the best possible color for the success and failure states. Use the size selector to define which size of the box you want to use.
+
+### Advanced mode
+
+In the advanced mode, you have all options to adjust the design of the mosparo box.
+
+#### Box size and radius
 
 You can choose between three different sizes of the mosparo box. These three sizes are predefined in mosparo, and you can only choose between these three sizes.
 
 You can adjust the radius of the box to suit your website best. If you do not want a radius, you can set the value to 0.
 
-### Colors
+#### Colors
 
 Select the different colors for the box in each state. You can click the black X in the color picker if you want to use a transparent value for a color.
 
-### mosparo logo
+#### mosparo logo
 
 When the user focuses on the checkbox with the keyboard or the user moves the mouse over the mosparo box, the mosparo logo is displayed. If you do not want this branding, you can disable the display of the logo.
 
-### Ping animation
+#### Ping animation
 
 A ping animation is built into the standard system, which should highlight the checkbox. If you do not want this animation, you can disable it anytime.
+
+### Contrast Rating
+
+Our goal is that everyone can fill out your form. For this, it is essential that the mosparo box can also be used by a person who does not see as well as other people. It is, therefore, important that the colors you choose have the highest possible contrast ratio. For this reason, we have integrated a function directly in the display settings, which calculates the corresponding contrasts and displays them to you.
 
 ### Delivery of appearance settings
 
@@ -176,8 +190,4 @@ The selected values are stored in the database when the appearance settings are 
 When a user calls up a form on your website, this already prepared file is loaded, and the user automatically has the correct representation.
 
 After you customize the appearance, a new file is saved with a new name. All requests from the old file are automatically forwarded to the new file so that no interruptions can be detected when adjusting the display, and the latest version is always used.
-
-### Contrast Rating
-
-Our goal is that everyone can fill out your form. For this, it is essential that the mosparo box can also be used by a person who does not see as well as other people. It is, therefore, important that the colors you choose have the highest possible contrast ratio. For this reason, we have integrated a function directly in the display settings, which calculates the corresponding contrasts and displays them to you.
 

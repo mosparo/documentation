@@ -25,3 +25,15 @@ If you see an error message when you check for updates, mosparo may have no inte
 ## Update mosparo
 
 Read more about updating mosparo in [Update mosparo](../installation/update).
+
+## Automatic update check
+
+With version 0.4, mosparo executes an automatic update check once a day. If an update is available, you will see an orange button in the header of mosparo.
+
+:::info
+mosparo does not automatically install the update. You have to start the update manually.
+:::
+
+If you do not want this automatic check, you can disable it by setting the environment variable.
+
+To disable the automatic check, please create the file `.env.local` in the root of mosparo and set the variable `MOSPARO_AUTOMATIC_UPDATE_CHECK_ENABLED` to `0`. You can also copy or rename the file `.env.local.dist` and adjust the value of the variable in there.
