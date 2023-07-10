@@ -8,6 +8,12 @@ description: Damit mosparo in einer Website verwendet werden kann, muss für die
 
 Unter Projekten ist in mosparo eine Website zu verstehen. Ein Projekt kann auf beliebig vielen Websites und in beliebig vielen Formularen eingesetzt werden. Alle Einstellungen, Regeln und Regel-Pakete gelten für alle Websites und Formulare gleichermassen, welche dieses Projekt verwenden.
 
+## Projekt auflisten
+
+Die Projektliste des Benutzers ist nach dem Einloggen in mosparo sichtbar. Der Benutzer kann entscheiden, ob er die Projekte in einer Liste von Kästchen oder in einer tabellarischen Liste anzeigen lassen möchte. Diese Auswahl wird in den Einstellungen des Benutzerkontos gespeichert. Die zuletzt verwendete Listenart wird beim nächsten Aufgruf der Projektliste verwendet.
+
+Der Benutzer hat zusätzliche Möglichkeiten, die Liste der Projekte zu filtern, wenn er das tabellarische Layout verwendet. Ausserdem ist es möglich, nach einem Projekt zu suchen. Dies ist eine gute Hilfe, wenn es in einer mosparo Installation viele Projekte gibt.
+
 ## Projekt erstellen
 
 ### 1. Projektinformationen
