@@ -16,6 +16,8 @@ In addition, select whether the user is active or not. If you mark a user as ina
 
 If you want the user to have administrator permission, you can grant a user administration rights so that he has access to all projects and can manage all system settings and users.
 
+Additionally, you can choose whether the user should be able to create a new project. If you create a user who can only read, you may not want to allow the user to create new projects. An administrator can always create new projects.
+
 ## Deleting Users
 
 If you no longer want a user to be able to access mosparo, you can either mark the user as an inactive user or delete the user. If you want to remove a user from only one project, you must remove the user as a project member in the project settings.

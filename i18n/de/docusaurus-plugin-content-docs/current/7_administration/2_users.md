@@ -16,6 +16,8 @@ Wählen Sie zusätzlich, ob der Benutzer aktiv ist oder nicht. Wenn Sie einen Be
 
 Falls der Benutzer Administrationsberechtigung haben soll, können Sie einem Benutzer Administrationsrechte erteilen, so dass er Zugriff auf alle Projekte hat und alle Systemeinstellungen sowie Benutzer verwalten kann.
 
+Auserdem können Sie festlegen, ob der Benutzer ein neues Projekt erstellen kann. Wenn Sie einen Benutzer anlegen, der nur lesen kann, möchten Sie ihm vielleicht nicht erlauben, neue Projekte zu erstellen. Ein Administrator kann immer neue Projekte erstellen.
+
 ## Benutzer löschen
 
 Wenn ein Benutzer nicht mehr auf mosparo zugreifen können soll, können Sie den Benutzer entweder als inaktiver Benutzer markieren oder den Benutzer löschen. Falls ein Benutzer lediglich von einem Projekt entfernt werden soll, müssen Sie den Benutzer in den Projekteinstellungen als Projektmitglied entfernen.
