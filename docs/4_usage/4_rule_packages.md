@@ -8,7 +8,7 @@ description: Learn more about the use of rule packages and the structure of a ru
 
 ## Manage rule packages
 
-Rules are a combination of one or more rules created by someone and hosted on an external server. These rules can be added and are automatically updated at regular intervals.
+Rule packages are a combination of one or more rules created by someone and hosted on an external server. These rules can be added and are automatically updated at regular intervals.
 
 A checksum is automatically created and checked when the rule package is updated to ensure the integrity of the rule parameters.
 
