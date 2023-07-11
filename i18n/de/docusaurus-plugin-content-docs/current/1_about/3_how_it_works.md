@@ -6,6 +6,10 @@ description: Wie funtkioniert mosparo? Die Funktionsweise wird hier genau beschr
 
 # Funktionsweise
 
+:::info
+Diese Seite beschreibt die Funktionsweise der sichtbaren Variante. Die unsichtbare Variante (eingeführt mit V1.0) weicht von dieser Funktionsweise ab. Die Unterschiede sind [am Ende](#funktionsweise-unsichtbare-variante) dieser Seite beschrieben.
+:::
+
 ## Übersicht
 
 Die Funktionsweise von mosparo ist relativ einfach zu erklären. Statt mit einer "magischen Methode" zu ermitteln, ob ein Besucher Ihrer Website ein Mensch ist oder nicht, prüft mosparo die eingegebenen Daten. Wenn Ihnen jemand Spam senden möchte, muss diese Person die entsprechenden Informationen in Ihrem Formular eingeben. Durch das Durchsuchen dieser eingegebenen Daten kann mit den entsprechenden Regeln zweifelsfrei erkannt werden, ob eine Einsendung als Spam eingestuft werden soll.
@@ -89,3 +93,15 @@ Nachdem alle Felder bewertet wurden, werden die Punkte aller Felder zusammengez�
 Wenn die Summe der Punkte aller Felder über dem Spam-Grenzwert liegt, wird die Einsendung als Spam gewertet. Ein Absenden des Formulars ist nicht möglich.
 
 Falls die Anzahl der Punkte kleiner ist als der Spam-Grenzwert, wird die Einsendung nicht als Spam gewertet und das Absenden des Formulars ist möglich.
+
+## Funktionsweise unsichtbare Variante
+
+Die Funktionsweise ist in grossen Teilen ähnlich wie bei der sichtbaren Variante. Die Hauptunterschiede sind die sichtbarkeit und wie die Daten im Formular überprüft werden.
+
+Verglichen mit der sichtbaren Variante wird beim Besuchen der Seite die mosparo Box initialisiert, aber ist nicht sichtbar. Die Checkbox ist komplett unsichtbar und daher für einen Screenreader bzw. bei der Navigation mit der Tastatur nicht aktivierbar.
+
+Sobald der Benutzer das Formular ausgefüllt hat, startet der Benutzer den Absende-Prozess. mosparo greift an dieser Stelle ein und prüft, ob die mosparo-Checkbox bereits gesetzt ist. Dies bedeutet, dass die Überprüfung durch mosparo bereits durchgeführt wurde. Falls die Checkbox nicht gesetzt ist, wird der Absende-Prozess von mosparo unterbrochen. mosparo startet dann automatisch die Überprüfung der Daten. Die Daten werden wie normal an mosparo gesendet und mosparo prüft, ob es sich bei den Daten um Spam handelt oder nicht.
+
+Falls die Eingaben Spam enthalten, wird eine entsprechende Fehlermeldung angezeigt und der Absende-Prozess komplett abgebrochen. Falls jedoch kein Spam festgestellt wurde, startet mosparo automatisch den Absende-Prozess erneut. Da nun die Checkbox gesetzt ist, werden die Daten nicht mehr erneut geprüft und der Browser kann den Absende-Prozess abschliessen.
+
+Sobald mosparo mit der ÜBerprüfungen der Daten beginnt, wird eine Überlagerung eingeblendet, welche auf das Prüfen der Daten hinweist. Die Überlagerung überlagert entweder die gesamte Website oder nur das Formular.

@@ -179,6 +179,24 @@ When the user focuses on the checkbox with the keyboard or the user moves the mo
 
 A ping animation is built into the standard system, which should highlight the checkbox. If you do not want this animation, you can disable it anytime.
 
+### Invisible mode
+
+The invisible mode was introduced with version 1.0. With the invisible mode, the user does not have to click a box to check the data. Instead, the data is checked when the user submits the form. A more detailed description of the variant can be found at [How it works](../about/how_it_works#functionality-invisible-variant).
+
+The settings allow you to customize the appearance of this overlay.
+
+#### Colors
+
+With the colors, you can define the background of the overlay, the text color, and the color of the loading circle. Additionally, the color of the error message, if spam was detected, can be defined. The overlay's background color should be slightly transparent so the user knows he has not left the page.
+
+#### mosparo logo
+
+When the overlay is displayed, mosparo will show the mosparo logo. If you do not want this branding, you can turn off the display of the logo.
+
+#### Page overlay
+
+Define if the overlay should overlay the whole website or if only the form should be overlaid.
+
 ### Contrast Rating
 
 Our goal is that everyone can fill out your form. For this, it is essential that the mosparo box can also be used by a person who does not see as well as other people. It is, therefore, important that the colors you choose have the highest possible contrast ratio. For this reason, we have integrated a function directly in the display settings, which calculates the corresponding contrasts and displays them to you.
