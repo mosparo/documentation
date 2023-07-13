@@ -32,4 +32,6 @@ In the administration of the rules, you will find all stored rules. You can crea
 
 In the list of rules, you can see the rule's name, the rule type, and whether the rule is active. You can edit or delete the existing rules if a rule is no longer needed.
 
+With the filter dropdown in the top right corner, you can filter the list for only one of the rule types.
+
 Before a rule is deleted, you must confirm that you want to delete the rule.
