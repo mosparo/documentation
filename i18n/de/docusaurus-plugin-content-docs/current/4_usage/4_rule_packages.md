@@ -8,13 +8,11 @@ description: Erfahren Sie mehr über die Verwendung von Regel-Paketen sowie den 
 
 ## Regel-Pakete verwalten
 
-Regel-Pakete sind eine Kombination aus einer oder mehreren Regeln, welche von jemandem erstellt und auf einem externen Server gehostet werden. Diese Regel-Pakete können hinzugefügt werden und werden in einem regelmässigen Intervall automatisch aktualisiert.
+Regel-Pakete fassen eine oder mehrere Regeln zusammen, die von jemandem erstellt und auf einem externen Server gehostet werden. Diese Regel-Pakete können zu mosparo hinzugefügt werden und werden in regelmässigen Abständen automatisch aktualisiert. Um die Integrität der Regel-Pakete zu gewährleisten, wird bei der Aktualisierung des Regel-Pakets eine Prüfsumme erstellt und geprüft.
 
-Um die Integrität der Regel-Pakete gewährleisten zu können, wird beim Aktualisieren des Regel-Paketes automatisch eine Checksumme erstellt und geprüft.
+Um ein neues Regel-Paket hinzuzufügen, müssen Sie die URL des Regel-Pakets kennen. Sie können zusätzlich einen Faktor angeben, mit dem das Regel-Paket verstärkt oder abgeschwächt werden kann.
 
-In mosparo können Sie Ihre Regel-Pakete verwalten. Sie können neue Regel-Pakete hinzufügen. Dazu brauchen Sie lediglich die URL des Regel-Paketes. Weiter können Sie einen Faktor angeben, mit welchem das Regelpaket gestärkt oder abgeschwächt werden kann.
-
-Nachdem ein Regelpaket hinzugefügt wurde, können Sie die im Regelpaket enthaltenen Regeln anzeigen lassen. Sie können die im Regelpaket vorhandenen Regeln jedoch nicht bearbeiten oder löschen.
+Nachdem ein Regel-Paket hinzugefügt wurde, können Sie die darin enthaltenen Regeln anzeigen. Sie können die Regeln im Regel-Paket jedoch nicht bearbeiten oder löschen.
 
 ## Format der Regel-Pakete
 
