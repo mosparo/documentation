@@ -109,7 +109,7 @@ CH
 
 ### Text
 
-The subtype "Normal Word" allows you to define a single word, part of a word, or combination of words. The value you enter must appear in the User-Agent exactly as it does in the rule for the rule to apply. You can use the asterisk (*) as a wildcard. When matching, `*word*` is used automatically, meaning you do not have to insert the placeholder before and after the searched word.
+The subtype "Normal Word" allows you to define a single word, part of a word, or combination of words. The value you enter must appear in the User-Agent exactly as it does in the rule for the rule to apply. You can use the asterisk (\*) as a wildcard. When matching, `*word*` is used automatically, meaning you do not have to insert the placeholder before and after the searched word.
 
 :::note Example
 Best Browser<br />
