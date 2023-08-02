@@ -19,7 +19,7 @@ Verifies the form data and tells the website's backend if a submission was corre
 To secure the API endpoint, authentication is required. The `Authorization` header must be sent with the request. You must set the project's public key in the header as the username. An HMAC SHA256 hash of the API endpoint URL combined with the request data, serialized as JSON, must be set as the password. The private key will be used as the key for the HMAC SHA256 hash.
 
 ```http request
-Authorization: [publicKey]:[hmacHash]
+Authorization: [base64 of <publicKey>:<signature>]
 ```
 
 #### Example
@@ -30,10 +30,11 @@ $apiEndpoint = '/api/v1/verification/verify';
 $formData = ['first-name' => '0fde7e04a97f64098b5285c6e33502ddd918a04a7fc8c7012a13caae19b26c3b'];
 
 $hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($formData), $privateKey);
+$authHeader = base64_encode($hmacHash);
 ```
 
 ```http request
-Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:3bdd385caa53e3da76a8dcbfcaa0d9f4e04d8c189fab03ba41383deea236b2d3
+Authorization: UXFmQnhzbU9mSU13MC11Vk5uUlZkRGxNVVpkTHBURzF4bzB5eWlmeUxySTozYmRkMzg1Y2FhNTNlM2RhNzZhOGRjYmZjYWEwZDlmNGUwNGQ4YzE4OWZhYjAzYmE0MTM4M2RlZWEyMzZiMmQzCgo=
 ```
 
 ### Request
