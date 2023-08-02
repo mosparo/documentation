@@ -19,7 +19,7 @@ Verifies the form data and tells the website's backend if a submission was corre
 To secure the API endpoint, authentication is required. The `Authorization` header must be sent with the request. You must set the project's public key in the header as the username. An HMAC SHA256 hash of the API endpoint URL combined with the request data, serialized as JSON, must be set as the password. The private key will be used as the key for the HMAC SHA256 hash.
 
 ```http request
-Authorization: [base64 of <publicKey>:<signature>]
+Authorization: [base64 of <publicKey>:<hmacHash>]
 ```
 
 #### Example
