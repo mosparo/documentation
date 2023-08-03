@@ -56,12 +56,12 @@ Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:3bdd385caa53e3da76a8d
 
 #### Arguments
 
-| Name                  | Type   | Required | Description                                                                          |
-|-----------------------|--------|----------|--------------------------------------------------------------------------------------|
-| `submitToken`         | String | Required | The submit token was requested by the JavaScript script in the frontend.             |
-| `validationSignature` | String | Required | The HMAC SHA256 hash of the validation token.                                        |
-| `formSignature`       | String | Required | The HMAC SHA256 hash of the form data (serialized as JSON string).                   |
-| `formData`            | Object | Required | An object with all form fields and the HMAC SHA256 hash of the data for every field. |
+| Name                  | Type   | Required | Description                                                                     |
+|-----------------------|--------|----------|---------------------------------------------------------------------------------|
+| `submitToken`         | String | Required | The submit token was requested by the JavaScript script in the frontend.        |
+| `validationSignature` | String | Required | The HMAC SHA256 hash of the validation token.                                   |
+| `formSignature`       | String | Required | The HMAC SHA256 hash of the form data (serialized as JSON string).              |
+| `formData`            | Object | Required | An object with all form fields and the SHA256 hash of the data for every field. |
 
 ### Response
 

@@ -56,12 +56,12 @@ Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:3bdd385caa53e3da76a8d
 
 #### Argumente
 
-| Name                  | Typ    | Erforderlich | Beschreibung                                                                            |
-|-----------------------|--------|--------------|-----------------------------------------------------------------------------------------|
-| `submitToken`         | String | Erforderlich | Der Einsendecode, welcher im Frontend angefordert wurde.                                |
-| `validationSignature` | String | Erforderlich | Der HMAC SHA256-Hash des Validierungscode.                                              |
-| `formSignature`       | String | Erforderlich | Der HMAC SHA256-Hash der Formulardaten (serialisiert als JSON-String).                  |
-| `formData`            | Objekt | Erforderlich | Ein Objekt mit allen Formularfeldern und dem HMAC SHA256-Hash der Daten für jedes Feld. |
+| Name                  | Typ    | Erforderlich | Beschreibung                                                                       |
+|-----------------------|--------|--------------|------------------------------------------------------------------------------------|
+| `submitToken`         | String | Erforderlich | Der Einsendecode, welcher im Frontend angefordert wurde.                           |
+| `validationSignature` | String | Erforderlich | Der HMAC SHA256-Hash des Validierungscode.                                         |
+| `formSignature`       | String | Erforderlich | Der HMAC SHA256-Hash der Formulardaten (serialisiert als JSON-String).             |
+| `formData`            | Objekt | Erforderlich | Ein Objekt mit allen Formularfeldern und dem SHA256-Hash der Daten für jedes Feld. |
 
 ### Antwort
 
