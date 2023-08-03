@@ -19,7 +19,7 @@ description: Die Verifizierungs-API wird verwendet, um die Formulardaten zu übe
 Um den API-Endpunkt zu sichern, ist eine Authentifizierung erforderlich. Dazu muss der Header `Authorization` mit der Anfrage gesendet werden. In diesem Header muss der öffentliche Schlüssel des Projekts als Benutzername angegeben werden. Für das Passwort muss ein HMAC SHA256 Hash der API-Endpunkt-URL kombiniert mit den Anfragedaten, serialisiert als JSON, angegeben werden. Der private Schlüssel wird als Schlüssel für den HMAC-SHA256-Hash verwendet.
 
 ```http request
-Authorization: [publicKey]:[hmacHash]
+Authorization: [Base64 von <publicKey>:<hmacHash>]
 ```
 
 #### Beispiel
@@ -30,10 +30,11 @@ $apiEndpoint = '/api/v1/verification/verify';
 $formData = ['first-name' => '0fde7e04a97f64098b5285c6e33502ddd918a04a7fc8c7012a13caae19b26c3b'];
 
 $hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($formData), $privateKey);
+$authHeader = base64_encode($hmacHash);
 ```
 
 ```http request
-Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:3bdd385caa53e3da76a8dcbfcaa0d9f4e04d8c189fab03ba41383deea236b2d3
+Authorization: UXFmQnhzbU9mSU13MC11Vk5uUlZkRGxNVVpkTHBURzF4bzB5eWlmeUxySTozYmRkMzg1Y2FhNTNlM2RhNzZhOGRjYmZjYWEwZDlmNGUwNGQ4YzE4OWZhYjAzYmE0MTM4M2RlZWEyMzZiMmQzCgo=
 ```
 
 ### Anfrage

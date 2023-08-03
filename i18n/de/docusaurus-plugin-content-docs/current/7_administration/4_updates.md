@@ -25,3 +25,15 @@ Falls beim Prüfen auf neue Updates ein Fehler auftritt, kann es sein, dass kein
 ## Update für mosparo installieren
 
 Erfahren Sie mehr über das Installieren eines Updates für mosparo in [Update für mosparo installieren](../installation/update).
+
+## Automatische Update-Prüfung
+
+Mit der Version 0.4 führt mosparo einmal am Tag eine automatische Update-Prüfung durch. Wenn ein Update verfügbar ist, sehen Sie einen orangefarbenen Button im Header von mosparo. 
+
+:::info
+mosparo installiert das Update nicht automatisch. Sie müssen das Update manuell starten.
+:::
+
+Wenn Sie diese automatische Prüfung nicht wünschen, können Sie sie durch Setzen der Umgebungsvariablen abschalten.
+
+Um die automatische Prüfung zu deaktivieren, erstellen Sie bitte die Datei `.env.local` im Hauptverzeichnis von mosparo und setzen Sie die Variable `MOSPARO_AUTOMATIC_UPDATE_CHECK_ENABLED` auf `0`. Sie können auch die Datei `.env.local.dist` kopieren oder umbenennen und den Wert der Variable darin anpassen.

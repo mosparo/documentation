@@ -62,16 +62,59 @@ Binden Sie das Script von mosparo auf Ihrer Website ein. Initialisieren Sie dana
 
 ### Zusätzliche Optionen
 
-| Parameter               | Typ       | Standard-Wert                         | Beschreibung                                                                                                                                                                                                                                                                                                               |
-|-------------------------|-----------|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `allowBrowserValidation`  | Boolean   | true                                  | Gibt an, ob die Browser-Validierung aktiv sein soll.                                                                                                                                                                                                                                                                       |
-| `cssResourceUrl`          | String    | _leer_                                | Definiert die Adresse, unter welcher die CSS-Ressourcen geladen werden können. Kann verwendet werden, wenn die korrekte Ressourcenadresse gecached wird.                                                                                                                                                                   |
-| `designMode`              | Boolean   | false                                 | Wird verwendet, um im Backend von mosparo die mosparo-Box in den unterschiedlichen Zuständen darzustellen. Die mosparo-Box ist nicht funktionsfähig, wenn diese Option auf `true` gesetzt wird.                                                                                                                            |
-| `inputFieldSelector`      | String    | `[name]:not(.mosparo__ignored-field)` | Definiert den Selektor, mit welchem die Felder gesucht werden.                                                                                                                                                                                                                                                             |
-| `loadCssResource`         | Boolean   | false                                 | Bestimmt, ob bei der Initialisierung auch die CSS-Ressourcen geladen werden sollen (siehe [CSS-Ressourcen einbinden](#css-ressourcen-einbinden)).                                                                                                                                                                          |
-| `name`                    | String    | _leer_                                | Definiert den Namen der HTML-Checkbox. Standardmässig wird eine zufällige ID dafür verwendet.                                                                                                                                                                                                                              |
-| `onCheckForm`             | Callable  | _leer_                                | Definiert ein Callback, welches aufgerufen wird, sobald das Formular überprüft wurde.                                                                                                                                                                                                                                      |
-| `requestSubmitTokenOnInit` | Boolean   | `true`                                | Gibt an, ob bei der Initialisierung automatisch ein Einsendecode angefordert werden soll. Wenn zum Beispiel direkt nach der Initialisierung des Formulars das Formular zurückgesetzt wird (mit `reset()`) braucht es bei der Initialisierung keinen Einsendecode, da mit dem Zurücksetzen ein neuer Code angefordert wird. |
+| Parameter               | Typ      | Standard-Wert                       | Beschreibung                                                                                                                                                                                                                                                                                                               |
+|-------------------------|----------|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `allowBrowserValidation`  | Boolean  | `true`                                | Gibt an, ob die Browser-Validierung aktiv sein soll.                                                                                                                                                                                                                                                                       |
+| `cssResourceUrl`          | String   | _leer_                              | Definiert die Adresse, unter welcher die CSS-Ressourcen geladen werden können. Kann verwendet werden, wenn die korrekte Ressourcenadresse gecached wird.                                                                                                                                                                   |
+| `customMessages`           | Objekt   | `{}`                                | Ermöglicht das überschreiben der Texte in der Frontend-Box (siehe [Benutzerdefinierte Texte](#benutzerdefinierte-texte)).                                                                                                                                                                                                  |
+| `designMode`              | Boolean  | `false`                               | Wird verwendet, um im Backend von mosparo die mosparo-Box in den unterschiedlichen Zuständen darzustellen. Die mosparo-Box ist nicht funktionsfähig, wenn diese Option auf `true` gesetzt wird.                                                                                                                            |
+| `inputFieldSelector`      | String   | `[name]:not(.mosparo__ignored-field)` | Definiert den Selektor, mit welchem die Felder gesucht werden.                                                                                                                                                                                                                                                             |
+| `loadCssResource`         | Boolean  | `false`                               | Bestimmt, ob bei der Initialisierung auch die CSS-Ressourcen geladen werden sollen (siehe [CSS-Ressourcen einbinden](#css-ressourcen-einbinden)).                                                                                                                                                                          |
+| `name`                    | String   | _leer_                              | Definiert den Namen der HTML-Checkbox. Standardmässig wird eine zufällige ID dafür verwendet.                                                                                                                                                                                                                              |
+| `onCheckForm`             | Callable | _leer_                              | Definiert ein Callback, welches aufgerufen wird, sobald das Formular überprüft wurde.                                                                                                                                                                                                                                      |
+| `requestSubmitTokenOnInit` | Boolean  | `true`                              | Gibt an, ob bei der Initialisierung automatisch ein Einsendecode angefordert werden soll. Wenn zum Beispiel direkt nach der Initialisierung des Formulars das Formular zurückgesetzt wird (mit `reset()`) braucht es bei der Initialisierung keinen Einsendecode, da mit dem Zurücksetzen ein neuer Code angefordert wird. |
+
+#### Benutzerdefinierte Texte
+
+Mit der Option `customMessages` ist es möglich, die in der Frontend-Box sichtbaren Texte anzupassen. Die Option akzeptiert ein Objekt, wobei der Eigenschaftsname das Gebietsschema und der Wert ein Objekt ist.
+
+In dem Objekt für ein Gebietsschema ist der Eigenschaftsname der Name der Nachricht, während der Wert der übersetzte Text ist (siehe [Texte](#texte)).
+
+Die Funktionalität verwendet die Sprachinformationen des Browsers durch Zugriff auf `navigator.languages`. Wenn diese Eigenschaft nicht verfügbar ist, wird das Skript die Übersetzungen verwenden, die es vom mosparo-Backend erhalten hat. Alle in der Eigenschaft `navigator.languages` verfügbaren Gebietsschemata werden getestet, wobei das erste, das übereinstimmt und nicht leer ist, verwendet wird. Wenn ein Bindestrich im Namen des Gebietsschemas enthalten ist (`-`, zum Beispiel `de-CH`), wird er durch einen Unterstrich ersetzt (`_`, zum Beispiel `de_CH`).
+
+##### Texte
+
+| Text-Name                     | Verwendungszweck                                                                                                                    | Standard-Wert                                                                                                   |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| `label`                       | Dies ist der Hauptsatz der Box.                                                                                                     | Ich akzeptiere, dass die Formulareingaben auf Spam überprüft und für 14 Tage verschlüsselt gespeichert werden.  |
+| `accessibilityCheckingData`   | Dies ist eine Statusaktualisierung, wenn mosparo die Daten überprüft. Sie ist nur für Screen Readers sichtbar.                      | Wir überprüfen Ihre Daten. Bitte warten Sie.                                                                    |
+| `accessibilityDataValid`      | Dies ist ein Status-Update, wenn mosparo die Daten überprüft hat und alles in Ordnung ist. Sie ist nur für Screen Readers sichtbar. | Ihre Daten enthalten kein Spam. Sie können das Formular absenden.                                               |
+| `errorGotNoToken`             | Sichtbar, wenn kein Einsendecode von mosparo zurückgegeben wurde.                                                                   | mosparo hat keinen Absende-Token ausgestellt.                                                                   |
+| `errorInternalError`          | Sichtbar, wenn mosparo einen internen Fehler hatte.                                                                                 | Es trat ein Fehler auf. Bitte wiederholen Sie den Vorgang.                                                      |
+| `errorNoSubmitTokenAvailable` | Sichtbar, wenn der Einsendecode aus dem Formular entfernt wurde, z. B. weil das Formular manipuliert wurde.                         | Kein Absende-Token verfügbar. Die Validierung Ihrer Daten ist nicht möglich.                                    |
+| `errorSpamDetected`           | Wird angezeigt, wenn mosparo Spam in der Einsendung entdeckt hat.                                                                   | In Ihren Daten ist Spam enthalten.                                                                              |
+| `errorLockedOut`              | Wird angezeigt, wenn der Benutzer zu viele Einsendungen eingereicht und mosparo den Benutzer ausgesperrt hat.                       | Sie wurden temporär gesperrt. Bitte versuchen Sie es nach `%datetime%` erneut.                                  |
+| `errorDelay`                  | Wird angezeigt, wenn der Benutzer zu viele Einsendecodes angefordert und daher von mosparo verzögert wurde.                         | Ihre Anfrage wurde verzögert. Bitte warten Sie `%seconds%` Sekunden.                                              |
+| `hpLeaveEmpty`                | Diese Meldung ist versteckt und nur für Screen Readers für das Honeypot-Feld sichtbar.                                              | Dieses Feld leer lassen                                                                                         |
+
+##### Beispiel
+
+```javascript
+mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
+    customMessages: {
+        de_CH: {
+            label: 'Ich akzeptiere aus der Schweiz'
+        },
+        en_GB: {
+            label: 'I accept from United Kingdom'
+        },
+        en_AU: {
+            label: 'I accept from Australia',
+            errorSpamDetected: 'Spam from Australia? Impossible!'
+        }
+    }
+});
+```
 
 ## Verifizierung durchführen
 

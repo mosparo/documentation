@@ -99,7 +99,7 @@ Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anf
 
 ### Automatische Sperre
 
-Wenn eine IP-Adresse sehr viele Anfragen sendet, kann mit der automatischen Sperre eine IP-Adresse automatisch für eine gewisse Zeit blockiert werden. Die Sperre wird automatisch vorgenommen und greift sofort. Sobald die eingestellte Zeit abgelaufen ist, kann die IP-Adresse wieder einen Einsendecode erhalten.
+Wenn eine IP-Adresse sehr viele Einsendungen absendet, kann mit der automatischen Sperre eine IP-Adresse automatisch für eine gewisse Zeit blockiert werden. Die Sperre wird automatisch vorgenommen und greift sofort. Sobald die eingestellte Zeit abgelaufen ist, kann die IP-Adresse wieder eine Einsendung absenden.
 
 :::caution
 Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung mit mehreren Benutzern oder in einer Firma.
@@ -111,12 +111,12 @@ Die Sperre der IP-Adressen erfolgt über die gesamte mosparo-Installation. Wenn 
 
 #### Felder
 
-| Feld                      | Beschreibung                                                                                                                                            |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Anzahl erlaubter Anfragen | Das Feld definiert die Anzahl der Anfragen, die ein Benutzer innerhalb eines Zeitraums machen kann, bevor die IP-Sperre aktiv wird.                     |
-| Erkennungszeitraum        | Definiert die Zeit in Sekunden, in welcher die Anfragen gemacht werden müssen, bevor die IP-Sperre aktiv wird.                                          |
-| Anfangssperrzeit          | Definiert die Zeit in Sekunden, welche der Benutzer gesperrt wird und keine Anfragen senden kann.                                                       |
-| Multiplikator             | Der Multiplikator wird auf die Anfangssperrzeit angewendet und erhöht (oder verringert) die Sperrzeit bei erneuten Anfragen innerhalb dieser Sperrzeit. |
+| Feld                      | Beschreibung                                                                                                                                                |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Anzahl erlaubter Anfragen | Das Feld definiert die Anzahl der Einsendungen, die ein Benutzer innerhalb eines Zeitraums absenden kann, bevor die IP-Sperre aktiv wird.                   |
+| Erkennungszeitraum        | Definiert die Zeit in Sekunden, in welcher die Einsendungen gemacht werden müssen, bevor die IP-Sperre aktiv wird.                                          |
+| Anfangssperrzeit          | Definiert die Zeit in Sekunden, welche der Benutzer gesperrt wird und keine Einsendungen absenden kann.                                                     |
+| Multiplikator             | Der Multiplikator wird auf die Anfangssperrzeit angewendet und erhöht (oder verringert) die Sperrzeit bei erneuten Einsendungen innerhalb dieser Sperrzeit. |
 
 #### Beispiel
 
@@ -124,8 +124,8 @@ Die Sperre der IP-Adressen erfolgt über die gesamte mosparo-Installation. Wenn 
 Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anfangssperrzeit: 300 sek, Multiplikator: 1.5
 :::
 
-- Ein Benutzer macht innerhalb von 20 Sekunden 30 Anfragen. Die IP-Sperre wird aktiv und der Benutzer wird für 300 Sekunden gesperrt.
-- Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Anfrage macht, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
+- Ein Benutzer sendet innerhalb von 20 Sekunden 30 Einsendungen. Die IP-Sperre wird aktiv und der Benutzer wird für 300 Sekunden gesperrt.
+- Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Einsendung absendet, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
 - Bei einer weiteren Anfrage innerhalb dieser 450 Sekunden erhöht sich die Zeit auf 675 Sekunden.
 
 ### Liste der erlaubten IP-Adressen
@@ -138,7 +138,9 @@ Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung 
 
 ## Darstellung
 
-mosparo bietet Ihnen die Möglichkeit, das Aussehen der mosparo-Box weitestgehend zu verändern und an Ihre Website anzupassen. Verwenden Sie den eingebauten Konfigurationseditor.
+mosparo bietet Ihnen die Möglichkeit, das Design der mosparo Box so weit wie möglich zu verändern und an Ihre Website anzupassen. Nutzen Sie die Design-Einstellungen, um das Aussehen und die Darstellung anzupassen. Um Ihnen die Konfiguration von mosparo zu erleichtern, gibt es zwei Modi. Im einfachen Modus wählen Sie die wichtigsten Farben für Ihre Website und die Grösse der Box aus und mosparo übernimmt den Rest.
+
+Wenn Sie alle Optionen konfigurieren möchten, können Sie in den erweiterten Modus wechseln und jede einzelne Farbe und andere Optionen ändern. Sie können jederzeit zwischen diesen beiden Modi wechseln.
 
 :::info
 Da mosparo mit normalen HTML-Elementen und CSS-Regeln arbeitet, können Sie das gesamte Aussehen der mosparo-Box mit entsprechenden CSS-Regeln überschreiben. Da dafür jedoch Programmiererfahrung notwendig ist, wird diese Möglichkeit in dieser Dokumentation nicht weiter beschrieben.
@@ -148,23 +150,35 @@ Da mosparo mit normalen HTML-Elementen und CSS-Regeln arbeitet, können Sie das 
 Das Überschreiben der CSS-Regeln geschieht auf eigene Verantwortung und wird offiziell von mosparo nicht empfohlen.
 :::
 
-### Box-Grösse und -Radius
+### Einfacher Modus
+
+Neue Projekte verwenden standardmässig den einfachen Modus. Im Projektassistenten können Sie diese vier Felder direkt nach dem Anlegen des Projekts konfigurieren. mosparo berechnet automatisch die bestmögliche Farbe für den Erfolgs- und Misserfolgsstatus. Mit dem Feld zur Auswahl der Grösse, können Sie bestimmen, wie gross die Box dargestellt werden soll.
+
+### Erweiterter Modus
+
+Im erweiterten Modus haben Sie alle Möglichkeiten, das Design der mosparo Box anzupassen.
+
+#### Box-Grösse und -Radius
 
 Sie können zwischen drei verschiedenen Grössen der mosparo-Box auswählen. Diese drei Grössen sind in mosparo vordefiniert und es kann nur zwischen diesen drei Grössen gewählt werden.
 
 Der Radius der Box können Sie so anpassen, wie es für Ihre Website am besten passt. Falls Sie keinen Radius wünschen, können Sie den Wert auf 0 stellen.
 
-### Farben
+#### Farben
 
 Wählen Sie die verschiedenen Farben für die Box in den jeweiligen Zuständen aus. Falls Sie für eine Farbe einen transparenten Wert verwenden möchten, können Sie im Farbwähler auf das schwarze X klicken.
 
-### mosparo-Logo
+#### mosparo-Logo
 
 Wenn der Benutzer mit der Tastatur die Kontrollbox fokussiert oder der Benutzer mit der Maus über die mosparo-Box fährt, wird das mosparo-Logo dargestellt. Falls Sie dieses Branding nicht möchten, können Sie die Anzeige des Logos deaktivieren.
 
-### Ping-Animation
+#### Ping-Animation
 
 Um die Aufmerksamkeit auf die Kontrollbox zu lenken, ist im Standard eine Ping-Animation eingebaut, welche die Checkbox hervorheben soll. Falls Sie diese Animation nicht möchten, können Sie sie jederzeit deaktivieren.
+
+### Kontrast-Bewertung
+
+Unser Ziel ist es, dass jeder Mensch Ihr Formular ausfüllen kann. Dafür ist es für uns Wichtig, dass die mosparo-Box auch von einem Menschen benutzt werden kann, der nicht so gut sieht, wie andere Menschen. Es ist daher wichtig, dass die von Ihnen gewählten Farben einen möglichst hohen Kontrast aufweisen. Aus diesem Grund haben wir direkt in den Darstellungseinstellungen eine Funktion eingebaut, welche die entsprechenden Kontraste berechnet und Ihnen anzeigt.
 
 ### Auslieferung der Darstellungseinstellungen
 
@@ -173,7 +187,3 @@ Beim Speichern der Darstellung werden die gewählten Werte in der Datenbank gesp
 Sobald ein Benutzer ein Formular auf Ihrer Website aufruft, wird diese bereits vorbereitete Datei geladen und der Benutzer hat automatisch die korrekte Darstellung.
 
 Nachdem Sie die Darstellung angepasst haben, wird eine neue solche Datei mit einem neuen Dateinamen gespeichert. Alle Anfragen an die alte Datei werden automatisch an die neue Datei weitergeleitet, so dass beim Anpassen der Darstellung keine Unterbrüche feststellbar sind und trotzdem immer die neueste Version verwendet wird.
-
-### Kontrast-Bewertung
-
-Unser Ziel ist es, dass jeder Mensch Ihr Formular ausfüllen kann. Dafür ist es für uns Wichtig, dass die mosparo-Box auch von einem Menschen benutzt werden kann, der nicht so gut sieht, wie andere Menschen. Es ist daher wichtig, dass die von Ihnen gewählten Farben einen möglichst hohen Kontrast aufweisen. Aus diesem Grund haben wir direkt in den Darstellungseinstellungen eine Funktion eingebaut, welche die entsprechenden Kontraste berechnet und Ihnen anzeigt.

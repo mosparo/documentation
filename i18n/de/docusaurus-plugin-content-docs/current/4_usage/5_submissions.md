@@ -8,6 +8,8 @@ description: In der Liste der Einsendungen finden Sie alle Daten, welche eingese
 
 Unter “Einsendungen” finden Sie alle getätigten Einsendungen, die noch nicht gelöscht wurden. Die Einsendungen werden automatisch nach 14 Tagen gelöscht und sind daher nicht mehr in der Liste der Einsendungen zu finden.
 
+Mit dem Dropdown-Menü in der oberen rechten Ecke können Sie die Liste der Einsendungen nach ihrem Status filtern. Um nur Einsendungen zu sehen, die Spam enthalten oder nicht korrekt verifiziert wurden, verwenden Sie die Option "Spam-Einsendungen". Verwenden Sie die Option "Gültige Einsendungen", um alle korrekt abgesendeten Einsendungen zu sehen.
+
 ## Erklärung der Spalten
 
 | Spalte         | Beschreibung                                                                                                                                                                                                                            |

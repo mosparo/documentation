@@ -8,7 +8,7 @@ description: Es gibt drei Möglichkeiten, ein Update für mosparo zu installiere
 
 ## Update über Webinterface installieren
 
-Als Administrator einer mosparo Installation, können Sie das Update-Webinterface im Administrations-Interface öffnen (erfahren Sie mehr über [Updates](../administration/updates)).
+Als Administrator einer mosparo Installation, können Sie das Update-Webinterface in der Administrationsoberfläche öffnen (erfahren Sie mehr über [Updates](../administration/updates)).
 
 Um zu prüfen, ob eine neue Version verfügbar ist, klicken Sie bitte auf die Schaltfläche “Nach Updates suchen”. mosparo nimmt anschliessend mit dem mosparo Update-Service Verbindung auf und ruft die aktuellen Versionsinformationen ab. Anschliessend wird ermittelt, ob die installierte Version älter als die neueste verfügbare Version ist. Ist das der Fall, wird Ihnen eine zusätzliche Schaltfläche “Update installieren” angezeigt, mit dem Sie mosparo aktualisieren können.
 

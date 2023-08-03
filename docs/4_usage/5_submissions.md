@@ -8,6 +8,8 @@ description: In the list of submissions, you will find all the data the users se
 
 Under "Submissions", you will find all submissions that have not yet been deleted. Submissions will be automatically deleted after 14 days and will no longer be visible in the list of submissions.
 
+With the dropdown in the top right corner, you can filter the list of submissions by their status. To see only submissions that contain spam or weren't correctly verified, use the option "Spam submissions". Use the option "Valid submissions" to see all correctly submitted submissions.
+
 ## Explanation of columns
 
 | Column       | Description                                                                                                                                                                                              |
