@@ -22,7 +22,7 @@ Da mosparo die Einsendungen nach 14 Tagen löscht, liefert die Statistik-API nur
 Um den API-Endpunkt zu sichern, ist eine Authentifizierung erforderlich. Dazu muss der Header `Authorization` mit der Anfrage gesendet werden. In diesem Header muss der öffentliche Schlüssel des Projekts als Benutzername angegeben werden. Für das Passwort muss ein HMAC SHA256 Hash der API-Endpunkt-URL kombiniert mit den Anfragedaten, serialisiert als JSON, angegeben werden. Der private Schlüssel wird als Schlüssel für den HMAC-SHA256-Hash verwendet.
 
 ```http request
-Authorization: [publicKey]:[hmacHash]
+Authorization: [Base64 von <publicKey>:<hmacHash>]
 ```
 
 #### Beispiel
@@ -33,10 +33,11 @@ $apiEndpoint = '/api/v1/statistic/by-date';
 $formData = [];
 
 $hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($formData), $privateKey);
+$authHeader = base64_encode($hmacHash);
 ```
 
 ```http request
-Authorization: QqfBxsmOfIMw0-uVNnRVdDlMUZdLpTG1xo0yyifyLrI:a72e56cb93b70a1f79dc6c807d4c0fbfcb8d122a458509299e2acdbb3a6f1df2
+Authorization: UXFmQnhzbU9mSU13MC11Vk5uUlZkRGxNVVpkTHBURzF4bzB5eWlmeUxySTphNzJlNTZjYjkzYjcwYTFmNzlkYzZjODA3ZDRjMGZiZmNiOGQxMjJhNDU4NTA5Mjk5ZTJhY2RiYjNhNmYxZGYy
 ```
 
 ### Anfrage
