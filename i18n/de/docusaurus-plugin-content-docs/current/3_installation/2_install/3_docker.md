@@ -69,6 +69,8 @@ volumes:
   mosparo_data:
 ```
 
+Wir empfehlen, die Werte `MYSQL_ROOT_PASSWORD` und `MYSQL_PASSWORD` durch Ihre eindeutigen Passwörter zu ersetzen.
+
 Öffnen Sie ein Terminal, nachdem Sie die Datei mit dem Inhalt oberhalb erstellt haben. Wechseln Sie in das erstellte Verzeichnis und führen Sie folgenden Befehl aus um die Container zu starten:
 
 ```
@@ -80,6 +82,8 @@ Sie sollten nun sehen, wie die Images heruntergeladen und die Container erstellt
 Nach einer gewissen Zeit sind die Arbeiten abgeschlossen und die mosparo Container wurden erstellt. Der mosparo Container ist nun installiert.
 
 Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
+
+Verwenden Sie den Namen des MySQL-Docker-Containers als Host für die Datenbankverbindung. Wenn Sie die Docker Compose-Datei wie oben angegeben verwenden, lautet der Name des MySQL-Containers `db`. Füllen Sie die anderen Werte wie in der Docker Compose-Datei definiert ein.
 
 Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy/).
 
@@ -102,6 +106,8 @@ Bitte passen Sie den Container-Name `mysql-server` an den von Ihnen gewählten N
 :::
 
 Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
+
+Verwenden Sie den Namen des MySQL-Docker-Containers als Host für die Datenbankverbindung.
 
 Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy/).
 

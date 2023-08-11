@@ -16,3 +16,7 @@ You can use the package we provided to install mosparo on your web hosting.
 4. Upload all extracted files to the directory of this new website
 5. Open your browser and access the website (for example, via the domain `example.com` or `mosparo.example.com`)
 6. Follow the installation wizard to install mosparo
+
+:::info
+If you're using the mosparo Docker image with a MySQL database in a container, please use the name of that container as the database host.
+:::

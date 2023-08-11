@@ -16,3 +16,7 @@ Um mosparo auf Ihrem Webhosting zu installieren, können Sie das von uns bereitg
 4. Laden Sie alle entpackten Dateien in das Verzeichnis dieser Website hoch
 5. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu (zum Beispiel über die Domain `example.com` oder `mosparo.example.com`)
 6. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
+
+:::info
+Wenn Sie das mosparo Docker-Image mit einer MySQL-Datenbank in einem Container verwenden, verwenden Sie bitte den Namen dieses Containers als Datenbank-Host.
+:::
