@@ -68,10 +68,16 @@ Binden Sie das Script von mosparo auf Ihrer Website ein. Initialisieren Sie dana
 | `cssResourceUrl`          | String   | _leer_                              | Definiert die Adresse, unter welcher die CSS-Ressourcen geladen werden können. Kann verwendet werden, wenn die korrekte Ressourcenadresse gecached wird.                                                                                                                                                                   |
 | `customMessages`           | Objekt   | `{}`                                | Ermöglicht das überschreiben der Texte in der Frontend-Box (siehe [Benutzerdefinierte Texte](#benutzerdefinierte-texte)).                                                                                                                                                                                                  |
 | `designMode`              | Boolean  | `false`                               | Wird verwendet, um im Backend von mosparo die mosparo-Box in den unterschiedlichen Zuständen darzustellen. Die mosparo-Box ist nicht funktionsfähig, wenn diese Option auf `true` gesetzt wird.                                                                                                                            |
+| `doSubmitFormInvisible`    | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Mit dieser Methode ist die Ausführung einer benutzerdefinierten Übermittlungsaktion möglich, nachdem das Formular validiert wurde (z. B. durch XHR). Dadurch wird der Standardübermittlungsprozess übersprungen.                                                                             |
 | `inputFieldSelector`      | String   | `[name]:not(.mosparo__ignored-field)` | Definiert den Selektor, mit welchem die Felder gesucht werden.                                                                                                                                                                                                                                                             |
 | `loadCssResource`         | Boolean  | `false`                               | Bestimmt, ob bei der Initialisierung auch die CSS-Ressourcen geladen werden sollen (siehe [CSS-Ressourcen einbinden](#css-ressourcen-einbinden)).                                                                                                                                                                          |
 | `name`                    | String   | _leer_                              | Definiert den Namen der HTML-Checkbox. Standardmässig wird eine zufällige ID dafür verwendet.                                                                                                                                                                                                                              |
-| `onCheckForm`             | Callable | _leer_                              | Definiert ein Callback, welches aufgerufen wird, sobald das Formular überprüft wurde.                                                                                                                                                                                                                                      |
+| `onAbortSubmit`            | Callable | _leer_                               | _(Nur im sichtbaren Modus)_ Dieser Callback wird aufgerufen, nachdem der Absendevorgang abgebrochen wurde, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                                                                                |
+| `onCheckForm`              | Callable | _leer_                               | Definiert einen Callback, der aufgerufen wird, sobald das Formular geprüft wurde. Das Überprüfungsergebnis wird als boolescher Parameter an den Callback übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                                                                                                    |
+| `onResetState`             | Callable | _leer_                               | Definiert einen Callback, der ausgeführt wird, nachdem die mosparo Box zurückgesetzt wurde (z.B. nachdem das Formular zurückgesetzt wurde).                                                                                                                                                                                |
+| `onSwitchToInvisible`      | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieser Callback wird nach dem Wechsel in den unsichtbaren Modus aufgerufen.                                        |
+| `onSubmitFormInvisible`    | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Dieser Callback wird aufgerufen, bevor das Formular abgeschickt wird.                                                                                                                                                                                                                        |
+| `onValidateFormInvisible`  | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Dieser Callback wird aufgerufen, bevor das Formular validiert wird.                                                                                                                                                                                                                          |
 | `requestSubmitTokenOnInit` | Boolean  | `true`                              | Gibt an, ob bei der Initialisierung automatisch ein Einsendecode angefordert werden soll. Wenn zum Beispiel direkt nach der Initialisierung des Formulars das Formular zurückgesetzt wird (mit `reset()`) braucht es bei der Initialisierung keinen Einsendecode, da mit dem Zurücksetzen ein neuer Code angefordert wird. |
 
 #### Benutzerdefinierte Texte
@@ -113,6 +119,68 @@ mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
             errorSpamDetected: 'Spam from Australia? Impossible!'
         }
     }
+});
+```
+
+### Ereignisse
+
+Wenn Sie die Initialisierungsparameter nicht anpassen können, können Sie auch die benutzerdefinierten Ereignisse verwenden, um die Ausführung von mosparo zu steuern. Alle Ereignisse werden auf dem Formularelement (`<form>`) ausgelöst. mosparo löst die folgenden Ereignisse aus:
+
+| Ereignisname              | Beschreibung                                                                                                                                                                                                                                         |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `form-checked`            | Definiert das Ereignis, welches ausgelöst wird, sobald das Formular geprüft wurde. Das Ergebnis der Prüfung wird als boolescher Wert `valid` an das Ereignis übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                          |
+| `state-reseted`           | Definiert das Ereignis, welches ausgelöst wird, nachdem das mosparo-Feld zurückgesetzt wurde (zum Beispiel, nachdem das Formular zurückgesetzt wurde).                                                                                               |
+| `switch-to-invisible`     | Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieses Ereignis wird nach dem Wechsel in den unsichtbaren Modus ausgelöst. |
+| `submit-aborted`          | _(Nur im sichtbaren Modus)_ Dieses Ereignis wird ausgelöst, wenn der Sendevorgang abgebrochen wird, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                 |
+| `submit-form-invisible`   | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird vor dem Absenden des Formulars ausgelöst.                                                                                                                                                         |
+| `validate-form-invisible` | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird ausgelöst, bevor das Formular validiert wird.                                                                                                                                                     |
+
+#### Beispiele für Ereignisse und Callbacks
+
+```javascript
+mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
+    onCheckForm: function (valid) {
+        console.log('onCheckForm', valid);
+    },
+    onResetState: function () {
+        console.log('onResetState');
+    },
+    onAbortSubmit: function () {
+        console.log('onAbortSubmit');
+    },
+    onSwitchToInvisible: function () {
+        console.log('onSwitchToInvisible');
+    },
+    onValidateFormInvisible: function () {
+        console.log('onValidateFormInvisible');
+    },
+    onSubmitFormInvisible: function () {
+        console.log('onSubmitFormInvisible');
+    }
+});
+
+document.getElementById('contact-form').addEventListener('form-checked', function (ev) {
+    console.log(ev, ev.detail.valid);
+});
+
+document.getElementById('contact-form').addEventListener('submit-aborted', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('state-reseted', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('switch-to-invisible', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('validate-form-invisible', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('submit-form-invisible', function (ev) {
+    console.log(ev);
 });
 ```
 
