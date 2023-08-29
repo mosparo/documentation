@@ -8,6 +8,12 @@ description: To use mosparo on a website, you must create a project for the webs
 
 Projects in mosparo are a website. You can use a project on any number of websites and in any number of forms. All settings, rules, and rule packages apply equally to all websites and forms that use this project.
 
+## List projects
+
+The user's project list is visible after logging into mosparo. The user can decide to show the projects in a list of boxes or a tabular list. This selection is stored in the user account settings. The type of list which the user used last will be used the next time the user visits the list of projects.
+
+The user has additional options to filter the list of projects if the user uses the tabular layout. Additionally, it's possible to search for a project. This is a good help if there are a lot of projects in a mosparo installation.
+
 ## Create a project
 
 ### 1. Project information

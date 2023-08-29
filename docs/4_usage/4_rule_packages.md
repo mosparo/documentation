@@ -8,11 +8,9 @@ description: Learn more about the use of rule packages and the structure of a ru
 
 ## Manage rule packages
 
-Rules are a combination of one or more rules created by someone and hosted on an external server. These rules can be added and are automatically updated at regular intervals.
+Rule packages combine one or more rules created by someone and hosted on an external server. These rule packages can be added to mosparo and are automatically updated at regular intervals. A checksum is created and checked when the rule package is updated to ensure the integrity of the rule packages.
 
-A checksum is automatically created and checked when the rule package is updated to ensure the integrity of the rule parameters.
-
-In mosparo, you can manage your rule packages. You can add a new rule package. All you need is the URL of the rule package. You can also specify a factor with which the rule package can be strengthened or weakened.
+To add a new rule package, you need to know the URL of the rule package. You can also specify a factor with which the rule package can be strengthened or weakened.
 
 After a rule package is added, you can view the rules contained in the rule package. However, you cannot edit or delete the rules in the rules package.
 

@@ -108,7 +108,7 @@ CH
 
 ### Text
 
-Mit dem Regeltyp "Text" können Sie ein einzelnes Wort, einen Teil eines Wortes oder eine Kombination aus Wörtern definieren. Der eingegebene Wert muss im User-Agent exakt so vorkommen, damit die Regel gilt. Sie können den Stern (*) als Platzhalter verwenden. Beim Suchen wird automatisch nach *wort* gesucht, dass bedeutet, Sie müssen den Platzhalter vor- und nach dem gesuchten Wort nicht einfügen.
+Mit dem Regeltyp "Text" können Sie ein einzelnes Wort, einen Teil eines Wortes oder eine Kombination aus Wörtern definieren. Der eingegebene Wert muss im User-Agent exakt so vorkommen, damit die Regel gilt. Sie können den Stern (\*) als Platzhalter verwenden. Beim Suchen wird automatisch nach `*wort*` gesucht, dass bedeutet, Sie müssen den Platzhalter vor- und nach dem gesuchten Wort nicht einfügen.
 
 :::note Beispiel
 Best Browser<br />
@@ -125,7 +125,7 @@ Wenn Sie als Regeltyp "RegEx" auswählen, können Sie ein beliebiges Regular Exp
 
 ## Unicode-Block
 
-Mit der Regelart Unicode-Block können bestimmte Zeichen aus dem Unicode-Zeichensatz ausgeschlossen werden. Wenn Sie in Ihrem Formular beispielsweise keine Währungszeichen wie € oder £ erlauben wollen, können Sie den Unicode-Block “Währungszeichen” als Regel hinzufügen. Das Absenden des Formulars mit Zeichen aus diesem Block ist damit nicht mehr möglich.
+Mit der Regelart Unicode-Block können bestimmte Zeichen aus dem Unicode-Zeichensatz ausgeschlossen werden. Wenn Sie in Ihrem Formular beispielsweise keine Währungszeichen wie € oder £ erlauben wollen, können Sie den Unicode-Block "Währungszeichen" als Regel hinzufügen. Das Absenden des Formulars mit Zeichen aus diesem Block ist damit nicht mehr möglich.
 
 :::note Beispiel
 Currency Sign

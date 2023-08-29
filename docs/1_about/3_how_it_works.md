@@ -6,6 +6,10 @@ description: How does mosparo work? The way it works is described in detail here
 
 # How it works
 
+:::info
+This page describes how the visible variant works. The invisible variant (introduced with V1.0) differs from this functionality. The differences are described [at the end](#functionality-invisible-variant) of this page.
+:::
+
 ## Overview
 
 The functionality of mosparo is relatively easy to explain. Instead of using a "magic method" to determine whether a visitor to your website is a human or not, mosparo checks the data entered in the form. Someone who wants to send you spam must enter the spam content in your form. By searching through the form data, mosparo can use predefined rules to determine whether a submission should be classified as spam.
@@ -89,3 +93,15 @@ After all fields have been evaluated, the points of all fields are added togethe
 If the sum of the points of all fields is above the spam threshold, the submission will be considered spam. It is not possible to submit the form.
 
 If the number of points is less than the spam limit, the submission will not be considered spam. The user can submit spam and the form.
+
+## Functionality invisible variant
+
+The functionality is in large parts similar to the visible variant. The main differences are the visibility and how the data is checked in the form.
+
+Compared to the visible variant, the mosparo box is initialized when the page is visited but is not visible. The checkbox is completely invisible and, therefore, cannot be activated by a screen reader or when navigating with the keyboard.
+
+Once the user has filled out the form, the user starts the submit process. mosparo intervenes at this point and checks whether the mosparo checkbox is already set. This means that the check has already been performed by mosparo. If the checkbox is not set, the send process is interrupted by mosparo. mosparo then automatically starts checking the data. The data is sent to mosparo as normal and mosparo checks whether the data is spam or not.
+
+A corresponding error message is displayed if the input contains spam and the sending process is aborted completely. If no spam was detected, mosparo automatically restarts the sending process. Since the checkbox is now set, the data is no longer rechecked, and the browser can complete the sending process.
+
+When mosparo starts checking the data, an overlay is displayed, indicating that the data is being checked. The overlay overlays either the entire website or only the form.

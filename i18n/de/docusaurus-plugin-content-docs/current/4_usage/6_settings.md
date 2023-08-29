@@ -176,6 +176,24 @@ Wenn der Benutzer mit der Tastatur die Kontrollbox fokussiert oder der Benutzer 
 
 Um die Aufmerksamkeit auf die Kontrollbox zu lenken, ist im Standard eine Ping-Animation eingebaut, welche die Checkbox hervorheben soll. Falls Sie diese Animation nicht möchten, können Sie sie jederzeit deaktivieren.
 
+### Unsichtbarer Modus
+
+Der unsichtbare Modus wurde mit Version 1.0 eingeführt. Im unsichtbaren Modus muss der Benutzer keine Box anklicken, um die Daten zu überprüfen. Stattdessen werden die Daten überprüft, sobald der Benutzer das Formular absenden möchte. Die genauere Beschreibung der Variante finden Sie unter [Funktionsweise](../about/how_it_works#funktionsweise-unsichtbare-variante). 
+
+Mit den Einstellungen können Sie die Darstellung dieser Überlagerung anpassen.
+
+#### Farben
+
+Mit den Farben können Sie den Hintergrund des Overlays, die Textfarbe sowie die Farbe des Lade-Kreises definiert werden. Zusätzlich kann die Farbe der Fehlermeldung, falls Spam entdeckt wurde, definiert werden. Die Hintergrundfarbe des Overlays sollte leicht transparent sein, so dass der Benutzer weiss, dass er die Seite nicht verlassen hat.
+
+#### mosparo-Logo
+
+Sobald das Overlay dargestellt wird, zeigt mosparo das Logo von mosparo ein. falls Sie dieses Branding nicht möchten, können Sie die Anzeige des Logos deaktivieren.
+
+#### Seiten-Overlay
+
+Definieren Sie, ob die Überlagerung die gesamte Website überlagern soll, oder ob nur das Formular überlagert werden soll.
+
 ### Kontrast-Bewertung
 
 Unser Ziel ist es, dass jeder Mensch Ihr Formular ausfüllen kann. Dafür ist es für uns Wichtig, dass die mosparo-Box auch von einem Menschen benutzt werden kann, der nicht so gut sieht, wie andere Menschen. Es ist daher wichtig, dass die von Ihnen gewählten Farben einen möglichst hohen Kontrast aufweisen. Aus diesem Grund haben wir direkt in den Darstellungseinstellungen eine Funktion eingebaut, welche die entsprechenden Kontraste berechnet und Ihnen anzeigt.

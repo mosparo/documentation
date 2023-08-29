@@ -32,4 +32,6 @@ In der Verwaltung der Regeln finden Sie alle erfassten Regeln. Sie können weite
 
 In der Liste der Regeln sehen Sie den Namen der Regel, den Regeltyp und ob die Regel aktiv ist oder nicht. Sie können die vorhandenen Regeln bearbeiten oder löschen, falls eine Regel nicht mehr benötigt wird.
 
+Mit dem Filter-Dropdown in der oberen rechten Ecke können Sie die Liste nach nur einer der Regelarten filtern.
+
 Bevor eine Regel gelöscht wird, müssen Sie das Löschen der Regel bestätigen.

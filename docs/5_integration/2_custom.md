@@ -68,10 +68,16 @@ Embed the mosparo script on your website. Then initialize mosparo with the code 
 | `cssResourceUrl`           | String   | _empty_                               | Defines the address at which the browser can load the CSS resources. You can use it if the correct resource address is cached.                                                                                                                                                     |
 | `customMessages`           | Object   | `{}`                                  | Option to override the messages which the frontend box uses (see [Custom Messages](#custom-messages)).                                                                                                                                                                             |                                   
 | `designMode`               | Boolean  | `false`                               | Used to display the mosparo box in the different states in the mosparo backend. The mosparo box is not functional if this option is set to `true`.                                                                                                                                 |
+| `doSubmitFormInvisible`    | Callable | _empty_                               | _(Invisible mode only)_ With this method, executing a custom submit action is possible after the form is validated (for example, by XHR). This will skip the default submit process.                                                                                     |
 | `inputFieldSelector`       | String   | `[name]:not(.mosparo__ignored-field)` | Defines the selector with which the fields are searched.                                                                                                                                                                                                                           |
 | `loadCssResource`          | Boolean  | `false`                               | Determines whether the script should also load the CSS resources during initialization (see [Embed CSS Resources](#embed-css-resources)).                                                                                                                                          |
 | `name`                     | String   | _empty_                               | Defines the name of the HTML checkbox. By default, a random ID is used for it.                                                                                                                                                                                                     |
-| `onCheckForm`              | Callable | _empty_                               | Defines a callback that is called as soon as the form has been checked.                                                                                                                                                                                                            |
+| `onAbortSubmit`            | Callable | _empty_                               | _(Visible mode only)_ This callback will be called after the submit process is aborted, for example, when the form must be revalidated by mosparo.                                                                                                                                 |
+| `onCheckForm`              | Callable | _empty_                               | Defines a callback that is called as soon as the form has been checked. The validation result will be given as a boolean parameter to the callback (`true` if everything is correct, `false` if not).                                                                              |
+| `onResetState`             | Callable | _empty_                               | Defines a callback that will be executed after the mosparo box is reset (for example, after the form was reset).                                                                                                                                                                   |
+| `onSwitchToInvisible`      | Callable | _empty_                               | _(Invisible mode only)_ When a website uses the invisible mode, mosparo will initialize itself in the visible mode and change to the invisible mode after receiving the submit token. This callback will be called after the switch to the invisible mode.                         |
+| `onSubmitFormInvisible`    | Callable | _empty_                               | _(Invisible mode only)_ This callback will be called before the form will be submitted.                                                                                                                                                                                            |
+| `onValidateFormInvisible`  | Callable | _empty_                               | _(Invisible mode only)_ This callback will be called before the form will be validated.                                                                                                                                                                                            |
 | `requestSubmitTokenOnInit` | Boolean  | `true`                                | Specifies whether a submit token should be automatically requested during initialization. If, for example, the form is reset directly after initialization (with `reset()`), there is no need for a submit token during initialization, as a new code is requested with the reset. |
 
 #### Custom Messages
@@ -97,7 +103,6 @@ The functionality uses the language information from the browser by accessing `n
 | `errorDelay`                  | Visible when the user requests too many submit tokens and gets delayed.                                             | Your request was delayed. Please wait for `%seconds%` seconds. |
 | `hpLeaveEmpty`                | This message is hidden, visible mostly to screen readers for the honeypot field.                          | Leave this field blank |
 
-
 ##### Example
 
 ```javascript
@@ -114,6 +119,68 @@ mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
             errorSpamDetected: 'Spam from Australia? Impossible!'
         }
     }
+});
+```
+
+### Events
+
+If you cannot adjust the initialization parameters, you can also use the custom events to control the execution of mosparo. All events are dispatched on the form element (`<form>`). mosparo dispatches the following events:
+
+| Event name                | Description                                                                                                                                                                                                                                                 |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `form-checked`            | Defines the event that is dispatched as soon as the form has been checked. The validation result will be given as an boolean value `valid` to the event (`true` if everything is correct, `false` if not).                                                   |
+| `state-reseted`           | Defines the event that will be dispatched after the mosparo box is reset (for example, after the form was reset).                                                                                                                                           |
+| `switch-to-invisible`     | _(Invisible mode only)_ When a website uses the invisible mode, mosparo will initialize itself in the visible mode and change to the invisible mode after receiving the submit token. This event will be dispatched after the switch to the invisible mode. |
+| `submit-aborted`          | _(Visible mode only)_ This event will be dispatched after the submit process is aborted, for example, when the form must be revalidated by mosparo.                                                                                                         |
+| `submit-form-invisible`   | _(Invisible mode only)_ This event will be dispatched before submitting the form.                                                                                                                                                                           |
+| `validate-form-invisible` | _(Invisible mode only)_ This event will be dispatched before the form is validated.                                                                                                                                                                         |
+
+#### Example events and callbacks
+
+```javascript
+mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
+    onCheckForm: function (valid) {
+        console.log('onCheckForm', valid);
+    },
+    onResetState: function () {
+        console.log('onResetState');
+    },
+    onAbortSubmit: function () {
+        console.log('onAbortSubmit');
+    },
+    onSwitchToInvisible: function () {
+        console.log('onSwitchToInvisible');
+    },
+    onValidateFormInvisible: function () {
+        console.log('onValidateFormInvisible');
+    },
+    onSubmitFormInvisible: function () {
+        console.log('onSubmitFormInvisible');
+    }
+});
+
+document.getElementById('contact-form').addEventListener('form-checked', function (ev) {
+    console.log(ev, ev.detail.valid);
+});
+
+document.getElementById('contact-form').addEventListener('submit-aborted', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('state-reseted', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('switch-to-invisible', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('validate-form-invisible', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('submit-form-invisible', function (ev) {
+    console.log(ev);
 });
 ```
 
