@@ -25,16 +25,17 @@ Authorization: [base64 of <publicKey>:<hmacHash>]
 #### Example
 
 ```php
+$publicKey = 'XStQNakEiJk1oMIXJ6_Rxmd3j5gNcQae34n1G3aR6FU';
 $privateKey = 'stH6Ugo4FcbQLp6_KPlOYltFMHfY59rxCUQRk3_AxYQ';
 $apiEndpoint = '/api/v1/verification/verify';
 $formData = ['first-name' => '0fde7e04a97f64098b5285c6e33502ddd918a04a7fc8c7012a13caae19b26c3b'];
 
 $hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($formData), $privateKey);
-$authHeader = base64_encode($hmacHash);
+$authHeader = base64_encode($publicKey . ':' . $hmacHash);
 ```
 
 ```http request
-Authorization: UXFmQnhzbU9mSU13MC11Vk5uUlZkRGxNVVpkTHBURzF4bzB5eWlmeUxySTozYmRkMzg1Y2FhNTNlM2RhNzZhOGRjYmZjYWEwZDlmNGUwNGQ4YzE4OWZhYjAzYmE0MTM4M2RlZWEyMzZiMmQzCgo=
+Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCeHNtT2ZJTXcwLXVWTm5SVmREbE1VWmRMcFRHMXhvMHl5aWZ5THJJOjNiZGQzODVjYWE1M2UzZGE3NmE4ZGNiZmNhYTBkOWY0ZTA0ZDhjMTg5ZmFiMDNiYTQxMzgzZGVlYTIzNmIyZDM=
 ```
 
 ### Request
