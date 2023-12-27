@@ -103,3 +103,7 @@ If an error occurred, only the following properties would be present in the answ
 |----------------------------|---------|-------------------------------------------------|
 | `numberOfValidSubmissions` | Integer | The number of valid submissions for the date.   |
 | `numberOfSpamSubmissions`  | Integer | The number of submissions as spam for the date. |
+
+:::info
+The response can contain more data if the [API debug mode](./api_debug_mode) is enabled for a project.
+:::

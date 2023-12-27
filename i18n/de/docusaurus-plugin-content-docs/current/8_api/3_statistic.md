@@ -103,3 +103,7 @@ Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Ant
 |----------------------------|---------|------------------------------------------------------|
 | `numberOfValidSubmissions` | Integer | Die Anzahl der gültigen Einreichungen für das Datum. |
 | `numberOfSpamSubmissions`  | Integer | Die Anzahl der Spam-Emissionen für das Datum.        |
+
+:::info
+Die Antwort kann mehr Daten enthalten, falls der [API-Debugging-Modus](./api_debug_mode) für ein Projekt aktiviert ist.
+:::
