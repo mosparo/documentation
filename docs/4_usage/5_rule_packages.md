@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 sidebar_label: Rule packages
 description: Learn more about the use of rule packages and the structure of a rule package.
 ---

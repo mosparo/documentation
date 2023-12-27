@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: Submissions
 description: In the list of submissions, you will find all the data the users sent in.
 ---

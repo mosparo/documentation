@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Regelarten
 description: mosparo verfügt über verschiedene Regelarten. Hier finden Sie eine Übersicht über alle Regelarten.
 ---

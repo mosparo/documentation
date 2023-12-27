@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: Einsendungen
 description: In der Liste der Einsendungen finden Sie alle Daten, welche eingesendet wurden.
 ---

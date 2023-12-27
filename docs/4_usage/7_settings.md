@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 sidebar_label: Settings
 description: You can adjust the project according to your wishes in the project settings.
 ---
@@ -10,12 +10,13 @@ description: You can adjust the project according to your wishes in the project 
 
 You can edit the most important information about the project in general settings.
 
-| Field       | Description                                                                                                                                                                                                                                                           |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name        | Name of the project                                                                                                                                                                                                                                                   |
-| Description | Description of the project                                                                                                                                                                                                                                            |
-| Hosts       | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must capture all hosts. It is necessary to enter the domain without the correct path to the form. For example, `example.com`   |
-| Spam limit  | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                           |
+| Field             | Description                                                                                                                                                                                                                                          |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name              | Name of the project                                                                                                                                                                                                                                  |
+| Description       | Description of the project                                                                                                                                                                                                                           |
+| Hosts             | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must capture all hosts. It is necessary to enter the domain without the correct path to the form. For example, `example.com` |
+| Spam limit        | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                          |
+| Statistic storage | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. (Added in v1.1)                                                                               |
 
 On the right side, you can see the most important information you need to integrate mosparo into your website. Copy this information and paste these values into your website's fields or configuration pages.
 
