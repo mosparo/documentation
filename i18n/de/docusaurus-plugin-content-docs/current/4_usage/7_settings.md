@@ -16,7 +16,7 @@ In den allgemeinen Einstellungen können die wichtigsten Informationen zum Proje
 | Beschreibung            | Beschreibung des Projektes                                                                                                                                                                                                                                  |
 | Hosts                   | Damit die Anfragen korrekt beantwortet werden können, muss mosparo wissen, woher dieses Projekt verwendet wird. Dazu müssen alle Hosts erfasst werden. Es muss nur die Domain, ohne korrekten Pfad zum Formular, eingegeben werden. Beispiel: `example.com` |
 | Spam-Grenze             | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird.                                                                                                                                                                     |
-| Speichern der Statistik | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. (Hinzugefügt in v1.1)                                                                               |
+| Speichern der Statistik | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. _(Hinzugefügt in v1.1)_                                                                      |
 
 Auf der rechten Seite sind die wichtigsten Informationen sichtbar, die Sie benötigen, um mosparo in Ihre Website zu integrieren. Kopieren Sie diese Informationen und fügen Sie diese Werte in den dafür vorgesehenen Feldern oder Konfigurations-Feldern Ihrer Website ein.
 

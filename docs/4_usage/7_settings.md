@@ -16,7 +16,7 @@ You can edit the most important information about the project in general setting
 | Description       | Description of the project                                                                                                                                                                                                                           |
 | Hosts             | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must capture all hosts. It is necessary to enter the domain without the correct path to the form. For example, `example.com` |
 | Spam limit        | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                          |
-| Statistic storage | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. (Added in v1.1)                                                                               |
+| Statistic storage | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                             |
 
 On the right side, you can see the most important information you need to integrate mosparo into your website. Copy this information and paste these values into your website's fields or configuration pages.
 
