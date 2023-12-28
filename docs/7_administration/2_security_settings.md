@@ -37,4 +37,22 @@ Configure the following settings for your reverse proxy if you use one to run mo
 
 For more information on configuring the reverse proxy, see [Reverse Proxy](../installation/reverse_proxy).
 
+## Backend access
 
+To enhance the security of your mosparo installation, you can limit who can access your mosparo backend. You can specify which IP addresses can access the login form and the backend.
+
+If you do not configure this option (leave the field blank), every IP address can access the backend if you do not limit the access on your web server or firewall of the server (or network).
+
+Enter one IP address or subnet per line. It can be an IPv4 or IPv6 address.
+
+## API access
+
+To enhance the security of your mosparo installation even more, you can also limit which devices can access the API of your mosparo installation.
+
+If you do not configure this option (leave the field blank), every IP address can access the backend if you do not limit the access on your web server or firewall of the server (or network).
+
+Enter one IP address or subnet per line. It can be an IPv4 or IPv6 address.
+
+Usually, only your web server needs access to the API of your mosparo installation so that you can limit the access to the API to only one IP address for maximum security.
+
+If mosparo is installed on the same server as your website, you can enter `127.0.0.1` in the field to limit access to this server.

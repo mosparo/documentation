@@ -36,3 +36,23 @@ Konfigurieren Sie die folgenden Einstellungen für Ihren Reverse Proxy, falls Si
 | Name der benutzerdefinierten Protokoll-Kopfzeile                 | Falls Ihr Reverse Proxy eine spezielle Kopfzeile für die Übermittlung des Protokolls verwendet, geben Sie bitte den Namen hier an.                                                                                           |
 
 Mehr Informationen zur Konfiguration des Reverse Proxies finden Sie unter [Reverse Proxy](../installation/reverse_proxy).
+
+## Backend-Zugriff
+
+Um die Sicherheit Ihrer mosparo-Installation zu erhöhen, können Sie den Zugriff auf Ihr mosparo-Backend einschränken. Sie können festlegen, welche IP-Adressen auf das Anmeldeformular und das Backend zugreifen können.
+
+Wenn Sie diese Option nicht konfigurieren (das Feld leer lassen), kann jede IP-Adresse auf das Backend zugreifen, sofern Sie den Zugriff nicht auf Ihrem Webserver oder der Firewall des Servers (oder Netzwerks) beschränken.
+
+Geben Sie eine IP-Adresse oder ein Subnetz pro Zeile ein. Sie können eine beliebige IPv4- oder IPv6-Adresse eingeben.
+
+## API-Zugriff
+
+Um die Sicherheit Ihrer mosparo-Installation noch weiter zu erhöhen, können Sie zusätzlich einschränken, welche Geräte auf die API Ihrer mosparo-Installation zugreifen können.
+
+Wenn Sie diese Option nicht konfigurieren (das Feld leer lassen), kann jede IP-Adresse auf das Backend zugreifen, sofern Sie den Zugriff nicht auf Ihrem Webserver oder der Firewall des Servers (oder Netzwerks) beschränken.
+
+Geben Sie eine IP-Adresse oder ein Subnetz pro Zeile ein. Sie können eine beliebige IPv4- oder IPv6-Adresse eingeben.
+
+In der Regel benötigt nur Ihr Webserver Zugriff auf die API Ihrer mosparo-Installation, so dass Sie für maximale Sicherheit den Zugriff auf die API auf nur eine IP-Adresse beschränken können.
+
+Wenn mosparo auf dem gleichen Server wie Ihre Website installiert ist, können Sie in das Feld `127.0.0.1` eintragen, um den Zugriff auf diesen Server zu beschränken.
