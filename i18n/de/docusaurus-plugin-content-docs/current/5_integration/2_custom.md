@@ -21,10 +21,10 @@ Fügen Sie in Ihrem Formular an der Stelle, an welcher die mosparo-Box angezeigt
 Im Kopf Ihrer Website müssen Sie die CSS-Ressourcen von mosparo einbinden. Fügen Sie dazu folgenden Code im HTML-Head-Bereich ein:
 
 ```html
-<link href="https://[host]/resources/[uuid]. css" rel="stylesheet"> 
+<link href="https://<host>/resources/<uuid>.css" rel="stylesheet"> 
 ```
 
-Ersetzen Sie dabei `[host]` mit der Adresse Ihrer mosparo-Installation. Tragen Sie bei `[uuid]` die eindeutige Identifikationsnummer Ihres mosparo-Projektes ein.
+Ersetzen Sie dabei `<host>` mit der Adresse Ihrer mosparo-Installation. Tragen Sie bei `<uuid>` die eindeutige Identifikationsnummer Ihres mosparo-Projektes ein.
 
 :::info
 Sie können die CSS-Ressourcen auch direkt vom Script beim Initialisieren der mosparo-Box einbinden. Verwenden Sie dazu die Option loadCssResource bei der Initialisierung (siehe [Parameter der mosparo-Klasse](#parameter-der-mosparo-klasse)).
@@ -35,30 +35,34 @@ Sie können die CSS-Ressourcen auch direkt vom Script beim Initialisieren der mo
 Binden Sie das Script von mosparo auf Ihrer Website ein. Initialisieren Sie danach mosparo mit dem untenstehenden Code.
 
 ```html
-<script  src="https://[host]/build/mosparo-frontend.js" defer></script>
+<script  src="https://<host>/build/mosparo-frontend.js" defer></script>
 <script>
     var m;
     window.onload = function(){
         m = new mosparo(
-               '[htmlId]', 
-               '[host]', 
-               '[uuid]',
-               '[publicKey]', 
-               [options]
+               '<htmlId>', 
+               '<host>', 
+               '<uuid>',
+               '<publicKey>', 
+               <options>
         );
     };
 </script>
 ```
 
+:::info
+Die Kleiner-als- (`<`) und Grösser-als-Zeichen (`>`) sind zur Kennzeichnung des Platzhalters eingefügt und müssen mit dem richtigen Wert ersetzt werden.
+:::
+
 ### Parameter der mosparo Klasse
 
 | Parameter     | Typ    | Erforderlich | Beschreibung                                                               |
 |---------------|--------|--------------|----------------------------------------------------------------------------|
-| `[htmlId]`    | String | Erforderlich | HTML-ID des Div-Containers, welchen Sie in Ihrem Formular eingefügt haben. |
-| `[host]`      | String | Erforderlich | Host Ihrer mosparo-Installation                                            |
-| `[uuid]`      | String | Erforderlich | Eindeutige Identifikationsnummer des Projektes in mosparo                  |
-| `[publicKey]` | String | Erforderlich | Öffentlicher Schlüssel des Projektes in mosparo                            |
-| `[options]`   | Objekt | Optional     | Zusätzliche Optionen                                                       |
+| `<htmlId>`    | String | Erforderlich | HTML-ID des Div-Containers, welchen Sie in Ihrem Formular eingefügt haben. |
+| `<host>`      | String | Erforderlich | Host Ihrer mosparo-Installation                                            |
+| `<uuid>`      | String | Erforderlich | Eindeutige Identifikationsnummer des Projektes in mosparo                  |
+| `<publicKey>` | String | Erforderlich | Öffentlicher Schlüssel des Projektes in mosparo                            |
+| `<options>`   | Objekt | Optional     | Zusätzliche Optionen                                                       |
 
 ### Zusätzliche Optionen
 
@@ -107,7 +111,7 @@ Die Funktionalität verwendet die Sprachinformationen des Browsers durch Zugriff
 ##### Beispiel
 
 ```javascript
-mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
+mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
     customMessages: {
         de_CH: {
             label: 'Ich akzeptiere aus der Schweiz'
@@ -139,7 +143,7 @@ Wenn Sie die Initialisierungsparameter nicht anpassen können, können Sie auch 
 #### Beispiele für Ereignisse und Callbacks
 
 ```javascript
-mosparo('mosparo-box', 'host', 'uuid', 'publicKey', {
+mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
     onCheckForm: function (valid) {
         console.log('onCheckForm', valid);
     },
@@ -211,86 +215,363 @@ Um die Verifizierung auf Ihrer Website zu vereinfachen, gibt es Funktionsbibliot
 
 ### Verifizierung manuell durchführen
 
-Wenn Sie keine Funktionsbibliothek verwenden möchten oder für Ihre Programmiersprache keine Funktionsbibliothek verfügbar ist, können Sie die Verifizierung problemlos manuell durchführen.
+Wenn Sie keine Funktionsbibliothek verwenden wollen oder für Ihre Programmiersprache keine Funktionsbibliothek zur Verfügung steht, können Sie die Überprüfung leicht manuell durchführen.
 
 :::info
-Alle Code-Beispiele in diesem Abschnitt sind in der Programmiersprache PHP geschrieben (aus der [PHP Funktionsbibliothek](https://github.com/mosparo/php-api-client/)). Grundsätzlich dient das aber nur zur besseren Darstellung und es kann jede beliebige Programmiersprache verwendet werden.
+Alle Codebeispiele in diesem Abschnitt sind in der Programmiersprache PHP geschrieben. Dies dient nur der besseren Darstellung. Sie können jede beliebige Programmiersprache verwenden.
 :::
 
-#### Formulardaten weiter für die Anfrage vorbereiten 
+#### Formular
 
-Nachdem die Formulardaten gereinigten wurden (siehe [Vorbereiten der Formulardaten](#vorbereiten-der-formulardaten)), müssen Sie zusätzlich weitere Bereinigungen vornehmen:
+In diesem Beispiel verwenden wir ein einfaches Formular mit einem Feld für den Namen, die E-Mail-Adresse und einem Textfeld für die Nachricht.
 
-1. Extrahieren Sie den Einsendecode `_mosparo_submitToken` sowie den Validierungscode `_mosparo_validationToken` aus den Formulardaten und speichern Sie diese Werte in einer Variable.
-2. Alle Formularfelder, deren Name mit `_mosparo_` beginnt, müssen aus den Formulardaten entfernt werden. Es handelt sich dabei unter anderem um den Einsendecode sowie den Validierungscode von mosparo, welchen Sie für die Verifizierung benötigen, jedoch nicht in den Formulardaten vorhanden sein dürfen.
-3. In allen Feldern müssen CRLF-Zeilenumbrüche mit LF-Zeilenumbrüchen ersetzt werden (`\r\n` zu `\n` konvertieren)
-4. Generierung des Hashes (SHA256 Hash) für jeden Wert (siehe [Argumente](../api/verification/#argumente)).
-5. Die Namen der Formulardaten müssen zu Kleinbuchstaben konvertiert werden
-6. Die Formularfelder sollen nach Namen alphabetisch aufsteigend (A-Z) sortiert werden
+```html
+<form method="post" id="contact-form">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label required" for="name">Name</label>
+        <div class="col-sm-9">
+            <input type="text" name="name" id="name" class="form-control" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label required" for="emailAddress">Email address</label>
+        <div class="col-sm-9">
+            <input type="email" name="emailAddress" id="emailAddress" class="form-control" required />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label required" for="message">Message</label>
+        <div class="col-sm-9">
+            <textarea class="form-control" name="message" id="message" style="height: 300px;" required></textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <div id="mosparo-box"></div>
+        </div>
+    </div>
+        
+    <div class="row mb-3">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <button type="submit" name="submitted" class="btn btn-primary btn-lg">
+                Submit
+            </button>
+        </div>
+    </div>
+</form>
 
-#### Generieren der Signaturen
-
-Nachdem die Formulardaten bereinigt und sortiert wurden, müssen Sie die notwendigen Signaturen erstellen und anschliessend die Daten an mosparo senden.
-
-Generieren Sie zuerst eine Signature der Formulardaten. Konvertieren Sie dazu die Formulardaten zu einem JSON-String. Erzeugen Sie anschliessend einen HMAC Hash mit dem Hash-Algorithmus SHA256 und dem privaten API-Schlüssel als Schlüssel.
-
-```php
-$formSignature = hmac_hash('sha256', json_encode($formData), $privateKey);
+<script src="https://mosparo.example.com/build/mosparo-frontend.js" defer></script>
+<script>
+    var m;
+    window.onload = function(){
+        m = new mosparo('mosparo-box', 'https://mosparo.example.com', '<uuid>', '<publicKey>', {
+            loadCssResource: true
+        });
+    };
+</script>
 ```
 
-:::note
-Beachten Sie, dass leere Arrays `[]` im JSON-String als leere Objete `{}` dargestellt werden sollten, da es ansonsten zu Problemen kommen kann. 
-:::
+#### Vor dem Hinzufügen von mosparo
 
-Erzeugen Sie anschliessend eine Signatur des Validierungscode, welcher im Formular von mosparo übermittelt wurde.
+Nachdem das Formular abgeschickt wurde, verarbeitet das Backend die Formulardaten und sendet die Formulardaten per E-Mail oder speichert sie in einer Datenbank.
 
 ```php
-$validationSignature = hmac_hash('sha256', $validationToken, $privateKey);
+<?php
+
+// Abrufen der Formulardaten
+$formData = $_POST;
+
+// Validierung der Formulardaten
+if (!validateFormData($formData)) {
+    // Wenn die Formulardaten nicht gültig sind, wird eine Fehlermeldung angezeigt
+    echo 'Ihre Formulardaten sind nicht gültig.';
+    exit;
+}
+
+// Wenn alles korrekt ist, kann das E-Mail versendet werden
+mail('info@example.com', 'Nachricht des Kontakt-Formulars', 'Hallo Webmaster, hier ist eine Nachricht des Kontaktformulars .........');
 ```
 
-Um eine Veränderung der Daten zu verunmöglichen, muss anschliessend eine Verifikationssignatur erzeugt werden, welche aus der Validierungssignature sowie der Formulardatensignatur besteht.
+#### Hinzufügen von mosparo zum Prozess
+
+Mit mosparo müssen Sie nun Ihren Backend-Prozess anpassen, um die Einsendung mit mosparo zu verifizieren.
 
 ```php
-$verificationSignature = hmac_hash('sha256', $validationSignature . $formSignature, $privateKey);
+<?php
+
+// Abrufen der Formulardaten
+$formData = $_POST;
+
+// Überprüfen der Formulardaten mit mosparo
+if (!verifyFormDataWithMosparo($formData)) {
+    // Allgemeine Fehlermeldung, wir kennen den genauen Grund für die fehlgeschlagene Überprüfung hier nicht
+    echo 'Die Formulardaten enthalten Spam.';
+    exit;
+}
+
+// Validierung der Formulardaten
+if (!validateFormData($formData)) {
+    // Wenn die Formulardaten nicht gültig sind, wird eine Fehlermeldung angezeigt
+    echo 'Ihre Formulardaten sind nicht gültig.';
+    exit;
+}
+
+// Wenn alles korrekt ist, kann das E-Mail versendet werden
+mail('info@example.com', 'Nachricht des Kontakt-Formulars', 'Hallo Webmaster, hier ist eine Nachricht des Kontaktformulars .........');
 ```
 
-Diese Signaturen müssen zusammen mit dem Einsendecode sowie den Formulardaten an mosparo übermittelt werden.
+Die Verifizierung erfolgt in elf Schritten:
 
 ```php
-$apiEndpoint = '/api/v1/verification/verify';
+<?php
+
+function verifyFormDataWithMosparo(array $formData)
+{
+    // 1. Entfernen der ignorierten Felder aus den Formulardaten
+    // 2. Extrahieren des Einsende- und Validierungs-Codes aus den Formulardaten
+    // 3. Vorbereiten der Formulardaten
+    // 4. Erzeugen der Hashes
+    // 5. Generieren der Signatur der Formulardaten
+    // 6. Erzeugen der Validierungssignatur
+    // 7. Vorbereiten der Verifizierungssignatur
+    // 8. Sammeln der Anfragedaten
+    // 9. Generierung der Anfragesignatur
+    // 10. Senden der API-Anfrage
+    // 11. Prüfen der Antwort
+}
+```
+
+##### 1. Entfernen der ignorierten Felder aus den Formulardaten
+
+mosparo validiert keine Feldtypen wie Checkbox, Radio, Password und Hidden. Es gibt noch weitere ignorierte Felder, die Sie in dieser Liste hier finden können: [Ignorierte Felder](./ignored_fields)
+
+Sie müssen diese aus den Formulardaten entfernen, da mosparo diese Felder nicht validiert hat (siehe [Vorbereiten der Formulardaten](#preparing-form-data)).
+
+##### 2. Extrahieren des Einsende- und Validierungs-Codes aus den Formulardaten
+
+mosparo fügt automatisch den Einsende- und den Validierungs-Code zu Ihren Formulardaten hinzu. Sie sollten also diese beiden Werte in Ihren Formulardaten haben. Extrahieren Sie die beiden Werte und speichern Sie sie in einer Variablen:
+
+```php
+$submitToken = $formData['_mosparo_submitToken'];
+$validationToken = $formData['_mosparo_validationToken'];
+```
+
+##### 3. Vorbereiten der Formulardaten
+
+Nun müssen wir die Formulardaten bereinigen. Dazu müssen wir über die Formulardaten iterieren. Wenn der Feldname mit `_mosparo_` beginnt, müssen wir dieses Feld aus den Formulardaten entfernen. Ausserdem müssen wir bei allen anderen Feldern CRLF-Zeilenumbrüche durch LF-Zeilenumbrüche ersetzen.
+
+```php
+$preparedFormData = [];
+foreach ($formData as $fieldName => $value) {
+    if (str_starts_with($fieldName, '_mosparo_')) {
+        continue;
+    }
+
+    $preparedFormData[$fieldName] = str_replace("\r\n", "\n", $value);
+}
+```
+
+##### 4. Erzeugen der Hashes
+
+Da wir die Formulardaten nicht im Klartext an mosparo übertragen wollen, erstellen wir Hashes. Dazu iterieren wir über das Array der aufbereiteten Formulardaten und erstellen für jeden Wert einen SHA256-Hash. Bitte sortieren Sie das Array alphabetisch nach dem Feldnamen in aufsteigender Reihenfolge (A-Z).
+
+```php
+foreach ($preparedFormData as $fieldName => $value) {
+    $preparedFormData[$fieldName] = hash('sha256', $value);
+}
+
+ksort($preparedFormData);
+```
+
+##### 5. Generieren der Signatur der Formulardaten
+
+Nun erstellen wir eine Signatur, um die Gültigkeit der vorbereiteten Formulardaten zu beweisen. Dazu konvertieren wir die vorbereiteten Formulardaten in einen JSON-String und erstellen dann einen HMAC SHA256-Hash mit dem geheimen Schlüssel des Projekts.
+
+```php
+$jsonPreparedFormData = json_encode($preparedFormData);
+$projectPrivateKey = '<privateKey>'; // Sie finden diesen Wert in den Projekteinstellungen in mosparo
+$formDataSignature = hash_hmac('sha256', $jsonPreparedFormData, $projectPrivateKey);
+```
+
+##### 6. Erzeugen der Validierungssignatur
+
+Mit der gleichen Methode wie in Schritt 5 erstellen wir die Signatur des Validierungs-Codes (ein HMAC SHA256 Hash):
+
+```php
+$validationSignature = hash_hmac('sha256', $validationToken, $projectPrivateKey);
+```
+
+##### 7. Vorbereiten der Verifizierungssignatur
+
+Um später die Antwort von mosparo zu bestätigen, erstellen wir eine Verifizierungssignatur. Die Signatur ist die Kombination aus der Validierungsignatur und der Signatur der Formulardaten als HMAC SHA256 Hash.
+
+```php
+$combinedSignatures = $validationSignature . $formDataSignature;
+$verificationSignature = hash_hmac('sha256', $combinedSignatures, $projectPrivateKey); 
+```
+
+##### 8. Sammeln der Anfragedaten
+
+Nachdem wir die Formulardaten vorbereitet und die Signaturen erstellt haben, können wir nun die API-Anfrage für die Verifizierungs-API vorbereiten. Dazu bereiten wir die Anfragedaten vor, die wir benötigen, um die Verifizierungs-API zu kontaktieren:
+
+```php
+$apiEndpoint = '/api/v1/verification/verify'; // Dies ist die API von mosparo, also ein fester Wert
 $requestData = [
     'submitToken' => $submitToken,
     'validationSignature' => $validationSignature,
-    'formSignature' => $formSignature,
-    'formData' => $formData
+    'formSignature' => $formDataSignature,
+    'formData' => $preparedFormData,
 ];
 ```
 
-Um die Echtheit der Anfrage zu bestätigen, wird eine Anfragesignatur erzeugt, welche aus dem API-Endpunkt sowie den Anfragedaten als JSON-String besteht.
+##### 9. Generierung der Anfragesignatur
+
+Um die Anfrage zu authentifizieren, benötigen wir eine Anfragesignatur. Wir erstellen einen weiteren HMAC SHA256-Hash mit der Kombination aus dem API-Endpunkt und den Anfragedaten als JSON-String als Wert.
 
 ```php
-$requestSignature = hmac_hash('sha256', $apiEndpoint . json_encode($requestData), $privateKey);
+$jsonRequestData = json_encode($requestData);
+$combinedApiEndpointJsonRequestData = $apiEndpoint . $jsonRequestData;
+$requestSignature = hash_hmac('sha256', $combinedApiEndpointJsonRequestData, $projectPrivateKey);
 ```
 
-#### Senden der Verifizierungs-Anfrage
+##### 10. Senden der API-Anfrage
 
-Um die Anfrage zu starten, senden Sie eine POST-Anfrage an den Host Ihrer mosparo-Installation. Verwenden Sie den API-Endpunkt `/api/v1/verification/verify` und die Anfrage-Daten.
-
-Um die Authentizität Ihrer Anfrage zu gewährleisten, senden Sie bitte den öffentlichen Schlüssel sowie die Anfragesignatur in der Authorization-Kopfzeile.
+Wir haben alle notwendigen Werte vorbereitet und können die mosparo API kontaktieren. Dazu benötigen wir einen HTTP-Client, der die Anfrage an die API stellt. In diesem Beispiel verwenden wir die PHP-Bibliothek Guzzle, um die Anfrage zu stellen, aber Sie können natürlich auch jeden anderen Client verwenden. Die Anfrage an die API ist eine POST-Anfrage, und Sie müssen den öffentlichen Schlüssel und die Anfragesignatur in den `Authorization`-Header einfügen (als Basic-Authorization-Header, kodiert als Base64-String). Die Anfragedaten müssen als Post-Datenfelder der Anfrage gesendet werden.
 
 ```php
-$data = [
-    'auth' => [$publicKey, $requestSignature],
-    'headers' => [
-        'Accept' => 'application/json'
-    ],
-    'json' => $requestData
-];
-
-$res = $this->sendRequest('POST', $apiEndpoint, $data);
+$projectPublicKey = '<publicKey>'; // Sie finden diesen Wert in den Projekteinstellungen in mosparo
+$client = new \GuzzleHttp\Client([
+    'base_uri' => 'https://mosparo.example.com', // Der Host Ihrer mosparo-Installation
+]);
+$response = $client->request(
+    'POST',
+    $apiEndpoint,
+    [
+        'auth' => [$projectPublicKey, $requestSignature],
+        'form_params' => $requestData,
+    ]
+);
 ```
 
-#### Auswerten der Antwort
+##### 11. Prüfen der Antwort
+
+Die Anfrage wurde abgeschickt, und wir haben eine Antwort erhalten. Jetzt ist es an der Zeit, das Ergebnis der Überprüfung zu überprüfen. Dekodieren Sie dazu den von der API zurückgegebenen JSON-String. Wenn die Verifizierung korrekt verarbeitet wurde (ohne HTTP-Fehlermeldungen), dann sollten Sie in der Antwort von mosparo die folgenden Felder finden: `valid`, `verificationSignature`, `verifiedFields`, und `issues`.
+
+Wenn das Feld `valid` auf `true` gesetzt ist und das Feld `verificationSignature` den gleichen Wert enthält wie die vorbereitete Verifizierungssignatur in Schritt 7, dann sind die Formulardaten gültig, und Sie können die Daten verarbeiten. Wenn `valid` nicht `true` ist oder die Verifizierungssignatur nicht die gleiche ist, dann war etwas mit der Anfrage nicht in Ordnung (oder der Benutzer hat versucht, sie zu manipulieren), und sie wird daher als Spam eingestuft.
+
+Es gibt noch einen weiteren entscheidenden Schritt. mosparo kann nur überprüfen, was es im Frontend erhalten hat und was Sie im Backend gesendet haben. Der Benutzer könnte ein Pflichtfeld im Browser in ein für mosparo ignoriertes Feld ändern und mosparo damit umgehen. Nach erfolgreicher Verifizierung sollten Sie sicherstellen, dass alle Ihre Pflichtfelder verifiziert sind. Dazu gibt mosparo das Array mit den verifizierten Feldern zurück. Stellen Sie sicher, dass alle Ihre Felder dort eingetragen sind:
+
+```php
+$responseData = json_decode((string) $response->getBody(), true);
+
+if (isset($responseData['valid']) && $responseData['valid'] && isset($responseData['verificationSignature']) && $responseData['verificationSignature'] == $verificationSignature) {
+    // Stellen Sie sicher, dass alle erforderlichen Felder von mosparo überprüft wurden.
+    if (!isset($responseData['verifiedFields']['name']) || !isset($responseData['verifiedFields']['emailAddress']) ||  !isset($responseData['verifiedFields']['message'])) {
+        return false;
+    }
+    return true;
+}
+
+return false;
+```
+
+Mehr dazu finden Sie hier: [Umgehungsschutz](./bypass_protection)
+
+#### Komplette Funktion
+
+Die vollständige Funktion zur Durchführung der Überprüfung sieht nun wie folgt aus:
+
+```php
+<?php
+
+function verifyFormDataWithMosparo(array $formData)
+{
+    // 1. Entfernen der ignorierten Felder aus den Formulardaten
+    // Sie müssen dies nur tun, wenn Sie ignorierte Felder in Ihrem Formular haben
+    
+    // 2. Extrahieren des Einsende- und Validierungs-Codes aus den Formulardaten
+    $submitToken = $formData['_mosparo_submitToken'];
+    $validationToken = $formData['_mosparo_validationToken'];
+
+    // 3. Vorbereiten der Formulardaten
+    $preparedFormData = [];
+    foreach ($formData as $fieldName => $value) {
+        if (str_starts_with($fieldName, '_mosparo_')) {
+            continue;
+        }
+
+        $preparedFormData[$fieldName] = str_replace("\r\n", "\n", $value);
+    }
+
+    // 4. Erzeugen der Hashes
+    foreach ($preparedFormData as $fieldName => $value) {
+        $preparedFormData[$fieldName] = hash('sha256', $value);
+    }
+
+    ksort($preparedFormData);
+
+    // 5. Generieren der Signatur der Formulardaten
+    $jsonPreparedFormData = json_encode($preparedFormData);
+    $projectPrivateKey = '<privateKey>'; // Sie finden diesen Wert in den Projekteinstellungen in mosparo
+    $formDataSignature = hash_hmac('sha256', $jsonPreparedFormData, $projectPrivateKey);
+
+    // 6. Erzeugen der Validierungssignatur
+    $validationSignature = hash_hmac('sha256', $validationToken, $projectPrivateKey);
+
+    // 7. Vorbereiten der Verifizierungssignatur
+    $combinedSignatures = $validationSignature . $formDataSignature;
+    $verificationSignature = hash_hmac('sha256', $combinedSignatures, $projectPrivateKey); 
+
+    // 8. Sammeln der Anfragedaten
+    $apiEndpoint = '/api/v1/verification/verify'; // Dies ist die API von mosparo, also ein fester Wert
+    $requestData = [
+        'submitToken' => $submitToken,
+        'validationSignature' => $validationSignature,
+        'formSignature' => $formDataSignature,
+        'formData' => $preparedFormData,
+    ];
+
+    // 9. Generierung der Anfragesignatur
+    $jsonRequestData = json_encode($requestData);
+    $combinedApiEndpointJsonRequestData = $apiEndpoint . $jsonRequestData;
+    $requestSignature = hash_hmac('sha256', $combinedApiEndpointJsonRequestData, $projectPrivateKey);
+
+    // 10. Senden der API-Anfrage
+    $projectPublicKey = '<publicKey>'; // Sie finden diesen Wert in den Projekteinstellungen in mosparo
+    $client = new \GuzzleHttp\Client([
+        'base_uri' => 'https://mosparo.example.com', // Der Host Ihrer mosparo-Installation
+    ]);
+    $response = $client->request(
+        'POST',
+        $apiEndpoint,
+        [
+            'auth' => [$projectPublicKey, $requestSignature],
+            'form_params' => $requestData,
+        ]
+    );
+
+    // 11. Prüfen der Antwort
+    $responseData = json_decode((string) $response->getBody(), true);
+
+    if (isset($responseData['valid']) && $responseData['valid'] && isset($responseData['verificationSignature']) && $responseData['verificationSignature'] == $verificationSignature) {
+        // Stellen Sie sicher, dass alle erforderlichen Felder von mosparo überprüft wurden.
+        if (!isset($responseData['verifiedFields']['name']) || !isset($responseData['verifiedFields']['emailAddress']) ||  !isset($responseData['verifiedFields']['message'])) {
+            return false;
+        }
+        return true;
+    }
+
+    return false;
+}
+``` 
+
+#### Nach der Verifizierung
+
+Wenn die Überprüfung erfolgreich war, können Sie die Formulardaten nun wie bisher weiterverarbeiten, z. B. per E-Mail versenden oder in einer Datenbank speichern.
+
+#### Felder in der API-Antwort
 
 Die Antwort der API von mosparo gibt an, ob eine Antwort korrekt ist oder ob eine Anfrage ungültig ist. Die folgenden Felder können in der Anfrage enthalten sein:
 
@@ -303,13 +584,7 @@ Die Antwort der API von mosparo gibt an, ob eine Antwort korrekt ist oder ob ein
 | `error`                 | Boolean  | Wenn ein Fehler aufgetreten ist, ist dieses Feld auf `true` gesetzt.                                                                                   |
 | `errorMessage`          | String   | Die Fehlermeldung des Fehlers.                                                                                                                         |
 
-Als erstes sollte geprüft werden, ob das Feld `valid` gesetzt und auf `true` gesetzt ist. Falls das nicht der Fall ist, sind die Formulardaten ungültig.
-
-Anschliessend sollte die `verificationSignature` überprüft werden. Damit eine Anfrage gültig ist, muss die Verifikationssignatur, welche vor dem Absenden der Anfrage erstellt wurde, mit der von der API zurückgegebenen Verifikationssignatur übereinstimmen. Ist das nicht der Fall, wurde die Anfrage manipuliert und ist damit ungültig.
-
-Im Feld `issues` werden mögliche Probleme, welche bei der Verifizierung festgestellt wurden, festgehalten.
-
-Mit dem Feld `verifiedFields` wird dokumentiert, welche Felder überprüft wurden und was das Ergebnis des jeweiligen Feldes ist.
+Falls bei der Überprüfung ein Fehler aufgetreten ist, wird das Feld `error` sowie `errorMessage` gesetzt. Die beiden Felder geben an das ein Fehler aufgetreten ist und was die Fehlermeldung dazu ist. Dies passiert beispielsweise, wenn der öffentliche Schlüssel oder eine der Signaturen ungültig waren oder ein anderes Problem auftrat.
 
 ##### Werte für `verifiedFields`
 
@@ -317,9 +592,3 @@ Mit dem Feld `verifiedFields` wird dokumentiert, welche Felder überprüft wurde
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `valid`        | Das Feld wurde korrekt überprüft und ist gültig.                                                                                                                                                 |
 | `invalid`      | Das Feld wurde nicht korrekt validiert, sprich der Wert, welcher bei der Verifizierung übermittelt wurde, stimmt nicht mit dem Wert überein, welcher im Formular ursprünglich eingetragen wurde. |
-
-Falls bei der Überprüfung ein Fehler aufgetreten ist, wird das Feld `error` sowie `errorMessage` gesetzt. Die beiden Felder geben an das ein Fehler aufgetreten ist und was die Fehlermeldung dazu ist. Dies passiert beispielsweise, wenn der öffentliche Schlüssel oder eine der Signaturen ungültig waren oder ein anderes Problem auftrat.
-
-#### Nach der Verifizierung
-
-Wenn das Feld `valid` den Wert `true` enthält und die Verifikationssignatur korrekt überprüft werden konnte, müssen Sie sicherstellen, dass der Schutz nicht umgangen wurde. Lesen Sie mehr darüber unter [Umgehungsschutz](bypass_protection). Anschliessend können die Formulareingabe verarbeitet werden, zum Beispiel in dem das E-Mail abgesendet wird oder die Daten in der Datenbank gespeichert werden.
