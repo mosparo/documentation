@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 sidebar_label: Einstellungen
 description: In den Projekteinstellungen können Sie das Projekt gemäss Ihren Wünschen anpassen.
 ---
@@ -10,12 +10,15 @@ description: In den Projekteinstellungen können Sie das Projekt gemäss Ihren W
 
 In den allgemeinen Einstellungen können die wichtigsten Informationen zum Projekt bearbeitet werden.
 
-| Feld         | Beschreibung                                                                                                                                                                                                                                                |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name         | Bezeichnung des Projektes                                                                                                                                                                                                                                   |
-| Beschreibung | Beschreibung des Projektes                                                                                                                                                                                                                                  |
-| Hosts        | Damit die Anfragen korrekt beantwortet werden können, muss mosparo wissen, woher dieses Projekt verwendet wird. Dazu müssen alle Hosts erfasst werden. Es muss nur die Domain, ohne korrekten Pfad zum Formular, eingegeben werden. Beispiel: `example.com` |
-| Spam-Grenze  | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird.                                                                                                                                                                     |
+| Feld                             | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                             | Bezeichnung des Projektes                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Beschreibung                     | Beschreibung des Projektes                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Hosts                            | Damit die Anfragen korrekt beantwortet werden können, muss mosparo wissen, woher dieses Projekt verwendet wird. Dazu müssen alle Hosts erfasst werden. Es muss nur die Domain, ohne korrekten Pfad zum Formular, eingegeben werden. Beispiel: `example.com`                                                                                                                                                                                    |
+| Spam-Grenze                      | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird.                                                                                                                                                                                                                                                                                                                                                        |
+| Speichern der Statistik          | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                                                         |
+| API-Debugging-Modus              | Aktiviert den API-Debug-Modus. Wenn dieser Modus aktiviert ist, antworten die APIs mit zusätzlichen Informationen, damit leichter nachvollzogen werden kann, warum die API die Antwort oder Fehlermeldung zurückgegeben hat. Siehe [API-Debugging-Modus](../api/api_debug_mode). _(Hinzugefügt in v1.1)_                                                                                                                                       |
+| Verifizierungs-Simulations-Modus | Aktiviert den Verifikations-Simulations-Modus. Wenn dieser Modus aktiviert ist, erklärt die Verifizierungs-Simulation, welche Daten die mosparo Verifizierungs-API zur Verifizierung der Einsendung erwartet. Der Verifizierungs-Simulations-Modus ist auf der Detailseite der Einsendung sichtbar, sofern er aktiviert ist. Siehe [Verifizierungs-Simulations-Modus](./submissions#verifizierungs-simulations-modus). _(Hinzugefügt in v1.1)_ |
 
 Auf der rechten Seite sind die wichtigsten Informationen sichtbar, die Sie benötigen, um mosparo in Ihre Website zu integrieren. Kopieren Sie diese Informationen und fügen Sie diese Werte in den dafür vorgesehenen Feldern oder Konfigurations-Feldern Ihrer Website ein.
 
@@ -48,7 +51,25 @@ Falls ein Projektmitglied keinen Zugriff mehr auf ein Projekt haben soll, könne
 
 ## Sicherheits-Einstellungen
 
-### Mindestzeit
+### Einstellungsarten
+
+#### Allgemeine Sicherheitseinstellungen
+
+Die allgemeinen Sicherheitseinstellungen eines Projekts sind die Grundeinstellungen für jedes Projekt. Sie sollten zuerst die allgemeinen Sicherheitseinstellungen konfigurieren, bevor Sie die herkunftsbezogenen Einstellungen verwenden.
+
+#### Ursprungsbezogene Sicherheitseinstellungen
+
+Die ursprungsbezogenen Sicherheitseinstellungen ermöglichen es Ihnen, die Sicherheitseinstellungen aufgrund des Ursprungs eines Benutzers anzupassen. Dies kann durch die Definition spezieller Sicherheitseinstellungen auf der Grundlage der IP-Adresse eines Benutzers erfolgen. Wenn Sie GeoIP2 konfiguriert haben, können Sie auch die AS-Nummer und das Land zur Zuordnung eines Benutzers verwenden.
+
+Mit der Priorität können Sie festlegen, in welcher Reihenfolge die Richtlinien angewendet werden sollen. Die passende Richtlinie mit der höchsten Priorität wird für einen Benutzer verwendet.
+
+Sie können so viele Richtlinien erstellen, wie Sie möchten. In jeder Richtlinie können Sie beliebig viele Kriterien definieren. Die Richtlinie wird für einen Benutzer verwendet, sobald eines der Kriterien zutrifft.
+
+Wenn Sie eine der Sicherheitseinstellungen anpassen möchten, aktivieren Sie die Überschreiben-Checkbox in der oberen rechten Ecke des Feldes für die Sicherheitseinstellung. Wenn Sie eine der in den allgemeinen Sicherheitseinstellungen aktivierten Sicherheitseinstellungen deaktivieren möchten, aktivieren Sie die Überschreiben-Checkbox und deaktivieren Sie das aktivierte Kontrollkästchen.
+
+### Verfügbare Sicherheits-Einstellungen
+
+#### Mindestzeit
 
 Mit der Mindestzeit kann festgelegt werden, wie viel Zeit zwischen der initialen Anfrage und dem Überprüfen des Formulars vergehen muss, bevor die Anfrage akzeptiert wird. Bots können Formularanfragen innerhalb von Sekunden absenden, während dessen ein normaler Benutzer mehrere Minuten braucht.
 
@@ -56,7 +77,7 @@ Mit der Mindestzeit kann festgelegt werden, wie viel Zeit zwischen der initialen
 Bitte beachten Sie, dass gewisse Benutzer schneller und andere langsamer im Tippen sind. Die Mindestzeit sollte möglichst klein sein, um keine korrekten Anfragen fälschlicherweise abzulehnen.
 :::
 
-### Honeypot-Feld
+#### Honeypot-Feld
 
 Mit dem Honeypot-Feld wird ein verstecktes Feld zum Formular hinzugefügt, welches zwingend leer sein muss. Das Feld ist für normale Benutzer nicht sichtbar. Ein Bot sieht das Feld und denkt möglicherweise, dass es ausgefüllt werden muss.
 
@@ -68,7 +89,7 @@ Ein Honeypot-Feld kann eine Verbesserung der Spam-Erkennung sein. Da Bots aber t
 
 Tragen Sie im angezeigten Feld den Namen des Honeypot-Feldes ein. Es darf kein anderes Feld in Ihrem Formular mit diesem Namen geben, da es ansonsten zu einem Konflikt kommt. Bitte verwenden Sie einen neutralen Begriff, der keinen Hinweis auf die Funktionsweise des Feldes gibt.
 
-### Anfrage-Verzögerung
+#### Anfrage-Verzögerung
 
 Mit der Anfrage-Verzögerung ist es möglich, eine IP-Adresse warten zu lassen, falls eine IP-Adresse viele Anfragen in einem gewissen Zeitraum getätigt hat. Mit der Anfrage-Verzögerung ist es möglich, dem Benutzer zu signalisieren, dass die Anfrage verarbeitet werden kann, aber der Benutzer sich einen Moment gedulden muss.
 
@@ -78,7 +99,7 @@ Bots möchten so viele Anfragen wie möglich absenden. Mit der Anfrage-Verzöger
 Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung mit mehreren Benutzern oder in einer Firma.
 :::
 
-#### Felder
+##### Felder
 
 | Feld                      | Beschreibung                                                                                                                                                                 |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -87,7 +108,7 @@ Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung 
 | Anfrageverzögerungszeit   | Definiert die Zeit in Sekunden, welche der Benutzer warten muss, bevor er eine erneute Anfrage senden kann.                                                                  |
 | Multiplikator             | Der Multiplikator wird auf die Anfrageverzögerungszeit angewendet und erhöht (oder verringert) die Verzögerungszeit bei erneuten Anfragen innerhalb dieser Verzögerungszeit. |
 
-#### Beispiel
+##### Beispiel
 
 :::note Beispielswerte
 Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anfrageverzögerungszeit: 60 sek, Multiplikator: 1.5
@@ -97,7 +118,7 @@ Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anf
 - Wenn der Benutzer innerhalb dieser 60 Sekunden eine weitere Anfrage macht, erhöht sich die Zeit mit Hilfe des Faktors von 60 auf 90 Sekunden.
 - Bei einer weiteren Anfrage innerhalb der 90 Sekunden erhöht sich die Zeit auf 135 Sekunden.
 
-### Automatische Sperre
+#### Automatische Sperre
 
 Wenn eine IP-Adresse sehr viele Einsendungen absendet, kann mit der automatischen Sperre eine IP-Adresse automatisch für eine gewisse Zeit blockiert werden. Die Sperre wird automatisch vorgenommen und greift sofort. Sobald die eingestellte Zeit abgelaufen ist, kann die IP-Adresse wieder eine Einsendung absenden.
 
@@ -109,7 +130,7 @@ Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung 
 Die Sperre der IP-Adressen erfolgt über die gesamte mosparo-Installation. Wenn eine IP-Adresse in einem Projekt blockiert wurde, wird sie automatisch auch in einem anderen Projekt blockiert, sofern beide Projekte die automatische Sperre aktiviert haben.
 :::
 
-#### Felder
+##### Felder
 
 | Feld                      | Beschreibung                                                                                                                                                |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -118,7 +139,7 @@ Die Sperre der IP-Adressen erfolgt über die gesamte mosparo-Installation. Wenn 
 | Anfangssperrzeit          | Definiert die Zeit in Sekunden, welche der Benutzer gesperrt wird und keine Einsendungen absenden kann.                                                     |
 | Multiplikator             | Der Multiplikator wird auf die Anfangssperrzeit angewendet und erhöht (oder verringert) die Sperrzeit bei erneuten Einsendungen innerhalb dieser Sperrzeit. |
 
-#### Beispiel
+##### Beispiel
 
 :::note Beispielswerte
 Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anfangssperrzeit: 300 sek, Multiplikator: 1.5
@@ -128,7 +149,9 @@ Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anf
 - Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Einsendung absendet, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
 - Bei einer weiteren Anfrage innerhalb dieser 450 Sekunden erhöht sich die Zeit auf 675 Sekunden.
 
-### Liste der erlaubten IP-Adressen
+#### Liste der erlaubten IP-Adressen
+
+_Sie können die Liste der erlaubten IP-Adressen nur in den allgemeinen Sicherheitseinstellungen eines Projekts bearbeiten._
 
 Wenn Sie möchten, dass gewisse IP-Adresse von der Anfrage-Verzögerung sowie der automatischen Sperre ausgenommen werden, können Sie diese IP-Adressen oder Subnetze in die Liste der erlaubten IP-Adressen eintragen. Die Sicherheitsfeatures werden für die dort eingetragenen IP-Adressen und Subnetze übersprungen. Die normale Überprüfung auf Spam findet aber nach wie vor statt.
 

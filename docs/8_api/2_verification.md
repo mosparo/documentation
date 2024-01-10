@@ -102,3 +102,7 @@ If an error occurred, only the following properties would be present in the answ
 |----------------|---------|------------------------------------------------|
 | `error`        | Boolean | If true, an error occurred.                    |
 | `errorMessage` | String  | The description of the error which occurred.   |
+
+:::info
+The response can contain more data if the [API debug mode](./api_debug_mode) is enabled for a project.
+:::

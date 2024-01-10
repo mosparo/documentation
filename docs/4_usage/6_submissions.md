@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: Submissions
 description: In the list of submissions, you will find all the data the users sent in.
 ---
@@ -60,3 +60,10 @@ You will also see a status indicator behind the name of a field. This status ind
 | ![Field not verified](./assets/status_not_verified_en.jpg)               | Indicates that a field has not been verified by site backend verification. This means that the field can be changed and is rather uncertain. It is not necessarily bad because, for example, it is a not-so-important field that needs to be rechecked by the backend. |
 | ![Honeypot field](./assets/status_honeypot.jpg)                          | Displayed if the field is the honeypot field. This field should always be empty. Otherwise, the submission is spam.                                                                                                                                                                              |
 
+### Verification simulation mode
+
+If the verification simulation mode is enabled for a project, you'll see a button in the top-right corner of the submission detail page.
+
+If you click on that button, a modal window will open and show you how you have to do the verification in your code. In general, it shows you how to prepare the data and which data you have to share with mosparo, but it does not deliver you the exact code you must develop (since mosparo does not know the language you're using).
+
+If you try to verify a submission in your backend, you must prepare the data before sending it to mosparo. With the verification simulation mode, you can see which data mosparo calculated and which you should have. If you don't have these data, you have to investigate what you have to do to get these data.

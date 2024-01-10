@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 sidebar_label: Regel-Pakete
 description: Erfahren Sie mehr über die Verwendung von Regel-Paketen sowie den Aufbau eines Regel-Paketes.
 ---

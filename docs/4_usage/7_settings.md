@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 sidebar_label: Settings
 description: You can adjust the project according to your wishes in the project settings.
 ---
@@ -10,12 +10,15 @@ description: You can adjust the project according to your wishes in the project 
 
 You can edit the most important information about the project in general settings.
 
-| Field       | Description                                                                                                                                                                                                                                                           |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name        | Name of the project                                                                                                                                                                                                                                                   |
-| Description | Description of the project                                                                                                                                                                                                                                            |
-| Hosts       | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must capture all hosts. It is necessary to enter the domain without the correct path to the form. For example, `example.com`   |
-| Spam limit  | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                           |
+| Field                        | Description                                                                                                                                                                                                                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                         | Name of the project                                                                                                                                                                                                                                                                                                                                               |
+| Description                  | Description of the project                                                                                                                                                                                                                                                                                                                                        |
+| Hosts                        | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must capture all hosts. It is necessary to enter the domain without the correct path to the form. For example, `example.com`                                                                                                              |
+| Spam limit                   | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                       |
+| Statistic storage            | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                          |
+| API debug mode               | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                    |
+| Verification simulation mode | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
 
 On the right side, you can see the most important information you need to integrate mosparo into your website. Copy this information and paste these values into your website's fields or configuration pages.
 
@@ -51,7 +54,25 @@ If you no longer want a project member to have access to a project, you can remo
 
 ## Security settings
 
-### Minimum time
+### Types of settings
+
+#### General security settings
+
+The general security settings of a project are the base settings for every project. You should first configure the general security settings before using the origin-based ones.
+
+#### Origin-based security settings
+
+The origin-based security settings allow you to adjust the security settings based on the origin of a user. This can be done by defining special security settings based on the IP address of a user. If you have configured GeoIP2, you can also use the AS number and the country to match a user.
+
+With the priority, you can specify in which order the guidelines should be applied. The matching guideline with the highest priority will be used for a user.
+
+You can create as many guidelines as you want. In every guideline, you can define as many criteria as you wish. The criteria will be used for a user as soon as one of the criteria matches.
+
+If you want to adjust one of the security settings, check the override checkbox in the top right corner of the security settings box. If you wish to disable one of the security settings enabled in the general security settings, override the security settings and uncheck the enabled checkbox.
+
+### Available security settings
+
+#### Minimum time
 
 You can use the minimum time to specify how much time must elapse between the initial request and the form verification before the request is accepted. Bots can submit form requests within seconds. A typical user may need several minutes.
 
@@ -59,7 +80,7 @@ You can use the minimum time to specify how much time must elapse between the in
 Some users are faster, and others are slower in typing. The minimum time should be as short as possible to avoid incorrectly rejecting valid requests.
 :::
 
-### Honeypot field
+#### Honeypot field
 
 With the honeypot field, a hidden field is added to the form, which must be empty. The field is not visible to regular users. A bot sees the field and may think it needs to be filled in.
 
@@ -71,7 +92,7 @@ A honeypot field can be an improvement in spam detection. However, since bots ca
 
 Enter the name of the honeypot field in the displayed field. There must be no other field in your form with this name. Otherwise, there will be a conflict. Please use a neutral term that does not indicate how the field works.
 
-### Request delay
+#### Request delay
 
 With the request delay, it is possible to have an IP address wait if an IP address has made many requests in a certain period. With the request delay, it is possible to signal to the user that mosparo can process the request, but the user has to wait a moment.
 
@@ -81,7 +102,7 @@ Bots want to send as many requests as possible. With the request delay, these ar
 Users can share the same IP address, for example, in a multi-user apartment or a company.
 :::
 
-#### Fields
+##### Fields
 
 | Field                      | Description                                                                                                                             |
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -90,7 +111,7 @@ Users can share the same IP address, for example, in a multi-user apartment or a
 | Base delay time            | Defines the time, in seconds, that the user must wait before sending a new request.                                                     |
 | Multiplicator              | The multiplicator is applied to the base delay time and increases (or decreases) the delay time for re-requests within that delay time. |
 
-#### Example
+##### Example
 
 :::note Example values
 Number of allowed requests: 30, Detection time frame: 30 sec, Base delay time: 60 sec, Multiplicator: 1.5
@@ -100,7 +121,7 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base delay time: 6
 - If the user makes another request within these 60 seconds, the time increases from 60 to 90 seconds with the help of the multiplicator.
 - For a further request within 90 seconds, the time increases to 135 seconds.
 
-### IP lockout
+#### IP lockout
 
 If an IP address submits a large number of submissions, an IP address can be automatically blocked for a certain period with automatic blocking. The lock is made automatically and takes effect immediately. As soon as the set time has elapsed, the IP address can submit a submission again.
 
@@ -112,7 +133,7 @@ Users can share the same IP address, for example, in a multi-user apartment or a
 IP addresses are blocked throughout the entire mosparo installation. If an IP address has been blocked in one project, it is automatically blocked in another if both projects have IP lockout enabled.
 :::
 
-#### Fields
+##### Fields
 
 | Field                      | Description                                                                                                                                       |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -121,7 +142,7 @@ IP addresses are blocked throughout the entire mosparo installation. If an IP ad
 | Base lockout time          | Defines the time, in seconds, that the user is locked and cannot submit submissions.                                                              |
 | Multiplicator              | The multiplicator is applied to the base lockout time and increases (or decreases) the lockout time for new submissions within that lockout time. |
 
-#### Example
+##### Example
 
 :::note Example values
 Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time: 300 sec, Multiplicator: 1.5
@@ -131,7 +152,9 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time:
 - If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
 - For a further submission within these 450 seconds, the time increases to 675 seconds.
 
-### List of allowed IP addresses
+#### List of allowed IP addresses
+
+_You can edit the list of allowed IP addresses only in the general security settings of a project._
 
 If you want specific IP addresses to be excluded from the request delay and IP lockout, you can add these IP addresses or subnets to the list of allowed IP addresses. The security features are skipped for the IP addresses and subnets enlisted on it. However, the regular check for spam still takes place.
 
