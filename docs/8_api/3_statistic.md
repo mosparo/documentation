@@ -45,10 +45,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 
 #### Arguments
 
-| Name        | Type    | Required | Description                                                                                                                                                                                           |
-|-------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `range`     | Integer | Optional | The number of seconds for which mosparo should return the numbers (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used.                        |
-| `startDate` | Date    | Optional | Defines the date from which mosparo should return the statistics. This can be any date, but mosparo will return only the available data (the data could have already been deleted again). _(Added in v1.1)_ |
+| Name        | Type                      | Required | Description                                                                                                                                                                                           |
+|-------------|---------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `range`     | Integer                   | Optional | The number of seconds for which mosparo should return the numbers (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used.                        |
+| `startDate` | Date (Format: YYYY-MM-DD) | Optional | Defines the date from which mosparo should return the statistics. This can be any date, but mosparo will return only the available data (the data could have already been deleted again). _(Added in v1.1)_ |
 
 ### Response
 

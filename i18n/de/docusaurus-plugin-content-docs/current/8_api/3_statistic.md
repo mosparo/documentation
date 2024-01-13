@@ -45,10 +45,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 
 #### Argumente
 
-| Name        | Typ     | Erforderlich | Beschreibung                                                                                                                                                               |
-|-------------|---------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `range`     | Integer | Optional     | Die Anzahl der Sekunden, für die die Zahlen zurückgegeben werden sollen (`3600` gibt die Zahlen für die letzte Stunde zurück). Wenn nicht definiert, werden alle Daten der letzten 14 Tage verwendet. |
-| `startDate` | Datum   | Optional     | Legt das Datum fest, ab dem mosparo die Statistik zurückgeben soll. Dies kann ein beliebiges Datum sein, aber mosparo wird nur die verfügbaren Daten zurückgeben (die Daten könnten bereits wieder gelöscht worden sein). _(Hinzugefügt in v1.1)_ |
+| Name        | Typ                        | Erforderlich | Beschreibung                                                                                                                                                               |
+|-------------|----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `range`     | Integer                    | Optional     | Die Anzahl der Sekunden, für die die Zahlen zurückgegeben werden sollen (`3600` gibt die Zahlen für die letzte Stunde zurück). Wenn nicht definiert, werden alle Daten der letzten 14 Tage verwendet. |
+| `startDate` | Datum (Format: YYYY-MM-DD) | Optional     | Legt das Datum fest, ab dem mosparo die Statistik zurückgeben soll. Dies kann ein beliebiges Datum sein, aber mosparo wird nur die verfügbaren Daten zurückgeben (die Daten könnten bereits wieder gelöscht worden sein). _(Hinzugefügt in v1.1)_ |
 
 ### Antwort
 
