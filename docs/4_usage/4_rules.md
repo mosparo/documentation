@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 sidebar_label: Rules
 description: Learn how to create and manage rules in mosparo.
 ---

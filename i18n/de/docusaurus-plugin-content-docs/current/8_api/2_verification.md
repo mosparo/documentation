@@ -102,3 +102,7 @@ Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Ant
 |----------------|---------|----------------------------------------------------|
 | `error`        | Boolean | Wenn `true`, ist ein Fehler aufgetreten.           |
 | `errorMessage` | String  | Die Beschreibung des Fehlers, der aufgetreten ist. |
+
+:::info
+Die Antwort kann mehr Daten enthalten, falls der [API-Debugging-Modus](./api_debug_mode) für ein Projekt aktiviert ist.
+:::

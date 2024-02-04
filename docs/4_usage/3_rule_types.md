@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Rule types
 description: mosparo has various rule types. Here you will find an overview of all rule types.
 ---

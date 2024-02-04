@@ -45,9 +45,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 
 #### Argumente
 
-| Name                  | Typ     | Erforderlich | Beschreibung                                                                                                                                                               |
-|-----------------------|---------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `range`               | Integer | Optional     | Die Anzahl der Sekunden, für die die Zahlen zurückgegeben werden sollen (`3600` gibt die Zahlen für die letzte Stunde zurück). Wenn nicht definiert, werden alle Daten der letzten 14 Tage verwendet. |
+| Name        | Typ     | Erforderlich | Beschreibung                                                                                                                                                               |
+|-------------|---------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `range`     | Integer | Optional     | Die Anzahl der Sekunden, für die die Zahlen zurückgegeben werden sollen (`3600` gibt die Zahlen für die letzte Stunde zurück). Wenn nicht definiert, werden alle Daten der letzten 14 Tage verwendet. |
+| `startDate` | Datum   | Optional     | Legt das Datum fest, ab dem mosparo die Statistik zurückgeben soll. Dies kann ein beliebiges Datum sein, aber mosparo wird nur die verfügbaren Daten zurückgeben (die Daten könnten bereits wieder gelöscht worden sein). _(Hinzugefügt in v1.1)_ |
 
 ### Antwort
 
@@ -102,3 +103,7 @@ Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Ant
 |----------------------------|---------|------------------------------------------------------|
 | `numberOfValidSubmissions` | Integer | Die Anzahl der gültigen Einreichungen für das Datum. |
 | `numberOfSpamSubmissions`  | Integer | Die Anzahl der Spam-Emissionen für das Datum.        |
+
+:::info
+Die Antwort kann mehr Daten enthalten, falls der [API-Debugging-Modus](./api_debug_mode) für ein Projekt aktiviert ist.
+:::

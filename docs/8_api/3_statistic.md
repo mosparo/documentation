@@ -45,9 +45,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 
 #### Arguments
 
-| Name                  | Type    | Required | Description                                                                                                                                                                |
-|-----------------------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `range`               | Integer | Optional | The number of seconds for which mosparo should return the numbers (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used. |
+| Name        | Type    | Required | Description                                                                                                                                                                                           |
+|-------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `range`     | Integer | Optional | The number of seconds for which mosparo should return the numbers (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used.                        |
+| `startDate` | Date    | Optional | Defines the date from which mosparo should return the statistics. This can be any date, but mosparo will return only the available data (the data could have already been deleted again). _(Added in v1.1)_ |
 
 ### Response
 
@@ -102,3 +103,7 @@ If an error occurred, only the following properties would be present in the answ
 |----------------------------|---------|-------------------------------------------------|
 | `numberOfValidSubmissions` | Integer | The number of valid submissions for the date.   |
 | `numberOfSpamSubmissions`  | Integer | The number of submissions as spam for the date. |
+
+:::info
+The response can contain more data if the [API debug mode](./api_debug_mode) is enabled for a project.
+:::
