@@ -22,9 +22,13 @@ Sie sollten daher regelmässig prüfen, dass keine erwünschten Einsendungen als
 
 Die Funktionsweise von mosparo basiert grundsätzlich auf zwei Komponenten. Zum einen muss in Ihrem Formular ein spezielles Script eingebaut werden, welches ein Kontrollkästchen zu Ihrem Formular hinzufügt. Zum anderen muss vor dem Verarbeiten Ihres Formulars geprüft werden, ob die Einsendung gültig ist. Für die Integration von mosparo stehen Ihnen je nach CMS oder Framework entsprechende Lösung zur Verfügung (siehe [Integration](/docs/category/integration/)).
 
-## Detaillierte Funktionsweise
+## Der Prozess im Detail
+
+In der folgenden Beschreibung wird der Prozess anhand eines Ablaufdiagramms erklärt. Sie können das Diagramm als PDF mit Klick auf die Bilder oder [hier](./assets/process_chart_v1.0_DE.pdf) öffnen.
 
 ### Initiale Anfrage
+
+[![Das Diagramm zeigt den Ablauf der Initialisierung wie im Text unten beschrieben.](./assets/process_cart_initializing_DE.jpg)](./assets/process_chart_v1.0_DE.pdf)
 
 Der erste Schritt ist die Anfrage beim Öffnen des Formulars. Wenn das Formular geöffnet wird, wird automatisch eine JavaScript-Datei von mosparo geladen. Dieses Script erstellt an der gekennzeichneten Stelle die notwendigen Elemente, aus welchen die Box besteht.
 
@@ -37,6 +41,8 @@ Der Browser des Benutzers speichert diese Informationen im Browser und stellt di
 Falls bei der ersten Anfrage eine Verzögerung zurückgegeben wurde, versucht mosparo automatisch nach Ablauf der Verzögerung erneut, einen Einsendecode zu erhalten und wiederholt die Anfrage.
 
 ### Überprüfung
+
+[![Das Diagramm zeigt den Prozess der Validierung wie im Text unten beschrieben.](./assets/process_cart_validation_DE.jpg)](./assets/process_chart_v1.0_DE.pdf)
 
 Nachdem der Benutzer das Formular ausgefüllt hat, aktiviert er die mosparo-Checkbox. Bei dieser Aktivierung werden automatisch alle Informationen des Formulars gesammelt und zusammen mit dem Einsendecode mit einer Anfrage an die mosparo-Installation zur Überprüfung übermittelt. Die gesammelten Formulardaten enthalten unter anderem den Namen des Feldes, den Typ des Feldes (HTML5-Typ) und den eingegebenen Wert.
 
@@ -63,6 +69,8 @@ Dem Benutzer wird entsprechend dargestellt, ob die Überprüfung erfolgreich war
 Der zufällig generierte Verifizierungscode wird im Formular zusammen mit dem Einsendecode gespeichert.
 
 ### Verifizierung
+
+[![Das Diagramm zeigt den Ablauf der Verifizierung wie im Text unten beschrieben.](./assets/process_cart_verification_DE.jpg)](./assets/process_chart_v1.0_DE.pdf)
 
 Nachdem der Benutzer das Formular abgesendet hat, überprüft die Website, ob die eingegebenen Werte gültig sind. Dazu verwendet die Website den Einsende- sowie den Verifizierungscode und generiert damit die Einsendesignatur, welche mosparo selbst bereits erstellt und gespeichert hat.
 

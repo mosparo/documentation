@@ -22,9 +22,13 @@ You should regularly check that no solicited submissions have been identified as
 
 The functionality of mosparo is based on two components. On the one hand, you must integrate a JavaScript script into your form, which adds a check box to your form. On the other hand, before processing your form, you must check whether the submission is valid. Depending on the CMS or framework, a plugin is available for the integration of mosparo (see [Plugins](../integration/with_plugins/)).
 
-## Detailed operation
+## The process in detail
+
+In the following description, the process is explained using a flow chart. You can open the chart as a PDF by clicking on the images or [here](./assets/process_chart_v1.0_EN.pdf).
 
 ### Initial request
+
+[![The chart shows the process for the initialization as described in the text below.](./assets/process_cart_initializing_EN.jpg)](./assets/process_chart_v1.0_EN.pdf)
 
 The first step is the request when opening the form. When the form is opened, a JavaScript file is automatically loaded from mosparo. This script creates the elements that make up the box at the desired location.
 
@@ -37,6 +41,8 @@ The user's browser stores this information in the browser and displays the mospa
 If mosparo returned a delay on the first request, mosparo would automatically try to receive a submission token again after the delay has expired and repeat the request.
 
 ### Validation
+
+[![The chart shows the process for the validation as described in the text below.](./assets/process_cart_validation_EN.jpg)](./assets/process_chart_v1.0_EN.pdf)
 
 After filling out the form, the user clicks the mosparo checkbox. With this activation, all the form data is automatically collected and sent together with the submission token with a request to the mosparo installation for validation. The collected form data includes the field's name, the type of field (HTML5 type), and the value entered, among other things.
 
@@ -63,6 +69,8 @@ The user is shown whether the check was successful or a problem occurred. If the
 The randomly generated verification token is stored in the form along with the submission token.
 
 ### Verification
+
+[![The chart shows the process for the verification as described in the text below.](./assets/process_cart_verification_EN.jpg)](./assets/process_chart_v1.0_EN.pdf)
 
 After the user submits the form, the website checks whether the values entered are valid. For this purpose, the website uses the submission and verification tokens and generates the submission signature, which mosparo has already created and saved.
 
