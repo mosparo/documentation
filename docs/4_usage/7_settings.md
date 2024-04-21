@@ -10,14 +10,14 @@ description: You can adjust the project according to your wishes in the project 
 
 You can edit the most important information about the project in general settings.
 
-| Field                        | Description                                                                                                                                                                                                                                                                                                                                                       |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name                         | Name of the project                                                                                                                                                                                                                                                                                                                                               |
-| Description                  | Description of the project                                                                                                                                                                                                                                                                                                                                        |
-| Hosts                        | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must capture all hosts. It is necessary to enter the domain without the correct path to the form. For example, `example.com`                                                                                                              |
-| Spam limit                   | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                       |
-| Statistic storage            | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                          |
-| API debug mode               | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                    |
+| Field                        | Description                                                                                                                                                                                                                                                                                                                                                      |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                         | Name of the project                                                                                                                                                                                                                                                                                                                                              |
+| Description                  | Description of the project                                                                                                                                                                                                                                                                                                                                       |
+| Hosts                        | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must configure all hosts which use the project. It is necessary to enter the domain without protocol and path to the form. See [Hosts](#hosts)                                                                                           |
+| Spam limit                   | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                      |
+| Statistic storage            | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                         |
+| API debug mode               | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                   |
 | Verification simulation mode | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
 
 On the right side, you can see the most important information you need to integrate mosparo into your website. Copy this information and paste these values into your website's fields or configuration pages.
@@ -28,6 +28,28 @@ On the right side, you can see the most important information you need to integr
 | Unique identification number | Unique identification number of the project                                                    |
 | Public key                   | This is the public, i.e., non-secret, security key used to transmit the submissions to mosparo. |
 | Secret key                   | The secret key is there to sign the API requests and ensure that the requests are genuine.     |
+
+### Hosts
+
+With version 1.2, we fixed a bug that has been in mosparo since the first version. The bug is that the configured hosts were never used to verify the origin of a request to the frontend API. With version 1.2, we fixed this bug, and the hosts will be verified before the request is processed. Technically, we're speaking of the cross-origin headers (CORS).
+
+You must add all hosts you use for a project to the project settings so that mosparo can correctly verify the origin.
+
+A host is a domain without the protocol and the path. You can use a star (`*`) as a wildcard at the beginning of a host. The wildcard has to be placed before a dot or without any other characters. If you put the wildcard before a dot, the domain without the dot will also be allowed. We do not recommend using only the wildcard as hosts since that would enable all possible origins to connect to the frontend API.
+
+#### Valid hosts
+
+- `example.com`
+- `www.example.com`
+- `*.example.com` (will include `example.com`, `www.example.com`, and `abc.www.example.com`)
+- `*` (will allow everything, not recommended)
+
+#### Invalid hosts
+
+- `https://example.com`
+- `example.com/contact-form`
+- `*example.com`
+- `www.*.example.com`
 
 ## Project members
 

@@ -14,7 +14,7 @@ In den allgemeinen Einstellungen können die wichtigsten Informationen zum Proje
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                             | Bezeichnung des Projektes                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Beschreibung                     | Beschreibung des Projektes                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Hosts                            | Damit die Anfragen korrekt beantwortet werden können, muss mosparo wissen, woher dieses Projekt verwendet wird. Dazu müssen alle Hosts erfasst werden. Es muss nur die Domain, ohne korrekten Pfad zum Formular, eingegeben werden. Beispiel: `example.com`                                                                                                                                                                                    |
+| Hosts                            | Damit die Anfragen korrekt beantwortet werden können, muss mosparo wissen, woher dieses Projekt verwendet wird. Dazu müssen alle Hosts erfasst werden welche dieses Projekt verwenden. Es muss nur die Domain, ohne Protokoll und Pfad, eingegeben werden. Siehe [Hosts](#hosts)                                                                                                                                                               |
 | Spam-Grenze                      | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird.                                                                                                                                                                                                                                                                                                                                                        |
 | Speichern der Statistik          | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                                                         |
 | API-Debugging-Modus              | Aktiviert den API-Debug-Modus. Wenn dieser Modus aktiviert ist, antworten die APIs mit zusätzlichen Informationen, damit leichter nachvollzogen werden kann, warum die API die Antwort oder Fehlermeldung zurückgegeben hat. Siehe [API-Debugging-Modus](../api/api_debug_mode). _(Hinzugefügt in v1.1)_                                                                                                                                       |
@@ -28,6 +28,28 @@ Auf der rechten Seite sind die wichtigsten Informationen sichtbar, die Sie benö
 | Eindeutige Identifikationsnummer | Eindeutige Identifikationsnummer des Projektes                                                                                            |
 | Öffentlicher Schlüssel           | Das ist der öffentliche, also nicht geheime, Sicherheitsschlüssel, welcher verwendet wird, um die Einsendungen an mosparo zu übermitteln. |
 | Geheimer Schlüssel               | Der geheime Schlüssel ist dazu da, die Schnittstellen-Anfragen zu signieren und sicherzustellen, dass die Anfragen echt sind.             |
+
+### Hosts
+
+Mit der Version 1.2 haben wir einen Fehler behoben, der seit der ersten Version in mosparo vorhanden war. Der Fehler besteht darin, dass die konfigurierten Hosts nie verwendet wurden, um die Herkunft einer Anfrage an die Frontend-API zu verifizieren. Mit der Version 1.2 haben wir diesen Fehler behoben, und die Hosts werden vor der Verarbeitung der Anfrage überprüft. Technisch gesehen handelt es sich um die Cross-Origin-Header (CORS).
+
+Sie müssen alle Hosts, auf denen Sie ein Projekt verwenden, zu den Hosts in den Projekteinstellungen hinzufügen, damit mosparo den Ursprung korrekt verifizieren kann.
+
+Ein Host ist eine Domain ohne das Protokoll und den Pfad. Sie können einen Stern (`*`) als Platzhalter am Anfang eines Hosts verwenden. Der Platzhalter muss vor einem Punkt oder ohne andere Zeichen platziert werden. Wenn Sie den Platzhalter vor einen Punkt setzen, wird auch die Domäne ohne den Punkt zugelassen. Wir empfehlen, nicht nur den Platzhalter als Hosts zu verwenden, da dies allen möglichen Ursprüngen die Verbindung zur Frontend-API ermöglichen würde.
+
+#### Gültige Hosts
+
+- `example.com`
+- `www.example.com`
+- `*.example.com` (schliesst `example.com`, `www.example.com` und `abc.www.example.com` ein)
+- `*` (erlaubt alle, nicht empfohlen)
+
+#### Ungültige Hosts
+
+- `https://example.com`
+- `example.com/contact-form`
+- `*example.com`
+- `www.*.example.com`
 
 ## Projektmitglieder
 
