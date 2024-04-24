@@ -101,15 +101,17 @@ Bitte beachten Sie, dass gewisse Benutzer schneller und andere langsamer im Tipp
 
 #### Honeypot-Feld
 
-Mit dem Honeypot-Feld wird ein verstecktes Feld zum Formular hinzugefügt, welches zwingend leer sein muss. Das Feld ist für normale Benutzer nicht sichtbar. Ein Bot sieht das Feld und denkt möglicherweise, dass es ausgefüllt werden muss.
+Das Honeypot-Feld ist ein verstecktes Feld in Ihrem Formular, welches der Benutzende leer absenden muss. Für Menschen ist es nicht sichtbar, aber ein Bot sieht es möglicherweise und denkt, dass es ausgefüllt werden muss.
 
-Sobald das Feld ausgefüllt wird, wird die Einsendung als Spam gewertet, weil der normale Benutzer das Feld nicht sieht. Für Benutzer mit Screenreader ist das Feld mit einem entsprechenden Hinweis ausgestattet, dass es nicht ausgefüllt werden soll.
+Sobald das Feld ausgefüllt wird, wird die Einsendung als Spam gewertet, weil der Mensch das Feld nicht sieht. Für Menschen mit Screenreader ist das Feld mit einem entsprechenden Hinweis ausgestattet, dass es nicht ausgefüllt werden soll.
 
 :::caution
 Ein Honeypot-Feld kann eine Verbesserung der Spam-Erkennung sein. Da Bots aber technisch auch erkennen können, ob es ein Honeypot-Feld sein könnte oder nicht, ist diese Funktion mit Vorsicht zu benutzen.
 :::
 
-Tragen Sie im angezeigten Feld den Namen des Honeypot-Feldes ein. Es darf kein anderes Feld in Ihrem Formular mit diesem Namen geben, da es ansonsten zu einem Konflikt kommt. Bitte verwenden Sie einen neutralen Begriff, der keinen Hinweis auf die Funktionsweise des Feldes gibt.
+Tragen Sie im angezeigten Feld den Namen des Honeypot-Feldes ein. Es darf kein anderes Feld in Ihrem Formular mit diesem Namen geben, da es ansonsten zu einem Konflikt kommt. Bitte verwenden Sie einen neutralen Begriff, der keinen Hinweis auf die Funktionsweise des Feldes gibt. Es wird empfohlen, einen Namen zu verwenden, welcher wie ein normales Feld klingt, zum Beispiel "strasse-2".
+
+mosparo wird das Feld automatisch zu Ihrem Formular hinzufügen, sofern Sie einen Namen für das Feld in den Sicherheits-Einstellungen definiert haben. Sie müssen betreffend des Honeypot-Feldes an Ihrem Formular nichts anpassen, ausser dass Sie mosparo zum Formular hinzufügen müssen.
 
 #### Anfrage-Verzögerung
 

@@ -104,15 +104,17 @@ Some users are faster, and others are slower in typing. The minimum time should 
 
 #### Honeypot field
 
-With the honeypot field, a hidden field is added to the form, which must be empty. The field is not visible to regular users. A bot sees the field and may think it needs to be filled in.
+The honeypot field is a hidden field in your form that the user must submit empty. It is not visible to regular users, but a bot may see it and think it needs to be filled in.
 
 The submission is considered spam when the field contains content because the regular user does not see the field. For users with screen readers, the field is marked with a note that the user should not fill in anything.
 
 :::caution
-A honeypot field can be an improvement in spam detection. However, since bots can also technically detect whether it could be a honeypot field, you should use this function with caution.
+A honeypot field can improve spam detection. However, since bots can also technically detect whether it is a honeypot field, you should use this function with caution.
 :::
 
-Enter the name of the honeypot field in the displayed field. There must be no other field in your form with this name. Otherwise, there will be a conflict. Please use a neutral term that does not indicate how the field works.
+Enter the name of the honeypot field in the displayed field. There must be no other field in your form with this name. Otherwise, there will be a conflict. Please use a neutral term that does not indicate how the field works. Using a name that could be a normal field name, like "street-2" is recommended.
+
+mosparo will add the field automatically to your form when you define a name for it in the security settings. You do not have to do anything in your form regarding the honeypot field except add mosparo to the form.
 
 #### Request delay
 
