@@ -102,7 +102,7 @@ If the sum of the points of all fields is above the spam threshold, the submissi
 
 If the number of points is less than the spam limit, the submission will not be considered spam. The user can submit spam and the form.
 
-## Functionality invisible variant
+## Functionality of the invisible variant
 
 The functionality is in large parts similar to the visible variant. The main differences are the visibility and how the data is checked in the form.
 

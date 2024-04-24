@@ -102,7 +102,7 @@ Wenn die Summe der Punkte aller Felder über dem Spam-Grenzwert liegt, wird die 
 
 Falls die Anzahl der Punkte kleiner ist als der Spam-Grenzwert, wird die Einsendung nicht als Spam gewertet und das Absenden des Formulars ist möglich.
 
-## Funktionsweise unsichtbare Variante
+## Funktionsweise der unsichtbaren Variante
 
 Die Funktionsweise ist in grossen Teilen ähnlich wie bei der sichtbaren Variante. Die Hauptunterschiede sind die sichtbarkeit und wie die Daten im Formular überprüft werden.
 
