@@ -185,9 +185,17 @@ Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung 
 
 ## Darstellung
 
-mosparo bietet Ihnen die Möglichkeit, das Design der mosparo Box so weit wie möglich zu verändern und an Ihre Website anzupassen. Nutzen Sie die Design-Einstellungen, um das Aussehen und die Darstellung anzupassen. Um Ihnen die Konfiguration von mosparo zu erleichtern, gibt es zwei Modi. Im einfachen Modus wählen Sie die wichtigsten Farben für Ihre Website und die Grösse der Box aus und mosparo übernimmt den Rest.
+mosparo bietet Ihnen die Möglichkeit, die Darstellung der mosparo Box so weit wie möglich zu verändern und an Ihre Website anzupassen. Nutzen Sie die Darstellungs-Einstellungen, um das Aussehen und die Bedienung anzupassen.
 
-Wenn Sie alle Optionen konfigurieren möchten, können Sie in den erweiterten Modus wechseln und jede einzelne Farbe und andere Optionen ändern. Sie können jederzeit zwischen diesen beiden Modi wechseln.
+### Darstellungs-Arten
+
+Die drei Darstellungs-Arten erleichtern Ihnen die Konfiguration der Darstellung der mosparo-Box:
+
+- Im **einfachen sichtbaren Modus** wählen Sie die wichtigsten Farben für Ihre Website und die Größe der Box, den Rest erledigt mosparo.
+- Im **erweiterten sichtbaren Modus** können Sie alle Farben, die Größe der Ränder und des Radius und einige andere Einstellungen der sichtbaren Box wählen.
+- Mit dem **einfachen unsichtbaren Modus** können Sie die wichtigsten Farben für den unsichtbaren mosparo-Modus auswählen
+
+Bitte benutzen Sie das Dropdown-Menü „Darstellungsart“ in der linken unteren Ecke der Seite mit den Darstellungs-Einstellungen, um zwischen den Arten zu wechseln.
 
 :::info
 Da mosparo mit normalen HTML-Elementen und CSS-Regeln arbeitet, können Sie das gesamte Aussehen der mosparo-Box mit entsprechenden CSS-Regeln überschreiben. Da dafür jedoch Programmiererfahrung notwendig ist, wird diese Möglichkeit in dieser Dokumentation nicht weiter beschrieben.
@@ -197,11 +205,11 @@ Da mosparo mit normalen HTML-Elementen und CSS-Regeln arbeitet, können Sie das 
 Das Überschreiben der CSS-Regeln geschieht auf eigene Verantwortung und wird offiziell von mosparo nicht empfohlen.
 :::
 
-### Einfacher Modus
+### Einfacher sichtbarer Modus
 
 Neue Projekte verwenden standardmässig den einfachen Modus. Im Projektassistenten können Sie diese vier Felder direkt nach dem Anlegen des Projekts konfigurieren. mosparo berechnet automatisch die bestmögliche Farbe für den Erfolgs- und Misserfolgsstatus. Mit dem Feld zur Auswahl der Grösse, können Sie bestimmen, wie gross die Box dargestellt werden soll.
 
-### Erweiterter Modus
+### Erweiterter sichtbarer Modus
 
 Im erweiterten Modus haben Sie alle Möglichkeiten, das Design der mosparo Box anzupassen.
 
@@ -223,7 +231,7 @@ Wenn der Benutzer mit der Tastatur die Kontrollbox fokussiert oder der Benutzer 
 
 Um die Aufmerksamkeit auf die Kontrollbox zu lenken, ist im Standard eine Ping-Animation eingebaut, welche die Checkbox hervorheben soll. Falls Sie diese Animation nicht möchten, können Sie sie jederzeit deaktivieren.
 
-### Unsichtbarer Modus
+### Einfacher unsichtbarer Modus
 
 Der unsichtbare Modus wurde mit Version 1.0 eingeführt. Im unsichtbaren Modus muss der Benutzer keine Box anklicken, um die Daten zu überprüfen. Stattdessen werden die Daten überprüft, sobald der Benutzer das Formular absenden möchte. Die genauere Beschreibung der Variante finden Sie unter [Funktionsweise](../about/how_it_works#funktionsweise-unsichtbare-variante). 
 

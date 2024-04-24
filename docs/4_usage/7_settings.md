@@ -188,9 +188,17 @@ Users can share the same IP address, for example, in a multi-user apartment or a
 
 ## Design
 
-mosparo offers you the possibility to change the design of the mosparo box as far as possible and adapt it to your website. Use the design settings to adjust the look and feal. To make it easier to configure mosparo, there are two modes. With the simple mode, you choose the most important colors for your website and the size of the box and mosparo handles the rest.
+mosparo offers you the functionality to change the design of the mosparo box as much as possible and adapt it to your website. Use the design settings to adjust the look and feel.
 
-If you want to configure all options, you can switch to the advanced mode and change every single color and other options. You can change between these two modes any time you want.
+### Design modes
+
+The three design modes make it easier for you to configure the design of the mosparo box:
+
+- With the **simple visible mode**, you choose the most important colors for your website, and the box size, and mosparo handles the rest.
+- With the **advanced visible mode**, you can choose all the colors, the size of the borders and radius, and some other settings of the visible box.
+- With the **simple invisible mode**, you can choose the most important colors for the invisible mosparo mode
+
+Please use the `Design mode` dropdown in the bottom left corner of the design settings page to switch between the modes.
 
 :::info
 Since mosparo works with standard HTML elements and CSS rules, you can override the entire appearance of the mosparo box with appropriate CSS rules. However, because this requires programming experience, this possibility is not further described in this documentation.
@@ -200,11 +208,11 @@ Since mosparo works with standard HTML elements and CSS rules, you can override 
 Overriding the CSS rules is at your own risk and is not officially recommended by mosparo.
 :::
 
-### Simple mode
+### Simple visible mode
 
 New projects using the simple mode by default. In the project wizard, you're able to configure these four fields directly after creating the project. mosparo will automatically calculate the best possible color for the success and failure states. Use the size selector to define which size of the box you want to use.
 
-### Advanced mode
+### Advanced visible mode
 
 In the advanced mode, you have all options to adjust the design of the mosparo box.
 
@@ -226,7 +234,7 @@ When the user focuses on the checkbox with the keyboard or the user moves the mo
 
 A ping animation is built into the standard system, which should highlight the checkbox. If you do not want this animation, you can disable it anytime.
 
-### Invisible mode
+### Simple invisible mode
 
 The invisible mode was introduced with version 1.0. With the invisible mode, the user does not have to click a box to check the data. Instead, the data is checked when the user submits the form. A more detailed description of the variant can be found at [How it works](../about/how_it_works#functionality-invisible-variant).
 
