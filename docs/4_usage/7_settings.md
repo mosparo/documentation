@@ -176,6 +176,20 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time:
 - If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
 - For a further submission within these 450 seconds, the time increases to 675 seconds.
 
+#### Block equal submissions
+
+With this security feature, you can block equal submissions. When a user submits the same form data multiple times, mosparo will block the additional submissions, and the user cannot submit the same data anymore.
+
+You can define in which time frame mosparo should count the equal submissions and if the submissions should be counted based on the user's IP address.
+
+##### Fields
+
+| Field                               | Description                                                                                                                 |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Number of allowed equal submissions | The field defines the number of equal submissions a user can submit within a period before the submissions will be blocked. |
+| Detection time frame                | Defines the time, in seconds, in which the submissions will be counted to reach the number of allowed equal submissions.    |
+| Based on IP address                 | If enabled, mosparo counts the equal submission based on the IP address.                                                    |
+
 #### List of allowed IP addresses
 
 _You can edit the list of allowed IP addresses only in the general security settings of a project._

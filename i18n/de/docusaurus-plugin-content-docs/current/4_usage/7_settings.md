@@ -173,6 +173,20 @@ Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anf
 - Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Einsendung absendet, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
 - Bei einer weiteren Anfrage innerhalb dieser 450 Sekunden erhöht sich die Zeit auf 675 Sekunden.
 
+#### Gleiche Einsendungen blockieren
+
+Mit dieser Sicherheitsfunktion können Sie gleiche Einsendungen blockieren. Wenn ein Benutzer die gleichen Formulardaten mehrfach abschickt, blockiert mosparo die zusätzlichen Einsendungen, und der Benutzer kann die gleichen Daten nicht mehr absenden.
+
+Sie können festlegen, in welchem Zeitrahmen mosparo die gleichen Einsendungen zählen soll und ob die Einsendungen auf Basis der IP-Adresse des Benutzers gezählt werden sollen.
+
+##### Felder
+
+| Feld                                   | Beschreibung                                                                                                                                              |
+|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Anzahl erlaubter gleicher Einsendungen | Das Feld definiert die Anzahl der gleichen Einsendungen, die ein Benutzer innerhalb eines Zeitraums machen kann, bevor die Einsendungen blockiert werden. |
+| Erkennungszeitrahmen                   | Definiert die Zeit in Sekunden, in der die Einsendungen gezählt werden, um die Anzahl der erlaubten gleichen Einsendungen zu erreichen.                   |
+| Basierend auf der IP-Adresse           | Wenn aktiviert zählt mosparo die gleichwertigen Einsendungen basierend auf der IP-Adresse.                                                                |
+
 #### Liste der erlaubten IP-Adressen
 
 _Sie können die Liste der erlaubten IP-Adressen nur in den allgemeinen Sicherheitseinstellungen eines Projekts bearbeiten._
