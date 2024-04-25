@@ -22,7 +22,7 @@ Auf der rechten Seite können die Einträge erfasst werden. Fügen Sie je nach R
 
 Mit der Funktion “Mehrere Einträge hinzufügen” haben Sie die Möglichkeit, eine Liste von Einträgen mit wenigen Klicks zu erfassen. Sie können zum Beispiel eine Liste von Wörtern im Feld einfügen und mit einem Klick als Einträge erstellen lassen.
 
-Das Feld “Bew.” (“Bewertung”) definiert den Spam-Wert eines Eintrags. Wenn das Feld leer ist, wird automatisch der Wert 1 verwendet. Sie können in diesem Feld aber einen Wert eintragen, welcher grösser 0 ist.
+Das Feld "Bew." ("Bewertung") definiert den Spam-Wert eines Eintrags. Wenn das Feld leer ist, wird automatisch der Wert 1.0 verwendet. Sie können in diesem Feld jedoch einen numerischen Wert zwischen -1000000 und 1000000 eingeben. Wenn eine negative Zahl eingegeben wird, verringert sich die Anzahl der Punkte die eine Einsendung erhält. Siehe [Bewertungs-Beispiel](#bewertungs-beispiel)
 
 Wenn ein Eintrag nicht mehr notwendig ist, können Sie den Eintrag mit dem Lösch-Symbol löschen. Der Eintrag wird aber erst gelöscht, wenn die Regel mit der Schaltlfäche unten rechts gespeichert wird.
 
@@ -35,3 +35,12 @@ In der Liste der Regeln sehen Sie den Namen der Regel, den Regeltyp und ob die R
 Mit dem Filter-Dropdown in der oberen rechten Ecke können Sie die Liste nach nur einer der Regelarten filtern.
 
 Bevor eine Regel gelöscht wird, müssen Sie das Löschen der Regel bestätigen.
+
+## Bewertungs-Beispiel
+
+Sie haben in mosparo zwei Regeln konfiguriert:
+
+- Regel 1 ist eine Regel vom Typ _Wort_. Sie hat ein Element für das Wort `Medizin` mit einer Spam-Bewertung von `5.0`.
+- Regel 2 ist eine Regel des Typs _Unicode Block_. Sie hat ein Element für den Unicode-Block `Emoticons` mit einer Spam-Bewertung von `-10.0`.
+
+Wenn ein Beitrag den Text `Medizin 💊` enthält, ist die Bewertung `-5.0` (`= 5.0 + (-10.0)`) und damit unter dem konfigurierten Spam-Erkennungsminimum von `5.0` für dieses Projekt. mosparo wird die Einsendung nicht blockieren.
