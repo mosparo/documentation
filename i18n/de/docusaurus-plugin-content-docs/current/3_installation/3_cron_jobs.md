@@ -8,7 +8,7 @@ description: Mit Cronjobs werden automatische Arbeiten regelmässig ausgeführt.
 
 Nachdem die Installation von mosparo abgeschlossen ist, sollten Sie die Cronjobs einrichten, mit denen mosparo verschiedene automatische Aktionen durchführt. Sie haben die Wahl zwischen der Ausführung der Befehle über die CLI oder den Web-Cronjob.
 
-## CLI cron jobs
+## CLI-Cronjobs
 
 Wir empfehlen Ihnen, die folgenden Cronjobs zu konfigurieren:
 
