@@ -18,7 +18,7 @@ This method depends mainly on your rules and rules packages. If there are no rul
 
 If your rules are too restrictive, good submissions may also be blocked even though they don't contain unwanted content.
 
-You should regularly check that no solicited submissions have been identified as spam or spam requests have not been detected. If this is the case, you should adjust your rules.
+You should regularly check that no solicited submissions have been identified as spam or spam submissions have not been detected. If this is the case, you should adjust your rules.
 
 The functionality of mosparo is based on two components. On the one hand, you must integrate a JavaScript script into your form, which adds a check box to your form. On the other hand, before processing your form, you must check whether the submission is valid. Depending on the CMS or framework, a plugin is available for the integration of mosparo (see [Plugins](../integration/with_plugins/)).
 
