@@ -18,5 +18,5 @@ You can use the package we provided to install mosparo on your web hosting.
 6. Follow the installation wizard to install mosparo
 
 :::info
-If you're using the mosparo Docker image with a MySQL database in a container, please use the name of that container as the database host.
+If you're using the mosparo Docker image with a MySQL or PostgreSQL database in a container, please use the name of that container as the database host.
 :::
