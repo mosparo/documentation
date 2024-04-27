@@ -56,3 +56,19 @@ Enter one IP address or subnet per line. It can be an IPv4 or IPv6 address.
 Usually, only your web server needs access to the API of your mosparo installation so that you can limit the access to the API to only one IP address for maximum security.
 
 If mosparo is installed on the same server as your website, you can enter `127.0.0.1` in the field to limit access to this server.
+
+## Web cron job access
+
+To make the web cron job more secure, you can limit which devices can access the web cron job of your mosparo installation.
+
+If you do not configure this option (leave the field blank), every IP address can access the web cron job. For additional security, you need the cron job's secret key to execute it.
+
+To limit access to the web cron job, enter one IP address or subnet per line. It can be an IPv4 or IPv6 address.
+
+Usually, only your web server needs access to the web cron job of your mosparo installation so that you can limit the access to the web cron job to only one IP address for maximum security.
+
+If mosparo is installed on the same server as your website, you can enter `127.0.0.1` in the field to limit access to this server.
+
+:::info
+The field is only editable if the web cron job is enabled in the cronjob settings.
+:::

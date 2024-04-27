@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Users
 description: Manage the users of your mosparo installation.
 ---

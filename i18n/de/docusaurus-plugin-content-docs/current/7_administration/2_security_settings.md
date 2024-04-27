@@ -56,3 +56,19 @@ Geben Sie eine IP-Adresse oder ein Subnetz pro Zeile ein. Sie können eine belie
 In der Regel benötigt nur Ihr Webserver Zugriff auf die API Ihrer mosparo-Installation, so dass Sie für maximale Sicherheit den Zugriff auf die API auf nur eine IP-Adresse beschränken können.
 
 Wenn mosparo auf dem gleichen Server wie Ihre Website installiert ist, können Sie in das Feld `127.0.0.1` eintragen, um den Zugriff auf diesen Server zu beschränken.
+
+## Web-Cronjob-Zugriff
+
+Um den Web-Cronjob sicherer zu machen, können Sie einschränken, welche Geräte auf den Web-Cronjob Ihrer mosparo-Installation zugreifen können.
+
+Wenn Sie diese Option nicht konfigurieren (das Feld leer lassen), kann jede IP-Adresse auf den Web-Cronjob zugreifen. Zur zusätzlichen Sicherheit benötigen Sie den geheimen Schlüssel des Cronjobs, um diesen auszuführen.
+
+Um den Zugriff auf den Web-Cronjob zu beschränken, geben Sie pro Zeile eine IP-Adresse oder ein Subnetz an. Dabei kann es sich um eine IPv4- oder IPv6-Adresse handeln.
+
+In der Regel benötigt nur Ihr Webserver Zugriff auf den Web-Cronjob Ihrer mosparo-Installation, so dass Sie den Zugriff auf den Web-Cronjob zur maximalen Sicherheit auf eine IP-Adresse beschränken können.
+
+Wenn mosparo auf dem gleichen Server wie Ihre Website installiert ist, können Sie in das Feld `127.0.0.1` eintragen, um den Zugriff auf diesen Server zu beschränken.
+
+:::info
+Das Feld ist nur editierbar, wenn der Web-Cronjob in den Cronjob-Einstellungen aktiviert ist.
+:::

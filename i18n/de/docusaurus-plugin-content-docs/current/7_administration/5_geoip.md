@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 sidebar_label: GeoIP2
 description: Erfahren Sie, wie Sie GeoIP2 konfigurieren können.
 ---

@@ -205,8 +205,8 @@ mosparo bietet Ihnen die Möglichkeit, die Darstellung der mosparo Box so weit w
 
 Die drei Darstellungs-Arten erleichtern Ihnen die Konfiguration der Darstellung der mosparo-Box:
 
-- Im **einfachen sichtbaren Modus** wählen Sie die wichtigsten Farben für Ihre Website und die Größe der Box, den Rest erledigt mosparo.
-- Im **erweiterten sichtbaren Modus** können Sie alle Farben, die Größe der Ränder und des Radius und einige andere Einstellungen der sichtbaren Box wählen.
+- Im **einfachen sichtbaren Modus** wählen Sie die wichtigsten Farben für Ihre Website und die Grösse der Box, den Rest erledigt mosparo.
+- Im **erweiterten sichtbaren Modus** können Sie alle Farben, die Grösse der Ränder und des Radius und einige andere Einstellungen der sichtbaren Box wählen.
 - Mit dem **einfachen unsichtbaren Modus** können Sie die wichtigsten Farben für den unsichtbaren mosparo-Modus auswählen
 
 Bitte benutzen Sie das Dropdown-Menü „Darstellungsart“ in der linken unteren Ecke der Seite mit den Darstellungs-Einstellungen, um zwischen den Arten zu wechseln.
