@@ -13,6 +13,7 @@ Wenn Sie einen Reverse Proxy verwenden, müssen Sie die Kopfzeile `X-Forwarded-F
 Zusätzlich müssen Sie die Kopfzeile `X-Forwarded-Proto` übermitteln, falls die Verbindung hinter dem Reverse Proxy nicht mit SSL verschlüsselt ist.
 
 ### Beispiel nginx
+
 ```editorconfig
 server {
     listen 443 ssl http2;
@@ -28,6 +29,40 @@ server {
         proxy_set_header X-Forwarded-Proto https;
         proxy_pass http://127.0.0.1:8080;
     }
+    # Reverse Proxy Konfiguration - Ende
+
+    [sslConfiguration] # Konfigurieren gemäss Ihren Anforderungen
+}
+```
+
+## mosparo unter einem Unterpfad mit Reverse Proxy installieren
+
+Generell empfehlen wir, mosparo im Stammverzeichnis einer Domain oder Subdomain zu installieren und nicht in einem Unterpfad. Das Problem mit dem Unterpfad ist, dass bei einer Fehlkonfiguration des Webservers die falschen Daten von mosparo abrufbar sein könnten.
+
+Seit v1.2 ist es jedoch möglich, mosparo über einen Reverse Proxy in einem Unterpfad zu installieren. Nur das `public` Verzeichnis von mosparo darf dem Internet zugänglich gemacht werden. Sie können das Docker-Image verwenden oder mosparo an einem anderen Ort installieren und das `public`-Verzeichnis von dort aus freigeben.
+
+Sie müssen die Header `X-Forwarded-Host` mit dem Namen Ihres Hosts und `X-Forwareded-Prefix` mit dem Namen Ihres Unterpfades an mosparo weiterleiten.
+
+### Beispiel nginx
+
+```editorconfig
+server {
+    listen 443 ssl http2;
+
+    server_name [domain];
+
+    root /var/www/;
+    index index.html index.htm index.php;
+
+    # Reverse Proxy Konfiguration - Start
+	location /app/ {
+		rewrite /app/(.*) /$1 break;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+		proxy_set_header X-Forwarded-Host $http_host;
+		proxy_set_header X-Forwarded-Prefix /app;
+		proxy_pass http://127.0.0.1:8080;
+	}
     # Reverse Proxy Konfiguration - Ende
 
     [sslConfiguration] # Konfigurieren gemäss Ihren Anforderungen
