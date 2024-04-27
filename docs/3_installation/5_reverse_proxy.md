@@ -41,7 +41,7 @@ Generally, we recommend installing mosparo at the root of a domain or subdomain 
 
 But, since v1.2, installing mosparo in a subpath using a reverse proxy is possible. Only the `public` directory of mosparo must be exposed to the internet. You can use the Docker image or install mosparo in a different location and expose the `public` directory from there.
 
-You must forward the headers `X-Forwarded-Host` with the name of your host and `X-Forwareded-Prefix` with the name of your subpath to mosparo.
+You must forward the headers `X-Forwarded-Host` with the name of your host and `X-Forwarded-Prefix` with the name of your subpath to mosparo.
 
 ### Example nginx
 

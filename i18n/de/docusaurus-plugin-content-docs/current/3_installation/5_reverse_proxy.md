@@ -41,7 +41,7 @@ Generell empfehlen wir, mosparo im Stammverzeichnis einer Domain oder Subdomain 
 
 Seit v1.2 ist es jedoch möglich, mosparo über einen Reverse Proxy in einem Unterpfad zu installieren. Nur das `public` Verzeichnis von mosparo darf dem Internet zugänglich gemacht werden. Sie können das Docker-Image verwenden oder mosparo an einem anderen Ort installieren und das `public`-Verzeichnis von dort aus freigeben.
 
-Sie müssen die Header `X-Forwarded-Host` mit dem Namen Ihres Hosts und `X-Forwareded-Prefix` mit dem Namen Ihres Unterpfades an mosparo weiterleiten.
+Sie müssen die Header `X-Forwarded-Host` mit dem Namen Ihres Hosts und `X-Forwarded-Prefix` mit dem Namen Ihres Unterpfades an mosparo weiterleiten.
 
 ### Beispiel nginx
 
