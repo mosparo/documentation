@@ -104,15 +104,17 @@ Some users are faster, and others are slower in typing. The minimum time should 
 
 #### Honeypot field
 
-With the honeypot field, a hidden field is added to the form, which must be empty. The field is not visible to regular users. A bot sees the field and may think it needs to be filled in.
+The honeypot field is a hidden field in your form that the user must submit empty. It is not visible to regular users, but a bot may see it and think it needs to be filled in.
 
 The submission is considered spam when the field contains content because the regular user does not see the field. For users with screen readers, the field is marked with a note that the user should not fill in anything.
 
 :::caution
-A honeypot field can be an improvement in spam detection. However, since bots can also technically detect whether it could be a honeypot field, you should use this function with caution.
+A honeypot field can improve spam detection. However, since bots can also technically detect whether it is a honeypot field, you should use this function with caution.
 :::
 
-Enter the name of the honeypot field in the displayed field. There must be no other field in your form with this name. Otherwise, there will be a conflict. Please use a neutral term that does not indicate how the field works.
+Enter the name of the honeypot field in the displayed field. There must be no other field in your form with this name. Otherwise, there will be a conflict. Please use a neutral term that does not indicate how the field works. Using a name that could be a normal field name, like "street-2" is recommended.
+
+mosparo will add the field automatically to your form when you define a name for it in the security settings. You do not have to do anything in your form regarding the honeypot field except add mosparo to the form.
 
 #### Request delay
 
@@ -174,6 +176,20 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time:
 - If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
 - For a further submission within these 450 seconds, the time increases to 675 seconds.
 
+#### Block equal submissions
+
+With this security feature, you can block equal submissions. When a user submits the same form data multiple times, mosparo will block the additional submissions, and the user cannot submit the same data anymore.
+
+You can define in which time frame mosparo should count the equal submissions and if the submissions should be counted based on the user's IP address.
+
+##### Fields
+
+| Field                               | Description                                                                                                                 |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Number of allowed equal submissions | The field defines the number of equal submissions a user can submit within a period before the submissions will be blocked. |
+| Detection time frame                | Defines the time, in seconds, in which the submissions will be counted to reach the number of allowed equal submissions.    |
+| Based on IP address                 | If enabled, mosparo counts the equal submission based on the IP address.                                                    |
+
 #### List of allowed IP addresses
 
 _You can edit the list of allowed IP addresses only in the general security settings of a project._
@@ -186,9 +202,17 @@ Users can share the same IP address, for example, in a multi-user apartment or a
 
 ## Design
 
-mosparo offers you the possibility to change the design of the mosparo box as far as possible and adapt it to your website. Use the design settings to adjust the look and feal. To make it easier to configure mosparo, there are two modes. With the simple mode, you choose the most important colors for your website and the size of the box and mosparo handles the rest.
+mosparo offers you the functionality to change the design of the mosparo box as much as possible and adapt it to your website. Use the design settings to adjust the look and feel.
 
-If you want to configure all options, you can switch to the advanced mode and change every single color and other options. You can change between these two modes any time you want.
+### Design modes
+
+The three design modes make it easier for you to configure the design of the mosparo box:
+
+- With the **simple visible mode**, you choose the most important colors for your website, and the box size, and mosparo handles the rest.
+- With the **advanced visible mode**, you can choose all the colors, the size of the borders and radius, and some other settings of the visible box.
+- With the **simple invisible mode**, you can choose the most important colors for the invisible mosparo mode
+
+Please use the `Design mode` dropdown in the bottom left corner of the design settings page to switch between the modes.
 
 :::info
 Since mosparo works with standard HTML elements and CSS rules, you can override the entire appearance of the mosparo box with appropriate CSS rules. However, because this requires programming experience, this possibility is not further described in this documentation.
@@ -198,11 +222,11 @@ Since mosparo works with standard HTML elements and CSS rules, you can override 
 Overriding the CSS rules is at your own risk and is not officially recommended by mosparo.
 :::
 
-### Simple mode
+### Simple visible mode
 
 New projects using the simple mode by default. In the project wizard, you're able to configure these four fields directly after creating the project. mosparo will automatically calculate the best possible color for the success and failure states. Use the size selector to define which size of the box you want to use.
 
-### Advanced mode
+### Advanced visible mode
 
 In the advanced mode, you have all options to adjust the design of the mosparo box.
 
@@ -224,7 +248,7 @@ When the user focuses on the checkbox with the keyboard or the user moves the mo
 
 A ping animation is built into the standard system, which should highlight the checkbox. If you do not want this animation, you can disable it anytime.
 
-### Invisible mode
+### Simple invisible mode
 
 The invisible mode was introduced with version 1.0. With the invisible mode, the user does not have to click a box to check the data. Instead, the data is checked when the user submits the form. A more detailed description of the variant can be found at [How it works](../about/how_it_works#functionality-invisible-variant).
 

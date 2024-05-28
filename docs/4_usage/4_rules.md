@@ -22,7 +22,7 @@ On the right side, you can add the items. Depending on the rule type, insert a v
 
 With the "Add multiple entries" function, you can enter a list of entries with just a few clicks. For example, you can insert a list of words in the field and create them as items with one click.
 
-The rating field defines the spam score of an entry. If the field is empty, the value 1.0 is used. However, you can enter a value in this field that is greater than 0.
+The rating field defines the spam score of an entry. If the field is empty, the value 1.0 is used. However, you can enter a numeric value from -1000000 to 1000000. If a negative number is entered, the item will decrease the number of points a submission receives. See [Rating example](#rating-example)
 
 If an item is no longer necessary, you can delete the item with the delete symbol. However, the item is only deleted when the rule is saved with the button at the bottom right.
 
@@ -35,3 +35,12 @@ In the list of rules, you can see the rule's name, the rule type, and whether th
 With the filter dropdown in the top right corner, you can filter the list for only one of the rule types.
 
 Before a rule is deleted, you must confirm that you want to delete the rule.
+
+## Rating example
+
+You have two rules configured in mosparo:
+
+- Rule 1 is a rule of the type _Word_. It has an item for the word `Medicine` with a spam rating of `5.0`
+- Rule 2 is a rule of the type _Unicode Block_. It has an item for the Unicode block `Emoticons` with a spam rating of `-10.0`
+
+If a submission contains the text `Medicine 💊`, the rating will be `-5.0` (`= 5.0 + (-10.0)`) and, with that, below the configured spam detection minimum of `5.0` for this project. mosparo will not block the submission.

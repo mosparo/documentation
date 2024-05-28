@@ -13,7 +13,7 @@ Um das Docker Image zu verwenden, benötigen Sie mindestens
 To use the Docker image, you need at least
 
 - Docker in der Version 20.10.20 oder neuer
-- Eine MySQL-Datenbank, entweder in einem Docker Container oder Remote
+- Eine MySQL- oder PostgreSQL-Datenbank, entweder in einem Docker Container oder Remote
 
 ## Benutzen des Images
 
@@ -83,7 +83,7 @@ Nach einer gewissen Zeit sind die Arbeiten abgeschlossen und die mosparo Contain
 
 Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
 
-Verwenden Sie den Namen des MySQL-Docker-Containers als Host für die Datenbankverbindung. Wenn Sie die Docker Compose-Datei wie oben angegeben verwenden, lautet der Name des MySQL-Containers `db`. Füllen Sie die anderen Werte wie in der Docker Compose-Datei definiert ein.
+Verwenden Sie den Namen des MySQL- oder PostgreSQL-Docker-Containers als Host für die Datenbankverbindung. Wenn Sie die Docker Compose-Datei wie oben angegeben verwenden, lautet der Name des MySQL-Containers `db`. Füllen Sie die anderen Werte wie in der Docker Compose-Datei definiert ein.
 
 Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy/).
 
@@ -95,7 +95,7 @@ Statt Docker Compose für das Erstellen der Container zu verwenden, können Sie 
 docker run -p 127.0.0.1:8080:80 -d mosparo/mosparo
 ```
 
-Das Image wird anschliessend heruntergeladen und der Container erstellt. Wenn Sie eine MySQL-Datenbank in einem Docker Container verwenden möchten, müssen Sie den mosparo Container mit dem MySQL Container verknüpfen.
+Das Image wird anschliessend heruntergeladen und der Container erstellt. Wenn Sie eine MySQL- oder PostgreSQL-Datenbank in einem Docker Container verwenden möchten, müssen Sie den mosparo Container mit dem Container verknüpfen.
 
 ```
 docker run –link mysql-server -p 127.0.0.1:8080:80 -d mosparo/mosparo
@@ -107,7 +107,7 @@ Bitte passen Sie den Container-Name `mysql-server` an den von Ihnen gewählten N
 
 Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihrem Browser eingeben.
 
-Verwenden Sie den Namen des MySQL-Docker-Containers als Host für die Datenbankverbindung.
+Verwenden Sie den Namen des MySQL- oder PostgreSQL-Docker-Containers als Host für die Datenbankverbindung.
 
 Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy/).
 

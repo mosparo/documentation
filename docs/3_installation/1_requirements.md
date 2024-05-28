@@ -25,7 +25,7 @@ To install mosparo on a server, your server must meet the following requirements
   - openssl
   - pcre
   - pdo
-  - pdo_mysql
+  - pdo_mysql or pdo_pgsql
   - simplexml
   - tokenizer
   - xml
@@ -33,7 +33,7 @@ To install mosparo on a server, your server must meet the following requirements
   - posix (optional)
   - sodium (optional)
   - Zend OPCache (optional)
-- MySQL database
+- MySQL or PostgreSQL database
 
 ## Access to the internet
 

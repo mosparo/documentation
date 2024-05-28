@@ -18,5 +18,5 @@ Um mosparo auf Ihrem Webhosting zu installieren, können Sie das von uns bereitg
 6. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
 
 :::info
-Wenn Sie das mosparo Docker-Image mit einer MySQL-Datenbank in einem Container verwenden, verwenden Sie bitte den Namen dieses Containers als Datenbank-Host.
+Wenn Sie das mosparo Docker-Image mit einer MySQL- oder PostgreSQL-Datenbank in einem Container verwenden, verwenden Sie bitte den Namen dieses Containers als Datenbank-Host.
 :::

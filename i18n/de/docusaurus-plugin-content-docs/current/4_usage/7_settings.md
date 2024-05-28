@@ -101,15 +101,17 @@ Bitte beachten Sie, dass gewisse Benutzer schneller und andere langsamer im Tipp
 
 #### Honeypot-Feld
 
-Mit dem Honeypot-Feld wird ein verstecktes Feld zum Formular hinzugefügt, welches zwingend leer sein muss. Das Feld ist für normale Benutzer nicht sichtbar. Ein Bot sieht das Feld und denkt möglicherweise, dass es ausgefüllt werden muss.
+Das Honeypot-Feld ist ein verstecktes Feld in Ihrem Formular, welches der Benutzende leer absenden muss. Für Menschen ist es nicht sichtbar, aber ein Bot sieht es möglicherweise und denkt, dass es ausgefüllt werden muss.
 
-Sobald das Feld ausgefüllt wird, wird die Einsendung als Spam gewertet, weil der normale Benutzer das Feld nicht sieht. Für Benutzer mit Screenreader ist das Feld mit einem entsprechenden Hinweis ausgestattet, dass es nicht ausgefüllt werden soll.
+Sobald das Feld ausgefüllt wird, wird die Einsendung als Spam gewertet, weil der Mensch das Feld nicht sieht. Für Menschen mit Screenreader ist das Feld mit einem entsprechenden Hinweis ausgestattet, dass es nicht ausgefüllt werden soll.
 
 :::caution
 Ein Honeypot-Feld kann eine Verbesserung der Spam-Erkennung sein. Da Bots aber technisch auch erkennen können, ob es ein Honeypot-Feld sein könnte oder nicht, ist diese Funktion mit Vorsicht zu benutzen.
 :::
 
-Tragen Sie im angezeigten Feld den Namen des Honeypot-Feldes ein. Es darf kein anderes Feld in Ihrem Formular mit diesem Namen geben, da es ansonsten zu einem Konflikt kommt. Bitte verwenden Sie einen neutralen Begriff, der keinen Hinweis auf die Funktionsweise des Feldes gibt.
+Tragen Sie im angezeigten Feld den Namen des Honeypot-Feldes ein. Es darf kein anderes Feld in Ihrem Formular mit diesem Namen geben, da es ansonsten zu einem Konflikt kommt. Bitte verwenden Sie einen neutralen Begriff, der keinen Hinweis auf die Funktionsweise des Feldes gibt. Es wird empfohlen, einen Namen zu verwenden, welcher wie ein normales Feld klingt, zum Beispiel "strasse-2".
+
+mosparo wird das Feld automatisch zu Ihrem Formular hinzufügen, sofern Sie einen Namen für das Feld in den Sicherheits-Einstellungen definiert haben. Sie müssen betreffend des Honeypot-Feldes an Ihrem Formular nichts anpassen, ausser dass Sie mosparo zum Formular hinzufügen müssen.
 
 #### Anfrage-Verzögerung
 
@@ -171,6 +173,20 @@ Werte der Felder: Anzahl erlaubter Anfragen: 30, Erkennungszeitraum: 30 sek, Anf
 - Wenn der Benutzer innerhalb dieser 300 Sekunden eine weitere Einsendung absendet, erhöht sich die Zeit mit Hilfe des Faktors von 300 auf 450 Sekunden.
 - Bei einer weiteren Anfrage innerhalb dieser 450 Sekunden erhöht sich die Zeit auf 675 Sekunden.
 
+#### Gleiche Einsendungen blockieren
+
+Mit dieser Sicherheitsfunktion können Sie gleiche Einsendungen blockieren. Wenn ein Benutzer die gleichen Formulardaten mehrfach abschickt, blockiert mosparo die zusätzlichen Einsendungen, und der Benutzer kann die gleichen Daten nicht mehr absenden.
+
+Sie können festlegen, in welchem Zeitrahmen mosparo die gleichen Einsendungen zählen soll und ob die Einsendungen auf Basis der IP-Adresse des Benutzers gezählt werden sollen.
+
+##### Felder
+
+| Feld                                   | Beschreibung                                                                                                                                              |
+|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Anzahl erlaubter gleicher Einsendungen | Das Feld definiert die Anzahl der gleichen Einsendungen, die ein Benutzer innerhalb eines Zeitraums machen kann, bevor die Einsendungen blockiert werden. |
+| Erkennungszeitrahmen                   | Definiert die Zeit in Sekunden, in der die Einsendungen gezählt werden, um die Anzahl der erlaubten gleichen Einsendungen zu erreichen.                   |
+| Basierend auf der IP-Adresse           | Wenn aktiviert zählt mosparo die gleichwertigen Einsendungen basierend auf der IP-Adresse.                                                                |
+
 #### Liste der erlaubten IP-Adressen
 
 _Sie können die Liste der erlaubten IP-Adressen nur in den allgemeinen Sicherheitseinstellungen eines Projekts bearbeiten._
@@ -183,9 +199,17 @@ Benutzer können die gleiche IP-Adresse teilen, beispielsweise in einer Wohnung 
 
 ## Darstellung
 
-mosparo bietet Ihnen die Möglichkeit, das Design der mosparo Box so weit wie möglich zu verändern und an Ihre Website anzupassen. Nutzen Sie die Design-Einstellungen, um das Aussehen und die Darstellung anzupassen. Um Ihnen die Konfiguration von mosparo zu erleichtern, gibt es zwei Modi. Im einfachen Modus wählen Sie die wichtigsten Farben für Ihre Website und die Grösse der Box aus und mosparo übernimmt den Rest.
+mosparo bietet Ihnen die Möglichkeit, die Darstellung der mosparo Box so weit wie möglich zu verändern und an Ihre Website anzupassen. Nutzen Sie die Darstellungs-Einstellungen, um das Aussehen und die Bedienung anzupassen.
 
-Wenn Sie alle Optionen konfigurieren möchten, können Sie in den erweiterten Modus wechseln und jede einzelne Farbe und andere Optionen ändern. Sie können jederzeit zwischen diesen beiden Modi wechseln.
+### Darstellungs-Arten
+
+Die drei Darstellungs-Arten erleichtern Ihnen die Konfiguration der Darstellung der mosparo-Box:
+
+- Im **einfachen sichtbaren Modus** wählen Sie die wichtigsten Farben für Ihre Website und die Grösse der Box, den Rest erledigt mosparo.
+- Im **erweiterten sichtbaren Modus** können Sie alle Farben, die Grösse der Ränder und des Radius und einige andere Einstellungen der sichtbaren Box wählen.
+- Mit dem **einfachen unsichtbaren Modus** können Sie die wichtigsten Farben für den unsichtbaren mosparo-Modus auswählen
+
+Bitte benutzen Sie das Dropdown-Menü „Darstellungsart“ in der linken unteren Ecke der Seite mit den Darstellungs-Einstellungen, um zwischen den Arten zu wechseln.
 
 :::info
 Da mosparo mit normalen HTML-Elementen und CSS-Regeln arbeitet, können Sie das gesamte Aussehen der mosparo-Box mit entsprechenden CSS-Regeln überschreiben. Da dafür jedoch Programmiererfahrung notwendig ist, wird diese Möglichkeit in dieser Dokumentation nicht weiter beschrieben.
@@ -195,11 +219,11 @@ Da mosparo mit normalen HTML-Elementen und CSS-Regeln arbeitet, können Sie das 
 Das Überschreiben der CSS-Regeln geschieht auf eigene Verantwortung und wird offiziell von mosparo nicht empfohlen.
 :::
 
-### Einfacher Modus
+### Einfacher sichtbarer Modus
 
 Neue Projekte verwenden standardmässig den einfachen Modus. Im Projektassistenten können Sie diese vier Felder direkt nach dem Anlegen des Projekts konfigurieren. mosparo berechnet automatisch die bestmögliche Farbe für den Erfolgs- und Misserfolgsstatus. Mit dem Feld zur Auswahl der Grösse, können Sie bestimmen, wie gross die Box dargestellt werden soll.
 
-### Erweiterter Modus
+### Erweiterter sichtbarer Modus
 
 Im erweiterten Modus haben Sie alle Möglichkeiten, das Design der mosparo Box anzupassen.
 
@@ -221,7 +245,7 @@ Wenn der Benutzer mit der Tastatur die Kontrollbox fokussiert oder der Benutzer 
 
 Um die Aufmerksamkeit auf die Kontrollbox zu lenken, ist im Standard eine Ping-Animation eingebaut, welche die Checkbox hervorheben soll. Falls Sie diese Animation nicht möchten, können Sie sie jederzeit deaktivieren.
 
-### Unsichtbarer Modus
+### Einfacher unsichtbarer Modus
 
 Der unsichtbare Modus wurde mit Version 1.0 eingeführt. Im unsichtbaren Modus muss der Benutzer keine Box anklicken, um die Daten zu überprüfen. Stattdessen werden die Daten überprüft, sobald der Benutzer das Formular absenden möchte. Die genauere Beschreibung der Variante finden Sie unter [Funktionsweise](../about/how_it_works#funktionsweise-unsichtbare-variante). 
 

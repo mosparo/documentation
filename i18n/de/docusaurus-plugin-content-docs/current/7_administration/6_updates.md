@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 sidebar_label: Updates
 description: Erfahren Sie mehr über das Update-Web-Interface.
 ---

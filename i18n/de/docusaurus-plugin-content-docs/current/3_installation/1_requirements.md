@@ -25,7 +25,7 @@ Damit mosparo auf einem Server installiert werden kann, gibt es folgende Vorauss
   - openssl
   - pcre
   - pdo
-  - pdo_mysql
+  - pdo_mysql oder pdo_pgsql
   - simplexml
   - tokenizer
   - xml
@@ -33,7 +33,7 @@ Damit mosparo auf einem Server installiert werden kann, gibt es folgende Vorauss
   - posix (optional)
   - sodium (optional)
   - Zend OPCache (optional)
-- MySQL-Datenbank
+- MySQL- oder PostgreSQL-Datenbank
 
 ## Verbindung zum Internet
 
