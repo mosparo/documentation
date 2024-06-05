@@ -73,15 +73,24 @@ No authentication is required. Each request must contain the public key of a pro
 
 #### Arguments
 
-| Name          | Type   | Required | Description                                                                                           |
-|---------------|--------|----------|-------------------------------------------------------------------------------------------------------|
-| `publicKey`   | String | Required | The public key of the project.                                                                        |
+| Name          | Type   | Required | Description                                                                                 |
+|---------------|--------|----------|---------------------------------------------------------------------------------------------|
+| `publicKey`   | String | Required | The public key of the project.                                                              |
 | `submitToken` | String | Required | The submit token requested with the method [`request-submit-token`](#request-submit-token). |
-| `formData`    | Array  | Required | An array with all the form data, see [Structure of `formData`](#structure-of-formdata).               |
+| `formData`    | Array  | Required | An array with all the form data, see [Structure of `formData`](#structure-of-formdata).     |
 
 #### Structure of `formData`
 
-The form data is an array of objects. Every object needs the following properties:
+The form data is an object containing two properties:
+
+| Name            | Type  | Description                                                                                                                                                                 |
+|-----------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `fields`        | Array | An array of objects with the fields' data that should be processed, see [Structure of field data](#structure-of-field-data).                                          |
+| `ignoredFields` | Array | An array with the names (HTML attribute `name` of a ignored field) of the fields that were ignored from the frontend, see [Ignored fields](../integration/ignored_fields/). |
+
+#### Structure of field data
+
+Every object needs the following properties:
 
 | Name        | Type   | Description                                            |
 |-------------|--------|--------------------------------------------------------|
@@ -104,6 +113,23 @@ The HTML type must be added to the field path if it is an `input` element.
 `input[text].name`<br />
 `input[email].email-address`
 :::
+
+#### Example `formData`
+
+```json
+{
+  "fields": [
+    {
+      "name": "username",
+      "value": "example",
+      "fieldPath": "input[text].username"
+    }
+  ],
+  "ignoredFields": [
+    "password"
+  ]
+}
+```
 
 ### Response
 

@@ -81,7 +81,16 @@ Es ist keine Authentifizierung erforderlich. Um das Projekt zu identifizieren, m
 
 #### Struktur von `formData`
 
-Die Formulardaten sind ein Array mit Objekten. Jedes Objekt benötigt die folgenden Eigenschaften:
+Die Formulardaten sind in einem Objekt bestehend aus zwei Eigenschaften:
+
+| Name            | Typ  | Beschreibung                                                                                                                                                                       |
+|-----------------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `fields`        | Array | Ein Array von Objekten mit den Daten der Felder, die verarbeitet werden sollen, siehe [Struktur der Felddaten](#struktur-der-felddaten).                                           |
+| `ignoredFields` | Array | Ein Array mit den Namen (HTML-Attribut `name` eines ignorierten Feldes) der Felder, die vom Frontend ignoriert wurden, siehe [Ignorierte Felder](../integration/ignored_fields/).  |
+
+#### Struktur der Felddaten
+
+Jedes Objekt benötigt die folgenden Eigenschaften:
 
 | Name        | Typ    | Beschreibung                                      |
 |-------------|--------|---------------------------------------------------|
@@ -104,6 +113,23 @@ Der HTML-Typ muss dem Feldpfad hinzugefügt werden, wenn es sich um ein `input`-
 `input[text].name`<br />
 `input[email].email-address`
 :::
+
+#### Beispiel `formData`
+
+```json
+{
+  "fields": [
+    {
+      "name": "username",
+      "value": "example",
+      "fieldPath": "input[text].username"
+    }
+  ],
+  "ignoredFields": [
+    "password"
+  ]
+}
+```
 
 ### Antwort
 
