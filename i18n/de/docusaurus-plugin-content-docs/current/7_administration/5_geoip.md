@@ -14,9 +14,11 @@ Um trotzdem zu wissen, woher ein Benutzer kommt, gibt es Datenbanken, mit welche
 Theoretisch ist eine genauere Zuordnung bis auf die Stadt möglich, jedoch verwendet mosparo nur maximal die Länder- und Anbieter-Datenbank.
 :::
 
-Damit mosparo die GeoIP2-Datenbank verwenden kann, brauchen Sie einen Lizenzschlüssel. Einen kostenlosen Lizenzschlüssel können Sie auf der Website von MaxMind anfordern: https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
+Um die GeoIP2-Datenbank in mosparo zu nutzen, benötigen Sie eine Account-ID und einen Lizenzschlüssel. Sie können einen kostenlosen Lizenzschlüssel auf der Website von MaxMind anfordern: https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
 
-Falls Sie noch keinen Account haben, erstellen Sie zuerst einen Account. Anschliessend fordern Sie einen Lizenzschlüssel für GeoLite2 an. Fügen Sie den Lizenzschlüssel im Feld in mosparo ein und betätigen Sie die Schaltfläche “Speichern”.
+Wenn Sie noch keinen Account haben, erstellen Sie zunächst einen. Sie finden die Konto-ID in Ihrem MaxMind-Konto unter "Kontoinformationen". Sie können den Lizenzschlüssel in Ihrem MaxMind-Konto unter "Lizenzschlüssel verwalten" anfordern.
+
+Fügen Sie die Konto-ID und den Lizenzschlüssel in die Felder in mosparo ein und drücken Sie die Schaltfläche "Speichern".
 
 Sie können anschliessend auf der rechten Seite die Schaltfläche “Datenbank herunterladen” betätigen, um die Datenbank herunterzuladen. Falls alles korrekt funktioniert hat, sehen Sie anschliessend eine Meldung, dass GeoIP2 verfügbar ist. Zusätzlich wird der Aktualisierungszeitpunkt der Datenbanken angezeigt.
 
