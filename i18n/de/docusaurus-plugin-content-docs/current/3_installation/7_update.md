@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 sidebar_label: Update für mosparo installieren
 description: Es gibt drei Möglichkeiten, ein Update für mosparo zu installieren.
 ---

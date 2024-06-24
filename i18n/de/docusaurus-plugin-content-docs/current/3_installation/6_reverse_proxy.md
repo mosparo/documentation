@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: Reverse Proxy
 description: Wenn Sie mosparo hinter einem Reverse Proxy aufsetzen, müssen Sie ein paar zusätzliche Anpassungen vornehmen.
 ---

@@ -63,6 +63,7 @@ const sidebars = {
         },
         'installation/cron_jobs',
         'installation/nginx',
+        'installation/microsoft_iis',
         'installation/reverse_proxy',
         'installation/update'
       ],
