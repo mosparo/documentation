@@ -34,7 +34,7 @@ Save your selection and continue with the wizard.
 
 Next, you can choose which security features you want to enable. If you want to tune the features, you can do that after the wizard in the security settings of your project.
 
-You can find all information about the security features [here](./settings#security-settings).
+You can find all information about the security features [here](../settings#security-settings).
 
 You do not have to enable any features in the wizard. You can enable or disable these features anytime in the security settings.
 
