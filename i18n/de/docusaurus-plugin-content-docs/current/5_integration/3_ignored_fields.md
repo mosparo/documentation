@@ -37,4 +37,4 @@ Wenn Sie einem Formularfeld die CSS-Klasse `mosparo__ignored-field` geben, wird 
 
 ### JavaScript-Initialisierung
 
-Bei der Initialisierung der JavaScript Funktionalität kann der Selektor definiert werden, mit welchem die Felder gesucht werden (siehe [Parameter der mosparo-Klasse](custom/#parameter-der-mosparo-klasse)).
+Bei der Initialisierung der JavaScript Funktionalität kann der Selektor definiert werden, mit welchem die Felder gesucht werden (siehe [Parameter der mosparo-Klasse](custom#parameter-der-mosparo-klasse)).

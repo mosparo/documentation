@@ -89,12 +89,12 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 
 Wenn die Anfrage erfolgreich abgeschlossen wurde, sind die folgenden Eigenschaften in der Antwort enthalten:
 
-| Name                    | Typ     | Beschreibung                                                                                                                                                                                                                   |
-|-------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `valid`                 | Boolean | Ist `true`, wenn die Anfrage gültig war und vom Backend verarbeitet werden kann. Ist dies `false`, ist die Übermittlung nicht akzeptabel.                                                                                      |
-| `verificationSignature` | String  | Die von mosparo erzeugte Signatur. Diese muss mit der vom Client selbst erstellten Signatur abgeglichen werden, um Manipulationen zu verhindern (siehe [Auswerten der Antwort](../integration/custom/#auswerten-der-antwort)). |
-| `verifiedFields`        | Objekt  | Ein Objekt mit allen überprüften Feldern und mit dem Status für jedes Feld (siehe [Werte für `verifiedFields`](../integration/custom/#werte-für-verifiedfields)).                                                              |
-| `issues`                | Array   | Ein Array mit möglichen Problemen als String.                                                                                                                                                                                  |
+| Name                    | Typ     | Beschreibung                                                                                                                                                                                                                 |
+|-------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `valid`                 | Boolean | Ist `true`, wenn die Anfrage gültig war und vom Backend verarbeitet werden kann. Ist dies `false`, ist die Übermittlung nicht akzeptabel.                                                                                    |
+| `verificationSignature` | String  | Die von mosparo erzeugte Signatur. Diese muss mit der vom Client selbst erstellten Signatur abgeglichen werden, um Manipulationen zu verhindern (siehe [Auswerten der Antwort](../integration/custom#auswerten-der-antwort)). |
+| `verifiedFields`        | Objekt  | Ein Objekt mit allen überprüften Feldern und mit dem Status für jedes Feld (siehe [Werte für `verifiedFields`](../integration/custom#werte-für-verifiedfields)).                                                             |
+| `issues`                | Array   | Ein Array mit möglichen Problemen als String.                                                                                                                                                                                |
 
 Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Antwort enthalten:
 

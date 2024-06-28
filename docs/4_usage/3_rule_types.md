@@ -82,7 +82,7 @@ It is recommended to start your input with the protocol or two slashes for a pro
 To use the "Provider" rule type, you must configure the MindMax GeoLite2 database. Otherwise, the rule type has no influence. In addition, you must remember that these rule types cannot be guaranteed to function correctly. The AS number and country assignment to an IP address can be outdated or generally incorrect.
 
 :::info
-Before you can use the "Provider" rule type, you must configure GeoIP2 (see [GeoIP2](../administration/geoip/)).
+Before you can use the "Provider" rule type, you must configure GeoIP2 (see [GeoIP2](../administration/geoip)).
 :::
 
 ### AS number

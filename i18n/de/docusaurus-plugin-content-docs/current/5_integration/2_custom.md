@@ -196,7 +196,7 @@ Nachdem das Formular abgesendet wurde, muss überprüft werden, ob die Einsendun
 
 ### Vorbereiten der Formulardaten
 
-Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder entfernt werden (siehe [ignorierte Felder](../integration/ignored_fields/)).
+Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder entfernt werden (siehe [ignorierte Felder](../integration/ignored_fields)).
 
 ### Verifizieren mit Funktionsbibliothek
 

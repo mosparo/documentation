@@ -29,4 +29,4 @@ Um ein Plugin zu installieren, folgen Sie bitte den Anweisungen auf der Website 
 
 Normalerweise müssen Sie die Dateien des Plugin einfach in einen bestimmten Ordner Ihrer Website kopieren und die Website erkennt das Plugin anschliessend.
 
-Nachdem Sie das Plugin hinzugefügt haben, müssen Sie es konfigurieren. Dafür brauchen Sie die Informationen, welche Sie in den [Einstellungen eines Projektes](../usage/settings/) finden.
+Nachdem Sie das Plugin hinzugefügt haben, müssen Sie es konfigurieren. Dafür brauchen Sie die Informationen, welche Sie in den [Einstellungen eines Projektes](../usage/settings) finden.

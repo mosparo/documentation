@@ -86,7 +86,7 @@ Die Formulardaten sind in einem Objekt bestehend aus zwei Eigenschaften:
 | Name            | Typ  | Beschreibung                                                                                                                                                                       |
 |-----------------|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `fields`        | Array | Ein Array von Objekten mit den Daten der Felder, die verarbeitet werden sollen, siehe [Struktur der Felddaten](#struktur-der-felddaten).                                           |
-| `ignoredFields` | Array | Ein Array mit den Namen (HTML-Attribut `name` eines ignorierten Feldes) der Felder, die vom Frontend ignoriert wurden, siehe [Ignorierte Felder](../integration/ignored_fields/).  |
+| `ignoredFields` | Array | Ein Array mit den Namen (HTML-Attribut `name` eines ignorierten Feldes) der Felder, die vom Frontend ignoriert wurden, siehe [Ignorierte Felder](../integration/ignored_fields).  |
 
 #### Struktur der Felddaten
 

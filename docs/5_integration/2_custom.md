@@ -195,7 +195,7 @@ Once the form has been submitted, the backend of your website must check whether
 
 ### Preparing Form Data
 
-The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields/)).
+The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields)).
 
 ### Verifying with a function library
 

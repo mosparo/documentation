@@ -10,7 +10,7 @@ Alternatively, you can install mosparo directly from our Git repository. The ins
 
 ## Prerequisites
 
-In addition to the requirements described in the [requirements](../requirements/) regarding your web hosting, you need for this method
+In addition to the requirements described in the [requirements](../requirements) regarding your web hosting, you need for this method
 - Git
 - Composer
 - Yarn

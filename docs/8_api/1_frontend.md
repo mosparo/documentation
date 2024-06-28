@@ -86,7 +86,7 @@ The form data is an object containing two properties:
 | Name            | Type  | Description                                                                                                                                                                 |
 |-----------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `fields`        | Array | An array of objects with the fields' data that should be processed, see [Structure of field data](#structure-of-field-data).                                          |
-| `ignoredFields` | Array | An array with the names (HTML attribute `name` of a ignored field) of the fields that were ignored from the frontend, see [Ignored fields](../integration/ignored_fields/). |
+| `ignoredFields` | Array | An array with the names (HTML attribute `name` of a ignored field) of the fields that were ignored from the frontend, see [Ignored fields](../integration/ignored_fields). |
 
 #### Structure of field data
 

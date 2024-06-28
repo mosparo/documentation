@@ -36,4 +36,4 @@ If you give a form field the CSS class `mosparo__ignored-field`, the field will 
 
 ### JavaScript initialisation
 
-When initializing the JavaScript functionality, you can define the selector with which the fields are searched (see [Parameters of the mosparo class](custom/#parameters-of-the-mosparo-class)).
+When initializing the JavaScript functionality, you can define the selector with which the fields are searched (see [Parameters of the mosparo class](custom#parameters-of-the-mosparo-class)).

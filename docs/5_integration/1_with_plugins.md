@@ -29,4 +29,4 @@ Please follow the instructions on how to install a plugin on the website of the 
 
 You should be able to simply put the files of the plugin somewhere in your website, and the website should detect the plugin.
 
-After you've added the plugin, you need to configure it. For this part, you'll need the information you can find in the [project settings](../usage/settings/).
+After you've added the plugin, you need to configure it. For this part, you'll need the information you can find in the [project settings](../usage/settings).
