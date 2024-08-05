@@ -77,9 +77,11 @@ Die Kleiner-als- (`<`) und Grösser-als-Zeichen (`>`) sind zur Kennzeichnung des
 | `language`                 | String   | _leer_                               | Legt die Sprache der mosparo-Box fest. Das Feld ist standardmässig leer, dass heisst, mosparo verwendet die vom Browser definierte Sprache (falls vorhanden) oder Englisch. Wenn die Übersetzung für die definierte Sprache nicht vorhanden ist, antwortet mosparo mit der englischen Übersetzung. Beispiel: `fr_FR`. _(Hinzugefügt in v1.1)_ |
 | `loadCssResource`         | Boolean  | `false`                               | Bestimmt, ob bei der Initialisierung auch die CSS-Ressourcen geladen werden sollen (siehe [CSS-Ressourcen einbinden](#css-ressourcen-einbinden)).                                                                                                                                                                                             |
 | `name`                    | String   | _leer_                              | Definiert den Namen der HTML-Checkbox. Standardmässig wird eine zufällige ID dafür verwendet.                                                                                                                                                                                                                                                 |
-| `onAbortSubmit`            | Callable | _leer_                               | _(Nur im sichtbaren Modus)_ Dieser Callback wird aufgerufen, nachdem der Absendevorgang abgebrochen wurde, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                                                                                                   |
+| `onBeforeGetFormData`      | Callable | _leer_                               | Dieser Callback wird aufgerufen, bevor die Formulardaten vom Formular abgeholt werden. Mit diesem Callback ist es möglich, die Formulardaten vorzubereiten (zum Beispiel für WYSIWYG-Felder, die den Inhalt in der `textarea` speichern müssen).                                                                                              |
+| `onGetFieldValue`          | Callable | _leer_                               | Mit diesem Callback ist es möglich, den Wert eines Feldes anzupassen. Die Callback-Methode erhält das Formularelement als erstes Argument und den Wert als zweites Argument und erwartet den Wert des Feldes als Rückgabewert.                                                                                                                |
 | `onCheckForm`              | Callable | _leer_                               | Definiert einen Callback, der aufgerufen wird, sobald das Formular geprüft wurde. Das Überprüfungsergebnis wird als boolescher Parameter an den Callback übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                                                                                                                       |
 | `onResetState`             | Callable | _leer_                               | Definiert einen Callback, der ausgeführt wird, nachdem die mosparo Box zurückgesetzt wurde (z.B. nachdem das Formular zurückgesetzt wurde).                                                                                                                                                                                                   |
+| `onAbortSubmit`            | Callable | _leer_                               | _(Nur im sichtbaren Modus)_ Dieser Callback wird aufgerufen, nachdem der Absendevorgang abgebrochen wurde, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                                                                                                   |
 | `onSwitchToInvisible`      | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieser Callback wird nach dem Wechsel in den unsichtbaren Modus aufgerufen.                                                           |
 | `onSubmitFormInvisible`    | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Dieser Callback wird aufgerufen, bevor das Formular abgeschickt wird.                                                                                                                                                                                                                                           |
 | `onValidateFormInvisible`  | Callable | _leer_                               | _(Nur im unsichtbaren Modus)_ Dieser Callback wird aufgerufen, bevor das Formular validiert wird.                                                                                                                                                                                                                                             |
@@ -130,21 +132,30 @@ mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
 
 ### Ereignisse
 
-Wenn Sie die Initialisierungsparameter nicht anpassen können, können Sie auch die benutzerdefinierten Ereignisse verwenden, um die Ausführung von mosparo zu steuern. Alle Ereignisse werden auf dem Formularelement (`<form>`) ausgelöst. mosparo löst die folgenden Ereignisse aus:
+Wenn Sie die Initialisierungsparameter nicht anpassen können, können Sie auch die benutzerdefinierten Ereignisse verwenden, um die Ausführung von mosparo zu steuern. mosparo löst die folgenden Ereignisse aus:
 
-| Ereignisname              | Beschreibung                                                                                                                                                                                                                                         |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `form-checked`            | Definiert das Ereignis, welches ausgelöst wird, sobald das Formular geprüft wurde. Das Ergebnis der Prüfung wird als boolescher Wert `valid` an das Ereignis übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                          |
-| `state-reseted`           | Definiert das Ereignis, welches ausgelöst wird, nachdem das mosparo-Feld zurückgesetzt wurde (zum Beispiel, nachdem das Formular zurückgesetzt wurde).                                                                                               |
-| `switch-to-invisible`     | Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieses Ereignis wird nach dem Wechsel in den unsichtbaren Modus ausgelöst. |
-| `submit-aborted`          | _(Nur im sichtbaren Modus)_ Dieses Ereignis wird ausgelöst, wenn der Sendevorgang abgebrochen wird, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                 |
-| `submit-form-invisible`   | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird vor dem Absenden des Formulars ausgelöst.                                                                                                                                                         |
-| `validate-form-invisible` | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird ausgelöst, bevor das Formular validiert wird.                                                                                                                                                     |
+| Ereignisname              | Ausgelöst auf | Beschreibung                                                                                                                                                                                                                                         |
+|---------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `before-get-form-data`    | Formular      | Dieses Ereignis wird ausgelöst, bevor die Formulardaten aus dem Formular gesammelt werden. Mit diesem Ereignis ist es möglich, die Formulardaten vorzubereiten (zum Beispiel für WYSIWYG-Felder, die den Inhalt in der `textarea` speichern müssen). |
+| `before-get-field-value`  | Formular-Feld | Mit diesem Ereignis ist es möglich, den Wert eines Feldes anzupassen, bevor der Wert erfasst wird.                                                                                                                                                   |
+| `form-checked`            | Formular      | Definiert das Ereignis, welches ausgelöst wird, sobald das Formular geprüft wurde. Das Ergebnis der Prüfung wird als boolescher Wert `valid` an das Ereignis übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                          |
+| `state-reseted`           | Formular      | Definiert das Ereignis, welches ausgelöst wird, nachdem das mosparo-Feld zurückgesetzt wurde (zum Beispiel, nachdem das Formular zurückgesetzt wurde).                                                                                               |
+| `switch-to-invisible`     | Formular      | Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieses Ereignis wird nach dem Wechsel in den unsichtbaren Modus ausgelöst. |
+| `submit-aborted`          | Formular      | _(Nur im sichtbaren Modus)_ Dieses Ereignis wird ausgelöst, wenn der Sendevorgang abgebrochen wird, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                 |
+| `submit-form-invisible`   | Formular      | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird vor dem Absenden des Formulars ausgelöst.                                                                                                                                                         |
+| `validate-form-invisible` | Formular      | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird ausgelöst, bevor das Formular validiert wird.                                                                                                                                                     |
 
 #### Beispiele für Ereignisse und Callbacks
 
 ```javascript
 mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
+    onBeforeGetFormData: function (formElement) {
+        console.log('onBeforeGetFormData', formElement);
+    },
+    onGetFieldValue: function (fieldElement, value) {
+        console.log('onGetFieldValue', fieldElement, value);
+        return value;
+    },
     onCheckForm: function (valid) {
         console.log('onCheckForm', valid);
     },
@@ -163,6 +174,14 @@ mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
     onSubmitFormInvisible: function () {
         console.log('onSubmitFormInvisible');
     }
+});
+
+document.getElementById('contact-form').addEventListener('before-get-form-data', function (ev) {
+    console.log(ev);
+});
+
+document.getElementById('name-field').addEventListener('before-get-field-value', function (ev) {
+    console.log(ev);
 });
 
 document.getElementById('contact-form').addEventListener('form-checked', function (ev) {
