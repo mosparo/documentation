@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 sidebar_label: nginx
 description: If you use nginx as your webserver, you need some special adjustments.
 ---

@@ -8,4 +8,4 @@ description: Konfigurieren und verwalten Sie die Cron-Jobs für mosparo.
 
 Mit der Funktionalität der Cronjobs sehen Sie, wie Sie Cronjobs einrichten können und können den Web-Cronjob verwalten.
 
-Erfahren Sie mehr über die Konfiguration der Cronjobs [hier](../installation/cron_jobs).
+Erfahren Sie mehr über die Konfiguration der Cronjobs [hier](../installation/configure/cron_jobs).

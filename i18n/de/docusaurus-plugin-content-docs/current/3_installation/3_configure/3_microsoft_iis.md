@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 sidebar_label: Microsoft IIS
 description: Um Microsoft IIS als Webserver für mosparo zu verwenden, müssen Sie einige Anpassungen in der Konfiguration vornehmen.
 ---

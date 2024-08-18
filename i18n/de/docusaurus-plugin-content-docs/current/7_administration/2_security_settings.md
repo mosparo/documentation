@@ -35,7 +35,7 @@ Konfigurieren Sie die folgenden Einstellungen für Ihren Reverse Proxy, falls Si
 | Name der benutzerdefinierten Adress-Kopfzeile                    | Falls Ihr Reverse Proxy eine spezielle Kopfzeile für die Übermittlung der IP-Adresse verwendet, geben Sie bitte den Namen hier an.                                                                                           |
 | Name der benutzerdefinierten Protokoll-Kopfzeile                 | Falls Ihr Reverse Proxy eine spezielle Kopfzeile für die Übermittlung des Protokolls verwendet, geben Sie bitte den Namen hier an.                                                                                           |
 
-Mehr Informationen zur Konfiguration des Reverse Proxies finden Sie unter [Reverse Proxy](../installation/reverse_proxy).
+Mehr Informationen zur Konfiguration des Reverse Proxies finden Sie unter [Reverse Proxy](../installation/configure/reverse_proxy).
 
 ## Backend-Zugriff
 

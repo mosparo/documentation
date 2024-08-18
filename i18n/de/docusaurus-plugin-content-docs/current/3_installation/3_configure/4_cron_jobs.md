@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 sidebar_label: Konfiguration der Cronjobs
 description: Mit Cronjobs werden automatische Arbeiten regelmässig ausgeführt.
 ---

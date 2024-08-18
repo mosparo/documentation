@@ -1,3 +1,9 @@
+---
+sidebar_position: 4
+sidebar_label: Cron jobs
+description: After the installation of mosparo is complete, you should set up the cron jobs.
+---
+
 # Set up cron jobs
 
 After the installation of mosparo is complete, you should set up the cron jobs with which mosparo performs various automatic actions. You can choose between executing the commands via the CLI or the web cron job.

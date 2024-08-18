@@ -35,7 +35,7 @@ Configure the following settings for your reverse proxy if you use one to run mo
 | Name of the custom remote address header | If your reverse proxy uses a special header for submitting the IP address, please specify the name here.                                                                                           |
 | Name of the custom protocol header       | If your reverse proxy uses a special header to send the protocol, please specify the name here.                                                                                           |
 
-For more information on configuring the reverse proxy, see [Reverse Proxy](../installation/reverse_proxy).
+For more information on configuring the reverse proxy, see [Reverse Proxy](../installation/configure/reverse_proxy).
 
 ## Backend access
 

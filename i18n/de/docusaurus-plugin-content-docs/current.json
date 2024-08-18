@@ -39,6 +39,18 @@
     "message": "Wählen Sie zwischen den verfügbaren Installationsmethoden um mosparo zu installieren.",
     "description": "The generated-index page description for category Install in sidebar docs"
   },
+  "sidebar.docs.category.Configure": {
+    "message": "Konfigurieren",
+    "description": "The label for category Configure in sidebar docs"
+  },
+  "sidebar.docs.category.Configure.link.generated-index.title": {
+    "message": "Konfigurieren",
+    "description": "The generated-index page title for category Configure in sidebar docs"
+  },
+  "sidebar.docs.category.Configure.link.generated-index.description": {
+    "message": "Erfahren Sie, wie Sie Ihren Webserver und zusätzliche Dienste konfigurieren können.",
+    "description": "The generated-index page description for category Configure in sidebar docs"
+  },
   "sidebar.docs.category.Usage": {
     "message": "Benutzung",
     "description": "The label for category Usage in sidebar docs"

@@ -26,7 +26,7 @@ Sie können anschliessend auf der rechten Seite die Schaltfläche “Datenbank h
 Falls Sie den Lizenzschlüssel neu angefordert hat, dauert es eine gewisse Zeit, bis der Lizenzschlüssel von mosparo verwendet werden kann. Es kann daher sein, dass beim Herunterladen der Datenbank eine Fehlermeldung angezeigt wird. Warten Sie in diesem Fall ein paar Minuten und versuchen Sie es erneut.
 :::
 
-Wir empfehlen Ihnen, die automatische Aktualisierung mithilfe des Cronjobs einzurichten (siehe [Konfiguration der Cronjobs](../installation/cron_jobs)).
+Wir empfehlen Ihnen, die automatische Aktualisierung mithilfe des Cronjobs einzurichten (siehe [Konfiguration der Cronjobs](../installation/configure/cron_jobs)).
 
 :::caution
 Bitte beachten Sie, dass die Datenbank keine genaue und garantierte Methode zur Lokalisierung eines Benutzers ist. Wenn Sie GeoIP2 verwenden, um Länder zu blockieren, sollten Sie beachten, dass Sie auch gute Benutzer blockieren könnten.
