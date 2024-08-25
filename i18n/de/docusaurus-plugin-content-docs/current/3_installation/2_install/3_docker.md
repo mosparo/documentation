@@ -85,7 +85,7 @@ Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihr
 
 Verwenden Sie den Namen des MySQL- oder PostgreSQL-Docker-Containers als Host für die Datenbankverbindung. Wenn Sie die Docker Compose-Datei wie oben angegeben verwenden, lautet der Name des MySQL-Containers `db`. Füllen Sie die anderen Werte wie in der Docker Compose-Datei definiert ein.
 
-Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy).
+Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../configure/reverse_proxy).
 
 ### Direkt das Image benutzen
 
@@ -109,7 +109,7 @@ Sie sollten nun auf mosparo zugreifen können, indem Sie `127.0.0.1:8080` in Ihr
 
 Verwenden Sie den Namen des MySQL- oder PostgreSQL-Docker-Containers als Host für die Datenbankverbindung.
 
-Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../reverse_proxy).
+Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../configure/reverse_proxy).
 
 ## Umgebungsvariablen
 

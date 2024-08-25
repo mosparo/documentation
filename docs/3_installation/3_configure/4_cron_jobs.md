@@ -37,4 +37,4 @@ To use the web cron job, please enable it in the administration of mosparo. Choo
 
 After saving, you'll see the full URL to the web cron job on the left side and an example of how you could set up the cron job. Please configure the cron job in the server, the hosting control panel, or your remote cron job service accordingly.
 
-To enhance the security of the cron job, you can also limit access to the web cron job in the Security settings in the administration. You can find more information about that [here](../administration/security_settings#web-cron-job-access).
+To enhance the security of the cron job, you can also limit access to the web cron job in the Security settings in the administration. You can find more information about that [here](../../administration/security_settings#web-cron-job-access).

@@ -37,4 +37,4 @@ Um den Web-Cronjob zu nutzen, aktivieren Sie ihn bitte in der Administration von
 
 Nach dem Speichern sehen Sie auf der linken Seite die vollständige URL zum Web-Cronjob und ein Beispiel, wie Sie den Cronjob einrichten können. Bitte konfigurieren Sie den Cronjob auf dem Server, im Hosting-Control-Panel oder bei Ihrem Remote-Cronjob-Dienst entsprechend.
 
-Um die Sicherheit des Cronjobs zu erhöhen, können Sie den Zugriff auf den Web-Cronjob auch in den Sicherheitseinstellungen in der Administration beschränken. Weitere Informationen dazu finden Sie [hier](../administration/security_settings#web-cronjob-zugriff).
+Um die Sicherheit des Cronjobs zu erhöhen, können Sie den Zugriff auf den Web-Cronjob auch in den Sicherheitseinstellungen in der Administration beschränken. Weitere Informationen dazu finden Sie [hier](../../administration/security_settings#web-cronjob-zugriff).
