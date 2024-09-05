@@ -65,6 +65,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 | `formSignature`       | String | Required | The HMAC SHA256 hash of the form data (serialized as JSON string).              |
 | `formData`            | Object | Required | An object with all form fields and the SHA256 hash of the data for every field. |
 
+:::info
+Please ensure you verify the content the same way the user entered it. Some systems like to escape some characters and change the user's content. For example, WordPress automatically escapes the characters `'` and `"` in all request parameters, probably to prevent SQL injections. The fields are not equal to what the user entered in the form. If mosparo reports one or multiple fields as invalid, please check if the content of the fields is exactly the same as it is shown in mosparo.
+:::
+
 ### Response
 
 #### Example

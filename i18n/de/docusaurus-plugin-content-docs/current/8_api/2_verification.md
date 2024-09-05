@@ -65,6 +65,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 | `formSignature`       | String | Erforderlich | Der HMAC SHA256-Hash der Formulardaten (serialisiert als JSON-String).             |
 | `formData`            | Objekt | Erforderlich | Ein Objekt mit allen Formularfeldern und dem SHA256-Hash der Daten für jedes Feld. |
 
+:::info
+Bitte stellen Sie sicher, dass Sie den Inhalt so verifizieren, wie der Benutzer ihn im Formular eingegeben hat. Einige Systeme schützen einige Zeichen und ändern so den Inhalt des Feldes. WordPress zum Beispiel schützt in allen Anfrageparametern automatisch die Zeichen `'` und `"` mit einem Backslash, wahrscheinlich um SQL-Injektionen zu verhindern. Die Felder entsprechen damit nicht mehr dem, was der Benutzer in das Formular eingegeben hat. Wenn mosparo ein oder mehrere Felder als ungültig markiert, überprüfen Sie bitte, ob der Inhalt der Felder genau so verifiziert wurde, wie er in mosparo angezeigt wird.
+:::
+
 ### Antwort
 
 #### Beispiel

@@ -390,6 +390,10 @@ foreach ($formData as $fieldName => $value) {
 }
 ```
 
+:::info
+Please ensure you verify the content the same way the user entered it. Some systems like to escape some characters and change the user's content. For example, WordPress automatically escapes the characters `'` and `"` in all request parameters, probably to prevent SQL injections. The fields are not equal to what the user entered in the form. If mosparo reports one or multiple fields as invalid, please check if the content of the fields is exactly the same as it is shown in mosparo.
+:::
+
 ##### 4. Generate the hashes
 
 Since we do not want to transfer the plain-text form data to mosparo, we create hashes. For that, we iterate over the array of the prepared form data and create a SHA256 hash for every value. Please sort the array alphabetically by the field name in ascending order (A-Z).

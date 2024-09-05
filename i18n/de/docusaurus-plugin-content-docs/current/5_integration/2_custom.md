@@ -393,6 +393,10 @@ foreach ($formData as $fieldName => $value) {
 }
 ```
 
+:::info
+Bitte stellen Sie sicher, dass Sie den Inhalt so verifizieren, wie der Benutzer ihn im Formular eingegeben hat. Einige Systeme schützen einige Zeichen und ändern so den Inhalt des Feldes. WordPress zum Beispiel schützt in allen Anfrageparametern automatisch die Zeichen `'` und `"` mit einem Backslash, wahrscheinlich um SQL-Injektionen zu verhindern. Die Felder entsprechen damit nicht mehr dem, was der Benutzer in das Formular eingegeben hat. Wenn mosparo ein oder mehrere Felder als ungültig markiert, überprüfen Sie bitte, ob der Inhalt der Felder genau so verifiziert wurde, wie er in mosparo angezeigt wird.
+:::
+
 ##### 4. Erzeugen der Hashes
 
 Da wir die Formulardaten nicht im Klartext an mosparo übertragen wollen, erstellen wir Hashes. Dazu iterieren wir über das Array der aufbereiteten Formulardaten und erstellen für jeden Wert einen SHA256-Hash. Bitte sortieren Sie das Array alphabetisch nach dem Feldnamen in aufsteigender Reihenfolge (A-Z).
