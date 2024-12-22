@@ -14,6 +14,7 @@ Um mosparo auf Ihrem Webhosting zu installieren, können Sie das von uns bereitg
    1. Wenn möglich, setzen Sie das öffentliche Verzeichnis der Website (Document Root) auf das Unterverzeichnis `/public`
    2. Fügen Sie der Website ein SSL-Zertifikat hinzu oder aktivieren Sie Lets Encrypt, falls das in Ihrem Hosting Control Panel verfügbar ist
 4. Laden Sie alle entpackten Dateien in das Verzeichnis dieser Website hoch
+   - macOS/Linux: Bitte beachten Sie auch die versteckten Dateien (zum Beispiel `.env`). Sie müssen alle Dateien hochladen, auch die versteckten.
 5. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu (zum Beispiel über die Domain `example.com` oder `mosparo.example.com`)
 6. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
 
