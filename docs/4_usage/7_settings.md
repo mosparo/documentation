@@ -6,19 +6,18 @@ description: You can adjust the project according to your wishes in the project 
 
 # Settings
 
-## General Settings
+## General settings
 
 You can edit the most important information about the project in general settings.
 
-| Field                        | Description                                                                                                                                                                                                                                                                                                                                                      |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name                         | Name of the project                                                                                                                                                                                                                                                                                                                                              |
-| Description                  | Description of the project                                                                                                                                                                                                                                                                                                                                       |
-| Hosts                        | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must configure all hosts which use the project. It is necessary to enter the domain without protocol and path to the form. See [Hosts](#hosts)                                                                                           |
-| Spam limit                   | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                      |
-| Statistic storage            | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                         |
-| API debug mode               | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                   |
-| Verification simulation mode | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
+| Field         | Description                                                                                                                                                                                                                                                            |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name          | Name of the project                                                                                                                                                                                                                                                    |
+| Description   | Description of the project                                                                                                                                                                                                                                             |
+| Hosts         | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must configure all hosts which use the project. It is necessary to enter the domain without protocol and path to the form. See [Hosts](#hosts) |
+| Project group | Select the group in which this project should be listed. By default, a project is listed in the Main Group, which is the root. _(Added in v1.3)_                                                                                                                       |
+
+Since version 1.3, additional options are available under [Advanced settings](#advanced-settings).
 
 On the right side, you can see the most important information you need to integrate mosparo into your website. Copy this information and paste these values into your website's fields or configuration pages.
 
@@ -50,6 +49,23 @@ A host is a domain without the protocol and the path. You can use a star (`*`) a
 - `example.com/contact-form`
 - `*example.com`
 - `www.*.example.com`
+
+## Advanced settings
+
+Some additional settings are available in the advanced settings.
+
+| Field                                | Description                                                                                                                                                                                                                                                                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Spam&nbsp;detection&nbsp;options** |
+| Status                               | If active, mosparo will block submissions that were detected as spam. If inactive, mosparo will rate all submissions but not block them.                                                                                                                                                                                                                          |
+| Spam score                           | The spam score determines the points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                                 |
+| **Language&nbsp;options**            |
+| Language source                      | Defines how mosparo determines the language for the frontend box. mosparo uses the browser language by default. With this option, it's possible to use the website's language as a fallback or use the website's language as the main source and use the browser language as a fallback. _(Added in v1.3)_                                                        |
+| **Statistic&nbsp;options**           |
+| Statistic storage                    | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                          |
+| **Developer&nbsp;options**           |
+| API debug mode                       | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                    |
+| Verification simulation mode         | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
 
 ## Project members
 
