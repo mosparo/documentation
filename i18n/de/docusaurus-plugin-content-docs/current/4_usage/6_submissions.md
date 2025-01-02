@@ -27,23 +27,28 @@ Mit dem Dropdown-Menü in der oberen rechten Ecke können Sie die Liste der Eins
 
 Wenn Sie eine Einsendung anschauen, sehen Sie viele weitere Informationen zur Einsendung. Auf der linken Seite werden technische Informationen zur Einsendung angezeigt. In der rechten Spalte finden Sie die vom Benutzer eingegebenen Informationen sowie technische Informationen zum Benutzer.
 
-| Bezeichnung       | Description                                                                                                                                                                          |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ist Spam          | Gibt an, ob es sich bei der Einsendung um Spam handelt.                                                                                                                              |
-| Spam-Bewertung    | Zeigt die Punkte an, welche eine Einsendung erhalten hat und wie viele Punkte notwendig wären, um als Spam gewertet zu werden.                                                       |
-| Gesendet am       | Gibt an, wann die Einsendung gesendet wurde.                                                                                                                                         |
-| Ist gültig        | Gibt an, ob die Einsendung korrekt vom Backend einer Website überprüft wurde.                                                                                                        |
-| Überprüft am      | Gibt an, wann die Einsendung überprüft wurde.                                                                                                                                        |
-| Seiten-Titel      | Titel der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                      |
-| Seiten-URL        | Adresse der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                    |
-| Angefordert am    | Zeigt das Datum und die Uhrzeit an, zu welcher das Formular aufgerufen wurde und der Einsendecode beantragt wurde.                                                                   |
-| Ignorierte Felder | Listet alle Felder auf, welche nicht von mosparo überprüft wurden, weil es sich bei den Feldern zum Beispiel um versteckte Felder oder um Checkbox-Feldern gehandelt hat.            |
-| Formulardaten     | Zeigt eine Liste aller Felder an, welche im Formular vorhanden sind und ggf. ausgefüllt wurden. Siehe 3.5.2.1 Formulardaten                                                          |
-| IP-Adresse        | Die IP-Adresse des Benutzers, welcher das Formular aufgerufen hat.                                                                                                                   |
-| User-Agent        | Die Kennung des Browsers, mit welchem der Benutzer das Formular aufgerufen hat. Der Wert kann vom Browser her manipuliert werden und ist nicht als eindeutige Information zu werten. |
-| AS Nummer         | Nummer der Organisation, welcher als Besitzer einer IP-Adresse eingetragen ist.                                                                                                      |
-| AS Organisation   | Name der Organisation, welche als Besitzer einer IP-Adresse eingetragen ist.                                                                                                         |
-| Land              | Das Land, welchem die IP-Adresse aufgrund der AS Organisation zugeordnet ist.                                                                                                        |
+| Bezeichnung                        | Description                                                                                                                                                                          |
+|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Spam** (Box)                     |
+| Ist Spam                           | Gibt an, ob es sich bei der Einsendung um Spam handelt.                                                                                                                              |
+| Spam-Bewertung                     | Zeigt die Punkte an, welche eine Einsendung erhalten hat und wie viele Punkte notwendig wären, um als Spam gewertet zu werden.                                                       |
+| Gesendet am                        | Gibt an, wann die Einsendung gesendet wurde.                                                                                                                                         |
+| **Überprüfung** (Box)              |
+| Ist gültig                         | Gibt an, ob die Einsendung korrekt vom Backend einer Website überprüft wurde.                                                                                                        |
+| Überprüft am                       | Gibt an, wann die Einsendung überprüft wurde.                                                                                                                                        |
+| **Allgemeine Überprüfungen** (Box) | Zeigt das Ergebnis der allgemein verifizierten aktiven Sicherheitsmerkmale an.                                                                                      |
+| **Quelle** (Box)                   |
+| Seiten-Titel                       | Titel der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                      |
+| Seiten-URL                         | Adresse der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                    |
+| Angefordert am                     | Zeigt das Datum und die Uhrzeit an, zu welcher das Formular aufgerufen wurde und der Einsendecode beantragt wurde.                                                                   |
+| **Ignorierte Felder** (Box)        | Listet alle Felder auf, welche nicht von mosparo überprüft wurden, weil es sich bei den Feldern zum Beispiel um versteckte Felder oder um Checkbox-Feldern gehandelt hat.            |
+| **Formulardaten** (Box)            | Zeigt eine Liste aller Felder an, welche im Formular vorhanden sind und ggf. ausgefüllt wurden. Siehe 3.5.2.1 Formulardaten                                                          |
+| **Benutzer** (Box)                 |
+| IP-Adresse                         | Die IP-Adresse des Benutzers, welcher das Formular aufgerufen hat.                                                                                                                   |
+| User-Agent                         | Die Kennung des Browsers, mit welchem der Benutzer das Formular aufgerufen hat. Der Wert kann vom Browser her manipuliert werden und ist nicht als eindeutige Information zu werten. |
+| AS Nummer                          | Nummer der Organisation, welcher als Besitzer einer IP-Adresse eingetragen ist.                                                                                                      |
+| AS Organisation                    | Name der Organisation, welche als Besitzer einer IP-Adresse eingetragen ist.                                                                                                         |
+| Land                               | Das Land, welchem die IP-Adresse aufgrund der AS Organisation zugeordnet ist.                                                                                                        |
 
 ### Formulardaten
 
