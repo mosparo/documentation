@@ -192,6 +192,35 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time:
 - If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
 - For a further submission within these 450 seconds, the time increases to 675 seconds.
 
+#### Proof of work mechanism
+
+With v1.3, mosparo offers a security feature based on the proof of work mechanism. With this feature, the browser has to calculate many hashes to match the one we expect. This costs the browser time since the browser has to do a lot of calculations.
+
+:::info A message from the mosparo team
+From our perspective, protecting a form with only the proof of work mechanism makes no sense. This mechanism is based on the processor, and every device connected to the internet has a processor, so everybody (even bots) can solve this puzzle. Additionally, processors get faster and cheaper every year, so the actual cost for a spam bot is very low and not really a problem.
+
+With the rule-based spam protection method and the other security features, mosparo offers a great combination with which the proof of work mechanism can be better utilized.
+:::
+
+With the dynamic complexity, mosparo will automatically increase the number range based on the submissions made within a specific time frame. Optionally, the dynamic complexity is based on the IP address. If a user makes a lot of submissions, the user has to use more and more time to solve the proof of work puzzle before the form is submitted.
+
+##### Fields
+
+| Field                                             | Description                                                                                                                                                                                                                                                                                  |
+|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Complexity                                        | The complexity defines the number range, which is used to get the random number for the puzzle. The larger the number range, the more calculations a browser has to perform. It's recommended not to use a too-large number range because it takes time for the normal user to submit the form. |
+| Number range                                      | Shows the number range used to determine the random number.                                                                                                                                                                                                                         |
+| Max time to solve                                 | Shows the maximum estimated time it took on your device to calculate the hashes for the whole number range. Normally, solving the puzzle is faster since the target number is not at the end of the number range. Other devices may be slower or faster than your device.                    |
+| Speed                                             | Shows the calculation speed on your device. Other devices may be slower or faster than your device.                                                                                                                                                                                          |
+| **Dynamic complexity**                            |
+| Maximum complexity                                | Defines the maximum complexity that is used when the number of submissions within the specified time frame is reached.                                                                                                                                                                      |
+| Number range                                      | _See above_                                                                                                                                                                                                                                                                                  |
+| Max time to solve                                 | _See above_                                                                                                                                                                                                                                                                                  |
+| Speed                                             | _See above_                                                                                                                                                                                                                                                                                  |
+| Number of submissions to reach maximum complexity | The field defines the number of submissions a user can submit within a period to reach the maximum complexity.                                                                                                                                                                               |
+| Detection time frame                              | Defines the time, in seconds, in which the submissions are counted.                                                                                                                                                                                                                          |
+| Based on IP address                               | If active, only the submissions from the same IP address are counted. Otherwise, all submissions from all users within the specified time frame are counted.                                                                                                                                 |
+
 #### Block equal submissions
 
 With this security feature, you can block equal submissions. When a user submits the same form data multiple times, mosparo will block the additional submissions, and the user cannot submit the same data anymore.
