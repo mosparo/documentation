@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: API debug mode
 description: The API debug mode will add more details to the API responses to explain a response or failure.
 ---

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 sidebar_label: Troubleshooting
 description: Find out more about the most common problems with the API and what you can do about them.
 ---

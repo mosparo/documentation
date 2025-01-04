@@ -123,3 +123,6 @@ But there are some additional environment variables which you can use to change 
 | MOSPARO_UPDATES_ENABLED  | `0`                     | Enables or disables the updates inside mosparo. This should be disabled all the time in a Docker container since updating mosparo in a Docker environment should be happen by updating the image |
 | TRUSTED_PROXIES          | `127.0.0.1,REMOTE_ADDR` | Defines which proxies mosparo should trust. The default settings allow all proxies. This is why you need a reverse proxy in front of mosparo and should not expose it to the public directly.    |
 
+## Health check
+
+The Docker image uses the Docker Healthcheck to verify the health of the Docker container. If the connection to the database is impossible or something else is wrong, the health check will detect this problem.
