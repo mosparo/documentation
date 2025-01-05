@@ -115,14 +115,7 @@ Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt �
 
 mosparo in einem Docker Container speichert die Konfiguration von mosparo in einer PHP-Datei wie auch bei einer normalen Installation. Sie können die Konfiguration von mosparo daher nicht über Umgebungsvariablen definieren.
 
-Aber es gibt ein paar zusätzliche Umgebungsvariablen, mit welchen Sie das Verhalten vom Docker Image beeinflussen können.
-
-| Name                     | Standard-Wert           | Beschreibung                                                                                                                                                                                                                     |
-|--------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| MOSPARO_ENABLE_WEBSERVER | `1`                     | Erlaubt den Webserver des mosparo Image zu aktivieren oder deaktivieren.                                                                                                                                                         |
-| MOSPARO_ENABLE_CRON      | `1`                     | Erlaubt die Cronjobs des mosparo Image zu aktivieren oder deaktivieren.                                                                                                                                                          |
-| MOSPARO_UPDATES_ENABLED  | `0`                     | Erlaubt die Updates in mosparo zu aktivieren oder deaktivieren. Im Docker Container sollten die Updates immer deaktiviert sein, weil mosparo in einer Docker-Umgebung mit einem neuen Image aktualisiert werden sollte.          |
-| TRUSTED_PROXIES          | `127.0.0.1,REMOTE_ADDR` | Definiert, welche Proxies mosparo vertrauen soll. Die Standard-Einstellung erlaubt alle Reverse Proxies. Das ist der Grund, warum Sie einen Reverse Proxy benötigen und mosparo nie direkt öffentlich zugänglich machen sollten. |
+Aber es gibt ein paar zusätzliche Umgebungsvariablen, mit welchen Sie das Verhalten vom Docker Image beeinflussen können. Erfahren Sie dazu mehr auf der Seite der [Umgebungsvariablen](../configure/environment_variables).
 
 ## Gesundheitsprüfung
 
