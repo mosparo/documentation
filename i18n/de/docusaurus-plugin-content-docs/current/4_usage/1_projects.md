@@ -18,7 +18,7 @@ Der Benutzer hat zusätzliche Möglichkeiten, die Liste der Projekte zu filtern,
 
 ### 1. Projektinformationen
 
-Um ein Projekt zu erstellen, klicken Sie bitte auf die Schaltfläche "Projekt erstellen" in der Projektliste. Geben Sie den Namen Ihres Projekts ein und konfigurieren Sie die Domains, auf denen Sie das Projekt verwenden möchten. Dies ist erforderlich, um das Projekt (CORS-Header) korrekt zu konfigurieren. Wenn Sie das Projekt beschreiben möchten, können Sie Ihre Beschreibung in das Feld eingeben.
+Um ein Projekt zu erstellen, öffnen Sie bitte das Dropdown-Menü "Erstellen" in der rechten Ecke in der Projektliste und wählen Sie "Projekt erstellen". Geben Sie den Namen Ihres Projekts ein und konfigurieren Sie die Domains, auf denen Sie das Projekt verwenden möchten. Dies ist erforderlich, um das Projekt (CORS-Header) korrekt zu konfigurieren. Wenn Sie das Projekt beschreiben möchten, können Sie Ihre Beschreibung in das Feld eingeben.
 
 ### 2. Darstellung wählen
 
@@ -51,3 +51,35 @@ Wenn Sie ein Projekt löschen möchten, können Sie dies in der Projektliste tun
 Öffnen Sie dazu das Dropdown-Menü mit dem Zahnradsymbol und wählen Sie "Projekt löschen". Bevor das Projekt gelöscht wird, sehen Sie einen Bestätigung. Bestätigen Sie bitte, dass Sie das Projekt löschen möchten, indem Sie auf die rote Schaltfläche klicken.
 
 Bitte beachten Sie, dass alle Daten, die mit diesem Projekt verknüpft sind, gelöscht werden.
+
+## Projektgruppen
+
+_Projektgruppen wurden mit Version 1.3 hinzugefügt._
+
+Mit Projektgruppen können Sie Ihre Projekte organisieren. Sie können beliebig viele Gruppen erstellen und einer Gruppe beliebig viele Projekte zuordnen. Sie können auch eine Gruppe einer anderen Gruppe zuordnen, um einen Baum zu erstellen.
+
+### Projektgruppe erstellen
+
+Um eine Projektgruppe zu erstellen, wählen Sie die Funktion „Projektgruppe erstellen“ im Projekt-Dropdown oben links oder im Dropdown-Menü „Erstellen“ in der rechten Ecke der Projektliste.
+
+Geben Sie einen Namen und ggf. eine Beschreibung für die Projektgruppe ein. Sie können auch wählen, wo Sie die Projektgruppe zuordnen möchten. Sie können sie der Hauptgruppe (der Wurzel des Baums) oder einer bestehenden Projektgruppe als Untergruppe zuordnen.
+
+Erstellen Sie die Projektgruppe, indem Sie auf die Schaltfläche „Speichern“ klicken.
+
+### Ein Projekt einer Projektgruppe zuordnen
+
+Wenn Sie ein neues Projekt erstellen, können Sie im Assistenten „Projekt erstellen“ die Gruppe auswählen, der Sie das neue Projekt zuordnen möchten. Sie können das Projekt später einer anderen Gruppe zuordnen.
+
+Um ein bestehendes Projekt einer Projektgruppe zuzuordnen, gehen Sie zu den [Allgemeinen Einstellungen](./settings#allgemeine-einstellungen) des Projektes und wählen Sie die Gruppe aus, der Sie das Projekt zuordnen möchten.
+
+### Projektgruppe bearbeiten
+
+Um eine Projektgruppe zu bearbeiten, öffnen Sie das Aktions-Dropdown (das mit dem Zahnradsymbol) in der Projektliste und wählen Sie die Funktion „Gruppe bearbeiten“. Bearbeiten Sie die Gruppe wie gewünscht und speichern Sie Ihre Änderungen.
+
+### Projektgruppe löschen
+
+Um eine Projektgruppe zu löschen, öffnen Sie in der Projektliste das Aktions-Dropdown (das mit dem Zahnradsymbol) und wählen Sie die Funktion „Gruppe löschen“. Bestätigen Sie dann, dass Sie die Projektgruppe löschen möchten.
+
+:::info
+Alle zugeordneten Untergruppen und Projekte werden der übergeordneten Gruppe zugeordnet. Wenn die zu löschende Gruppe der Hauptgruppe zugeordnet ist, werden alle Untergruppen und Projekte dieser Gruppe der Hauptgruppe zugeordnet.
+:::

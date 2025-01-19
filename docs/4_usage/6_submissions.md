@@ -27,23 +27,28 @@ With the dropdown in the top right corner, you can filter the list of submission
 
 When you view a submission, you will see much more information about the submission. Technical information about the submission is displayed on the left. In the right column, you will find the information entered by the user as well as technical information about the user.
 
-| Label           | Description                                                                                                                                                      |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Is spam         | Indicates whether the submission is spam.                                                                                                                        |
-| Spam rating     | Shows the points a submission has received and how many points would be required to be considered spam.                                                          |
-| Submitted at    | Indicates when the user submitted the submission.                                                                                                                     |
-| Is valid        | Indicates whether the backend of a website has correctly verified the submission.                                                                        |
-| Verified at     | Indicates when the website's backend verified the submission.                                                                                                                      |
-| Page title      | Title of the website on which the form is placed.                                                                                                                |
-| Page URL        | Address of the website where the form is placed.                                                                                                                 |
-| Requested at    | Displays the date and time when the user accessed the form, and the browser requested the submission token.                                                                             |
-| Ignored fields  | Lists all fields that have not been checked by mosparo because the fields were hidden fields or checkbox fields, for example.                                   |
-| Form data       | Displays a list of all fields that exist in the form and may have been filled in (see [Form data](#form-data)).                                                  |
-| IP address      | The IP address of the user who accessed the form.                                                                                                                |
-| User-Agent      | The browser's identifier with which the user accessed the form. The value can be manipulated by the browser and is not to be regarded as unique information. |
-| AS number       | Number of the organization registered as the owner of an IP address.                                                                                             |
-| AS organization | Name of the organization registered as the owner of an IP address.                                                                                               |
-| Country         | The country to which the IP address is assigned due to the AS organization.                                                                                      |
+| Label                           | Description                                                                                                                                                  |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Spam** (Box)                  |
+| Is spam                         | Indicates whether the submission is spam.                                                                                                                    |
+| Spam rating                     | Shows the points a submission has received and how many points would be required to be considered spam.                                                      |
+| Submitted at                    | Indicates when the user submitted the submission.                                                                                                            |
+| **Verification** (Box)          |
+| Is valid                        | Indicates whether the backend of a website has correctly verified the submission.                                                                            |
+| Verified at                     | Indicates when the website's backend verified the submission.                                                                                                |
+| **General verifications** (Box) | Displays the result of the generally verified active security features.                                                                                      |
+| **Source** (Box)                |
+| Page title                      | Title of the website on which the form is placed.                                                                                                            |
+| Page URL                        | Address of the website where the form is placed.                                                                                                             |
+| Requested at                    | Displays the date and time when the user accessed the form, and the browser requested the submission token.                                                  |
+| **Ignored fields** (Box)        | Lists all fields that have not been checked by mosparo because the fields were hidden fields or checkbox fields, for example.                                |
+| **Form data** (Box)             | Displays a list of all fields that exist in the form and may have been filled in (see [Form data](#form-data)).                                              |
+| **Client** (Box)                |
+| IP address                      | The IP address of the user who accessed the form.                                                                                                            |
+| User-Agent                      | The browser's identifier with which the user accessed the form. The value can be manipulated by the browser and is not to be regarded as unique information. |
+| AS number                       | Number of the organization registered as the owner of an IP address.                                                                                         |
+| AS organization                 | Name of the organization registered as the owner of an IP address.                                                                                           |
+| Country                         | The country to which the IP address is assigned due to the AS organization.                                                                                  |
 
 ### Form data
 The "Form data" box lists all form fields that have been or could be filled out in the form.

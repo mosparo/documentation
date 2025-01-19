@@ -1,0 +1,74 @@
+---
+sidebar_position: 6
+sidebar_label: Umgebungsvariablen
+description: Erfahren Sie mehr über das Aktivieren und Konfigurieren zusätzlicher Funktionen mit Umgebungsvariablen.
+---
+
+# Umgebungsvariablen
+
+## Verfügbare Variablen
+
+### Allgemeine Variablen
+
+| Variablenname                             | Typ     | Standard-Wert           | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|-------------------------------------------|---------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MOSPARO_UPDATES_ENABLED                   | Boolean | `1`                     | Aktiviert oder deaktiviert die Möglichkeit, mosparo innerhalb der Benutzeroberfläche zu aktualisieren.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| MOSPARO_AUTOMATIC_UPDATE_CHECK_ENABLED    | Boolean | `1`                     | Aktiviert oder deaktiviert die automatische Prüfung auf eine neue Version beim Zugriff auf die Benutzeroberfläche.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| MOSPARO_ENV_SUFFIX                        | String  | _empty_                 | Mit dem Suffix ist es möglich, den Namen der mosparo Konfigurationsdatei anzupassen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| MOSPARO_CACHE_ADAPTER                     | String  | `filesystem`            | Damit wird der Adapter für den gemeinsamen Cache eingestellt. Der gemeinsame Cache hilft bei der gemeinsamen Nutzung von Cache-Daten durch mehrere Nodes. Verfügbare Optionen: `filesystem`, `memcached`, `redis`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| MOSPARO_CLEANUP_GRACE_PERIOD_ENABLED      | Boolean | `0`                     | Wenn diese Option aktiviert ist, wird der Frontend-API-Controller von mosparo die Datenbank erst nach 24 Stunden bereinigen. Dies ist hilfreich, wenn Sie einen Cronjob verwenden, um die Datenbank jede Nacht zu bereinigen. In diesem Fall möchten Sie diese Aufgabe nicht dem Frontend-API-Controller überlassen. Dazu können Sie die Karenzzeit aktivieren, d. h. die Frontend-API-Steuerung wartet weitere 24 Stunden, bevor sie mit der Bereinigung beginnt. In diesen 24 Stunden kann der Cronjob die Datenbank erneut bereinigen, so dass der Frontend-API-Controller die Datenbank technisch gesehen nie bereinigt, außer wenn der Cronjob nicht erfolgreich ausgeführt wurde.                                                                                                                            |
+| MOSPARO_PREPARE_CSS_FILES_IN_SHARED_CACHE | Boolean | `0`                     | Wenn diese Option aktiviert ist, speichert mosparo die vorbereiteten CSS-Dateien im gemeinsamen Cache statt in einer physischen Datei auf Ihrem Server. Dies ist nützlich, wenn Sie mehrere Nodes für mosparo verwenden, da Sie die Dateien nicht zwischen Ihren Nodes synchronisieren müssen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| MOSPARO_HEALTH_ALLOW_LIST                 | String  | `127.0.0.1,::1`         | Nur die in dieser Umgebungsvariablen aufgeführten IP-Adressen können auf die Health-API zugreifen. Standardmäßig kann nur der localhost auf die Health-API zugreifen. Sie können IP-Adressen (zum Beispiel, 10.11.12.13) oder Subnetze mit der Subnetzmaske in CIDR-Notation (zum Beispiel, 10.11.12.0/24) hinzufügen, getrennt durch ein Komma (`,`).                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| MEMCACHED_URL                             | String  | `memcached://localhost` | Verbindungsdetails für die Verbindung zu Ihrem Memcached-Cache. Hat keinen Effekt, solange `MOSPARO_CACHE_ADAPTER` nicht auf `memcached` gesetzt ist. Konfigurationsbeispiele finden Sie in der [Symfony-Dokumentation](https://symfony.com/doc/current/components/cache/adapters/memcached_adapter.html).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| REDIS_URL                                 | String  | `redis://localhost`     | Verbindungsdetails für die Verbindung zu Ihrem Redis-Cache. Hat keine Auswirkungen, solange `MOSPARO_CACHE_ADAPTER` nicht auf `redis` gesetzt ist. Konfigurationsbeispiele finden Sie in der [Symfony-Dokumentation](https://symfony.com/doc/current/components/cache/adapters/redis_adapter.html).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| TRUSTED_PROXIES                           | String  | `127.0.0.1`             | Wenn Sie mosparo hinter einem Load Balancer oder einer anderen Art von Reverse Proxy einsetzen, kennt mosparo die tatsächliche IP-Adresse des Benutzers nicht. Dafür sendet Ihr Reverse Proxy spezielle Header an mosparo (z.B. X-Forwarded-For). Aber mosparo (und Symfony im Allgemeinen) akzeptiert diese Header nur von vertrauenswürdigen Proxys. Dazu müssen Sie die IP-Adressen Ihrer Reverse-Proxies in dieser Variable auflisten, damit mosparo weiß, welchen es vertrauen kann. Sie können IP-Adressen (zum Beispiel, 10.11.12.13) oder Subnetze mit der Subnetzmaske in CIDR-Notation (zum Beispiel, 10.11.12.0/24) hinzufügen. Sie können `REMOTE_ADDR` hinzufügen, um alle Clients zu akzeptieren, aber Sie sollten sicherstellen, dass nur Ihre Reverse-Proxies auf Ihren Webserver zugreifen können. |
+
+### Docker-spezifische Variablen
+
+| Variablenname            | Typ     | Standard-Wert | Beschreibung                                               |
+|--------------------------|---------|---------------|------------------------------------------------------------|
+| MOSPARO_ENABLE_WEBSERVER | Boolean | `1`           | Aktiviert oder deaktiviert den Webserver im mosparo-Image. |
+| MOSPARO_ENABLE_CRON      | Boolean | `1`           | Aktiviert oder deaktiviert die Cron-Jobs im mosparo-Image. |
+
+## Konfiguration
+
+### Datei `.env.local`
+
+Für eine normale Installation (nicht für eine Docker-basierte) wird empfohlen, eine neue Datei mit dem Namen `.env.local` zu erstellen und die erforderlichen Umgebungsvariablen mit den gewünschten Werten hinzuzufügen.
+
+Kopieren Sie die Datei `.env.local.dist` und passen Sie die Werte für einen leichteren Start an. Die Datei enthält alle möglichen Variablen und beschreibt, wie sie zu verwenden sind.
+
+### Docker
+
+#### Docker Compose
+
+Wenn Sie Docker Compose zur Konfiguration der Container verwenden, setzen Sie die Umgebungsvariablen in der Docker Compose-Datei.
+
+```
+  ...
+  mosparo_web:
+    image: mosparo/mosparo:latest
+    ports:
+      - 8080:80
+    restart: always
+    environment:
+      - MOSPARO_ENABLE_WEBSERVER=1
+      - MOSPARO_CLEANUP_GRACE_PERIOD_ENABLED=1
+      - MOSPARO_CACHE_ADAPTER=memcached
+      - MEMCACHED_URL=memcached://memcached
+  ...
+```
+
+#### Docker direkt
+
+Wenn Sie einen Docker-Container über die Befehlszeile starten, können Sie die Umgebungsvariablen als Argument angeben:
+
+```shell
+docker run -d -e MOSPARO_CACHE_ADAPTER='memcached' -p 8080:80 --name mosparo_container mosparo/mosparo:latest
+```
+
+Weitere Informationen hierzu finden Sie in der [Docker-Dokumentation] (https://docs.docker.com/engine/containers/run/#environment-variables).
+
+### Andere Option
+
+Wahrscheinlich können Sie die Umgebungsvariablen auch in der Konfiguration Ihres Webservers angeben (abhängig von Ihrem Webserver). Schauen Sie dazu in der Dokumentation Ihres Webservers nach.

@@ -25,15 +25,17 @@ Damit mosparo auf einem Server installiert werden kann, gibt es folgende Vorauss
   - openssl
   - pcre
   - pdo
-  - pdo_mysql oder pdo_pgsql
+  - pdo_mysql, pdo_pgsql oder pdo_sqlite3
   - simplexml
   - tokenizer
   - xml
   - zip
+  - memcached (optional)
   - posix (optional)
+  - redis (optional)
   - sodium (optional)
   - Zend OPCache (optional)
-- MySQL- oder PostgreSQL-Datenbank
+- MySQL- (MySQL oder MariaDB) oder PostgreSQL-Datenbank, oder Sie können die Daten mit SQLite in eine Datei speichern
 
 ## Verbindung zum Internet
 

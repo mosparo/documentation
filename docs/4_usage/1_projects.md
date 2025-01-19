@@ -18,7 +18,7 @@ The user has additional options to filter the list of projects if the user uses 
 
 ### 1. Project information
 
-To create a project, please click the button "Create project" in the project list. Enter the name of your project and configure the domains on which you plan to use the project. This is required to configure the project (CORS header) correctly. If you want to describe the project, you can enter your description in the field.
+To create a project, please open the "Create" dropdown in the right corner in the project list and choose "Create project". Enter the name of your project and configure the hosts on which you plan to use the project. This is required to configure the project (CORS header) correctly. If you want to describe the project, you can enter your description in the field.
 
 ### 2. Select design
 
@@ -51,3 +51,35 @@ If you want to delete a project, you can do that in the project list.
 For this, open the dropdown with the cog icon and choose "Delete project". Before the project is deleted, you'll see a confirmation screen. Please confirm that you want to delete the project by clicking the red button.
 
 Please note that all data related to this project will be deleted.
+
+## Project groups
+
+_Project groups were added with version 1.3._
+
+Project groups allow you to organize your projects. You can create as many groups as you want and assign as many projects as you wish to one group. You can also assign a group to another group to create a tree.
+
+### Create a project group
+
+To create a project group, select the functionality "Create project group" in the project dropdown in the top left corner or in the "Create" dropdown in the right corner of the project list.
+
+Enter a name and, if you want, a description of the project group. You can also choose where you want to assign the project group to. You can assign it to the main group (to the tree's root) or to an existing project group as a subgroup.
+
+Create the project group by clicking the save button.
+
+### Assign a project to a project group
+
+When you create a new project, you can choose the group to which you want to assign the new project in the "Create Project" wizard. You can assign the project to a different group later.
+
+To assign an existing project to a project group, go to the [General settings](./settings#general-settings) of the project and choose the group to which you want to assign the project.
+
+### Edit a project group
+
+To edit a project group, open the action dropdown (the one with the cog icon) in the project list and select the function "Edit group". Edit the group as you want and save your changes.
+
+### Delete a project group
+
+To delete a project group, open the action dropdown (the one with the cog icon) in the project list and select the function "Delete group". Then, confirm that you want to delete the project group.
+
+:::info
+All assigned subgroups and projects are assigned to the parent group. If the group you want to delete is assigned to the main group, then all subgroups and projects in this group are assigned to the main group.
+:::

@@ -6,19 +6,18 @@ description: You can adjust the project according to your wishes in the project 
 
 # Settings
 
-## General Settings
+## General settings
 
 You can edit the most important information about the project in general settings.
 
-| Field                        | Description                                                                                                                                                                                                                                                                                                                                                      |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name                         | Name of the project                                                                                                                                                                                                                                                                                                                                              |
-| Description                  | Description of the project                                                                                                                                                                                                                                                                                                                                       |
-| Hosts                        | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must configure all hosts which use the project. It is necessary to enter the domain without protocol and path to the form. See [Hosts](#hosts)                                                                                           |
-| Spam limit                   | The spam limit determines the number of points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                      |
-| Statistic storage            | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                         |
-| API debug mode               | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                   |
-| Verification simulation mode | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
+| Field         | Description                                                                                                                                                                                                                                                            |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name          | Name of the project                                                                                                                                                                                                                                                    |
+| Description   | Description of the project                                                                                                                                                                                                                                             |
+| Hosts         | For the requests to be answered correctly, mosparo needs to know from where this project is being used. To do this, you must configure all hosts which use the project. It is necessary to enter the domain without protocol and path to the form. See [Hosts](#hosts) |
+| Project group | Select the group in which this project should be listed. By default, a project is listed in the Main Group, which is the root. _(Added in v1.3)_                                                                                                                       |
+
+Since version 1.3, additional options are available under [Advanced settings](#advanced-settings).
 
 On the right side, you can see the most important information you need to integrate mosparo into your website. Copy this information and paste these values into your website's fields or configuration pages.
 
@@ -50,6 +49,23 @@ A host is a domain without the protocol and the path. You can use a star (`*`) a
 - `example.com/contact-form`
 - `*example.com`
 - `www.*.example.com`
+
+## Advanced settings
+
+Some additional settings are available in the advanced settings.
+
+| Field                                | Description                                                                                                                                                                                                                                                                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Spam&nbsp;detection&nbsp;options** |
+| Status                               | If active, mosparo will block submissions that were detected as spam. If inactive, mosparo will rate all submissions but not block them.                                                                                                                                                                                                                          |
+| Spam score                           | The spam score determines the points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                                 |
+| **Language&nbsp;options**            |
+| Language source                      | Defines how mosparo determines the language for the frontend box. mosparo uses the browser language by default. With this option, it's possible to use the website's language as a fallback or use the website's language as the main source and use the browser language as a fallback. _(Added in v1.3)_                                                        |
+| **Statistic&nbsp;options**           |
+| Statistic storage                    | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                          |
+| **Developer&nbsp;options**           |
+| API debug mode                       | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                    |
+| Verification simulation mode         | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
 
 ## Project members
 
@@ -175,6 +191,35 @@ Number of allowed requests: 30, Detection time frame: 30 sec, Base lockout time:
 - A user submits 30 submissions within 20 seconds. The IP lockout becomes active, and the user is banned for 300 seconds.
 - If the user submits another submission within these 300 seconds, the time increases from 300 to 450 seconds using the multiplicator.
 - For a further submission within these 450 seconds, the time increases to 675 seconds.
+
+#### Proof of work mechanism
+
+With v1.3, mosparo offers a security feature based on the proof of work mechanism. With this feature, the browser has to calculate many hashes to match the one we expect. This costs the browser time since the browser has to do a lot of calculations.
+
+:::info A message from the mosparo team
+From our perspective, protecting a form with only the proof of work mechanism makes no sense. This mechanism is based on the processor, and every device connected to the internet has a processor, so everybody (even bots) can solve this puzzle. Additionally, processors get faster and cheaper every year, so the actual cost for a spam bot is very low and not really a problem.
+
+With the rule-based spam protection method and the other security features, mosparo offers a great combination with which the proof of work mechanism can be better utilized.
+:::
+
+With the dynamic complexity, mosparo will automatically increase the number range based on the submissions made within a specific time frame. Optionally, the dynamic complexity is based on the IP address. If a user makes a lot of submissions, the user has to use more and more time to solve the proof of work puzzle before the form is submitted.
+
+##### Fields
+
+| Field                                             | Description                                                                                                                                                                                                                                                                                  |
+|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Complexity                                        | The complexity defines the number range, which is used to get the random number for the puzzle. The larger the number range, the more calculations a browser has to perform. It's recommended not to use a too-large number range because it takes time for the normal user to submit the form. |
+| Number range                                      | Shows the number range used to determine the random number.                                                                                                                                                                                                                         |
+| Max time to solve                                 | Shows the maximum estimated time it took on your device to calculate the hashes for the whole number range. Normally, solving the puzzle is faster since the target number is not at the end of the number range. Other devices may be slower or faster than your device.                    |
+| Speed                                             | Shows the calculation speed on your device. Other devices may be slower or faster than your device.                                                                                                                                                                                          |
+| **Dynamic complexity**                            |
+| Maximum complexity                                | Defines the maximum complexity that is used when the number of submissions within the specified time frame is reached.                                                                                                                                                                      |
+| Number range                                      | _See above_                                                                                                                                                                                                                                                                                  |
+| Max time to solve                                 | _See above_                                                                                                                                                                                                                                                                                  |
+| Speed                                             | _See above_                                                                                                                                                                                                                                                                                  |
+| Number of submissions to reach maximum complexity | The field defines the number of submissions a user can submit within a period to reach the maximum complexity.                                                                                                                                                                               |
+| Detection time frame                              | Defines the time, in seconds, in which the submissions are counted.                                                                                                                                                                                                                          |
+| Based on IP address                               | If active, only the submissions from the same IP address are counted. Otherwise, all submissions from all users within the specified time frame are counted.                                                                                                                                 |
 
 #### Block equal submissions
 

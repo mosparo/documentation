@@ -114,12 +114,8 @@ Because of security reasons, you should not make the port 8080 of the mosparo im
 
 mosparo stores the configuration of mosparo in a PHP file as if you install it normally, so you cannot set the configuration by using environment variables.
 
-But there are some additional environment variables which you can use to change the behavior of the Docker image:
+However, there are a few additional environment variables that you can use to influence the behavior of the Docker image. Learn more on the page about the [environment variables](../configure/environment_variables).
 
-| Name                     | Default                 | Description                                                                                                                                                                                      |
-|--------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| MOSPARO_ENABLE_WEBSERVER | `1`                     | Allows to enable or disable the webserver in the mosparo image                                                                                                                                   |
-| MOSPARO_ENABLE_CRON      | `1`                     | Allows to enable or disable the cron jobs in the mosparo image                                                                                                                                   |
-| MOSPARO_UPDATES_ENABLED  | `0`                     | Enables or disables the updates inside mosparo. This should be disabled all the time in a Docker container since updating mosparo in a Docker environment should be happen by updating the image |
-| TRUSTED_PROXIES          | `127.0.0.1,REMOTE_ADDR` | Defines which proxies mosparo should trust. The default settings allow all proxies. This is why you need a reverse proxy in front of mosparo and should not expose it to the public directly.    |
+## Health check
 
+The Docker image uses the Docker Healthcheck to verify the health of the Docker container. If the connection to the database is impossible or something else is wrong, the health check will detect this problem.
