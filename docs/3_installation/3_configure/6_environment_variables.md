@@ -31,10 +31,12 @@ description: Learn more about enabling and configuring additional features with 
 
 ### Docker-specific variables
 
-| Variable name            | Type    | Default value | Description                                              |
-|--------------------------|---------|---------------|----------------------------------------------------------|
-| MOSPARO_ENABLE_WEBSERVER | Boolean | `1`           | Enables or disables the web server in the mosparo image. |
-| MOSPARO_ENABLE_CRON      | Boolean | `1`           | Enables or disables the cron jobs in the mosparo image.  |
+| Variable name            | Type    | Default value | Image        | Description                                                   |
+|--------------------------|---------|---------------|--------------|---------------------------------------------------------------|
+| MOSPARO_ENABLE_WEBSERVER | Boolean | `1`           | Standard     | Enables or disables the web server in the mosparo image.      |
+| MOSPARO_ENABLE_CRON      | Boolean | `1`           | Standard     | Enables or disables the cron jobs in the mosparo image.       |
+| MOSPARO_RUN_NGINX        | Boolean | `1`           | Unprivileged | Enables or disables the nginx Webserver in the mosparo image. |
+| MOSPARO_RUN_PHP_FPM      | Boolean | `1`           | Unprivileged | Enables or disables the PHP FPM in the mosparo image.         |
 
 ## Configuration
 

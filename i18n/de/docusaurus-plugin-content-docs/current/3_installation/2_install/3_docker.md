@@ -111,6 +111,62 @@ Verwenden Sie den Namen des MySQL- oder PostgreSQL-Docker-Containers als Host f�
 
 Aus Sicherheitsgründen sollten Sie den Port 8080 des mosparo Image nie direkt öffentlich verfügbar machen. Stattdessen sollten Sie einen Reverse Proxy aufsetzen. Erfahren Sie mehr dazu unter [Reverse Proxy](../configure/reverse_proxy).
 
+## Unpriviligertes Image
+
+Wir bereiten auch ein unprivilegiertes Image mit mosparo vor. Das unprivilegierte Image benötigt zum Starten des Containers den Root-Benutzer nicht. Es ist kompatibel mit dem Sicherheitskontext `restricted-v2` von OpenShift. Die folgende Tabelle zeigt Ihnen die Unterschiede zwischen der Standard- und der unprivilegierten Version:
+
+| Unterschied           | Beschreibung                                                                                                                                                                                                                                                                 |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Keine Cronjobs        | Das Image führt keine Cronjobs aus. Das liegt daran, dass die Cron-Software Root benötigt, um korrekt zu starten. Die offizielle Empfehlung für Kubernetes lautet, [Kubernetes Cronjobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) zu verwenden. |
+| Funktionalität wählen | Im unprivilegierten Image können Sie wählen, ob nginx, PHP oder beides im Container laufen soll. Weitere Informationen finden Sie in den Umgebungsvariablen.                                                                                                                 |
+| Freigegebener Port    | Dieses Image gibt den Port 8080 für den Webserver frei, im Gegensatz zu Port 80 im Standard-Image.                                                                                                                                                                           |
+| Volumes               | Das unprivilegierte Abbild verwendet drei verschiedene Volumes, um die verschiedenen beschreibbaren Verzeichnisse durch beschreibbare Volumes ohne zu linken zu ersetzen.                                                                                                    |
+| Konfigurationsdatei   | Der Pfad zur Konfigurationsdatei wird als Umgebungsvariable definiert. Das Image erwartet ein Volume für `/mosparo-config`, in dem die Konfigurationsdatei gespeichert ist.                                                                                                  |
+
+### Mit Docker Compose
+
+Verwenden Sie die folgende Docker Compose-Konfiguration, um das unprivilegierte Image zu verwenden:
+
+```yaml
+services:
+  db:
+    # We recommend the mariadb image
+    image: mariadb:11.4
+    # If you want to use MySQL, uncomment the following line (and comment the one above)
+    #image: mysql:8.0.37
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=mosparo_root_pw
+      - MYSQL_DATABASE=mosparo
+      - MYSQL_USER=mosparo
+      - MYSQL_PASSWORD=mosparo_password
+    expose:
+      - 3306
+      - 33060
+  mosparo_web:
+    image: mosparo/mosparo-unprivileged:latest
+    ports:
+      - 8080:8080
+    restart: always
+    environment:
+      - MOSPARO_RUN_NGINX=1
+      - MOSPARO_RUN_PHP_FPM=1
+      - MOSPARO_CONFIG_FILE_PATH=/mosparo-config/env.mosparo.php
+      #- MOSPARO_CLEANUP_GRACE_PERIOD_ENABLED=1
+    volumes:
+      - mosparo_config:/mosparo-config
+      - mosparo_public_resources:/mosparo/public/resources
+      - mosparo_var:/mosparo/var
+volumes:
+  db_data:
+  mosparo_config:
+  mosparo_public_resources:
+  mosparo_var:
+```
+
 ## Umgebungsvariablen
 
 mosparo in einem Docker Container speichert die Konfiguration von mosparo in einer PHP-Datei wie auch bei einer normalen Installation. Sie können die Konfiguration von mosparo daher nicht über Umgebungsvariablen definieren.

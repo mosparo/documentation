@@ -110,6 +110,62 @@ Use the name of the MySQL or PostgreSQL Docker container as the host for the dat
 
 Because of security reasons, you should not make the port 8080 of the mosparo image publicly available. Instead, you have to set up a reverse proxy. For this, see [reverse proxy](../configure/reverse_proxy).
 
+## Unprivileged image
+
+We also prepare an unprivileged image with mosparo. The unprivileged image does not need the root user to start the container. It is compatible with the security context `restricted-v2` of OpenShift. The following table shows you the differences between the standard and the unprivileged version:
+
+| Difference           | Description                                                                                                                                                                                                                                                     |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| No cron jobs         | The image does not execute any cron jobs. This is because the cron software requires root to start correctly. The official recommendation for Kubernetes is to use [Kubernetes cronjobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/). |
+| Choose functionality | In the unprivileged image, you can choose whether to run nginx, PHP, or both in the container. See the environment variables for more information.                                                                                                              |
+| Exposed port         | This image exposes port 8080 for the web server compared to port 80 in the standard image.                                                                                                                                                                      |
+| Volumes              | The unprivileged image uses three different volumes to replace the different writable directories with writeable volumes without linking.                                                                                                                       |
+| Configuration file   | The path to the configuration file is defined as an environment variable. The image expects a volume for `/mosparo-config` in which the configuration file is stored.                                                                                           |
+
+### Use Docker Compose
+
+Use the following Docker Compose configuration to use the unprivileged image:
+
+```yaml
+services:
+  db:
+    # We recommend the mariadb image
+    image: mariadb:11.4
+    # If you want to use MySQL, uncomment the following line (and comment the one above)
+    #image: mysql:8.0.37
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=mosparo_root_pw
+      - MYSQL_DATABASE=mosparo
+      - MYSQL_USER=mosparo
+      - MYSQL_PASSWORD=mosparo_password
+    expose:
+      - 3306
+      - 33060
+  mosparo_web:
+    image: mosparo/mosparo-unprivileged:latest
+    ports:
+      - 8080:8080
+    restart: always
+    environment:
+      - MOSPARO_RUN_NGINX=1
+      - MOSPARO_RUN_PHP_FPM=1
+      - MOSPARO_CONFIG_FILE_PATH=/mosparo-config/env.mosparo.php
+      #- MOSPARO_CLEANUP_GRACE_PERIOD_ENABLED=1
+    volumes:
+      - mosparo_config:/mosparo-config
+      - mosparo_public_resources:/mosparo/public/resources
+      - mosparo_var:/mosparo/var
+volumes:
+  db_data:
+  mosparo_config:
+  mosparo_public_resources:
+  mosparo_var:
+```
+
 ## Environment variables
 
 mosparo stores the configuration of mosparo in a PHP file as if you install it normally, so you cannot set the configuration by using environment variables.

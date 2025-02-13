@@ -31,10 +31,12 @@ description: Erfahren Sie mehr über das Aktivieren und Konfigurieren zusätzlic
 
 ### Docker-spezifische Variablen
 
-| Variablenname            | Typ     | Standard-Wert | Beschreibung                                               |
-|--------------------------|---------|---------------|------------------------------------------------------------|
-| MOSPARO_ENABLE_WEBSERVER | Boolean | `1`           | Aktiviert oder deaktiviert den Webserver im mosparo-Image. |
-| MOSPARO_ENABLE_CRON      | Boolean | `1`           | Aktiviert oder deaktiviert die Cron-Jobs im mosparo-Image. |
+| Variablenname            | Typ     | Standard-Wert | Image          | Beschreibung                                                     |
+|--------------------------|---------|---------------|----------------|------------------------------------------------------------------|
+| MOSPARO_ENABLE_WEBSERVER | Boolean | `1`            | Standard       | Aktiviert oder deaktiviert den Webserver im mosparo-Image.       |
+| MOSPARO_ENABLE_CRON      | Boolean | `1`            | Standard       | Aktiviert oder deaktiviert die Cron-Jobs im mosparo-Image.       |
+| MOSPARO_RUN_NGINX        | Boolean | `1`            | Unpriviligiert | Aktiviert oder deaktiviert den nginx-Webserver im mosparo-Image. |
+| MOSPARO_RUN_PHP_FPM      | Boolean | `1`            | Unpriviligiert | Aktiviert oder deaktiviert die PHP FPM im mosparo-Image.         |
 
 ## Konfiguration
 
