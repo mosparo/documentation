@@ -39,3 +39,9 @@ ungültig ist antwortet die API mit `Request invalid.`.
 Grundsätzlich gibt es für diese Fehlermeldung zwei mögliche Ursachen. Es ist möglich, dass der falsche geheime Schlüssel verwendet wurde. Bitte prüfen Sie, ob Sie den richten geheimen Schlüssel verwenden.
 
 Falls der geheime Schlüssel korrekt ist, kann es ein Problem mit den Anfragedaten sein. Bitte stellen Sie sicher, dass die Anfragedaten für die Signatur die gleichen sind, welche auch an die API übermittelt werden.
+
+## Feld als ungültig markiert
+
+In manchen Fällen schlägt die Überprüfung fehl, und die Felder werden als ungültig markiert. Dies geschieht hauptsächlich aus zwei Gründen. Ein Grund ist, dass das Feld nicht zur Überprüfung übermittelt wird. Der andere Grund ist, dass die API eine andere Signatur für ein Feld berechnet als der API-Client.
+
+Dieses zweite Problem tritt wahrscheinlich auf, weil die Signatur mit bereits validierten oder vorbereiteten Formulardaten erstellt wird. Ein einfaches Beispiel sind Leerzeichen, die am Anfang oder Ende eines Formularwertes abgeschnitten werden. mosparo nimmt bei der Validierung der Formulardaten im Frontend keine Feldmanipulationen vor, daher sollten Sie die ursprünglichen Formularwerte zur Verifizierung an die mosparo Backend-API senden.

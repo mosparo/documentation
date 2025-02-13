@@ -42,3 +42,9 @@ correct private key.
 
 If the private key is correct, it could be a problem with the request data. Please make sure that your request data for the signature is the same as 
 that which you send to the API. 
+
+## Field marked as invalid
+
+In some cases, the verification fails, and fields are marked as invalid. This happens mainly because of two reasons. One reason is that the field is not transmitted for verification. The other reason is that the API calculates a different signature for a field than the API client did.
+
+This second issue happens probably because the signature is generated with already validated or prepared form data. A simple example is white spaces, which are trimmed from the beginning or the end of a form value. mosparo does not do any field manipulation when validating the form data in the frontend, so you should send the original form values to the mosparo backend API for verification.
