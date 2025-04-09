@@ -92,6 +92,10 @@ You can find the exact API functionality and how to create the signature in [per
 
 ## Spam detection
 
+:::tip
+Do you prefer a video instead of reading text? Watch our HowTo about spam rating on [YouTube](https://www.youtube.com/watch?v=mFcbiDDJl-A).
+:::
+
 mosparo must evaluate the submitted data to decide which submission is spam and which is not. This is done with the help of the existing rules. Each rule consists of at least one item. For each existing item, mosparo checks if the item matches the form data.
 
 If this is the case, the form field receives a value in points. The default value is 1.0. When creating an item in the rules, it is possible to enter a value between 0.0 and infinity. All rules and items are now processed for each form field.

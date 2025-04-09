@@ -10,6 +10,10 @@ Mit Hilfe von Regeln erkennt mosparo, ob es sich bei einer Einsendung um Spam od
 
 ## Erstellen von Regeln
 
+:::tip
+Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über das Erstellen einer Regel auf [YouTube](https://www.youtube.com/watch?v=LKv9uzlkrhU) an.
+:::
+
 Um eine Regel zu erstellen, wählen Sie in der Navigation "Regeln" und anschliessend oben Rechts “Regel erstellen”. Danach wird eine Liste aller Regelarten angezeigt. Wählen Sie, mit welcher Regelart Sie eine Regel erstellen möchten.
 
 Nachdem Sie einen Regelart gewählt haben, sehen Sie die Bearbeitungsoberfläche einer Regel. Geben Sie der Regel einen Namen, damit Sie bei der Verwaltung der Regeln mehr Übersicht behalten.
@@ -37,6 +41,10 @@ Mit dem Filter-Dropdown in der oberen rechten Ecke können Sie die Liste nach nu
 Bevor eine Regel gelöscht wird, müssen Sie das Löschen der Regel bestätigen.
 
 ## Bewertungs-Beispiel
+
+:::tip
+Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über die Spam-Bewertung auf [YouTube](https://www.youtube.com/watch?v=mFcbiDDJl-A) an.
+:::
 
 Sie haben in mosparo zwei Regeln konfiguriert:
 

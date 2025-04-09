@@ -6,6 +6,10 @@ description: mosparo verfügt über verschiedene Regelarten. Hier finden Sie ein
 
 # Regelarten
 
+:::tip
+Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über Regelarten auf [YouTube](https://www.youtube.com/watch?v=U3VqXZLtdaM) an.
+:::
+
 mosparo kennt verschiedene Regelarten. Je nach Regelart werden nur gewisse Felder überprüft (zum Beispiel bei URL- oder E-Mail-Feldern). Die Regelart wird vor dem Erstellen einer Regel vom Benutzer ausgewählt. Innerhalb der Regelart kann es mehrere Regeltypen geben.
 
 ## Wort

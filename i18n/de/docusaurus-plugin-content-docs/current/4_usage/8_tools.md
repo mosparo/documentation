@@ -8,6 +8,11 @@ description: Die Werkzeuge unterstützen Sie bei der Benutzung von mosparo.
 
 ## Regel-Tester
 
+:::tip
+Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über das Testen einer Regel auf [YouTube](https://www.youtube.com/watch?v=oFq3j7kP8TQ) an.
+:::
+
+
 Mit dem Regel-Tester können Sie testen, wie die erfassten Regeln funktionieren und ob die Regeln Spam erkennen oder nicht.
 
 Geben Sie den zu testenden Wert im Feld "Test-Wert" ein. Wählen Sie anschliessend, um welchen Typ von Feld bzw. Wert es sich handelt. Gewisse Regelarten werden nur auf gewisse Feldtypen angewendet. 

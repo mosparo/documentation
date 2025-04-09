@@ -10,6 +10,10 @@ With the help of rules, mosparo recognizes whether a submission is spam or valid
 
 ## Creating Rules
 
+:::tip
+Do you prefer a video instead of reading text? Watch our HowTo about creating a rule on [YouTube](https://www.youtube.com/watch?v=LKv9uzlkrhU).
+:::
+
 To create a rule, select "Rules" in the navigation and then "Create rule" on the right. After that, a list of all rule types is displayed. Select the rule type you want to use to create a rule.
 
 After you have selected a rule type, you see the editing interface of a rule. Give the rule a name so that you have a better overview when managing the rules.
@@ -37,6 +41,10 @@ With the filter dropdown in the top right corner, you can filter the list for on
 Before a rule is deleted, you must confirm that you want to delete the rule.
 
 ## Rating example
+
+:::tip
+Do you prefer a video instead of reading text? Watch our HowTo about spam rating on [YouTube](https://www.youtube.com/watch?v=mFcbiDDJl-A).
+:::
 
 You have two rules configured in mosparo:
 

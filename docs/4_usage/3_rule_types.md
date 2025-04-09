@@ -6,6 +6,10 @@ description: mosparo has various rule types. Here you will find an overview of a
 
 # Rule types
 
+:::tip
+Do you prefer a video instead of reading text? Watch our HowTo about rule types on [YouTube](https://www.youtube.com/watch?v=U3VqXZLtdaM).
+:::
+
 mosparo knows different rules. Depending on the rule type, only specific fields are checked (for example, URL or email fields). The user selects the rule type before a rule is created. There can be several subtypes within a rule type.
 
 ## Word

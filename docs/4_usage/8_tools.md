@@ -8,6 +8,10 @@ description: The tools support you in the use of mosparo.
 
 ## Rule Tester
 
+:::tip
+Do you prefer a video instead of reading text? Watch our HowTo about testing a rule on [YouTube](https://www.youtube.com/watch?v=oFq3j7kP8TQ).
+:::
+
 With the rule tester, you can test how the created rules work and whether the rules detect spam or not.
 
 Enter the value you want to test in the "Test value" field. Then select what type of field or value it is. Certain types of rules are applied only to certain types of fields. 

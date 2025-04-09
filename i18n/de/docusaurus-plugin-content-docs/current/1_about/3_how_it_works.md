@@ -92,6 +92,10 @@ Die genaue API-Funktionsweise und das Erstellen der Signatur finden Sie unter [V
 
 ## Spam-Erkennung
 
+:::tip
+Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über die Spam-Bewertung auf [YouTube](https://www.youtube.com/watch?v=mFcbiDDJl-A) an.
+:::
+
 Damit entschieden werden kann, welche Einsendung als Spam gewertet wird und welche nicht, müssen die übermittelten Daten bewertet werden. Dies geschieht grundsätzlich mit Hilfe der vorhandenen Regeln. Jede Regel besteht aus mindestens einem Eintrag. Für jeden vorhandenen Eintrag wird überprüft, ob der Eintrag mit den Formulardaten übereinstimmt.
 
 Wenn das der Fall ist, erhält das Formularfeld einen Wert in Punkten. Der Wert ist standardmässig 1.0. Beim Erstellen eines Eintrages in den Regeln besteht die Möglichkeit, einen Wert zwischen 0.0 und unendlich einzugeben. Für jedes Formularfeld werden nun alle Regeln und Einträge verarbeitet.
