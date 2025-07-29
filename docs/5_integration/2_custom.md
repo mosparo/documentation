@@ -16,7 +16,9 @@ In your form, at the place where you want to display the mosparo box, insert an 
 <div id="mosparo-box"></div>
 ```
 
-## Embed CSS Resources
+## Embed CSS Resources 
+
+### Simple CSS integration
 
 In your website's header, you need to include mosparo's CSS resources. To do this, paste the following code into the HTML head area:
 
@@ -29,6 +31,88 @@ Replace `<host>` with the address of your mosparo installation. Enter the unique
 :::info
 You can also include the CSS resources directly from the script when initializing the mosparo box. To do this, use the `loadCssResource` option during initialization (see [mosparo class parameters](#parameters-of-the-mosparo-class)).
 :::
+
+### Advanced CSS integration
+
+In the design settings in mosparo, you can specify the visual representation of the mosparo box. But every project can have only one design.
+
+If you need more design options, for example, when your website has a light and dark mode, then you can use the advanced CSS integration mode.
+
+Compared with the normal mode, in the advanced mode, you must specify the colors and other design settings in the CSS code of your website as CSS variables. The ones you define in mosparo have no effect.
+
+To use the advanced mode, embed the default CSS file from your mosparo installation:
+
+```html
+<link href="https://<host>/build/mosparo-frontend.css" rel="stylesheet"> 
+```
+
+Replace `<host>` with the address of your mosparo installation.
+
+After that, specify the required CSS variables. You can copy the code below and adjust the values, or you can start adjusting the values by using the developer tools in your browser.
+
+#### Visible design mode
+
+```css
+:root {
+    --mosparo-content-display: block;
+    --mosparo-container-position: relative;
+    --mosparo-border-color: #000000;
+    --mosparo-border-radius: 11px;
+    --mosparo-border-width: 3px;
+    --mosparo-background-color: #ffffff;
+    --mosparo-text-color: #000000;
+    --mosparo-shadow-color: transparent;
+    --mosparo-shadow-inset-color: transparent;
+    --mosparo-circle-border-color: #000000;
+    --mosparo-circle-radius: 20px;
+    --mosparo-circle-border-width: 3px;
+    --mosparo-ping-animation-name: 'mosparo__ping-animation'; /* Or 'none' to disable the animation */
+    --mosparo-focus-circle-border-color: #0000ff;
+    --mosparo-focus-circle-shadow-color: transparent;
+    --mosparo-loading-circle-border-color: transparent;
+    --mosparo-loading-circle-animated-border-color: #0000ff;
+    --mosparo-success-border-color: #00ff00;
+    --mosparo-success-background-color: #ffffff;
+    --mosparo-success-circle-border-color: #00ff00;
+    --mosparo-success-text-color: #000000;
+    --mosparo-success-shadow-color: transparent;
+    --mosparo-success-shadow-inset-color: transparent;
+    --mosparo-failure-border-color: #ff0000;
+    --mosparo-failure-background-color: #ffffff;
+    --mosparo-failure-circle-border-color: #ff0000;
+    --mosparo-failure-text-color: #ff0000;
+    --mosparo-failure-text-error-color: #ff0000;
+    --mosparo-failure-shadow-color: transparent;
+    --mosparo-failure-shadow-inset-color: transparent;
+    --mosparo-show-logo: none; /* To see the logo, you need a CORS header. Set this to 'block' and check the developer console of your website. */
+}
+```
+
+#### Invisible design mode
+
+To use the invisible design mode, you must first switch to the simple invisible spam protection design mode in the mosparo design settings. Otherwise, mosparo will not initialize this mode correctly.
+
+```css
+:root {
+    /* Required, do not change */
+    --mosparo-content-display: none !important;
+    --mosparo-container-position: static;
+    --mosparo-border-radius: 0;
+    --mosparo-border-width: 0;
+    --mosparo-padding-top: 0;
+    --mosparo-padding-left: 0;
+    --mosparo-padding-right: 0;
+    --mosparo-padding-bottom: 0;
+    --mosparo-shadow-blur-radius: 0;
+    --mosparo-shadow-spread-radius: 0;
+
+    /* Adjust these variables accordingly */
+    --mosparo-loader-position: fixed; /* Use 'fixed' to overlay the whole page, or 'absolute' to overlay the form only. */
+    --mosparo-loader-background-color: rgba(255, 0, 0, 0.8);
+    --mosparo-loader-text-color: #ffffff;
+    --mosparo-loader-circle-color: #ffffff;
+}
+```
 
 ## Embedding JavaScript
 

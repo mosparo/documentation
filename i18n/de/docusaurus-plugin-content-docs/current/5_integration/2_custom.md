@@ -18,6 +18,8 @@ Fügen Sie in Ihrem Formular an der Stelle, an welcher die mosparo-Box angezeigt
 
 ## CSS-Ressourcen einbinden
 
+### Einfache CSS-Integration
+
 Im Kopf Ihrer Website müssen Sie die CSS-Ressourcen von mosparo einbinden. Fügen Sie dazu folgenden Code im HTML-Head-Bereich ein:
 
 ```html
@@ -29,6 +31,88 @@ Ersetzen Sie dabei `<host>` mit der Adresse Ihrer mosparo-Installation. Tragen S
 :::info
 Sie können die CSS-Ressourcen auch direkt vom Script beim Initialisieren der mosparo-Box einbinden. Verwenden Sie dazu die Option loadCssResource bei der Initialisierung (siehe [Parameter der mosparo-Klasse](#parameter-der-mosparo-klasse)).
 :::
+
+### Erweiterte CSS-Integration
+
+In den Darstellungseinstellungen von mosparo können Sie die optische Darstellung der mosparo-Box festlegen. Jedes Projekt kann aber nur eine Darstellung haben.
+
+Wenn Sie mehr Darstellungsmöglichkeiten benötigen, zum Beispiel wenn Ihre Website einen hellen und einen dunklen Modus hat, dann können Sie die erweiterte CSS-Integration verwenden.
+
+Im Gegensatz zur einfachen CSS-Integration müssen Sie in der erweiterten Integration die Farben und andere Darstellungseinstellungen im CSS-Code Ihrer Website als CSS-Variablen angeben. Die Einstellungen, welche Sie in mosparo definieren, haben keine Wirkung.
+
+Um den erweiterten Modus zu nutzen, betten Sie die Standard-CSS-Datei aus Ihrer mosparo-Installation ein:
+
+```html
+<link href="https://<host>/build/mosparo-frontend.css" rel="stylesheet"> 
+```
+
+Ersetzen Sie `<host>` durch die Adresse Ihrer mosparo-Installation.
+
+Danach geben Sie die erforderlichen CSS-Variablen an. Sie können den nachstehenden Code kopieren und die Werte anpassen, oder Sie können mit der Anpassung der Werte beginnen, indem Sie die Entwicklerwerkzeuge in Ihrem Browser verwenden.
+
+#### Sichtbarer Spam-Schutz
+
+```css
+:root {
+    --mosparo-content-display: block;
+    --mosparo-container-position: relative;
+    --mosparo-border-color: #000000;
+    --mosparo-border-radius: 11px;
+    --mosparo-border-width: 3px;
+    --mosparo-background-color: #ffffff;
+    --mosparo-text-color: #000000;
+    --mosparo-shadow-color: transparent;
+    --mosparo-shadow-inset-color: transparent;
+    --mosparo-circle-border-color: #000000;
+    --mosparo-circle-radius: 20px;
+    --mosparo-circle-border-width: 3px;
+    --mosparo-ping-animation-name: 'mosparo__ping-animation'; /* Oder 'none' um die Animation zu deaktivieren */
+    --mosparo-focus-circle-border-color: #0000ff;
+    --mosparo-focus-circle-shadow-color: transparent;
+    --mosparo-loading-circle-border-color: transparent;
+    --mosparo-loading-circle-animated-border-color: #0000ff;
+    --mosparo-success-border-color: #00ff00;
+    --mosparo-success-background-color: #ffffff;
+    --mosparo-success-circle-border-color: #00ff00;
+    --mosparo-success-text-color: #000000;
+    --mosparo-success-shadow-color: transparent;
+    --mosparo-success-shadow-inset-color: transparent;
+    --mosparo-failure-border-color: #ff0000;
+    --mosparo-failure-background-color: #ffffff;
+    --mosparo-failure-circle-border-color: #ff0000;
+    --mosparo-failure-text-color: #ff0000;
+    --mosparo-failure-text-error-color: #ff0000;
+    --mosparo-failure-shadow-color: transparent;
+    --mosparo-failure-shadow-inset-color: transparent;
+    --mosparo-show-logo: none; /* Um das Logo sehen zu können, brauchen Sie einen CORS-Header. Setzen Sie diese Variable zu 'block' und prüfen Sie die Developer Console Ihrer Website. */
+}
+```
+
+#### Unsichtbarer Spam-Schutz
+
+Um den unsichtbaren Spam-Schutz zu verwenden, müssen Sie zunächst in den mosparo Darstellungseinstellungen auf den einfachen unsichtbaren Spam-Schutz umschalten. Andernfalls wird mosparo diesen Modus nicht korrekt initialisieren.
+
+```css
+:root {
+    /* Erforderlich, nicht ändern */
+    --mosparo-content-display: none !important;
+    --mosparo-container-position: static;
+    --mosparo-border-radius: 0;
+    --mosparo-border-width: 0;
+    --mosparo-padding-top: 0;
+    --mosparo-padding-left: 0;
+    --mosparo-padding-right: 0;
+    --mosparo-padding-bottom: 0;
+    --mosparo-shadow-blur-radius: 0;
+    --mosparo-shadow-spread-radius: 0;
+
+    /* Passen Sie die untenstehenden Variablen an */
+    --mosparo-loader-position: fixed; /* Benutzen Sie 'fixed' um die ganze Seite oder 'absolute' um nur das Formular zu überlagern. */
+    --mosparo-loader-background-color: rgba(255, 0, 0, 0.8);
+    --mosparo-loader-text-color: #ffffff;
+    --mosparo-loader-circle-color: #ffffff;
+}
+```
 
 ## JavaScript einbinden
 
