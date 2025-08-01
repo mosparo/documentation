@@ -295,11 +295,13 @@ document.getElementById('contact-form').addEventListener('submit-form-invisible'
 
 ## Performing verification
 
-Once the form has been submitted, the backend of your website must check whether the submission was allowed at all. From a purely technical point of view, it would be conceivable that someone passes the validation by mosparo, then changes the request again with technical means, and then sends the form. Therefore, it is imperative to check whether the entries made were valid.
+Once the form has been submitted, the backend of your website must check whether the submission was allowed at all. From a purely technical point of view, it is possible that someone passes the validation by mosparo, then changes the request again with technical tools, and then submits the form. Therefore, it is essential to check whether the entries made were valid.
 
 ### Preparing Form Data
 
-The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields)).
+The backend must remove all fields ignored by mosparo from the submitted form data (see [Ignored Fields](../integration/ignored_fields)). Additionally, the form fields must be in the same structure as it was before the form is submitted. The form fields in HTML do not have any hierarchy, and it is required that it is the same in the backend. It is also important that the name of the field in the backend is the same and in the same format as in the frontend (for example: `form[address][street]` or `email[]`). The value of the `name` attribute of the form fields needs to match the key in the prepared form data.
+
+After preparing the form data, it is recommended to check if the keys of the prepared form data array match the name attributes of the form fields in HTML.
 
 ### Verifying with a function library
 

@@ -298,9 +298,11 @@ document.getElementById('contact-form').addEventListener('submit-form-invisible'
 
 Nachdem das Formular abgesendet wurde, muss überprüft werden, ob die Einsendung überhaupt erlaubt war. Rein technisch wäre es vorstellbar, dass jemand zwar die Prüfung von mosparo besteht, danach mit technischen Mitteln die Anfrage wieder verändert und erst dann das Formular absendet. Daher ist es zwingend erforderlich, zu überprüfen, ob die getätigten Eingaben gültig waren.
 
-### Vorbereiten der Formulardaten
+### Vorbereiten der Formulardate
 
-Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder entfernt werden (siehe [ignorierte Felder](../integration/ignored_fields)).
+Aus den eingesendeten Formulardaten müssen alle von mosparo ignorierten Felder entfernt werden (siehe [ignorierte Felder](../integration/ignored_fields)). Ausserdem müssen die Formularfelder die gleiche Struktur aufweisen wie vor dem Absenden des Formulars. Die Formularfelder in HTML haben keine Hierarchie, und es ist erforderlich, dass dies auch im Backend der Fall ist. Es ist auch wichtig, dass der Name des Feldes im Backend derselbe ist und das gleiche Format hat wie im Frontend (zum Beispiel: `form[address][street]` oder `email[]`). Der Wert des Attributs `name` der Formularfelder muss mit dem Schlüssel in den vorbereiteten Formulardaten übereinstimmen.
+
+Nach dem Vorbereiten der Formulardaten wird empfohlen, zu prüfen, ob die Schlüssel des vorbereiteten Formulardaten-Arrays mit den Namensattributen der Formularfelder in HTML übereinstimmen.
 
 ### Verifizieren mit Funktionsbibliothek
 
