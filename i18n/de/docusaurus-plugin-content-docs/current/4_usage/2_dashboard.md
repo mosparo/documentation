@@ -14,3 +14,7 @@ Die graue Linie mit dem Text **Nur Statistik** zeigt Ihnen, bis zu welchem Datum
 
 Sie können den sichtbaren Datumsbereich mit dem Datumsbereichselektor in der oberen rechten Ecke auswählen. Die Auswahlliste zeigt nur die Werte an, welche entsprechend der Einstellung **Speichern der Statistik** möglich sind. Wenn Sie zum Beispiel in der Einstellung **3 Monate** wählen, sind nur die Optionen bis zu 3 Monaten in der Auswahlliste in der Übersicht sichtbar.
 
+## Letzte Datenbankbereinigung _(Hinzugefügt in v1.4)_
+
+Der Hinweis unterhalb des Diagramms gibt an, wann die Datenbank von mosparo zuletzt gesäubert wurde. Bei der Datenbankbereinigung werden veraltete Daten automatisch entfernt.
+
