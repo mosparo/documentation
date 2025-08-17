@@ -57,10 +57,10 @@ In den allgemeinen Einstellungen können die wichtigsten Informationen zum Proje
 | Feld                             | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Spamerkennungs-Optionen**      |
-| Status                           | Wenn aktiv, blockiert mosparo Beiträge, die als Spam erkannt wurden. Wenn inaktiv, bewertet mosparo alle Beiträge, blockiert sie aber nicht.                                                                                                                                                                                                                                                                                                   |
-| Spam-Grenze                      | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird.                                                                                                                                                                                                                                                                                                                                                        |
+| Status                           | Wenn aktiv, blockiert mosparo Beiträge, die als Spam erkannt wurden. Wenn inaktiv, bewertet mosparo alle Beiträge, blockiert sie aber nicht. Sie können den Status auch in einer [ursprungsbasierten Sicherheitsrichtlinie](#ursprungsbezogene-sicherheitseinstellungen) aktivieren oder deaktivieren.                                                                                                                                         |
+| Spam-Grenze                      | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird. Sie können die Spam-Grenze auch in einer [ursprungsbasierten Sicherheitsrichtlinie](#ursprungsbezogene-sicherheitseinstellungen) anpassen.                                                                                                                                                                                                                                                             |
 | **Sprach-Optionen**              |
-| Sprachquelle                     | Legt fest, wie mosparo die Sprache für die Frontend-Box bestimmt. mosparo verwendet standardmässig die Browsersprache. Mit dieser Option ist es möglich, die Sprache der Website als Fallback zu verwenden oder die Sprache der Website als Hauptquelle zu verwenden und die Browsersprache als Fallback zu verwenden. _(Hinzugefügt in v1.3)_                                                                                                       |
+| Sprachquelle                     | Legt fest, wie mosparo die Sprache für die Frontend-Box bestimmt. mosparo verwendet standardmässig die Browsersprache. Mit dieser Option ist es möglich, die Sprache der Website als Fallback zu verwenden oder die Sprache der Website als Hauptquelle zu verwenden und die Browsersprache als Fallback zu verwenden. _(Hinzugefügt in v1.3)_                                                                                                 |
 | **Statistik-Optionen**           |
 | Speichern der Statistik          | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                                                         |
 | **Entwickler-Optionen**          |
@@ -104,6 +104,8 @@ Mit der Priorität können Sie festlegen, in welcher Reihenfolge die Richtlinien
 Sie können so viele Richtlinien erstellen, wie Sie möchten. In jeder Richtlinie können Sie beliebig viele Kriterien definieren. Die Richtlinie wird für einen Benutzer verwendet, sobald eines der Kriterien zutrifft.
 
 Wenn Sie eine der Sicherheitseinstellungen anpassen möchten, aktivieren Sie die Überschreiben-Checkbox in der oberen rechten Ecke des Feldes für die Sicherheitseinstellung. Wenn Sie eine der in den allgemeinen Sicherheitseinstellungen aktivierten Sicherheitseinstellungen deaktivieren möchten, aktivieren Sie die Überschreiben-Checkbox und deaktivieren Sie das aktivierte Kontrollkästchen.
+
+Sie können die Spam-Erkennung auch vollständig deaktivieren oder die Spam-Bewertung für eine Sicherheitsrichtlinie anpassen. Mit dieser Option können Sie beispielsweise die Spam-Erkennung für eine IP-Adresse vollständig deaktivieren oder die Spam-Bewertung für ein Land verringern. _(Hinzugefügt in v1.4)_
 
 ### Verfügbare Sicherheits-Einstellungen
 
@@ -280,7 +282,7 @@ Der Radius der Box können Sie so anpassen, wie es für Ihre Website am besten p
 
 #### Radius und Rahmenbreite des Kontrollkästchens
 
-Auf der zweiten Registerkarte der Grösseneinstellungen können Sie den Radius des Kontrollkästchens und die Rahmenbreite festlegen. Mit diesen Einstellungen können Sie das Aussehen des Kontrollkästchens ändern und es eher quadratisch gestalten, ähnlich wie bei anderen Spam-Schutzmethoden.
+Auf der zweiten Registerkarte der Grösseneinstellungen können Sie den Radius des Kontrollkästchens und die Rahmenbreite festlegen. Mit diesen Einstellungen können Sie das Aussehen des Kontrollkästchens ändern und es eher quadratisch gestalten, ähnlich wie bei anderen Spam-Schutzmethoden. _(Hinzugefügt in v1.4)_
 
 #### Farben
 
