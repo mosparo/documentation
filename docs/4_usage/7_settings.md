@@ -277,9 +277,13 @@ In the advanced mode, you have all options to adjust the design of the mosparo b
 
 #### Box size and radius
 
-You can choose between three different sizes of the mosparo box. These three sizes are predefined in mosparo, and you can only choose between these three sizes.
+In the first tab of the size settings, you can choose between three different sizes of the mosparo box. These three sizes are predefined in mosparo, and you can only choose between them.
 
 You can adjust the radius of the box to suit your website best. If you do not want a radius, you can set the value to 0.
+
+#### Checkbox radius and border width
+
+In the second tab of the size settings, you can define the radius of the checkbox and the border width. With these settings, you can change the look and feel of the checkbox to a more square checkbox, similar to other spam protection methods.
 
 #### Colors
 

@@ -274,9 +274,13 @@ Im erweiterten Modus haben Sie alle Möglichkeiten, das Design der mosparo Box a
 
 #### Box-Grösse und -Radius
 
-Sie können zwischen drei verschiedenen Grössen der mosparo-Box auswählen. Diese drei Grössen sind in mosparo vordefiniert und es kann nur zwischen diesen drei Grössen gewählt werden.
+Auf der ersten Registerkarte der Grösseneinstellungen, können Sie zwischen drei verschiedenen Grössen der mosparo-Box auswählen. Diese drei Grössen sind in mosparo vordefiniert und es kann nur zwischen diesen gewählt werden.
 
 Der Radius der Box können Sie so anpassen, wie es für Ihre Website am besten passt. Falls Sie keinen Radius wünschen, können Sie den Wert auf 0 stellen.
+
+#### Radius und Rahmenbreite des Kontrollkästchens
+
+Auf der zweiten Registerkarte der Grösseneinstellungen können Sie den Radius des Kontrollkästchens und die Rahmenbreite festlegen. Mit diesen Einstellungen können Sie das Aussehen des Kontrollkästchens ändern und es eher quadratisch gestalten, ähnlich wie bei anderen Spam-Schutzmethoden.
 
 #### Farben
 
