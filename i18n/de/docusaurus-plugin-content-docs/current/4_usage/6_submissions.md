@@ -72,6 +72,12 @@ Seit Version 1.4 markiert mosparo Leerzeichen am Anfang und am Ende eines Werts 
 
 Der Grund für diese Markierung ist, Sie darauf hinzuweisen, dass der Wert Leerzeichen (am Anfang bzw. Ende) oder Sonderzeichen enthält. Wenn die Validierung einer solchen Eingabe fehlschlägt, kann es an diesen Zeichen liegen.
 
+### Probleme bei der Überprüfung
+
+Wenn bei der Überprüfung einer Einsendung ein Fehler auftritt, muss die Ursache für die fehlgeschlagene Überprüfung analysiert werden. Der Grund für die fehlgeschlagene Überprüfung ist jedoch nur in der Antwort der mosparo-API sichtbar, die in der Regel nicht im Backend der Website gespeichert wird. Ausserdem muss der API-Debug-Modus für ein Projekt in mosparo aktiviert sein. Normalerweise wird die API-Antwort aber nicht gespeichert, was es in einem solchen Fall schwierig macht, die Ursache für eine blockierte Einsendung zu identifizieren.
+
+Mit v1.4 werden die Probleme während der Verifizierung automatisch in mosparo gespeichert. So kann später nachvollzogen werden, warum die Verifizierung fehlgeschlagen ist (sofern die Einsendung in mosparo gespeichert ist). Wenn es Probleme mit der Verifizierung gab, wird oben rechts in der Einsendungsansicht eine zusätzliche Schaltfläche angezeigt, über die die Verifizierungsprobleme aufgelistet werden können.
+
 ### Verifizierungs-Simulations-Modus
 
 Wenn der Verifizierungs-Simulations-Modus für ein Projekt aktiviert ist, sehen Sie eine Schaltfläche in der oberen rechten Ecke der Detailseite der Einsendung.
