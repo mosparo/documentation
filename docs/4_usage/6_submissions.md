@@ -65,6 +65,12 @@ You will also see a status indicator behind the name of a field. This status ind
 | ![Field not verified](./assets/status_not_verified_en.jpg)               | Indicates that a field has not been verified by site backend verification. This means that the field can be changed and is rather uncertain. It is not necessarily bad because, for example, it is a not-so-important field that needs to be rechecked by the backend. |
 | ![Honeypot field](./assets/status_honeypot.jpg)                          | Displayed if the field is the honeypot field. This field should always be empty. Otherwise, the submission is spam.                                                                                                                                                                              |
 
+#### Spaces and invisible characters
+
+Since version 1.4, mosparo marks spaces at the beginning and end of a value as well as invisible special characters in the field value. These characters are visible with a colored border. When you hover over them with the mouse, a tooltip with the name of the character is displayed.
+
+The reason for this marking is to alert you that the value contains spaces (at the beginning or end) or special characters. If the validation of such an entry fails, it may be due to these characters.
+
 ### Verification simulation mode
 
 If the verification simulation mode is enabled for a project, you'll see a button in the top-right corner of the submission detail page.

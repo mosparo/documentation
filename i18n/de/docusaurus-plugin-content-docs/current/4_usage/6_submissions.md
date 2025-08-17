@@ -66,6 +66,12 @@ Weiter sehen Sie hinter dem Namen eines Feldes eine Statusanzeige. Diese Statusa
 | ![Field not verified](./assets/status_not_verified_de.jpg)               | Zeigt an, dass ein Feld nicht von der Überprüfung des Backends der Website überprüft wurde. Dies bedeutet, dass das Feld hätte verändert werden können und daher eher unsicher ist. Es ist nicht zwingend schlimm, weil es sich dabei zum Beispiel um ein nicht so wichtiges Feld handelt und daher vom Backend nicht erneut überprüft wurde. |
 | ![Honeypot field](./assets/status_honeypot.jpg)                          | Wird angezeigt, wenn es sich bei dem Feld um das Honeypot-Feld handelt. Dieses Feld sollte immer leer sein, ansonsten handelt es sich bei der Einsendung um Spam.                                                                                                                                                                             |
 
+#### Leerzeichen und unsichtbare Zeichen
+
+Seit Version 1.4 markiert mosparo Leerzeichen am Anfang und am Ende eines Werts sowie unsichtbare Sonderzeichen im Feldwert. Diese Zeichen sind durch einen farbigen Rahmen sichtbar. Wenn Sie mit der Maus darüber fahren, wird ein Tooltip mit dem Namen des Zeichens angezeigt.
+
+Der Grund für diese Markierung ist, Sie darauf hinzuweisen, dass der Wert Leerzeichen (am Anfang bzw. Ende) oder Sonderzeichen enthält. Wenn die Validierung einer solchen Eingabe fehlschlägt, kann es an diesen Zeichen liegen.
+
 ### Verifizierungs-Simulations-Modus
 
 Wenn der Verifizierungs-Simulations-Modus für ein Projekt aktiviert ist, sehen Sie eine Schaltfläche in der oberen rechten Ecke der Detailseite der Einsendung.
