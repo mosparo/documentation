@@ -171,6 +171,7 @@ const sidebars = {
         }
       ],
     },
+    'cli',
   ]
 };
 
