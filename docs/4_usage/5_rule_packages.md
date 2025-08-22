@@ -8,26 +8,32 @@ description: Learn more about the use of rule packages and the structure of a ru
 
 ## Manage rule packages
 
-Rule packages combine one or more rules created by someone and hosted on an external server. These rule packages can be added to mosparo and are automatically updated at regular intervals. A checksum is created and checked when the rule package is updated to ensure the integrity of the rule packages.
+Rule packages combine one or more rules into a file. There are four different types of rule packages in mosparo. Two of the types are automatically updated (load automatically from URL or file), while the other two are updated manually via CLI command or an API request.
 
-To add a new rule package, you need to know the URL of the rule package. You can also specify a factor with which the rule package can be strengthened or weakened.
+To add a new rule package, you choose "Add rule package" in the rule package interface. After that, you have to select the type.
 
-After a rule package is added, you can view the rules contained in the rule package. However, you cannot edit or delete the rules in the rules package.
+After choosing the type, you have to fill in all the information for the rule package. For the automatic rule packages, you have to set the path or URL. You can also specify a factor that can be used to strengthen or weaken the rule package.
+
+After a rule package is added, you can view the rule package. If you choose a manual rule package type, you first need to import the rule package content depending on the selected type. To import the rule package via CLI, see [CLI](../cli#import-rule-package). To import the rule package via API, you find all the details in the [API documentation](../api/rule_package).
+
+Since the rule package is created in a different place and delivered to your mosparo installation, you cannot edit or delete the rules in the rules package.
 
 ## Format of rule packages
 
 ### Saving the rule package
 
-A rule package consists of a JSON file, which is available for download on a web server. The JSON file must conform to the rule package and rules pattern. The schema for the rule package and the rules are available in the [specifications repository](https://github.com/mosparo/specifications).
+A rule package is a JSON file. The JSON file must conform to the rule package and rules pattern. The schema for the rule package and the rules are available in the [specifications repository](https://github.com/mosparo/specifications).
 
-In addition to the JSON file, you must store the checksum of the JSON file on the same web server at the same address. The SHA256 hash of the file must be created and saved with the same file name but with the suffix ".sha256".
+In addition to the JSON file, you must store the checksum of the JSON file in the same location. The SHA256 hash of the file must be created and saved with the same file name but with the suffix ".sha256".
 
 :::note Example
-Address of the rule package (entered in mosparo)<br />
-https://example.com/ruleset.json
+**Address of the rule package (entered in mosparo)**<br />
+https://example.com/rulepackage.json<br />
+/home/mosparo/my-rulepackage.json
 
-Checksum address:<br />
-https://example.com/ruleset.json.sha256
+**Checksum address:**<br />
+https://example.com/rulepackage.json.sha256<br />
+/home/mosparo/my-rulepackage.json.sha256
 :::
 
 ### Structure of a rule package
