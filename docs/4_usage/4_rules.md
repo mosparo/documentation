@@ -8,7 +8,7 @@ description: Learn how to create and manage rules in mosparo.
 
 With the help of rules, mosparo recognizes whether a submission is spam or valid. You must select a rule type for each rule. Within a rule, any number of items can be created, which are always based on the same rule type. A rule is always entered per project and cannot be automatically exchanged between projects.
 
-## Creating Rules
+## Creating a rule
 
 :::tip
 Do you prefer a video instead of reading text? Watch our HowTo about creating a rule on [YouTube](https://www.youtube.com/watch?v=LKv9uzlkrhU).
@@ -16,19 +16,25 @@ Do you prefer a video instead of reading text? Watch our HowTo about creating a 
 
 To create a rule, select "Rules" in the navigation and then "Create rule" on the right. After that, a list of all rule types is displayed. Select the rule type you want to use to create a rule.
 
-After you have selected a rule type, you see the editing interface of a rule. Give the rule a name so that you have a better overview when managing the rules.
+After you have selected a rule type, you see a field to enter the name of the rule. Give the rule a name so that you have a better overview when managing the rules.
 
-In addition, you can enter a more detailed description of the rule in the "Description" field. You can also choose whether the rule should be active or inactive.
+After creating the rule, you see the rule editor. You can add a description of the rule in the "Description" field. You can also choose whether the rule should be active or inactive. The spam rating factor increases or decreases the entries in this rule. Each entry usually has a value of 1 by default. The spam rating factor can increase or decrease this value for all items.
 
-The spam rating factor increases or decreases the entries in this rule. Each entry usually has a value of 1 by default. The spam rating factor can increase or decrease this value for all items.
+On the right side, you can manage the items. The list of items is an editable table. You can click on a cell to edit the value. Depending on the rule type, you have to either insert a value or select a value from the list (for example, Unicode Block). Certain rule types also have subtypes that you can choose for each item (for example: "Text" and "Regular Expression" for the rule type "Word").
 
-On the right side, you can add the items. Depending on the rule type, insert a value, or select a value from the list (for example, Unicode Block). Certain rule types also have subtypes that you can choose for each item (for example: "Text" and "Regular Expression" for the rule type "Word").
+The cells with an orange background are unsaved and will be saved automatically after a few seconds. At the bottom of the screen, you can see the save button as well as a summary of how many unsaved changes you have.
 
-With the "Add multiple entries" function, you can enter a list of entries with just a few clicks. For example, you can insert a list of words in the field and create them as items with one click.
+With the checkbox at the front of each row, you can select multiple rows and then use the dropdown at the top of the table to delete the selected items at once.
+
+To add items, you can either add a single item or multiple items. When you choose multiple items, you can enter a list of values and add them at once. You can also choose to import a text or a CSV file directly into the rule. When you use import functionality or the option to add multiple items at once, you'll see an overlay when the system processes the data. If you close the window, then the import process will be stopped. Please keep the window open until the screen shows that the process is completed. When importing or adding multiple items at once, the import process will skip all existing items.
+
+With the "Filter" button on the right side, you can filter the visible items.
 
 The rating field defines the spam score of an entry. If the field is empty, the value 1.0 is used. However, you can enter a numeric value from -1000000 to 1000000. If a negative number is entered, the item will decrease the number of points a submission receives. See [Rating example](#rating-example)
 
-If an item is no longer necessary, you can delete the item with the delete symbol. However, the item is only deleted when the rule is saved with the button at the bottom right.
+The save button at the bottom of the screen will save all unsaved changes. Usually, after some seconds, a change is saved to the database. But if that is not the case, or you want to leave the page, you can use the button to save them manually.
+
+With the "Export items" button at the bottom of the screen, you can get a CSV export of your rule items. You can import the CSV again later.
 
 ## Managing the Rules
 
