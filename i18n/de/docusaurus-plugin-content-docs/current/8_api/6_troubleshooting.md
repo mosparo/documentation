@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 sidebar_label: Fehlersuche
 description: Erfahren Sie mehr über die häufigsten Fehlermeldungen der API und was Sie dagegen tun können.
 ---

@@ -14,3 +14,6 @@ The gray line with the text **Statistic only** shows you to which date you can e
 
 You can choose the visible date range with the date range selector in the top right corner. The dropdown shows only the possible values, according to the setting **Statistic storage**. If you choose **3 months** in the setting, for example, only the options up to 3 months are visible in the dropdown in the dashboard.
 
+## Last database cleanup _(Added in v1.4)_
+
+The note below the diagram indicates when the mosparo database was last cleaned up. During database cleanup, outdated data is automatically removed.

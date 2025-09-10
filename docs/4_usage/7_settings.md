@@ -54,17 +54,17 @@ A host is a domain without the protocol and the path. You can use a star (`*`) a
 
 Some additional settings are available in the advanced settings.
 
-| Field                                | Description                                                                                                                                                                                                                                                                                                                                                       |
-|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Field                                | Description                                                                                                                                                                                                                                                                                                                                                      |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Spam&nbsp;detection&nbsp;options** |
-| Status                               | If active, mosparo will block submissions that were detected as spam. If inactive, mosparo will rate all submissions but not block them.                                                                                                                                                                                                                          |
-| Spam score                           | The spam score determines the points at which a submission is recognized as spam.                                                                                                                                                                                                                                                                                 |
+| Status                               | If active, mosparo will block submissions that were detected as spam. If inactive, mosparo will rate all submissions but not block them. You can also turn the status on or off in an [origin-based security policy](#origin-based-security-settings).                                                                                                           |
+| Spam score                           | The spam score determines the points at which a submission is recognized as spam. You can also adjust the spam score in an [origin-based security policy](#origin-based-security-settings).                                                                                                                                                                                                         |
 | **Language&nbsp;options**            |
-| Language source                      | Defines how mosparo determines the language for the frontend box. mosparo uses the browser language by default. With this option, it's possible to use the website's language as a fallback or use the website's language as the main source and use the browser language as a fallback. _(Added in v1.3)_                                                        |
+| Language source                      | Defines how mosparo determines the language for the frontend box. mosparo uses the browser language by default. With this option, it's possible to use the website's language as a fallback or use the website's language as the main source and use the browser language as a fallback. _(Added in v1.3)_                                                       |
 | **Statistic&nbsp;options**           |
-| Statistic storage                    | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                          |
+| Statistic storage                    | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                         |
 | **Developer&nbsp;options**           |
-| API debug mode                       | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                    |
+| API debug mode                       | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                   |
 | Verification simulation mode         | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
 
 ## Project members
@@ -107,6 +107,8 @@ With the priority, you can specify in which order the guidelines should be appli
 You can create as many guidelines as you want. In every guideline, you can define as many criteria as you wish. The criteria will be used for a user as soon as one of the criteria matches.
 
 If you want to adjust one of the security settings, check the override checkbox in the top right corner of the security settings box. If you wish to disable one of the security settings enabled in the general security settings, override the security settings and uncheck the enabled checkbox.
+
+You can also disable the spam detection altogether or adjust the spam score for a security policy. With this option, you can, for example, disable the spam detection completely for an IP address or decrease the spam score for a country. _(Added in v1.4)_
 
 ### Available security settings
 
@@ -277,9 +279,13 @@ In the advanced mode, you have all options to adjust the design of the mosparo b
 
 #### Box size and radius
 
-You can choose between three different sizes of the mosparo box. These three sizes are predefined in mosparo, and you can only choose between these three sizes.
+In the first tab of the size settings, you can choose between three different sizes of the mosparo box. These three sizes are predefined in mosparo, and you can only choose between them.
 
 You can adjust the radius of the box to suit your website best. If you do not want a radius, you can set the value to 0.
+
+#### Checkbox radius and border width
+
+In the second tab of the size settings, you can define the radius of the checkbox and the border width. With these settings, you can change the look and feel of the checkbox to a more square checkbox, similar to other spam protection methods. _(Added in v1.4)_
 
 #### Colors
 
