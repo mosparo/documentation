@@ -42,5 +42,9 @@ yarn install
 ```
 yarn encore production
 ```
-7. Open your browser and access the virtual host (for example, by accessing the subdomain in your browser)
-8. Follow the installation wizard to install mosparo
+7. If you want to run mosparo in production, create the file `.env.local` and add the following content:
+```dotenv title=.env.local
+APP_ENV=prod
+```
+8. Open your browser and access the virtual host (for example, by accessing the subdomain in your browser)
+9. Follow the installation wizard to install mosparo

@@ -6,6 +6,10 @@ description: There are three ways to update mosparo.
 
 # Update mosparo
 
+:::info
+If your mosparo installation is running in the `dev` environment (where the environment variable `APP_ENV` is set to `dev`; this usually is only a problem if installed from source), the update process will work and show positive results, but mosparo will not update the mosparo installation itself. Instead, mosparo will download and execute the changes in a temporary directory. Please use Git to check out the latest version.
+:::
+
 ## Installing the update via the web interface
 
 As administrator of a mosparo installation, you can open the update web interface in the administration interface (see more about [Updates](../administration/updates)).

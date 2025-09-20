@@ -42,5 +42,9 @@ yarn install
 ```
 yarn encore production
 ```
-7. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu (zum Beispiel, in dem Sie die Subdomain in Ihrem Browser eingeben)
-8. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
+7. Wenn Sie mosparo in der Produktion verwenden möchten, erstellen Sie die Datei `.env.local` mit folgendem Inhalt:
+```dotenv title=.env.local
+APP_ENV=prod
+```
+8. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu (zum Beispiel, in dem Sie die Subdomain in Ihrem Browser eingeben)
+9. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
