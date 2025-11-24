@@ -319,6 +319,7 @@ Um die Verifizierung auf Ihrer Website zu vereinfachen, gibt es Funktionsbibliot
 | gosparo           | Go         | deBarbarinAntoine       | https://github.com/deBarbarinAntoine/gosparo |
 | Java API client   | Java       | mosparo Core Developers | https://github.com/mosparo/java-api-client   |
 | JS API client     | JavaScript | mosparo Core Developers | https://github.com/mosparo/js-api-client     |
+| .NET API client   | C#         | mosparo Core Developers | https://github.com/mosparo/dotnet-api-client |
 | PHP API client    | PHP        | mosparo Core Developers | https://github.com/mosparo/php-api-client    |
 | Python API client | Python     | mosparo Core Developers | https://github.com/mosparo/python-api-client |
 

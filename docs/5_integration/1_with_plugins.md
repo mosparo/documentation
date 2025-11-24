@@ -14,16 +14,19 @@ The plugins are also called modules, bundles, apps or add-ons, depending on the 
 
 ## Available plugins
 
-| Name                                                                | Type             | Maintained by           | Website                                                  |
-|---------------------------------------------------------------------|------------------|-------------------------|----------------------------------------------------------|
-| mosparo Django Integration                                          | Django App       | mosparo Core Developers | https://github.com/mosparo/django-integration            |
-| mosparo Drupal Integration                                          | Drupal Module    | mosparo Core Developers | https://www.drupal.org/project/mosparo_integration       |
-| mosparo Mautic Integration                                          | Mautic Plugin    | mosparo Core Developers | https://github.com/mosparo/osticket-plugin               |
-| mosparo for osTicket                                                | osTicket Plugin  | mosparo Core Developers | https://github.com/mosparo/osticket-plugin               |
-| mosparo Symfony Bundle                                              | Symfony Bundle   | Arnaud Ritti            | https://github.com/arnaud-ritti/mosparo-bundle           |
-| denkwerk - mosparo integration for EXT:form and Extbase-based forms | TYPO3 Extension  | denkwerk GmbH           | https://extensions.typo3.org/extension/mosparo_form      |
-| mosparo integration for EXT:powermail                               | TYPO3 Extension  | Digi92                  | https://extensions.typo3.org/extension/mosparo_powermail |
-| mosparo WordPress Integration                                       | WordPress Plugin | mosparo Core Developers | https://github.com/mosparo/wordpress-plugin              |
+| Name                                                                | Type                | Maintained by           | Website                                                                           |
+|---------------------------------------------------------------------|---------------------|-------------------------|-----------------------------------------------------------------------------------|
+| mosparo Django Integration                                          | Django App          | mosparo Core Developers | https://github.com/mosparo/django-integration                                     |
+| mosparo Drupal Integration                                          | Drupal Module       | mosparo Core Developers | https://www.drupal.org/project/mosparo_integration                                |
+| mosparo Mautic Integration                                          | Mautic Plugin       | mosparo Core Developers | https://github.com/mosparo/osticket-plugin                                        |
+| mosparo for osTicket                                                | osTicket Plugin     | mosparo Core Developers | https://github.com/mosparo/osticket-plugin                                        |
+| mosparo API Client                                                  | OutSystems Service  | mosparo Core Developers | https://www.outsystems.com/forge/component-overview/22590/mosparo-api-client-o11  |
+| mosparo Integration                                                 | OutSystems Reactive | mosparo Core Developers | https://www.outsystems.com/forge/component-overview/22595/mosparo-integration-o11 |
+| mosparo Symfony Bundle                                              | Symfony Bundle      | Arnaud Ritti            | https://github.com/arnaud-ritti/mosparo-bundle                                    |
+| denkwerk - mosparo integration for EXT:form and Extbase-based forms | TYPO3 Extension     | denkwerk GmbH           | https://extensions.typo3.org/extension/mosparo_form                               |
+| mosparo integration for EXT:powermail                               | TYPO3 Extension     | Digi92                  | https://extensions.typo3.org/extension/mosparo_powermail                          |
+| SPAM Prevention with Mosparo for Powermail                          | TYPO3 Extension     | SICOR Dev Team          | https://extensions.typo3.org/extension/sic_mosparo                          |
+| mosparo WordPress Integration                                       | WordPress Plugin    | mosparo Core Developers | https://github.com/mosparo/wordpress-plugin                                       |
 
 :::info
 If you've developed an integration for a system, tool, or framework, please [let us know](mailto:feedback@mosparo.io) so we can list it here.
