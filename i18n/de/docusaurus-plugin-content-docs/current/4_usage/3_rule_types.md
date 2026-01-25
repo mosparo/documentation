@@ -12,15 +12,34 @@ Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowT
 
 mosparo kennt verschiedene Regelarten. Je nach Regelart werden nur gewisse Felder überprüft (zum Beispiel bei URL- oder E-Mail-Feldern). Die Regelart wird vor dem Erstellen einer Regel vom Benutzer ausgewählt. Innerhalb der Regelart kann es mehrere Regeltypen geben.
 
+Alle Prüfungen werden ohne Berücksichtigung der Gross-/Kleinschreibung durchgeführt, mit Ausnahme der Untertypen "Regular Expression" (sofern festgelegt).
+
 ## Wort
 
-### Normales Wort
+### Text
 
-Mit dem Regeltyp "Normales Wort" können Sie ein einzelnes Wort, einen Teil eines Wortes oder eine Kombination aus Wörtern definieren. Der eingegebene Wert muss im Formular exakt so vorkommen, damit die Regel gilt. Sie können den Stern (*) als Platzhalter verwenden. Beim Suchen wird automatisch nach *wort* gesucht, dass bedeutet, Sie müssen den Platzhalter vor- und nach dem gesuchten Wort nicht einfügen.
+Mit dem Regeltyp "Text" können Sie ein einzelnes Wort, einen Teil eines Wortes oder eine Kombination aus Wörtern definieren. Der eingegebene Wert muss im Formular exakt so vorkommen, damit die Regel gilt. Sie können den Stern (*) als Platzhalter verwenden. Beim Suchen wird automatisch nach *wort* gesucht, dass bedeutet, Sie müssen den Platzhalter vor- und nach dem gesuchten Wort nicht einfügen. Beispielsweise wird das Wort `data` mit `database` übereinstimmen, da mosparo nach `*data*` sucht.
 
 :::note Beispiel
 pills<br />
 lo*ery
+:::
+
+### Ganzes Wort
+
+Im Vergleich zum Regeltyp "Text" stimmt der Subtyp "Ganzes Wort" genau und ohne Platzhalter mit einem Wort (oder einer Kombination von Wörtern) überein. Das Wort muss zwischen einem nicht-alphabetischen und nicht-numerischen Zeichen (wie einem Leerzeichen, einem Punkt, einem Komma usw.) stehen oder am Anfang und/oder am Ende eines Werts geschrieben sein. Das Wort `data` stimmt beispielsweise nicht mit `database` überein.
+
+:::note Beispiel
+John<br />
+Data
+:::
+
+### Ganzes Feld
+
+Der Regeltyp "Ganzes Feld" gleicht den gesamten Inhalt eines Feldes mit dem Regelelement ab. Dieser Untertyp ist hilfreich, wenn das Feld genau übereinstimmen muss, ohne Platzhalter oder andere Wörter. Leerzeichen (wie `\s`, `\n`, `\r`, `\t`, `\v`, `\x00`) am Anfang und Ende des Feldinhalts werden entfernt, bevor der Wert verglichen wird.
+
+:::note Beispiel
+John Doe
 :::
 
 ### Regular Expression
@@ -30,6 +49,16 @@ Wenn Sie als Regeltyp "RegEx" auswählen, können Sie ein beliebiges Regular Exp
 :::note Beispiel
 /(seo|s3o)/i
 :::
+
+### Vergleich der Wort-Regeltypen
+
+In dieser Tabelle sehen Sie, wie der Regelwert `Daten` mit den verschiedenen Regeltypen funktioniert:
+
+| Feldinhalt                            | Text           | Ganzes Wort             | Ganzes Feld             | Regular Expression  |
+|---------------------------------------|----------------|-------------------------|-------------------------|---------------------|
+| Ich verwende eine MySQL-**Daten**bank | Stimmt überein | Keine Übereinstimmungen | Keine Übereinstimmungen | Hängt vom Muster ab |
+| Ich verwende einen **Daten**-Cluster  | Stimmt überein | Stimmt überein          | Keine Übereinstimmungen | Hängt vom Muster ab |
+| **Daten**                             | Stimmt überein | Stimmt überein          | Stimmt überein          | Hängt vom Muster ab |
 
 ## E-Mail-Adresse
 

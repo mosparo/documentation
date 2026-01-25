@@ -12,15 +12,34 @@ Do you prefer a video instead of reading text? Watch our HowTo about rule types 
 
 mosparo knows different rules. Depending on the rule type, only specific fields are checked (for example, URL or email fields). The user selects the rule type before a rule is created. There can be several subtypes within a rule type.
 
+All checks will be done case-insensitive, except for the Regular Expression subtypes (if set).
+
 ## Word
 
-### Normal word
+### Text
 
-The subtype "Normal Word" allows you to define a single word, part of a word, or combination of words. The value you enter must appear in the form exactly as it does in the rule for the rule to apply. You can use the asterisk (*) as a wildcard. When matching, `*word*` is used automatically, meaning you do not have to insert the placeholder before and after the searched word.
+The subtype "Text" allows you to define a single word, part of a word, or combination of words. The value you enter must appear in the form exactly as it does in the rule for the rule to apply. You can use the asterisk (\*) as a wildcard. When matching, `*word*` is used automatically, meaning you do not have to insert the placeholder before and after the searched word. For example, the word `data` will match `database`, since mosparo will search for `*data*`.
 
 :::note Example
 pills<br />
 lo*ery
+:::
+
+### Exact word
+
+In comparison to the subtype "Text", the subtype "Exact word" matches a word (or a combination of words) exactly and without placeholders. The word needs to be written between a non-alphabetic and non-numerical character (like a space, a dot, a comma, and so on) or needs to be written at the start and/or at the end of a value. For example, the word `data` will not match `database`.
+
+:::note Example
+John<br />
+Data
+:::
+
+### Entire field
+
+The subtype "Entire field" matches the entire content of a field against the rule item. This subtype is helpful if you want to match the field exactly, without placeholders or other words. Spacing characters (like `\s`, `\n`, `\r`, `\t`, `\v`, `\x00`) at the start and end of the field content will be removed before the value is compared.
+
+:::note Example
+John Doe
 :::
 
 ### Regular Expression
@@ -30,6 +49,16 @@ If you select "RegEx" as the subtype, you can define a regular expression patter
 :::note Example
 /(seo|s3o)/i
 :::
+
+### Comparison of the Word subtypes
+
+In this table, you can see how the rule item value `data` will work with the different subtypes:
+
+| Field content              | Text    | Exact word | Entire field | Regular Expression     |
+|----------------------------|---------|------------|--------------|------------------------|
+| I use a MySQL **data**base | Matches | No matches | No matches   | Depends on the pattern |
+| I use a **data** cluster   | Matches | Matches    | No matches   | Depends on the pattern |
+| **data**                   | Matches | Matches    | Matches      | Depends on the pattern |
 
 ## Email address
 
