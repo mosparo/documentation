@@ -30,7 +30,7 @@ Insert the following content into this file:
 services:
   db:
     # We recommend the mariadb image
-    image: mariadb:10.10
+    image: mariadb:11.4
     # If you want to use MySQL, uncomment the following line (and comment the one above)
     #image: mysql:8.0.27
     command: '--default-authentication-plugin=mysql_native_password'
