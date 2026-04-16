@@ -48,3 +48,5 @@ APP_ENV=prod
 ```
 8. Öffnen Sie Ihren Browser und greifen Sie auf die Website zu (zum Beispiel, in dem Sie die Subdomain in Ihrem Browser eingeben)
 9. Folgen Sie dem Installations-Assistenten, um mosparo zu installieren
+
+Sollten beim Zugriff auf mosparo Probleme auftreten, werfen Sie bitte einen Blick in den [Abschnitt zur Fehlerbehebung](normal#fehlerbehebung)

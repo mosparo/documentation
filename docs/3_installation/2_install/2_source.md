@@ -48,3 +48,5 @@ APP_ENV=prod
 ```
 8. Open your browser and access the virtual host (for example, by accessing the subdomain in your browser)
 9. Follow the installation wizard to install mosparo
+
+If you experience any issues when you access mosparo, please have a look at the [troubleshooting section](normal#troubleshooting)
