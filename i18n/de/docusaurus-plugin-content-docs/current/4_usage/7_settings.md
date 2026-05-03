@@ -284,6 +284,10 @@ Der Radius der Box können Sie so anpassen, wie es für Ihre Website am besten p
 
 Auf der zweiten Registerkarte der Grösseneinstellungen können Sie den Radius des Kontrollkästchens und die Rahmenbreite festlegen. Mit diesen Einstellungen können Sie das Aussehen des Kontrollkästchens ändern und es eher quadratisch gestalten, ähnlich wie bei anderen Spam-Schutzmethoden. _(Hinzugefügt in v1.4)_
 
+#### Schriftgrösse und Zeilenhöhe
+
+Auf der dritten Registerkarte der Grösseneinstellungen können Sie die Schriftgrösse und die Zeilenhöhe des Textes innerhalb des mosparo-Box festlegen. Mit diesen Einstellungen können Sie das Erscheinungsbild der mosparo-Box weiter anpassen, damit es sich nahtlos in Ihre Website einfügt. _(Hinzugefügt in v1.5)_
+
 #### Farben
 
 Wählen Sie die verschiedenen Farben für die Box in den jeweiligen Zuständen aus. Falls Sie für eine Farbe einen transparenten Wert verwenden möchten, können Sie im Farbwähler auf das schwarze X klicken.

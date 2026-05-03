@@ -285,7 +285,11 @@ You can adjust the radius of the box to suit your website best. If you do not wa
 
 #### Checkbox radius and border width
 
-In the second tab of the size settings, you can define the radius of the checkbox and the border width. With these settings, you can change the look and feel of the checkbox to a more square checkbox, similar to other spam protection methods. _(Added in v1.4)_
+In the second tab of the dimensions settings, you can define the radius of the checkbox and the border width. With these settings, you can change the look and feel of the checkbox to a more square checkbox, similar to other spam protection methods. _(Added in v1.4)_
+
+#### Font size and line height
+
+In the third tab of the dimensions settings, you can define the font size and the line height of the text inside the mosparo box. With these settings, you can further adjust the look and feel of the mosparo box to fit it into your website. _(Added in v1.5)_
 
 #### Colors
 
