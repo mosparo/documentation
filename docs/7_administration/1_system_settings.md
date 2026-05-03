@@ -12,7 +12,11 @@ You can configure various settings in System Preferences. The name of the mospar
 
 ## Localization Settings
 
-Configure the default values for language, date, and time format and the time zone your mosparo installation should use. Each user has the option to override these values for that user.
+Configure the default values for language, date, and time format, and the time zone your mosparo installation should use. Each user can override these values in the account settings.
+
+## Interface settings
+
+Configure the default color mode and the default number of items per page for the whole installation. Each user can override these values in the account settings.
 
 ## Mail Settings
 

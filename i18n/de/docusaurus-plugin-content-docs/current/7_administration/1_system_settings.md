@@ -12,7 +12,11 @@ In den System-Einstellungen können Sie verschiedene Einstellungen konfigurieren
 
 ## Lokalisierungseinstellungen
 
-Konfigurieren Sie die Standard-Werte für Sprache, Datums- und Zeitformat sowie die Zeitzone, welche Ihre mosparo-Installation verwenden soll. Jeder Benutzer hat die Möglichkeit, diese Werte für den jeweiligen Benutzer zu überschreiben.
+Konfigurieren Sie die Standardwerte für Sprache, Datums- und Zeitformat sowie die Zeitzone, die Ihre mosparo-Installation verwenden soll. Jeder Benutzer kann diese Werte in den Kontoeinstellungen überschreiben.
+
+## Oberflächeneinstellungen
+
+Konfigurieren Sie den Standardfarbmodus und die Standardanzahl der Elemente pro Seite für die gesamte Installation. Jeder Benutzer kann diese Werte in den Kontoeinstellungen überschreiben.
 
 ## Maileinstellungen
 

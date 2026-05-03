@@ -8,6 +8,6 @@ description: Konfigurieren Sie verschiedene Einstellungen für Ihren Benutzer.
 
 In den Benutzer-Einstellungen können Sie verschiedene Einstellungen für Ihren Benutzer vornehmen. Sie können die Sprache und den Farbmodus der Verwaltungsoberfläche von mosparo sowie das Datums- und Zeiformat und die Zeitzone anpassen. Diese Einstellungen werden nachdem Speichern auf die dargestellten Datums- und Uhrzeitangaben angewendet.
 
-Wenn Sie bei Sprache “Sprache des Browsers” wählen, wird automatisch die Sprache Ihres Browsers verwendet - sofern die Sprache in mosparo verfügbar ist.
+Wenn Sie bei Sprache “Sprache des Browsers” wählen, wird automatisch die Sprache Ihres Browsers verwendet - sofern die Sprache in mosparo verfügbar ist. Mit der Option "Anzahl der Elemente pro Seite" können Sie festlegen, wie viele Elemente die Tabellen standardmässig auf einer Seite anzeigen sollen.
 
 Die Standard-Einstellung aller Werte wird in der Administration von mosparo festgelegt und kann von einem Administrator angepasst werden.
