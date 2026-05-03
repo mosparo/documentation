@@ -97,11 +97,11 @@ Die allgemeinen Sicherheitseinstellungen eines Projekts sind die Grundeinstellun
 
 #### Ursprungsbezogene Sicherheitseinstellungen
 
-Die ursprungsbezogenen Sicherheitseinstellungen ermöglichen es Ihnen, die Sicherheitseinstellungen aufgrund des Ursprungs eines Benutzers anzupassen. Dies kann durch die Definition spezieller Sicherheitseinstellungen auf der Grundlage der IP-Adresse eines Benutzers erfolgen. Wenn Sie GeoIP2 konfiguriert haben, können Sie auch die AS-Nummer und das Land zur Zuordnung eines Benutzers verwenden.
+Mit den ursprungsbasierten Sicherheitseinstellungen können Sie die Sicherheitseinstellungen anhand der IP-Adresse eines Benutzers oder des Formulars anpassen. Dies geschieht durch die Definition spezieller Sicherheitseinstellungen auf Basis der IP-Adresse eines Benutzers, der URL der Formularseite, der URL der Formularaktion oder der Formular-ID. Wenn Sie GeoIP2 konfiguriert haben, können Sie zur Zuordnung eines Benutzers auch die AS-Nummer und das Land verwenden. _(Die formularbasierten Kriterien wurden in Version 1.5 hinzugefügt.)_
+
+Sie können beliebig viele Richtlinien erstellen. In jeder Richtlinie können Sie beliebig viele Kriterien definieren. Die Kriterien werden für einen Benutzer oder ein Formular angewendet, sobald eines der Kriterien übereinstimmt. Wenn Sie in einer Sicherheitsrichtlinie sowohl IP-basierte **als auch** formularbasierte Kriterien definiert haben, muss jeweils eines aus jeder Kategorie übereinstimmen (eines IP-basiert und eines formularbasiert), damit die Sicherheitsrichtlinie angewendet wird.
 
 Mit der Priorität können Sie festlegen, in welcher Reihenfolge die Richtlinien angewendet werden sollen. Die passende Richtlinie mit der höchsten Priorität wird für einen Benutzer verwendet.
-
-Sie können so viele Richtlinien erstellen, wie Sie möchten. In jeder Richtlinie können Sie beliebig viele Kriterien definieren. Die Richtlinie wird für einen Benutzer verwendet, sobald eines der Kriterien zutrifft.
 
 Wenn Sie eine der Sicherheitseinstellungen anpassen möchten, aktivieren Sie die Überschreiben-Checkbox in der oberen rechten Ecke des Feldes für die Sicherheitseinstellung. Wenn Sie eine der in den allgemeinen Sicherheitseinstellungen aktivierten Sicherheitseinstellungen deaktivieren möchten, aktivieren Sie die Überschreiben-Checkbox und deaktivieren Sie das aktivierte Kontrollkästchen.
 

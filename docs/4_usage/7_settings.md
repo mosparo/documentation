@@ -100,11 +100,11 @@ The general security settings of a project are the base settings for every proje
 
 #### Origin-based security settings
 
-The origin-based security settings allow you to adjust the security settings based on the origin of a user. This can be done by defining special security settings based on the IP address of a user. If you have configured GeoIP2, you can also use the AS number and the country to match a user.
+Origin-based security settings let you adjust security settings based on a user's IP address or the form. This can be done by defining special security settings based on the user's IP address, the form page URL, the form action URL, or the form ID. If you have configured GeoIP2, you can also use the AS number and the country to match a user. _(The form-based criteria were added in v1.5.)_
+
+You can create as many guidelines as you want. In every guideline, you can define as many criteria as you wish. The criteria will be applied to a request as soon as a single criterion matches. If you defined IP-based **and** form-based criteria in a security guideline, one of each category must match (one IP-based and one form-based) to apply the security guideline.
 
 With the priority, you can specify in which order the guidelines should be applied. The matching guideline with the highest priority will be used for a user.
-
-You can create as many guidelines as you want. In every guideline, you can define as many criteria as you wish. The criteria will be used for a user as soon as one of the criteria matches.
 
 If you want to adjust one of the security settings, check the override checkbox in the top right corner of the security settings box. If you wish to disable one of the security settings enabled in the general security settings, override the security settings and uncheck the enabled checkbox.
 
