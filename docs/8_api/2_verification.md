@@ -38,6 +38,10 @@ $authHeader = base64_encode($publicKey . ':' . $hmacHash);
 Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCeHNtT2ZJTXcwLXVWTm5SVmREbE1VWmRMcFRHMXhvMHl5aWZ5THJJOjNiZGQzODVjYWE1M2UzZGE3NmE4ZGNiZmNhYTBkOWY0ZTA0ZDhjMTg5ZmFiMDNiYTQxMzgzZGVlYTIzNmIyZDM=
 ```
 
+:::info Empty objects
+Some languages and frameworks treat empty objects or arrays as arrays when encoding them to JSON. The mosparo API expects empty arrays and objects to be represented as JSON objects, written as `{}`. The API clients are usually handling this case. If you access the API with your own code, please ensure that empty arrays (`[]`) are written as empty objects (`{}`).
+:::
+
 ### Request
 
 #### Example

@@ -79,6 +79,10 @@ No authentication is required. Each request must contain the public key of a pro
 | `submitToken` | String | Required | The submit token requested with the method [`request-submit-token`](#request-submit-token). |
 | `formData`    | Array  | Required | An array with all the form data, see [Structure of `formData`](#structure-of-formdata).     |
 
+:::info Empty objects
+Some languages and frameworks treat empty objects or arrays as arrays when encoding them to JSON. The mosparo API expects empty arrays and objects to be represented as JSON objects, written as `{}`. The API clients are usually handling this case. If you access the API with your own code, please ensure that empty arrays (`[]`) are written as empty objects (`{}`).
+:::
+
 #### Structure of `formData`
 
 The form data is an object containing two properties:

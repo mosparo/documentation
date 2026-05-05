@@ -38,6 +38,10 @@ $authHeader = base64_encode($publicKey . ':' . $hmacHash);
 Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCeHNtT2ZJTXcwLXVWTm5SVmREbE1VWmRMcFRHMXhvMHl5aWZ5THJJOjNiZGQzODVjYWE1M2UzZGE3NmE4ZGNiZmNhYTBkOWY0ZTA0ZDhjMTg5ZmFiMDNiYTQxMzgzZGVlYTIzNmIyZDM=
 ```
 
+:::info Leere Objekte
+Einige Sprachen und Frameworks behandeln leere Objekte oder Arrays bei der Umwandlung in JSON als Arrays. Die mosparo-API erwartet, dass leere Arrays und Objekte als JSON-Objekte dargestellt werden, also als `{}`. Die API-Clients kümmern sich in der Regel um diese Umwandlung. Wenn Sie mit Ihrem eigenen Code auf die API zugreifen, stellen Sie bitte sicher, dass leere Arrays (`[]`) als leere Objekte (`{}`) geschrieben werden.
+:::
+
 ### Anfrage
 
 #### Beispiel

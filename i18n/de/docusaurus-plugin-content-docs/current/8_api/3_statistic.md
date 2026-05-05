@@ -31,7 +31,8 @@ Authorization: [Base64 von <publicKey>:<hmacHash>]
 $publicKey = 'XStQNakEiJk1oMIXJ6_Rxmd3j5gNcQae34n1G3aR6FU';
 $privateKey = 'stH6Ugo4FcbQLp6_KPlOYltFMHfY59rxCUQRk3_AxYQ';
 $apiEndpoint = '/api/v1/statistic/by-date';
-$formData = [];
+$formData = '{}'; // Bitte beachten Sie den Hinweis unterhalb.
+//$formData = json_encode(['range' => 5]); // Bitte beachten Sie den Hinweis unterhalb.
 
 $hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($formData), $privateKey);
 $authHeader = base64_encode($publicKey . ':' . $hmacHash);
@@ -41,6 +42,10 @@ $authHeader = base64_encode($publicKey . ':' . $hmacHash);
 Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCeHNtT2ZJTXcwLXVWTm5SVmREbE1VWmRMcFRHMXhvMHl5aWZ5THJJOmE3MmU1NmNiOTNiNzBhMWY3OWRjNmM4MDdkNGMwZmJmY2I4ZDEyMmE0NTg1MDkyOTllMmFjZGJiM2E2ZjFkZjI=
 ```
 
+:::info Leere Objekte
+Einige Sprachen und Frameworks behandeln leere Objekte oder Arrays bei der Umwandlung in JSON als Arrays. Die mosparo-API erwartet, dass leere Arrays und Objekte als JSON-Objekte dargestellt werden, also als `{}`. Die API-Clients kümmern sich in der Regel um diese Umwandlung. Wenn Sie mit Ihrem eigenen Code auf die API zugreifen, stellen Sie bitte sicher, dass leere Arrays (`[]`) als leere Objekte (`{}`) geschrieben werden.
+:::
+
 ### Anfrage
 
 #### Argumente
@@ -49,6 +54,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 |-------------|---------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `range`     | Integer | Optional     | Die Anzahl der Sekunden, für die die Zahlen zurückgegeben werden sollen (`3600` gibt die Zahlen für die letzte Stunde zurück). Wenn nicht definiert, werden alle Daten der letzten 14 Tage verwendet. |
 | `startDate` | Datum   | Optional     | Legt das Datum fest, ab dem mosparo die Statistik zurückgeben soll. Dies kann ein beliebiges Datum sein, aber mosparo wird nur die verfügbaren Daten zurückgeben (die Daten könnten bereits wieder gelöscht worden sein). _(Hinzugefügt in v1.1)_ |
+
+:::info Leere Objekte
+Einige Sprachen und Frameworks behandeln leere Objekte oder Arrays bei der Umwandlung in JSON als Arrays. Die mosparo-API erwartet, dass leere Arrays und Objekte als JSON-Objekte dargestellt werden, also als `{}`. Die API-Clients kümmern sich in der Regel um diese Umwandlung. Wenn Sie mit Ihrem eigenen Code auf die API zugreifen, stellen Sie bitte sicher, dass leere Arrays (`[]`) als leere Objekte (`{}`) geschrieben werden.
+:::
 
 ### Antwort
 

@@ -79,6 +79,10 @@ Es ist keine Authentifizierung erforderlich. Um das Projekt zu identifizieren, m
 | `submitToken` | String | Erforderlich | Der Einsendecode, welcher mit der Methode [`request-submit-token`](#request-submit-token) angefordert wurde. |
 | `formData`    | Array  | Erforderlich | Ein Array mit allen Formulardaten, siehe [Struktur von `formData`](#struktur-von-formdata).                  |
 
+:::info Leere Objekte
+Einige Sprachen und Frameworks behandeln leere Objekte oder Arrays bei der Umwandlung in JSON als Arrays. Die mosparo-API erwartet, dass leere Arrays und Objekte als JSON-Objekte dargestellt werden, also als `{}`. Die API-Clients kümmern sich in der Regel um diese Umwandlung. Wenn Sie mit Ihrem eigenen Code auf die API zugreifen, stellen Sie bitte sicher, dass leere Arrays (`[]`) als leere Objekte (`{}`) geschrieben werden.
+:::
+
 #### Struktur von `formData`
 
 Die Formulardaten sind in einem Objekt bestehend aus zwei Eigenschaften:

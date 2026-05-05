@@ -31,15 +31,20 @@ Authorization: [base64 of <publicKey>:<hmacHash>]
 $publicKey = 'XStQNakEiJk1oMIXJ6_Rxmd3j5gNcQae34n1G3aR6FU';
 $privateKey = 'stH6Ugo4FcbQLp6_KPlOYltFMHfY59rxCUQRk3_AxYQ';
 $apiEndpoint = '/api/v1/statistic/by-date';
-$formData = [];
+$formData = '{}'; // See the hint below.
+//$formData = json_encode(['range' => 5]); // See the hint below.
 
-$hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($formData), $privateKey);
+$hmacHash = hash_hmac('sha256', $apiEndpoint . $formData, $privateKey);
 $authHeader = base64_encode($publicKey . ':' . $hmacHash);
 ```
 
 ```http request
 Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCeHNtT2ZJTXcwLXVWTm5SVmREbE1VWmRMcFRHMXhvMHl5aWZ5THJJOmE3MmU1NmNiOTNiNzBhMWY3OWRjNmM4MDdkNGMwZmJmY2I4ZDEyMmE0NTg1MDkyOTllMmFjZGJiM2E2ZjFkZjI=
 ```
+
+:::info Empty objects
+Some languages and frameworks treat empty objects or arrays as arrays when encoding them to JSON. The mosparo API expects empty arrays and objects to be represented as JSON objects, written as `{}`. The API clients are usually handling this case. If you access the API with your own code, please ensure that empty arrays (`[]`) are written as empty objects (`{}`).
+:::
 
 ### Request
 
@@ -49,6 +54,10 @@ Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTpRcWZCe
 |-------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `range`     | Integer | Optional | The number of seconds for which mosparo should return the numbers (`3600` will return the numbers for the last hour). If not defined, all data from the last 14 days are used.                        |
 | `startDate` | Date    | Optional | Defines the date from which mosparo should return the statistics. This can be any date, but mosparo will return only the available data (the data could have already been deleted again). _(Added in v1.1)_ |
+
+:::info Empty objects
+Some languages and frameworks treat empty objects or arrays as arrays when encoding them to JSON. The mosparo API expects empty arrays and objects to be represented as JSON objects, written as `{}`. The API clients are usually handling this case. If you access the API with your own code, please ensure that empty arrays (`[]`) are written as empty objects (`{}`).
+:::
 
 ### Response
 
