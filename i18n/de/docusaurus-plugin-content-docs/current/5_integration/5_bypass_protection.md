@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 sidebar_label: Umgehungsschutz
 description: Der Frontend-Teil von mosparo kann umgangen werden. Erfahren Sie, wie Sie Ihr Formular dagegen schützen können.
 ---

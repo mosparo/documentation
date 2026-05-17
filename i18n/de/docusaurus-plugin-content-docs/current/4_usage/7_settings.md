@@ -292,6 +292,8 @@ Auf der dritten Registerkarte der Grösseneinstellungen können Sie die Schriftg
 
 Wählen Sie die verschiedenen Farben für die Box in den jeweiligen Zuständen aus. Falls Sie für eine Farbe einen transparenten Wert verwenden möchten, können Sie im Farbwähler auf das schwarze X klicken.
 
+Mit Version 1.5 haben wir die Farben für den unsichtbaren Modus auch im sichtbaren Modus hinzugefügt. Dies ist erforderlich, wenn Sie mosparo in einem mehrstufigen Formular verwenden möchten. Sie müssen dies nicht konfigurieren, wenn Sie mosparo in einem einfachen einstufigen Formular verwenden.
+
 #### mosparo-Logo
 
 Wenn der Benutzer mit der Tastatur die Kontrollbox fokussiert oder der Benutzer mit der Maus über die mosparo-Box fährt, wird das mosparo-Logo dargestellt. Falls Sie dieses Branding nicht möchten, können Sie die Anzeige des Logos deaktivieren.

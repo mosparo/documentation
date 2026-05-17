@@ -295,6 +295,8 @@ In the third tab of the dimensions settings, you can define the font size and th
 
 Select the different colors for the box in each state. You can click the black X in the color picker if you want to use a transparent value for a color.
 
+With v1.5, we've added the colors for the invisible mode in the visible mode as well. This is needed if you want to use mosparo in a multi-step form. You do not have to configure it if you use mosparo in a simple single-step form.
+
 #### mosparo logo
 
 When the user focuses on the checkbox with the keyboard or the user moves the mouse over the mosparo box, the mosparo logo is displayed. If you do not want this branding, you can disable the display of the logo.
