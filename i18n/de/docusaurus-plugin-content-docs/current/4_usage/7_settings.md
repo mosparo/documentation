@@ -331,3 +331,27 @@ Beim Speichern der Darstellung werden die gewählten Werte in der Datenbank gesp
 Sobald ein Benutzer ein Formular auf Ihrer Website aufruft, wird diese bereits vorbereitete Datei geladen und der Benutzer hat automatisch die korrekte Darstellung.
 
 Nachdem Sie die Darstellung angepasst haben, wird eine neue solche Datei mit einem neuen Dateinamen gespeichert. Alle Anfragen an die alte Datei werden automatisch an die neue Datei weitergeleitet, so dass beim Anpassen der Darstellung keine Unterbrüche feststellbar sind und trotzdem immer die neueste Version verwendet wird.
+
+## Übersetzungen
+
+Vor Version 1.5 mussten Sie den Integrationscode anpassen, um eigene Übersetzungen zu konfigurieren. Ab Version 1.5 können Sie Ihre benutzerdefinierten Übersetzungen direkt in einem mosparo-Projekt verwalten. Um Übersetzungen zu verwalten, gehen Sie bitte zu den Projekteinstellungen und wählen Sie "Übersetzungen" aus. Dort können Sie eine neue Übersetzung hinzufügen oder die vorhandenen verwalten.
+
+:::info
+Falls wir eine Sprache nicht standardmässig anbieten und Sie die Übersetzungen dafür hinzufügen, würden wir uns freuen, wenn Sie diese mit uns teilen würden, damit wir sie für alle anderen Nutzer in den Code integrieren können. Weitere Informationen dazu finden Sie unter [Übersetzen](../translating).
+:::
+
+### Übersetzung hinzufügen (oder ändern)
+
+Um eine Übersetzung hinzuzufügen, klicken Sie auf die grüne Schaltfläche oben rechts. Es erscheint das Formular zum Hinzufügen einer neuen Übersetzung. Bitte geben Sie die Sprache als zweistelligen Sprachcode (ISO 639-1, zum Beispiel "en") oder als Sprach-Länder-Kombination (zum Beispiel "en_US") ein. Wählen Sie den Ausgangstext aus, den Sie übersetzen möchten. Mit dieser Funktion können Sie nur die Frontend-Übersetzungen übersetzen, nicht die im mosparo-Backend. Geben Sie bitte im Feld "Übersetzter Text" die Übersetzung für die ausgewählte Sprache ein.
+
+Sie können beliebig viele Übersetzungen für beliebig viele Sprachen hinzufügen. Wenn der Benutzer das Formular öffnet, bestimmt die Sprache des Browsers oder die Sprache des HTML-Dokuments, welche Sprache verwendet wird.
+
+Sie müssen nicht jeden Ausgangstext übersetzen. Wenn Sie nur den Hauptsatz in der mosparo-Box übersetzen möchten, können Sie einfach diesen übersetzen und die übrigen Sätze den Standardübersetzungen von mosparo überlassen.
+
+### Übersetzung löschen
+
+Wenn Sie eine Übersetzung löschen möchten, klicken Sie in der Liste der Übersetzungen auf die Schaltfläche rechts neben der Übersetzung und bestätigen Sie, dass Sie die Übersetzung löschen möchten.
+
+### Importieren und Exportieren
+
+Mit der Import- und Exportfunktion können Sie Übersetzungen importieren und exportieren. Auf diese Weise können Sie Ihre Übersetzungen für mehrere Projekte nutzen.

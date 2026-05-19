@@ -335,3 +335,26 @@ When a user calls up a form on your website, this already prepared file is loade
 
 After you customize the appearance, a new file is saved with a new name. All requests from the old file are automatically forwarded to the new file so that no interruptions can be detected when adjusting the display, and the latest version is always used.
 
+## Translations
+
+Before version 1.5, you needed to adjust the integration code to configure your own translations. Starting with version 1.5, you can manage your custom translations directly within a mosparo project. To manage translations, please head to the project settings and select "Translations". There, you can add a new translation or manage the existing ones.
+
+:::info
+If we don't offer a language out of the box and you add translations for it, please share the translations so we can add them to the code for all other users. Read more about it under [Translating](../translating).
+:::
+
+### Add (or modify) a translation
+
+To add a translation, click the green button in the top-right corner. You'll see the form to add a new translation. Please enter the locale as a two-character language code (ISO 639-1, for example, "en") or as a language-country combination (for example, "en_US"). Choose the base text that you want to translate. With this feature, you can only translate the frontend translations, not the ones in the mosparo backend. In the field "Translated text", please enter the translation for the selected locale.
+
+You can add as many translations as you want, for as many locales as you want. When the user opens the form, the browser's language or the HTML document's language determines which language is used.
+
+You do not have to translate every base text. If you want to translate the main sentence in the box, then you can simply translate this one and leave the others to the mosparo default translations.
+
+### Delete a translation
+
+If you want to delete a translation, you can click the button on the right side of the translation in the list of translations and confirm that you want to delete the translation. 
+
+### Import and export
+
+You can import and export the translations with the import and export functionality. With this, you can share your translation between multiple projects.
