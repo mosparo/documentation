@@ -14,6 +14,8 @@ Die Projektliste des Benutzers ist nach dem Einloggen in mosparo sichtbar. Der B
 
 Der Benutzer hat zusätzliche Möglichkeiten, die Liste der Projekte zu filtern, wenn er das tabellarische Layout verwendet. Ausserdem ist es möglich, nach einem Projekt zu suchen. Dies ist eine gute Hilfe, wenn es in einer mosparo Installation viele Projekte gibt.
 
+Mit Version 1.5 haben wir ein Dropdown hinzugefügt, über das Sie den Zeitraum für die Statistiken auswählen können. Damit können Sie für jedes Projekt eine Übersicht aktivieren, die anzeigt, wie viele Einsendungen eingegangen sind und wann die letzte Einsendung verarbeitet wurde. So erhalten Sie einen Überblick über die jüngsten Aktivitäten, ohne jedes Projekt einzeln öffnen zu müssen. Die ausgewählte Option wird in Ihrem Benutzerprofil gespeichert und bei Ihrer nächsten Anmeldung wieder verwendet. Wenn Sie die Statistiken nicht sehen möchten, können Sie die Übersicht deaktivieren, indem Sie den entsprechenden Wert im Dropdown auswählen.
+
 ## Projekt erstellen
 
 ### 1. Projektinformationen

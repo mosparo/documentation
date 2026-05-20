@@ -14,6 +14,8 @@ The user's project list is visible after logging into mosparo. The user can deci
 
 The user has additional options to filter the list of projects if the user uses the tabular layout. Additionally, it's possible to search for a project. This is a good help if there are a lot of projects in a mosparo installation.
 
+With version 1.5, we've added a dropdown to choose the statistics time range. With this, you can enable a summary for each project that shows how many submissions it received and when the last submission was processed. This gives you an overview of the latest activity without opening every project. The selected option is stored in your user profile and used again when you log in next time. If you do not want to see the statistics, you can turn off the summary by choosing the value in the dropdown.
+
 ## Create a project
 
 ### 1. Project information
