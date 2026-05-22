@@ -72,6 +72,10 @@ Seit Version 1.4 markiert mosparo Leerzeichen am Anfang und am Ende eines Werts 
 
 Der Grund für diese Markierung ist, Sie darauf hinzuweisen, dass der Wert Leerzeichen (am Anfang bzw. Ende) oder Sonderzeichen enthält. Wenn die Validierung einer solchen Eingabe fehlschlägt, kann es an diesen Zeichen liegen.
 
+### Details zur Bewertung
+
+Mit den in Version 1.5 hinzugefügten Einsenderegeln haben wir am Ende der Einsende-Detailseite eine neue Bewertungsübersicht hinzugefügt. Hier können Sie sehen, welche Regel wie viele Punkte ergeben hat und wie diese berechnet wurden. Ausserdem werden die übereinstimmenden Einsende- und Feldregeln angezeigt (sofern welche übereinstimmen). Wenn keine Regeln übereinstimmen, wird die Bewertung nicht angezeigt.
+
 ### Probleme bei der Überprüfung
 
 Wenn bei der Überprüfung einer Einsendung ein Fehler auftritt, muss die Ursache für die fehlgeschlagene Überprüfung analysiert werden. Der Grund für die fehlgeschlagene Überprüfung ist jedoch nur in der Antwort der mosparo-API sichtbar, die in der Regel nicht im Backend der Website gespeichert wird. Ausserdem muss der API-Debug-Modus für ein Projekt in mosparo aktiviert sein. Normalerweise wird die API-Antwort aber nicht gespeichert, was es in einem solchen Fall schwierig macht, die Ursache für eine blockierte Einsendung zu identifizieren.

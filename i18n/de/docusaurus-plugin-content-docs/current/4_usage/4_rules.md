@@ -6,9 +6,25 @@ description: Lernen Sie, wie Sie in mosparo Regeln erstellen und verwalten könn
 
 # Regeln
 
+Mit Version 1.5 haben wir die Regeln in "Feldregeln" umbenannt und eine zweite Art von Regeln namens "Einsenderegeln" hinzugefügt. Die Feldregeln verarbeiten den Wert eines einzelnen Formularfelds, während die Einsenderegeln von uns vordefiniert sind und die gesamte Einsendung verarbeiten.
+
+## Einsenderegeln
+
+Wir entwickeln alle Einsenderegeln, und Sie können diese aktivieren, wenn Sie möchten. Es ist nicht möglich, eigene Einsenderegeln zu erstellen.
+
+Mit dem Start von Version 1.5 gibt es nur eine Einsenderegel.
+
+Wir planen, in Zukunft weitere Einsenderegeln hinzuzufügen, sobald wir Gründe für zusätzliche Regeln sehen.
+
+### Einsenderegel Zufallswerte
+
+Die Einsenderegel erfasst Zufallswerte, die Spam-Bots gerne eingeben. Diese Zufallswerte lassen sich mit einfachen Feldregeln nur schwer abfangen, da man mehrere Regeln mit negativen Bewertungen benötigt, um zu verhindern, dass Felder versehentlich übereinstimmen. Mit der Zufallswerte-Einsenderegel können Sie festlegen, wie viele Felder übereinstimmen müssen und wie viele Zeichen jeder Zufallswert haben muss. Sie können ausserdem entscheiden, ob das Textarea-Feld berücksichtigt werden soll und ob bei der Regel die Gross-/Kleinschreibung beachtet werden soll.
+
+## Feldregeln
+
 Mit Hilfe von Regeln erkennt mosparo, ob es sich bei einer Einsendung um Spam oder um eine gültige Einsendung handelt. Für jede Regel muss ein Regeltyp gewählt werden. Innerhalb einer Regel können beliebig viele Einträge erstellt werden, welche immer auf dem selben Regeltyp basieren. Eine Regel wird immer pro Projekt erfasst und kann nicht automatisch zwischen den Projekten ausgetauscht werden.
 
-## Erstellen einer Regel
+### Erstellen einer Feldregel
 
 :::tip
 Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über das Erstellen einer Regel auf [YouTube](https://www.youtube.com/watch?v=LKv9uzlkrhU) an.
@@ -18,7 +34,7 @@ Um eine Regel zu erstellen, wählen Sie in der Navigation "Regeln" und anschlies
 
 Nachdem Sie einen Regeltyp ausgewählt haben, wird ein Feld angezeigt, in das Sie den Namen der Regel eingeben können. Geben Sie der Regel einen Namen, damit Sie bei der Verwaltung der Regeln einen besseren Überblick haben.
 
-Nachdem Sie die Regel erstellt haben, wird der Regel-Editor angezeigt. Sie können im Feld „Beschreibung“ eine Beschreibung der Regel hinzufügen. Außerdem können Sie festlegen, ob die Regel aktiv oder inaktiv sein soll. Der Spam-Bewertungsfaktor erhöht oder verringert die Einträge in dieser Regel. Jeder Eintrag hat standardmäßig in der Regel den Wert 1. Der Spam-Bewertungsfaktor kann diesen Wert für alle Elemente erhöhen oder verringern.
+Nachdem Sie die Regel erstellt haben, wird der Regel-Editor angezeigt. Sie können im Feld „Beschreibung“ eine Beschreibung der Regel hinzufügen. Ausserdem können Sie festlegen, ob die Regel aktiv oder inaktiv sein soll. Der Spam-Bewertungsfaktor erhöht oder verringert die Einträge in dieser Regel. Jeder Eintrag hat standardmässig in der Regel den Wert 1. Der Spam-Bewertungsfaktor kann diesen Wert für alle Elemente erhöhen oder verringern.
 
 Auf der rechten Seite können Sie die Elemente verwalten. Die Liste der Elemente ist eine bearbeitbare Tabelle. Sie können auf eine Zelle klicken, um den Wert zu bearbeiten. Je nach Regeltyp müssen Sie entweder einen Wert eingeben oder einen Wert aus der Liste auswählen (z. B. Unicode-Block). Bestimmte Regeltypen haben auch Untertypen, die Sie für jedes Element auswählen können (z. B. „Text“ und „Regulärer Ausdruck“ für den Regeltyp „Wort“).
 
@@ -26,7 +42,7 @@ Die Zellen mit orangefarbenem Hintergrund sind ungespeichert und werden nach ein
 
 Mit dem Kontrollkästchen am Anfang jeder Zeile können Sie mehrere Zeilen auswählen und dann über das Dropdown-Menü oberhalb der Tabelle die ausgewählten Elemente auf einmal löschen.
 
-Um Elemente hinzuzufügen, können Sie entweder ein einzelnes Element oder mehrere Elemente hinzufügen. Wenn Sie mehrere Elemente auswählen, können Sie eine Liste mit Werten eingeben und diese auf einmal hinzufügen. Sie können auch einen Text oder eine CSV-Datei direkt in die Regel importieren. Wenn Sie die Importfunktion oder die Option zum Hinzufügen mehrerer Elemente auf einmal verwenden, wird während der Verarbeitung der Daten durch das System ein Overlay angezeigt. Wenn Sie das Fenster schließen, wird der Importvorgang angehalten. Bitte lassen Sie das Fenster geöffnet, bis auf dem Bildschirm angezeigt wird, dass der Vorgang abgeschlossen ist. Beim Importieren oder Hinzufügen mehrerer Elemente auf einmal überspringt der Importvorgang alle bereits vorhandenen Elemente.
+Um Elemente hinzuzufügen, können Sie entweder ein einzelnes Element oder mehrere Elemente hinzufügen. Wenn Sie mehrere Elemente auswählen, können Sie eine Liste mit Werten eingeben und diese auf einmal hinzufügen. Sie können auch einen Text oder eine CSV-Datei direkt in die Regel importieren. Wenn Sie die Importfunktion oder die Option zum Hinzufügen mehrerer Elemente auf einmal verwenden, wird während der Verarbeitung der Daten durch das System ein Overlay angezeigt. Wenn Sie das Fenster schliessen, wird der Importvorgang angehalten. Bitte lassen Sie das Fenster geöffnet, bis auf dem Bildschirm angezeigt wird, dass der Vorgang abgeschlossen ist. Beim Importieren oder Hinzufügen mehrerer Elemente auf einmal überspringt der Importvorgang alle bereits vorhandenen Elemente.
 
 Mit der Schaltfläche „Filter“ auf der rechten Seite können Sie die angezeigten Elemente filtern.
 
@@ -36,7 +52,7 @@ Die Schaltfläche „Speichern“ am unteren Bildschirmrand speichert alle nicht
 
 Mit der Schaltfläche „Elemente exportieren“ am unteren Bildschirmrand können Sie einen CSV-Export Ihrer Regelelemente erstellen. Sie können die CSV-Datei später wieder importieren.
 
-## Verwalten der Regeln
+### Verwalten der Regeln
 
 In der Verwaltung der Regeln finden Sie alle erfassten Regeln. Sie können weitere Regeln erstellen, in dem Sie oben rechts die Schaltfläche “Regel erstellen” verwenden.
 
@@ -46,7 +62,7 @@ Mit dem Filter-Dropdown in der oberen rechten Ecke können Sie die Liste nach nu
 
 Bevor eine Regel gelöscht wird, müssen Sie das Löschen der Regel bestätigen.
 
-## Bewertungs-Beispiel
+### Bewertungs-Beispiel
 
 :::tip
 Bevorzugen Sie ein Video, anstatt einen Text zu lesen? Sehen Sie sich unser HowTo über die Spam-Bewertung auf [YouTube](https://www.youtube.com/watch?v=mFcbiDDJl-A) an.

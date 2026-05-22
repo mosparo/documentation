@@ -71,6 +71,10 @@ Since version 1.4, mosparo marks spaces at the beginning and end of a value as w
 
 The reason for this marking is to alert you that the value contains spaces (at the beginning or end) or special characters. If the validation of such an entry fails, it may be due to these characters.
 
+### Rating details
+
+With the submission rules added in version 1.5, we've added a new rating summary at the bottom of the submission view page. Here you can see which rule gave how many points and how it was calculated. You can also see the matched submission and field rules (if any match). If no rules matched, the details will not be visible.
+
 ### Verification problems
 
 If something goes wrong during the verification of a submission, it is required to analyze the cause of the failed verification. But the reason for the failed verification is only visible in the response from the mosparo API, which is usually not stored in the website's backend. Additionally, the API debug mode needs to be enabled for a project in mosparo. However, the API response is not normally saved, which makes it difficult to identify the cause of a blocked submission in such cases.

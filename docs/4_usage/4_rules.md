@@ -6,9 +6,25 @@ description: Learn how to create and manage rules in mosparo.
 
 # Rules
 
+With version 1.5, we've renamed the rules to field rules and added a secondary type of rules called "Submission rules". The field rules process the value of a single form field, while the submission rules are predefined by us and process the whole submission.
+
+## Submission rules
+
+We develop all submission rules, and you can enable them if you want. It is not possible to create your own submission rules.
+
+With the start of version 1.5, we have only one submission rule.
+
+In the future, we plan to add more submission rules as soon as we see reasons for additional ones.
+
+### Random values submission rule
+
+The submission rule catches random values that spam bots like to submit. These random values are hard to catch with simple field rules, since you need multiple rules that work with negative ratings to prevent fields from accidentally matching. With the random values submission rule, you can define how many fields must match and how many characters each random value must have. You can also decide whether to match the textarea and whether the rule should be case-sensitive.
+
+## Field rules
+
 With the help of rules, mosparo recognizes whether a submission is spam or valid. You must select a rule type for each rule. Within a rule, any number of items can be created, which are always based on the same rule type. A rule is always entered per project and cannot be automatically exchanged between projects.
 
-## Creating a rule
+### Creating a field rule
 
 :::tip
 Do you prefer a video instead of reading text? Watch our HowTo about creating a rule on [YouTube](https://www.youtube.com/watch?v=LKv9uzlkrhU).
@@ -36,7 +52,7 @@ The save button at the bottom of the screen will save all unsaved changes. Usual
 
 With the "Export items" button at the bottom of the screen, you can get a CSV export of your rule items. You can import the CSV again later.
 
-## Managing the Rules
+### Managing the field rules
 
 In the administration of the rules, you will find all stored rules. You can create additional rules using the "Create Rule" button in the upper right.
 
@@ -46,7 +62,7 @@ With the filter dropdown in the top right corner, you can filter the list for on
 
 Before a rule is deleted, you must confirm that you want to delete the rule.
 
-## Rating example
+### Rating example
 
 :::tip
 Do you prefer a video instead of reading text? Watch our HowTo about spam rating on [YouTube](https://www.youtube.com/watch?v=mFcbiDDJl-A).
