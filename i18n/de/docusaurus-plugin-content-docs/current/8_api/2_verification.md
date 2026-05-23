@@ -93,12 +93,104 @@ Bitte stellen Sie sicher, dass Sie den Inhalt so verifizieren, wie der Benutzer 
 
 Wenn die Anfrage erfolgreich abgeschlossen wurde, sind die folgenden Eigenschaften in der Antwort enthalten:
 
-| Name                    | Typ     | Beschreibung                                                                                                                                                                                                                 |
-|-------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `valid`                 | Boolean | Ist `true`, wenn die Anfrage gültig war und vom Backend verarbeitet werden kann. Ist dies `false`, ist die Übermittlung nicht akzeptabel.                                                                                    |
-| `verificationSignature` | String  | Die von mosparo erzeugte Signatur. Diese muss mit der vom Client selbst erstellten Signatur abgeglichen werden, um Manipulationen zu verhindern (siehe [Auswerten der Antwort](../integration/custom#auswerten-der-antwort)). |
-| `verifiedFields`        | Objekt  | Ein Objekt mit allen überprüften Feldern und mit dem Status für jedes Feld (siehe [Werte für `verifiedFields`](../integration/custom#werte-für-verifiedfields)).                                                             |
-| `issues`                | Array   | Ein Array mit möglichen Problemen als String.                                                                                                                                                                                |
+| Name                    | Typ     | Beschreibung                                                                                                                                                                                                                         |
+|-------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `valid`                 | Boolean | Ist `true`, wenn die Anfrage gültig war und vom Backend verarbeitet werden kann. Ist dies `false`, ist die Übermittlung nicht akzeptabel.                                                                                            |
+| `verificationSignature` | String  | Die von mosparo erzeugte Signatur. Diese muss mit der vom Client selbst erstellten Signatur abgeglichen werden, um Manipulationen zu verhindern (siehe [Auswerten der Antwort](../integration/custom#auswerten-der-antwort)).        |
+| `verifiedFields`        | Objekt  | Ein Objekt mit allen überprüften Feldern und mit dem Status für jedes Feld (siehe [Werte für `verifiedFields`](../integration/custom#werte-für-verifiedfields)).                                                                     |
+| `issues`                | Array   | Ein Array mit möglichen Problemen als String.                                                                                                                                                                                        |
+| `metadata`              | Objekt  | Ein Objekt, das alle Metadaten enthält, die in mosparo für die Einsendung gespeichert wurden. Es wird der Antwort hinzugefügt, wenn die entsprechende Option in den erweiterten Einstellungen aktiviert ist. _(Hinzugefügt in v1.5)_ |
+
+Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Antwort enthalten:
+
+| Name           | Typ     | Beschreibung                                       |
+|----------------|---------|----------------------------------------------------|
+| `error`        | Boolean | Wenn `true`, ist ein Fehler aufgetreten.           |
+| `errorMessage` | String  | Die Beschreibung des Fehlers, der aufgetreten ist. |
+
+:::info
+Die Antwort kann mehr Daten enthalten, falls der [API-Debugging-Modus](./api_debug_mode) für ein Projekt aktiviert ist.
+:::
+
+## `store-metadata`
+
+**Methode**: POST<br />
+**Endpunkt**: /api/v1/verification/store-metadata<br />
+**Content-Type**: application/json (Payload als JSON-String im Request Body)
+
+Über diesen API-Endpunkt können nach der Verarbeitung der Formulardaten zusätzliche Metadaten in der Einsendung gespeichert werden. Sie können dies beispielsweise nutzen, um Informationen darüber zu speichern, wie die Einsendung verarbeitet wurde.
+
+### Authentifizierung
+
+Um den API-Endpunkt zu sichern, ist eine Authentifizierung erforderlich. Dazu muss der Header `Authorization` mit der Anfrage gesendet werden. In diesem Header muss der öffentliche Schlüssel des Projekts als Benutzername angegeben werden. Für das Passwort muss ein HMAC SHA256 Hash der API-Endpunkt-URL kombiniert mit den Anfragedaten, serialisiert als JSON, angegeben werden. Der private Schlüssel wird als Schlüssel für den HMAC-SHA256-Hash verwendet.
+
+```http request
+Authorization: [base64 of <publicKey>:<hmacHash>]
+```
+
+#### Beispiel
+
+```php
+$submitToken = '_wc0MPl5EQuwuJeTMq8uoF7WFpFdoZZf35ctawmasmc';
+$validationToken = 'PX3lvSsRE67qNjXTwEubhNke7aL9nKtXSpdJDQEza';
+$publicKey = 'XStQNakEiJk1oMIXJ6_Rxmd3j5gNcQae34n1G3aR6FU';
+$privateKey = 'stH6Ugo4FcbQLp6_KPlOYltFMHfY59rxCUQRk3_AxYQ';
+$apiEndpoint = '/api/v1/verification/store-metadata';
+$requestData = [
+    'submitToken' => $submitToken,
+    'validationSignature' => hash_hmac('sha256', $validationToken, $privateKey),
+    'metadata' => [
+        'sentByEmail' => 1,
+        'sentAt' => new DateTime('2026-05-01T12:00:00Z'),
+    ],
+];
+
+$hmacHash = hash_hmac('sha256', $apiEndpoint . json_encode($requestData), $privateKey);
+$authHeader = base64_encode($publicKey . ':' . $hmacHash);
+```
+
+```http request
+Authorization: WFN0UU5ha0VpSmsxb01JWEo2X1J4bWQzajVnTmNRYWUzNG4xRzNhUjZGVTplOWY1YmMyOTE3MDgwMjZiOTNiNGY3Yjk2YWFiZmVmYzc5YTZlZjRmMjI2ZGRiMjBiNDY1MGE2YzcxMjhjOWU5
+```
+
+### Anfrage
+
+#### Beispiel
+```json
+{
+  "submitToken":"_wc0MPl5EQuwuJeTMq8uoF7WFpFdoZZf35ctawmasmc",
+  "validationSignature":"122fe5123d3efb8167000b1adf54864991208f9ab9192b66d178cfc1886ed12d",
+  "metadata":{
+    "sentByEmail":1,
+    "sentAt":"2026-05-01T12:00:00Z"
+  }
+}
+```
+
+#### Argumente
+
+| Name                  | Typ    | Erforderlich | Beschreibung                                                   |
+|-----------------------|--------|--------------|----------------------------------------------------------------|
+| `submitToken`         | String | Erforderlich | Der Einsendecode, welcher im Frontend angefordert wurde.       |
+| `validationSignature` | String | Erforderlich | Der HMAC SHA256-Hash des Validierungscode.                     |
+| `metadata`            | Objekt | Erforderlich | Ein Objekt mit allen Metadaten, die gespeichert werden sollen. |
+
+### Antwort
+
+#### Beispiel
+```json
+{
+  "result":true
+}
+```
+
+#### Merkmale
+
+Wenn mosparo die Anfrage erfolgreich ausgeführt hat, ist in der Antwort die folgende Eigenschafte enthalten:
+
+| Name     | Typ     | Beschreibung                                                                                                                                                          |
+|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `result` | Boolean | Wenn alles wie erwartet funktioniert hat, ist diese Eigenschaft gesetzt und hat den Wert `true`. Wenn ein Problem aufgetreten ist, ist die Eigenschaft nicht gesetzt. |
 
 Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Antwort enthalten:
 

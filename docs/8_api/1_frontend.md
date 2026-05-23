@@ -73,11 +73,13 @@ No authentication is required. Each request must contain the public key of a pro
 
 #### Arguments
 
-| Name          | Type   | Required | Description                                                                                 |
-|---------------|--------|----------|---------------------------------------------------------------------------------------------|
-| `publicKey`   | String | Required | The public key of the project.                                                              |
-| `submitToken` | String | Required | The submit token requested with the method [`request-submit-token`](#request-submit-token). |
-| `formData`    | Array  | Required | An array with all the form data, see [Structure of `formData`](#structure-of-formdata).     |
+| Name                | Type    | Required | Description                                                                                                                                           |
+|---------------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `publicKey`         | String  | Required | The public key of the project.                                                                                                                        |
+| `submitToken`       | String  | Required | The submit token requested with the method [`request-submit-token`](#request-submit-token).                                                           |
+| `formData`          | Array   | Required | An array with all the form data, see [Structure of `formData`](#structure-of-formdata).                                                               |
+| `metadata`          | Object  | Optional | An object that contains all the metadata. The metadata is only stored in mosparo if it is enabled in the advanced project settings. _(Added in v1.5)_ |
+| `proofOfWorkNumber` | Integer | Optional | Contains the result of the proof-of-work protection method. _(Added in v1.3)_                                                                         |
 
 #### Structure of `formData`
 

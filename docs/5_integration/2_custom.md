@@ -226,6 +226,7 @@ If you cannot adjust the initialization parameters, you can also use the custom 
 |---------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `before-get-form-data`    | Form          | This event will be dispatched before the form data is collected from the form. With this event, it's possible to prepare the form data (for example, for WYSIWYG fields, which need to store the content in the `textarea`).                                |
 | `before-get-field-value`  | Form field    | With this event, it's possible to adjust a field's value before the value is collected.                                                                                                                                                                     |
+| `collect-request-data`    | Form          | This event will be dispatched when the validation request data is collected. If you want to add metadata, you can use this event to set it on the `metadata` property of your mosparo instance (see the example below). _(Added in v1.5)_                   |
 | `form-checked`            | Form          | Defines the event that is dispatched as soon as the form has been checked. The validation result will be given as an boolean value `valid` to the event (`true` if everything is correct, `false` if not).                                                  |
 | `state-reseted`           | Form          | Defines the event that will be dispatched after the mosparo box is reset (for example, after the form was reset).                                                                                                                                           |
 | `switch-to-invisible`     | Form          | _(Invisible mode only)_ When a website uses the invisible mode, mosparo will initialize itself in the visible mode and change to the invisible mode after receiving the submit token. This event will be dispatched after the switch to the invisible mode. |
@@ -236,7 +237,7 @@ If you cannot adjust the initialization parameters, you can also use the custom 
 #### Example events and callbacks
 
 ```javascript
-mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
+var m = mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
     onBeforeGetFormData: function (formElement) {
         console.log('onBeforeGetFormData', formElement);
     },
@@ -270,6 +271,10 @@ document.getElementById('contact-form').addEventListener('before-get-form-data',
 
 document.getElementById('name-field').addEventListener('before-get-field-value', function (ev) {
     console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('collect-request-data', function (ev) {
+    m.metadata.randomNumber = Math.random();
 });
 
 document.getElementById('contact-form').addEventListener('form-checked', function (ev) {

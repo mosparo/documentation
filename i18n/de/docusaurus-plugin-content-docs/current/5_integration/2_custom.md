@@ -223,21 +223,22 @@ mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
 
 Wenn Sie die Initialisierungsparameter nicht anpassen können, können Sie auch die benutzerdefinierten Ereignisse verwenden, um die Ausführung von mosparo zu steuern. mosparo löst die folgenden Ereignisse aus:
 
-| Ereignisname              | Ausgelöst auf | Beschreibung                                                                                                                                                                                                                                         |
-|---------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `before-get-form-data`    | Formular      | Dieses Ereignis wird ausgelöst, bevor die Formulardaten aus dem Formular gesammelt werden. Mit diesem Ereignis ist es möglich, die Formulardaten vorzubereiten (zum Beispiel für WYSIWYG-Felder, die den Inhalt in der `textarea` speichern müssen). |
-| `before-get-field-value`  | Formular-Feld | Mit diesem Ereignis ist es möglich, den Wert eines Feldes anzupassen, bevor der Wert erfasst wird.                                                                                                                                                   |
-| `form-checked`            | Formular      | Definiert das Ereignis, welches ausgelöst wird, sobald das Formular geprüft wurde. Das Ergebnis der Prüfung wird als boolescher Wert `valid` an das Ereignis übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                          |
-| `state-reseted`           | Formular      | Definiert das Ereignis, welches ausgelöst wird, nachdem das mosparo-Feld zurückgesetzt wurde (zum Beispiel, nachdem das Formular zurückgesetzt wurde).                                                                                               |
-| `switch-to-invisible`     | Formular      | Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieses Ereignis wird nach dem Wechsel in den unsichtbaren Modus ausgelöst. |
-| `submit-aborted`          | Formular      | _(Nur im sichtbaren Modus)_ Dieses Ereignis wird ausgelöst, wenn der Sendevorgang abgebrochen wird, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                 |
-| `submit-form-invisible`   | Formular      | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird vor dem Absenden des Formulars ausgelöst.                                                                                                                                                         |
-| `validate-form-invisible` | Formular      | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird ausgelöst, bevor das Formular validiert wird.                                                                                                                                                     |
+| Ereignisname              | Ausgelöst auf | Beschreibung                                                                                                                                                                                                                                                                                |
+|---------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `before-get-form-data`    | Formular      | Dieses Ereignis wird ausgelöst, bevor die Formulardaten aus dem Formular gesammelt werden. Mit diesem Ereignis ist es möglich, die Formulardaten vorzubereiten (zum Beispiel für WYSIWYG-Felder, die den Inhalt in der `textarea` speichern müssen).                                        |
+| `before-get-field-value`  | Formular-Feld | Mit diesem Ereignis ist es möglich, den Wert eines Feldes anzupassen, bevor der Wert erfasst wird.                                                                                                                                                                                          |
+| `collect-request-data`    | Formular      | Dieses Ereignis wird ausgelöst, sobald die Daten der Validierungsanfrage erfasst wurden. Wenn Sie Metadaten hinzufügen möchten, können Sie dieses Ereignis nutzen, um diese in der Eigenschaft `metadata` Ihrer mosparo-Instanz festzulegen (siehe Beispiel unten). _(Hinzugefügt in v1.5)_ |
+| `form-checked`            | Formular      | Definiert das Ereignis, welches ausgelöst wird, sobald das Formular geprüft wurde. Das Ergebnis der Prüfung wird als boolescher Wert `valid` an das Ereignis übergeben (`true` wenn alles korrekt ist, `false` wenn nicht).                                                                 |
+| `state-reseted`           | Formular      | Definiert das Ereignis, welches ausgelöst wird, nachdem das mosparo-Feld zurückgesetzt wurde (zum Beispiel, nachdem das Formular zurückgesetzt wurde).                                                                                                                                      |
+| `switch-to-invisible`     | Formular      | Wenn eine Website den unsichtbaren Modus verwendet, initialisiert sich mosparo im sichtbaren Modus und wechselt nach Erhalt des Einsende-Codes in den unsichtbaren Modus. Dieses Ereignis wird nach dem Wechsel in den unsichtbaren Modus ausgelöst.                                        |
+| `submit-aborted`          | Formular      | _(Nur im sichtbaren Modus)_ Dieses Ereignis wird ausgelöst, wenn der Sendevorgang abgebrochen wird, z.B. wenn das Formular von mosparo erneut validiert werden muss.                                                                                                                        |
+| `submit-form-invisible`   | Formular      | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird vor dem Absenden des Formulars ausgelöst.                                                                                                                                                                                                |
+| `validate-form-invisible` | Formular      | _(Nur im unsichtbaren Modus)_ Dieses Ereignis wird ausgelöst, bevor das Formular validiert wird.                                                                                                                                                                                            |
 
 #### Beispiele für Ereignisse und Callbacks
 
 ```javascript
-mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
+var m = mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
     onBeforeGetFormData: function (formElement) {
         console.log('onBeforeGetFormData', formElement);
     },
@@ -271,6 +272,10 @@ document.getElementById('contact-form').addEventListener('before-get-form-data',
 
 document.getElementById('name-field').addEventListener('before-get-field-value', function (ev) {
     console.log(ev);
+});
+
+document.getElementById('contact-form').addEventListener('collect-request-data', function (ev) {
+    m.metadata.randomNumber = Math.random();
 });
 
 document.getElementById('contact-form').addEventListener('form-checked', function (ev) {

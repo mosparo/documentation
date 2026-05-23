@@ -36,7 +36,7 @@ Wenn Sie eine Einsendung anschauen, sehen Sie viele weitere Informationen zur Ei
 | **Überprüfung** (Box)              |
 | Ist gültig                         | Gibt an, ob die Einsendung korrekt vom Backend einer Website überprüft wurde.                                                                                                        |
 | Überprüft am                       | Gibt an, wann die Einsendung überprüft wurde.                                                                                                                                        |
-| **Allgemeine Überprüfungen** (Box) | Zeigt das Ergebnis der allgemein verifizierten aktiven Sicherheitsmerkmale an.                                                                                      |
+| **Allgemeine Überprüfungen** (Box) | Zeigt das Ergebnis der allgemein verifizierten aktiven Sicherheitsmerkmale an.                                                                                                       |
 | **Quelle** (Box)                   |
 | Seiten-Titel                       | Titel der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                      |
 | Seiten-URL                         | Adresse der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                    |
@@ -49,6 +49,7 @@ Wenn Sie eine Einsendung anschauen, sehen Sie viele weitere Informationen zur Ei
 | AS Nummer                          | Nummer der Organisation, welcher als Besitzer einer IP-Adresse eingetragen ist.                                                                                                      |
 | AS Organisation                    | Name der Organisation, welche als Besitzer einer IP-Adresse eingetragen ist.                                                                                                         |
 | Land                               | Das Land, welchem die IP-Adresse aufgrund der AS Organisation zugeordnet ist.                                                                                                        |
+| **Metadaten** (Box)                | Zeigt alle empfangenen Metadaten an. Die Box wird nicht angezeigt, wenn keine Metadaten übermittelt wurden oder wenn die Metadaten für ein Projekt deaktiviert sind.                 |
 
 ### Formulardaten
 
