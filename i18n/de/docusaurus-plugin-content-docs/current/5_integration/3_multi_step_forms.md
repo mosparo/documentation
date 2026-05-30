@@ -44,20 +44,22 @@ Im automatischen Modus löst mosparo den Prozess über das `submit`-Ereignis aus
                 // Weitere Parameter...
                 isMultiStepForm: true,
                 submitToken: '<submitToken>',
-                forceInvisible: (step !== lastStep),
                 isLastStep: (step === lastStep),
+
+                // Diese letzte Zeile ist optional. Standardmässig wird sie automatisch durch `isMultiStepForm` und `isLastStep` ermittelt.
+                //forceInvisible: (step !== lastStep),
             }
         );
     };
 </script>
 ```
 
-| Parameter         | Typ     | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|-------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `isMultiStepForm` | Boolean | Setzen Sie diesen Wert auf `true`, wenn die Initialisierung für ein mehrstufiges Formular erfolgt.                                                                                                                                                                                                                                                                                                                                                                                |
-| `submitToken`     | String  | Im ersten Schritt ist dieser Parameter leer (oder nicht gesetzt). In den weiteren Schritten müssen Sie hier jedoch den Einsende-Code eingeben, das Sie im vorherigen Schritt erhalten haben.                                                                                                                                                                                                                                                                                      |
-| `forceInvisible`  | Boolean | Solange Sie sich nicht im letzten Schritt befinden, sollte die mosparo-Box als unsichtbare Box initialisiert werden, damit wir das Overlay zur Speicherung der Daten anzeigen und mit dem nächsten Schritt fortfahren können. Da wir in mosparo nicht wissen, wann wir uns im letzten Schritt befinden, müssen Sie dies bei der Initialisierung der mosparo-Box angeben. In der Regel handelt es sich dabei um einen einfachen logischen Vergleich wie: `activeStep != lastStep`. |
-| `isLastStep`      | Boolean | Mit diesem Parameter weisen Sie die mosparo-Box an, dass mosparo beim Ausführen dieses Schritts die Daten überprüfen und nicht nur speichern soll. Dabei handelt es sich um einen einfachen logischen Vergleich wie: `activeStep == lastStep`.                                                                                                                                                                                                                                    |
+| Parameter         | Typ           | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|-------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isMultiStepForm` | Boolean       | Setzen Sie diesen Wert auf `true`, wenn die Initialisierung für ein mehrstufiges Formular erfolgt.                                                                                                                                                                                                                                                                                                                                                         |
+| `submitToken`     | String        | Im ersten Schritt ist dieser Parameter leer (oder nicht gesetzt). In den weiteren Schritten müssen Sie hier jedoch den Einsende-Code eingeben, das Sie im vorherigen Schritt erhalten haben.                                                                                                                                                                                                                                                               |
+| `isLastStep`      | Boolean       | Mit diesem Parameter weisen Sie die mosparo-Box an, dass mosparo beim Ausführen dieses Schritts die Daten überprüfen und nicht nur speichern soll. Dabei handelt es sich um einen einfachen logischen Vergleich wie: `activeStep == lastStep`.                                                                                                                                                                                                             |
+| `forceInvisible`  | Boolean\|Null | Solange Sie sich nicht im letzten Schritt befinden, sollte die mosparo-Box als unsichtbare Box initialisiert werden, damit wir das Overlay zur Speicherung der Daten anzeigen und mit dem nächsten Schritt fortfahren können. Wenn dieser Parameter nicht gesetzt ist (oder als `null`), verwendet mosparo automatisch `isMultiStepForm` und `isLastStep` um zu ermitteln, ob die mosparo Box angezeigt werden soll oder nicht. |
 
 ### Manueller Modus
 
@@ -77,9 +79,12 @@ Um den Übermittlungsprozess manuell zu steuern, stehen Ihnen nun zwei Methoden 
     window.onload = function(){
         m = new mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
             submitToken: '<submitToken>', // Im ersten Schritt empfangen, leer oder nicht gesetzt für den ersten Schritt
-            forceInvisible: (step < maxSteps),
-            //isMultiStepForm: true, // Optional
-            //isLastStep: (step === maxSteps, // Optional
+
+            // Sie müssen entweder sowohl `isMultiStepForm` als auch `isLastStep` oder nur `forceInvisible` setzen
+            //isMultiStepForm: true,
+            //isLastStep: (step === maxSteps),
+
+            //forceInvisible: (step < maxSteps),
         });
 
         document.getElementById('submit-form').addEventListener('click', function () {
@@ -236,7 +241,7 @@ Dazu fügen Sie bei der Initialisierung von mosparo einen Callback für `onGetFo
 
 mosparo sendet die Daten nun an die API Ihrer mosparo-Installation und überprüft sie.
 
-Wenn die Validierung erfolgreich war, kann der Benutzer das Formular absenden. Bitte denken Sie daran, alle Formulardaten sowie die beiden mosparo-Felder (`_mosparo_submitToken` und `_mosparo_validationToken`) zu übermitteln. Wenn Sie das Formular über eine XHR-Anfrage übermitteln möchten, können Sie diese beiden Werte mithilfe Ihrer mosparo-Instanz abrufen: `m.submitTokenElement.value` und `m.validationTokenElement.value`.
+Wenn die Validierung erfolgreich war, kann der Benutzer das Formular absenden. Bitte denken Sie daran, alle Formulardaten sowie die beiden mosparo-Felder (`_mosparo_submitToken` und `_mosparo_validationToken`) zu übermitteln. Wenn Sie das Formular über eine XHR-Anfrage übermitteln möchten, können Sie diese beiden Werte mithilfe Ihrer mosparo-Instanz abrufen: `m.getSubmitToken()` und `m.getValidationToken()`.
 
 ### Daten verifizieren
 

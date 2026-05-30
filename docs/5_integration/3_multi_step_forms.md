@@ -44,20 +44,22 @@ In the automatic mode, mosparo uses the submit event to trigger the process. If 
                 // Other parameters...
                 isMultiStepForm: true,
                 submitToken: '<submitToken>',
-                forceInvisible: (step !== lastStep),
                 isLastStep: (step === lastStep),
+                
+                // This last line is optionally. By default, it will be determined automatically by `isMultiStepForm` and `isLastStep`.
+                //forceInvisible: (step !== lastStep),
             }
         );
     };
 </script>
 ```
 
-| Parameter         | Type    | Description                                                                                                                                                                                                                                                                                                                                                                         |
-|-------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `isMultiStepForm` | Boolean | Set this to true if the initialization is for a multi-step form.                                                                                                                                                                                                                                                                                                                    |
-| `submitToken`     | String  | In the first step, this parameter is empty (or not set). But in the other steps, you need to set this to the submit token you've received from the previous step.                                                                                                                                                                                                                   |
-| `forceInvisible`  | Boolean | As long as you are not in the last step, the mosparo box should be initialized as an invisible box so we can show the overlay to store the data and continue with the next step. Since we don't know in mosparo when we are in the last step, you need to tell it when you initialize the mosparo box. Usually, this is a simple logical comparison like: `activeStep != lastStep`. |
-| `isLastStep`      | Boolean | With this parameter, you tell the mosparo box that when submitting this step, mosparo should verify the data and not just store the data. This is a simple logical comparison like: `activeStep == lastStep`.                                                                                                                                                                       |
+| Parameter         | Type          | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
+|-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isMultiStepForm` | Boolean       | Set this to true if the initialization is for a multi-step form.                                                                                                                                                                                                                                                                                                                                                          |
+| `submitToken`     | String        | In the first step, this parameter is empty (or not set). But in the other steps, you need to set this to the submit token you've received from the previous step.                                                                                                                                                                                                                                                         |
+| `isLastStep`      | Boolean       | With this parameter, you tell the mosparo box that when submitting this step, mosparo should verify the data and not just store the data. This is a simple logical comparison like: `activeStep == lastStep`.                                                                                                                                                                                                             |
+| `forceInvisible`  | Boolean\|Null | Unless you are on the last step, the mosparo box should be initialized as an invisible box so that we can display the overlay for saving the data and proceed to the next step. If this parameter is not set (or is `null`), mosparo automatically uses `isMultiStepForm` and `isLastStep` to determine whether the mosparo box should be displayed. Default logic if value is `null`: `(isMultiStepForm && !isLastStep)` |
 
 ### Manual mode
 
@@ -77,9 +79,12 @@ To manually control the submission process, you now have two methods that are re
     window.onload = function(){
         m = new mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
             submitToken: '<submitToken>', // Received in the first step, empty or unset for the first step
-            forceInvisible: (step < maxSteps),
-            //isMultiStepForm: true, // Optionally
-            //isLastStep: (step === maxSteps, // Optionally
+
+            // You need to set either both `isMultiStepForm` and `isLastStep` or only `forceInvisible`
+            //isMultiStepForm: true,
+            //isLastStep: (step === maxSteps),
+            
+            //forceInvisible: (step < maxSteps),
         });
 
         document.getElementById('submit-form').addEventListener('click', function () {
@@ -236,7 +241,7 @@ To do that, you add a callback for `onGetFormData` when you initialize mosparo:
 
 mosparo will now send the data to the API of your mosparo installation and validate it.
 
-If the validation was successful, the user can submit the form. Please remember to submit all the form data as well as the two mosparo fields (`_mosparo_submitToken` and `_mosparo_validationToken`). If you want to submit the form via an XHR request, you can get these two values by using your mosparo instance: `m.submitTokenElement.value` and `m.validationTokenElement.value`.
+If the validation was successful, the user can submit the form. Please remember to submit all the form data as well as the two mosparo fields (`_mosparo_submitToken` and `_mosparo_validationToken`). If you want to submit the form via an XHR request, you can get these two values by using your mosparo instance: `m.getSubmitToken()` and `m.getValidationToken()`.
 
 ### Verify the data
 
