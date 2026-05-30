@@ -54,11 +54,11 @@ Im automatischen Modus löst mosparo den Prozess über das `submit`-Ereignis aus
 </script>
 ```
 
-| Parameter         | Typ           | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|-------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `isMultiStepForm` | Boolean       | Setzen Sie diesen Wert auf `true`, wenn die Initialisierung für ein mehrstufiges Formular erfolgt.                                                                                                                                                                                                                                                                                                                                                         |
-| `submitToken`     | String        | Im ersten Schritt ist dieser Parameter leer (oder nicht gesetzt). In den weiteren Schritten müssen Sie hier jedoch den Einsende-Code eingeben, das Sie im vorherigen Schritt erhalten haben.                                                                                                                                                                                                                                                               |
-| `isLastStep`      | Boolean       | Mit diesem Parameter weisen Sie die mosparo-Box an, dass mosparo beim Ausführen dieses Schritts die Daten überprüfen und nicht nur speichern soll. Dabei handelt es sich um einen einfachen logischen Vergleich wie: `activeStep == lastStep`.                                                                                                                                                                                                             |
+| Parameter         | Typ           | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isMultiStepForm` | Boolean       | Setzen Sie diesen Wert auf `true`, wenn die Initialisierung für ein mehrstufiges Formular erfolgt.                                                                                                                                                                                                                                                                                                                              |
+| `submitToken`     | String        | Im ersten Schritt ist dieser Parameter leer (oder nicht gesetzt). In den weiteren Schritten müssen Sie hier jedoch den Einsende-Code eingeben, das Sie im vorherigen Schritt erhalten haben. Siehe [Einsende-Code](#einsende-code)                                                                                                                                                                                              |
+| `isLastStep`      | Boolean       | Mit diesem Parameter weisen Sie die mosparo-Box an, dass mosparo beim Ausführen dieses Schritts die Daten überprüfen und nicht nur speichern soll. Dabei handelt es sich um einen einfachen logischen Vergleich wie: `activeStep == lastStep`.                                                                                                                                                                                  |
 | `forceInvisible`  | Boolean\|Null | Solange Sie sich nicht im letzten Schritt befinden, sollte die mosparo-Box als unsichtbare Box initialisiert werden, damit wir das Overlay zur Speicherung der Daten anzeigen und mit dem nächsten Schritt fortfahren können. Wenn dieser Parameter nicht gesetzt ist (oder als `null`), verwendet mosparo automatisch `isMultiStepForm` und `isLastStep` um zu ermitteln, ob die mosparo Box angezeigt werden soll oder nicht. |
 
 ### Manueller Modus
@@ -78,7 +78,7 @@ Um den Übermittlungsprozess manuell zu steuern, stehen Ihnen nun zwei Methoden 
     var maxSteps = 3;
     window.onload = function(){
         m = new mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
-            submitToken: '<submitToken>', // Im ersten Schritt empfangen, leer oder nicht gesetzt für den ersten Schritt
+            submitToken: '<submitToken>', // Im ersten Schritt empfangen, leer oder nicht gesetzt für den ersten Schritt, siehe unten
 
             // Sie müssen entweder sowohl `isMultiStepForm` als auch `isLastStep` oder nur `forceInvisible` setzen
             //isMultiStepForm: true,
@@ -110,6 +110,40 @@ Um den Übermittlungsprozess manuell zu steuern, stehen Ihnen nun zwei Methoden 
     };
 </script>
 ```
+
+### Einsende-Code
+
+In den Formularschritten nach dem ersten Schritt müssen Sie den Einsende-Code aus dem ersten Schritt angeben. Aber woher bekommen Sie diesen? Der Einsende-Code wird automatisch generiert, wenn Sie im ersten Schritt die mosparo-Box initialisieren. mosparo speichert den Einsende-Code anschliessend in einem versteckten Feld in Ihrem Formular.
+
+Sobald der Benutzer das Formular absendet, wird der Einsende-Code zusammen mit den Formulardaten aus Ihren Formularfeldern an Ihr Backend gesendet. Sie müssen den Einsende-Code aufbewahren und ihn bei der Initialisierung von mosparo verwenden. Der Name des Feldes lautet `_mosparo_submitToken`. Um den Wert abzurufen, greifen Sie über die Methode Ihres Backends auf die POST-Anfrageparameter zu und suchen Sie nach dem Feld mit dem Namen `_mosparo_submitToken`.
+
+#### Beispiel
+
+```php
+<?php
+
+$submitToken = $_POST['_mosparo_submitToken'];
+
+// Andere Dinge erledigen, wie zum Beispiel das Speichern der Formulardaten
+
+?>
+
+<!-- Bei der Initialisierung von mosparo für Formularschritt 2 (und die anderen Schritte): -->
+<script>
+    var m;
+    var step = 1;
+    var maxSteps = 3;
+    window.onload = function(){
+        m = new mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
+            submitToken: '<?php echo $submitToken; ?>',
+        });
+    };
+</script>
+```
+
+:::info
+Der Einsende-Code hilft mosparo dabei, zu erkennen, welche Daten zusammengehören, indem es sie diesem zuordnet. Wenn Sie nicht denselben Einsende-Code verwenden, erstellt mosparo bei der Initialisierung des Formulars in Schritt zwei (und den anderen Schritten) einen neuen Einsende-Code und validiert niemals die vollständigen Formulardaten, da die verschiedenen Schritte in diesem Fall für mosparo unterschiedliche Einsendungen mit unterschiedlichen Einsende-Codes darstellen.
+:::
 
 ## Single-Page-basiertes (SPA) mehrstufiges Formular 
 
@@ -149,6 +183,8 @@ Indem Sie mosparo im ersten Schritt Ihres Formulars initialisieren, geben Sie mo
 ### Speichern der Formulardaten im Speicher
 
 Sobald der Benutzer zum nächsten Schritt übergeht, müssen Sie die Formulardaten in einem JavaScript-Objekt speichern. Andernfalls gehen die Formulardaten verloren, wenn die Felder aus dem DOM entfernt werden, und mosparo kann sie nicht überprüfen. Um sich die Arbeit zu erleichtern, sollten Sie die Formulardaten in der von mosparo geforderten Struktur speichern.
+
+Einige Feldtypen werden von mosparo nicht validiert und verifiziert. So werden beispielsweise Passwortfelder oder Kontrollkästchen ignoriert, und Sie sollten deren Werte nicht an mosparo übermitteln. Weitere Informationen finden Sie unter [Ignorierte Felder](./ignored_fields).
 
 ```javascript
 // Das können Sie an einer beliebigen Stelle in Ihrem Code einfügen
@@ -199,7 +235,7 @@ function onSubmittingFormStep(form) {
 Jeder Feldname sollte in den Formular-Daten nur einmal vorkommen. Sie können beispielsweise ein Array als Wert übermitteln, wenn Sie eine Liste von Werten für ein Feld haben. Der Name sollte jedoch nur einmal im Array vorkommen; achten Sie daher bitte darauf, denselben Namen nicht mehrfach hinzuzufügen. Ein anschauliches Beispiel dafür, wie Sie vorgehen sollten, finden Sie in der Methode `getFormData` in der Datei `mosparo-frontend.js`: https://github.com/mosparo/mosparo/blob/master/assets/mosparo-frontend.js
 :::
 
-Bei Bedarf können Sie dem Feld-Objekt zusätzliche Informationen hinzufügen, beispielsweise um welchen Schritt und welches Formularfeld es sich handelt. Für mosparo sind nur diese drei Schlüssel erforderlich. Der `fieldPath` setzt sich aus dem Feldtyp (`input`, `textarea` oder `select`) und dem Eingabetyp (falls es sich um ein `input`-Feld handelt) zusammen. Anschliessend wird der Feldname hinzugefügt, getrennt durch einen Punkt. Zum Beispiel:
+Bei Bedarf können Sie dem Feld-Objekt zusätzliche Informationen hinzufügen, um beispielsweise zu wissen, aus welchem Schritt ein Wert stammt. Für mosparo sind nur die Schlüssel `name`, `value` und `fieldPath` erforderlich. Der `fieldPath` setzt sich aus dem Feldtyp (`input`, `textarea` oder `select`) und dem Eingabetyp (falls es sich um ein `input`-Feld handelt) zusammen. Anschliessend wird der Feldname hinzugefügt, getrennt durch einen Punkt. Zum Beispiel:
 
 ```text
 input[text].name
@@ -208,6 +244,10 @@ select.country
 ```
 
 Der Feldpfad legt fest, welche Regeln auf welches Feld angewendet werden sollen. Wenn Sie einen falschen Feldpfad angeben, werden die Regeln falsch angewendet, was bei der Validierung der Formulardaten zu Fehlern oder Falsch-Bewertungen führen kann.
+
+Weitere Informationen zum Vorbereiten der Formulardaten finden Sie im Abschnitt [Vorbereiten der Formulardaten](./custom#vorbereiten-der-formulardaten).
+
+Wenn Sie zusätzliche Daten in Mosparo speichern möchten, beispielsweise wie lange der Benutzer für die Bearbeitung eines Schritts benötigt hat, können Sie diese Informationen als Metadaten übermitteln. Weitere Informationen hierzu finden Sie im Kapitel [Metadaten speichern](./custom#metadaten-speichern).
 
 ### Formulardaten überprüfen
 

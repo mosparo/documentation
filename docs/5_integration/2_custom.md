@@ -302,6 +302,20 @@ document.getElementById('contact-form').addEventListener('submit-form-invisible'
 });
 ```
 
+### Storing metadata
+
+Since version 1.5, it is possible to store additional metadata. The metadata will not be verified by mosparo, but it can provide you with additional information about the form submission process. To store metadata, please register an event listener for the event `collect-request-data` and add your data to the `metadata` object of your mosparo instance. For example:
+
+```javascript
+document.getElementById('contact-form').addEventListener('collect-request-data', function (ev) {
+    m.metadata.randomNumber = Math.random();
+});
+```
+
+:::info
+The metadata will only be saved in mosparo after the metadata has been enabled for a project. Please head over to the advanced project settings and enable metadata before submitting any metadata.
+:::
+
 ## Performing verification
 
 Once the form has been submitted, the backend of your website must check whether the submission was allowed at all. From a purely technical point of view, it is possible that someone passes the validation by mosparo, then changes the request again with technical tools, and then submits the form. Therefore, it is essential to check whether the entries made were valid.

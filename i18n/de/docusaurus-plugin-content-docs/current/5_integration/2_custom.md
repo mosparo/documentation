@@ -303,6 +303,20 @@ document.getElementById('contact-form').addEventListener('submit-form-invisible'
 });
 ```
 
+### Metadaten speichern
+
+Seit Version 1.5 ist es möglich, zusätzliche Metadaten zu speichern. Die Metadaten werden von mosparo nicht überprüft, können Ihnen jedoch zusätzliche Informationen zum Ablauf der Formularübermittlung liefern. Um Metadaten zu speichern, registrieren Sie bitte einen Event-Listener für den Event `collect-request-data` und fügen Sie Ihre Daten dem `metadata`-Objekt Ihrer mosparo-Instanz hinzu. Zum Beispiel:
+
+```javascript
+document.getElementById('contact-form').addEventListener('collect-request-data', function (ev) {
+    m.metadata.randomNumber = Math.random();
+});
+```
+
+:::info
+Die Metadaten werden erst dann in mosparo gespeichert, wenn sie für ein Projekt aktiviert wurden. Bitte gehen Sie zu den erweiterten Projekteinstellungen und aktivieren Sie die Metadaten, bevor Sie welche übermitteln.
+:::
+
 ## Verifizierung durchführen
 
 Nachdem das Formular abgesendet wurde, muss überprüft werden, ob die Einsendung überhaupt erlaubt war. Rein technisch wäre es vorstellbar, dass jemand zwar die Prüfung von mosparo besteht, danach mit technischen Mitteln die Anfrage wieder verändert und erst dann das Formular absendet. Daher ist es zwingend erforderlich, zu überprüfen, ob die getätigten Eingaben gültig waren.

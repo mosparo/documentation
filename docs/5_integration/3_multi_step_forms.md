@@ -57,7 +57,7 @@ In the automatic mode, mosparo uses the submit event to trigger the process. If 
 | Parameter         | Type          | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `isMultiStepForm` | Boolean       | Set this to true if the initialization is for a multi-step form.                                                                                                                                                                                                                                                                                                                                                          |
-| `submitToken`     | String        | In the first step, this parameter is empty (or not set). But in the other steps, you need to set this to the submit token you've received from the previous step.                                                                                                                                                                                                                                                         |
+| `submitToken`     | String        | In the first step, this parameter is empty (or not set). But in the other steps, you need to set this to the submit token you've received from the previous step. See [Submit Token](#submit-token)                                                                                                                                                                                                                       |
 | `isLastStep`      | Boolean       | With this parameter, you tell the mosparo box that when submitting this step, mosparo should verify the data and not just store the data. This is a simple logical comparison like: `activeStep == lastStep`.                                                                                                                                                                                                             |
 | `forceInvisible`  | Boolean\|Null | Unless you are on the last step, the mosparo box should be initialized as an invisible box so that we can display the overlay for saving the data and proceed to the next step. If this parameter is not set (or is `null`), mosparo automatically uses `isMultiStepForm` and `isLastStep` to determine whether the mosparo box should be displayed. Default logic if value is `null`: `(isMultiStepForm && !isLastStep)` |
 
@@ -78,7 +78,7 @@ To manually control the submission process, you now have two methods that are re
     var maxSteps = 3;
     window.onload = function(){
         m = new mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
-            submitToken: '<submitToken>', // Received in the first step, empty or unset for the first step
+            submitToken: '<submitToken>', // Received in the first step, empty or unset for the first step, see below.
 
             // You need to set either both `isMultiStepForm` and `isLastStep` or only `forceInvisible`
             //isMultiStepForm: true,
@@ -110,6 +110,40 @@ To manually control the submission process, you now have two methods that are re
     };
 </script>
 ```
+
+### Submit token
+
+In the form steps after the first step, you have to specify the submit token from the first step. But from where do you get it? The submit token is automatically generated when you initialize the mosparo box in the first step. mosparo then stores the submit token in a hidden field on your form.
+
+As soon as the user submits the form, the submit token is sent to your backend along with the form data from your form fields. You need to keep the submit token and use it in the steps to initialize mosparo. The name of the field is `_mosparo_submitToken`. To get the value, use your backend's method to access the POST request parameters and search the field withe the name `_mosparo_submitToken`.
+
+#### Example
+
+```php
+<?php
+
+$submitToken = $_POST['_mosparo_submitToken'];
+
+// Do other stuff, like storing the form data
+
+?>
+
+<!-- When initializing mosparo for form step 2 (and the other steps): -->
+<script>
+    var m;
+    var step = 1;
+    var maxSteps = 3;
+    window.onload = function(){
+        m = new mosparo('<htmlId>', '<host>', '<uuid>', '<publicKey>', {
+            submitToken: '<?php echo $submitToken; ?>',
+        });
+    };
+</script>
+```
+
+:::info
+The submit token helps mosparo understand which data belongs together by matching them to it. If you do not use the same submit token, mosparo will create a new submit token when initializing the form in step two (and the other steps), and will never validate the full form data, because the different steps are, in this case, different form submissions with different submit tokens for mosparo.
+:::
 
 ## Single-page-based (SPA) multi-step form
 
@@ -150,6 +184,8 @@ By initializing mosparo in the first step of your form, you give mosparo the cha
 
 As soon as the user continues to the next step, you need to store the form data in a JavaScript object. Otherwise, removing the fields from the DOM will remove the form data and mosparo cannot verify them. To make life easier, you should store the form data in the correct structure as mosparo requires it.
 
+Some field types are not validated and verified by mosparo. For example, password fields or checkboxes are ignored, and you should not send their values to mosparo. Read more about [Ignored fields](./ignored_fields).
+
 ```javascript
 // You can place that anywhere in your code
 /**
@@ -170,7 +206,7 @@ function onSubmittingFormStep(form) { // In this example, form is an Element (ht
     form.querySelectorAll('[name]:not(.mosparo__ignored-field)').forEach(function (el) {
         let name = el.getAttribute('name');
         
-        // You should ignore fields like `password`, `checkbox`, and `radio`, because mosparo does not want to verify them
+        // You should ignore fields like `password`, `checkbox`, and `radio`, because mosparo does not want to verify them.
         if (el.getAttribute('type') === 'password') {
             return;
         }
@@ -199,7 +235,7 @@ function onSubmittingFormStep(form) { // In this example, form is an Element (ht
 Every field name should be in the form data only once. You can submit an array as a value, for example, if you have a list of values for a field. But the name should be in the array only once, so please ensure that you do not add the same name multiple times. For a better example of how you should do it, please have a look at the method `getFormData` in the `mosparo-frontend.js`: https://github.com/mosparo/mosparo/blob/master/assets/mosparo-frontend.js
 :::
 
-If you need, you can add additional information to the field array, for example, which step and which form field it is. For mosparo, only these three keys are required. The `fieldPath` is a combination of the field type (`input`, `textarea`, or `select`), combined with the input type (if it's an `input` field). After that, the field name is added, separated by a dot. For example:
+If you need, you can add additional information to the field object, for example, to know from which step a value is. For mosparo, only the `name`, `value`, and `fieldPath` keys are required. The `fieldPath` is a combination of the field type (`input`, `textarea`, or `select`), combined with the input type (if it's an `input` field). After that, the field name is added, separated by a dot. For example:
 
 ```text
 input[text].name
@@ -208,6 +244,10 @@ select.country
 ```
 
 The field path determines which rules should be applied to which field. If you submit a wrong field path, the rules will be applied incorrectly, resulting in errors or false positives when validating the form data.
+
+For more information about preparing the form data, please see the details in the section [Preparing form data](./custom#preparing-form-data).
+
+If you want to store additional data in mosparo, for example, how long the user needed to fill out a step, you can send this information as metadata. For this, see the chapter [Storing metadata](./custom#storing-metadata).
 
 ### Validate the form data
 
