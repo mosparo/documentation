@@ -4,7 +4,7 @@ sidebar_label: Ignorierte Felder
 description: Erfahren Sie, welche Felder von mosparo ignoriert werden.
 ---
 
-# Ingorierte Felder
+# Ignorierte Felder
 
 :::caution
 Weil mosparo einige Felder ignoriert, ist es möglich, die Validierung der Felder zu umgehen. Lesen Sie mehr darüber unter [Umgehungsschutz](bypass_protection).
