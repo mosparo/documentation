@@ -108,7 +108,7 @@ Um den Übermittlungsprozess manuell zu steuern, stehen Ihnen nun zwei Methoden 
 
 ## Single-Page-basiertes (SPA) mehrstufiges Formular 
 
-Wenn Sie mosparo in einer Single-Page-Anwendung oder auf einer Website verwenden, die die Seite während des Besuchs eines Nutzers nicht neu lädt, können Sie die Daten im Speicher des Browsers behalten und die Formularfelder im letzten Schritt validieren. Sie sollten den Einsende-Code bei der Initialisierung des Formulars anfordern, damit andere Funktionen, wie beispielsweise die Sicherheitsmassnahme zur Mindestzeit, korrekt funktionieren können. Sie müssen die Daten nicht nach jedem Schritt in mosparo speichern.
+Wenn Sie mosparo in einer Single-Page-Anwendung oder auf einer Website verwenden, die die Seite während des Besuchs eines Nutzers nicht neu lädt, können Sie die Daten im Speicher des Browsers behalten und die Formularfelder im letzten Schritt validieren. Es wird dringend empfohlen, den Einsende-Code bei der Initialisierung des Formulars anzufordern, damit andere Funktionen, wie beispielsweise die Sicherheitsmassnahme zur Mindestzeit, korrekt funktionieren können. Sie müssen die Daten nicht nach jedem Schritt in mosparo speichern.
 
 Hier ist eine Zusammenfassung des Anwendungsfalls:
 

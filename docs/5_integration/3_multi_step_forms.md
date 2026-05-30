@@ -108,7 +108,7 @@ To manually control the submission process, you now have two methods that are re
 
 ## Single-page-based (SPA) multi-step form
 
-If you use mosparo in a single-page application or on any website that does not reload the page during a user's visit, you can keep the data in the browser's memory and validate the form fields at the last step. You should request the submit token when initializing the form so that other features, like the minimum time security measurement, can work correctly. You do not need to store the data in mosparo after every step.
+If you use mosparo in a single-page application or on any website that does not reload the page during a user's visit, you can keep the data in the browser's memory and validate the form fields at the last step. It is strongly recommended to request the submit token when initializing the form so that other features, like the minimum time security measurement, can work correctly. You do not need to store the data in mosparo after every step.
 
 Here is a summary of the use case:
 
