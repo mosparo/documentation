@@ -28,6 +28,10 @@ Wenn Sie besondere Anforderungen haben, können Sie diesen Vorgang auch manuell 
 
 ### Automatischer Modus
 
+:::info
+Für einen besseren Überblick des anfragebasierten, automatischen Modus finden Sie [hier](assets/multi_step_chart_request_based_automatic_v1.0_DE.pdf) ein Diagramm dazu.
+:::
+
 Im automatischen Modus löst mosparo den Prozess über das `submit`-Ereignis aus. Wenn Sie den automatischen Modus nutzen möchten, müssen Sie lediglich das `submit`-Ereignis im Formular auslösen (entweder durch Verwendung des Schaltflächentyps `submit` oder durch manuelles Auslösen des Ereignisses). Sie müssen mosparo mit vier zusätzlichen Parametern initialisieren:
 
 ```html
@@ -62,6 +66,10 @@ Im automatischen Modus löst mosparo den Prozess über das `submit`-Ereignis aus
 | `forceInvisible`  | Boolean\|Null | Solange Sie sich nicht im letzten Schritt befinden, sollte die mosparo-Box als unsichtbare Box initialisiert werden, damit wir das Overlay zur Speicherung der Daten anzeigen und mit dem nächsten Schritt fortfahren können. Wenn dieser Parameter nicht gesetzt ist (oder als `null`), verwendet mosparo automatisch `isMultiStepForm` und `isLastStep` um zu ermitteln, ob die mosparo Box angezeigt werden soll oder nicht. |
 
 ### Manueller Modus
+
+:::info
+Für einen besseren Überblick des anfragebasierten, manuellen Modus finden Sie [hier](assets/multi_step_chart_request_based_manual_v1.0_DE.pdf) ein Diagramm dazu.
+:::
 
 Sie können den gesamten Übermittlungsprozess manuell steuern. Dazu dürfen Sie keine Schaltflächen mit dem Typ `submit` verwenden und das `submit`-Ereignis im Formular nicht auslösen.
 
@@ -145,7 +153,11 @@ $submitToken = $_POST['_mosparo_submitToken'];
 Der Einsende-Code hilft mosparo dabei, zu erkennen, welche Daten zusammengehören, indem es sie diesem zuordnet. Wenn Sie nicht denselben Einsende-Code verwenden, erstellt mosparo bei der Initialisierung des Formulars in Schritt zwei (und den anderen Schritten) einen neuen Einsende-Code und validiert niemals die vollständigen Formulardaten, da die verschiedenen Schritte in diesem Fall für mosparo unterschiedliche Einsendungen mit unterschiedlichen Einsende-Codes darstellen.
 :::
 
-## Single-Page-basiertes (SPA) mehrstufiges Formular 
+## Single-Page-basiertes (SPA) mehrstufiges Formular
+
+:::info
+Für einen besseren Überblick des Single-Page-basierten Modus finden Sie [hier](assets/multi_step_chart_spa_based_v1.0_DE.pdf) ein Diagramm dazu.
+:::
 
 Wenn Sie mosparo in einer Single-Page-Anwendung oder auf einer Website verwenden, die die Seite während des Besuchs eines Nutzers nicht neu lädt, können Sie die Daten im Speicher des Browsers behalten und die Formularfelder im letzten Schritt validieren. Es wird dringend empfohlen, den Einsende-Code bei der Initialisierung des Formulars anzufordern, damit andere Funktionen, wie beispielsweise die Sicherheitsmassnahme zur Mindestzeit, korrekt funktionieren können. Sie müssen die Daten nicht nach jedem Schritt in mosparo speichern.
 

@@ -28,6 +28,10 @@ If you have special requirements, you can also control this method manually. You
 
 ### Automatic mode
 
+:::info
+For a better overview of the request-based automatic mode, please see our chart [here](assets/multi_step_chart_request_based_automatic_v1.0_EN.pdf).
+:::
+
 In the automatic mode, mosparo uses the submit event to trigger the process. If you want to use the automatic mode, all you need to do is trigger the submit event in the form (by using the button type `submit` or by manually triggering the event). You need to initialize mosparo with four additional parameters:
 
 ```html
@@ -62,6 +66,10 @@ In the automatic mode, mosparo uses the submit event to trigger the process. If 
 | `forceInvisible`  | Boolean\|Null | Unless you are on the last step, the mosparo box should be initialized as an invisible box so that we can display the overlay for saving the data and proceed to the next step. If this parameter is not set (or is `null`), mosparo automatically uses `isMultiStepForm` and `isLastStep` to determine whether the mosparo box should be displayed. Default logic if value is `null`: `(isMultiStepForm && !isLastStep)` |
 
 ### Manual mode
+
+:::info
+For a better overview of the request-based manual mode, please see our chart [here](assets/multi_step_chart_request_based_manual_v1.0_EN.pdf).
+:::
 
 You can control the whole submission process manually. For this, you mustn't use buttons with type `submit`, and you must not trigger the `submit` event on the form.
 
@@ -146,6 +154,10 @@ The submit token helps mosparo understand which data belongs together by matchin
 :::
 
 ## Single-page-based (SPA) multi-step form
+
+:::info
+For a better overview of the single-page-based mode, please see our chart [here](assets/multi_step_chart_spa_based_v1.0_EN.pdf).
+:::
 
 If you use mosparo in a single-page application or on any website that does not reload the page during a user's visit, you can keep the data in the browser's memory and validate the form fields at the last step. It is strongly recommended to request the submit token when initializing the form so that other features, like the minimum time security measurement, can work correctly. You do not need to store the data in mosparo after every step.
 
