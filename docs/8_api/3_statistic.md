@@ -91,11 +91,12 @@ If an error occurred, only the following properties would be present in the answ
 
 ##### Properties of `data`
 
-| Name                       | Type    | Description                                                                                                                          |
-|----------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `numberOfValidSubmissions` | Integer | The number of valid submissions in the selected range.                                                                               |
-| `numberOfSpamSubmissions`  | Integer | The number of submissions as spam in the selected range.                                                                             |
-| `numbersByDate`            | Object  | Contains the statistic data for every day in the selected range (see [Properties of `numbersByDate`](#properties-of-numbersbydate)). |
+| Name                       | Type    | Description                                                                                                                                                                      |
+|----------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `numberOfValidSubmissions` | Integer | The number of valid submissions in the selected range.                                                                                                                           |
+| `numberOfSpamSubmissions`  | Integer | The number of submissions as spam in the selected range.                                                                                                                         |
+| `lastSubmissionAt`         | String  | The timestamp when the last submission was processed in the selected range. The value is `null` if no submissions were processed in the selected range. Format: `Y-m-d\\TH:i:sP` |
+| `numbersByDate`            | Object  | Contains the statistic data for every day in the selected range (see [Properties of `numbersByDate`](#properties-of-numbersbydate)).                                             |
 
 ##### Properties of `numbersByDate`
 

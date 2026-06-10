@@ -91,11 +91,12 @@ Wenn ein Fehler aufgetreten ist, sind nur die folgenden Eigenschaften in der Ant
 
 ##### Merkmale von `data`
 
-| Name                       | Typ     | Beschreibung                                                                                                                               |
-|----------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `numberOfValidSubmissions` | Integer | Die Anzahl der gültigen Einsendungen im ausgewählten Bereich (`range`).                                                                    |
-| `numberOfSpamSubmissions`  | Integer | Die Anzahl der Einsendungen als Spam im ausgewählten Bereich (`range`).                                                                              |
-| `numbersByDate`            | Objekt  | Enthält die statistischen Daten für jeden Tag im ausgewählten Bereich (`range`) (siehe [Merkmale von `numbersByDate`](#merkmale-von-numbersbydate)). |
+| Name                       | Typ     | Beschreibung                                                                                                                                                                                                 |
+|----------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `numberOfValidSubmissions` | Integer | Die Anzahl der gültigen Einsendungen im ausgewählten Zeitraum.                                                                                                                                               |
+| `numberOfSpamSubmissions`  | Integer | Die Anzahl der Einsendungen als Spam im ausgewählten Zeitraum.                                                                                                                                               |
+| `lastSubmissionAt`         | String  | Der Zeitstempel, zu dem die letzte Einsendung im ausgewählten Zeitraum verarbeitet wurde. Der Wert ist `null`, wenn im ausgewählten Zeitraum keine Einsendungen verarbeitet wurden. Format: `Y-m-d\\TH:i:sP` |
+| `numbersByDate`            | Objekt  | Enthält die statistischen Daten für jeden Tag im ausgewählten Zeitraum (siehe [Merkmale von `numbersByDate`](#merkmale-von-numbersbydate)).                                                                  |
 
 ##### Merkmale von `numbersByDate`
 
