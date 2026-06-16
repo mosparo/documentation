@@ -54,18 +54,22 @@ Ein Host ist eine Domain ohne das Protokoll und den Pfad. Sie können einen Ster
 
 In den allgemeinen Einstellungen können die wichtigsten Informationen zum Projekt bearbeitet werden.
 
-| Feld                             | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Spamerkennungs-Optionen**      |
-| Status                           | Wenn aktiv, blockiert mosparo Beiträge, die als Spam erkannt wurden. Wenn inaktiv, bewertet mosparo alle Beiträge, blockiert sie aber nicht. Sie können den Status auch in einer [ursprungsbasierten Sicherheitsrichtlinie](#ursprungsbezogene-sicherheitseinstellungen) aktivieren oder deaktivieren.                                                                                                                                         |
-| Spam-Grenze                      | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird. Sie können die Spam-Grenze auch in einer [ursprungsbasierten Sicherheitsrichtlinie](#ursprungsbezogene-sicherheitseinstellungen) anpassen.                                                                                                                                                                                                                                                             |
-| **Sprach-Optionen**              |
-| Sprachquelle                     | Legt fest, wie mosparo die Sprache für die Frontend-Box bestimmt. mosparo verwendet standardmässig die Browsersprache. Mit dieser Option ist es möglich, die Sprache der Website als Fallback zu verwenden oder die Sprache der Website als Hauptquelle zu verwenden und die Browsersprache als Fallback zu verwenden. _(Hinzugefügt in v1.3)_                                                                                                 |
-| **Statistik-Optionen**           |
-| Speichern der Statistik          | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                                                         |
-| **Entwickler-Optionen**          |
-| API-Debugging-Modus              | Aktiviert den API-Debug-Modus. Wenn dieser Modus aktiviert ist, antworten die APIs mit zusätzlichen Informationen, damit leichter nachvollzogen werden kann, warum die API die Antwort oder Fehlermeldung zurückgegeben hat. Siehe [API-Debugging-Modus](../api/api_debug_mode). _(Hinzugefügt in v1.1)_                                                                                                                                       |
-| Verifizierungs-Simulations-Modus | Aktiviert den Verifikations-Simulations-Modus. Wenn dieser Modus aktiviert ist, erklärt die Verifizierungs-Simulation, welche Daten die mosparo Verifizierungs-API zur Verifizierung der Einsendung erwartet. Der Verifizierungs-Simulations-Modus ist auf der Detailseite der Einsendung sichtbar, sofern er aktiviert ist. Siehe [Verifizierungs-Simulations-Modus](./submissions#verifizierungs-simulations-modus). _(Hinzugefügt in v1.1)_ |
+| Feld                                            | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Spamerkennungs-Optionen**                     |
+| Status                                          | Wenn aktiv, blockiert mosparo Beiträge, die als Spam erkannt wurden. Wenn inaktiv, bewertet mosparo alle Beiträge, blockiert sie aber nicht. Sie können den Status auch in einer [ursprungsbasierten Sicherheitsrichtlinie](#ursprungsbezogene-sicherheitseinstellungen) aktivieren oder deaktivieren.                                                                                                                                                                                                                          |
+| Spam-Grenze                                     | Die Spam-Grenze legt fest, ab wie vielen Punkten eine Einsendung als Spam erkannt wird. Sie können die Spam-Grenze auch in einer [ursprungsbasierten Sicherheitsrichtlinie](#ursprungsbezogene-sicherheitseinstellungen) anpassen.                                                                                                                                                                                                                                                                                              |
+| Stiller Modus aktivieren                        | Der stille Modus ist ein neuer Verarbeitungsmodus, der in Version 1.5 hinzugefügt wurde. Statt den Benutzer darauf hinzuweisen, dass Spam erkannt wurde, zeigt mosparo nichts an, was darauf hindeuten könnte, dass die Eingabe blockiert wurde. Stattdessen akzeptiert mosparo alles. Wenn das Backend der Website die Formulardaten mit mosparo verifiziert, benachrichtigt mosparo das Backend, dass die Eingabe ungültig ist. Das Backend kann nun entscheiden, was zu tun ist und wie die Eingabe verarbeitet werden soll. |
+| **Sprach-Optionen**                             |
+| Sprachquelle                                    | Legt fest, wie mosparo die Sprache für die Frontend-Box bestimmt. mosparo verwendet standardmässig die Browsersprache. Mit dieser Option ist es möglich, die Sprache der Website als Fallback zu verwenden oder die Sprache der Website als Hauptquelle zu verwenden und die Browsersprache als Fallback zu verwenden. _(Hinzugefügt in v1.3)_                                                                                                                                                                                  |
+| **Statistik-Optionen**                          |
+| Speichern der Statistik                         | Legt fest, wie lange mosparo die Statistikdaten für ein Projekt speichert. Nach Ablauf der gewählten Zeitspanne löscht mosparo die Statistikdaten automatisch. _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                                                                                                                                          |
+| **Metadaten-Optionen**                          |
+| Metadaten erlaubt                               | Legt fest, ob Metadaten über die API übermittelt werden können oder nicht. Wenn Sie keine Metadaten erhalten möchten, lassen Sie diese Option deaktiviert. _(Hinzugefügt in v1.5)_                                                                                                                                                                                                                                                                                                                                              |
+| Metadaten zur Verifizierungs-Antwort hinzufügen | Wenn Metadaten aktiviert sind und diese Option aktiviert ist, werden der Bestätigungsantwort, die Ihr Backend bei der Überprüfung der übermittelten Formulardaten erhält, die gespeicherten Metadaten hinzugefügt. _(Hinzugefügt in v1.5)_                                                                                                                                                                                                                                                                                      |
+| **Entwickler-Optionen**                         |
+| API-Debugging-Modus                             | Aktiviert den API-Debug-Modus. Wenn dieser Modus aktiviert ist, antworten die APIs mit zusätzlichen Informationen, damit leichter nachvollzogen werden kann, warum die API die Antwort oder Fehlermeldung zurückgegeben hat. Siehe [API-Debugging-Modus](../api/api_debug_mode). _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                        |
+| Verifizierungs-Simulations-Modus                | Aktiviert den Verifikations-Simulations-Modus. Wenn dieser Modus aktiviert ist, erklärt die Verifizierungs-Simulation, welche Daten die mosparo Verifizierungs-API zur Verifizierung der Einsendung erwartet. Der Verifizierungs-Simulations-Modus ist auf der Detailseite der Einsendung sichtbar, sofern er aktiviert ist. Siehe [Verifizierungs-Simulations-Modus](./submissions#verifizierungs-simulations-modus). _(Hinzugefügt in v1.1)_                                                                                  |
 
 ## Projektmitglieder
 
@@ -97,11 +101,11 @@ Die allgemeinen Sicherheitseinstellungen eines Projekts sind die Grundeinstellun
 
 #### Ursprungsbezogene Sicherheitseinstellungen
 
-Die ursprungsbezogenen Sicherheitseinstellungen ermöglichen es Ihnen, die Sicherheitseinstellungen aufgrund des Ursprungs eines Benutzers anzupassen. Dies kann durch die Definition spezieller Sicherheitseinstellungen auf der Grundlage der IP-Adresse eines Benutzers erfolgen. Wenn Sie GeoIP2 konfiguriert haben, können Sie auch die AS-Nummer und das Land zur Zuordnung eines Benutzers verwenden.
+Mit den ursprungsbasierten Sicherheitseinstellungen können Sie die Sicherheitseinstellungen anhand der IP-Adresse eines Benutzers oder des Formulars anpassen. Dies geschieht durch die Definition spezieller Sicherheitseinstellungen auf Basis der IP-Adresse eines Benutzers, der URL der Formularseite, der URL der Formularaktion oder der Formular-ID. Wenn Sie GeoIP2 konfiguriert haben, können Sie zur Zuordnung eines Benutzers auch die AS-Nummer und das Land verwenden. _(Die formularbasierten Kriterien wurden in Version 1.5 hinzugefügt.)_
+
+Sie können beliebig viele Richtlinien erstellen. In jeder Richtlinie können Sie beliebig viele Kriterien definieren. Die Kriterien werden für einen Benutzer oder ein Formular angewendet, sobald eines der Kriterien übereinstimmt. Wenn Sie in einer Sicherheitsrichtlinie sowohl IP-basierte **als auch** formularbasierte Kriterien definiert haben, muss jeweils eines aus jeder Kategorie übereinstimmen (eines IP-basiert und eines formularbasiert), damit die Sicherheitsrichtlinie angewendet wird.
 
 Mit der Priorität können Sie festlegen, in welcher Reihenfolge die Richtlinien angewendet werden sollen. Die passende Richtlinie mit der höchsten Priorität wird für einen Benutzer verwendet.
-
-Sie können so viele Richtlinien erstellen, wie Sie möchten. In jeder Richtlinie können Sie beliebig viele Kriterien definieren. Die Richtlinie wird für einen Benutzer verwendet, sobald eines der Kriterien zutrifft.
 
 Wenn Sie eine der Sicherheitseinstellungen anpassen möchten, aktivieren Sie die Überschreiben-Checkbox in der oberen rechten Ecke des Feldes für die Sicherheitseinstellung. Wenn Sie eine der in den allgemeinen Sicherheitseinstellungen aktivierten Sicherheitseinstellungen deaktivieren möchten, aktivieren Sie die Überschreiben-Checkbox und deaktivieren Sie das aktivierte Kontrollkästchen.
 
@@ -284,9 +288,15 @@ Der Radius der Box können Sie so anpassen, wie es für Ihre Website am besten p
 
 Auf der zweiten Registerkarte der Grösseneinstellungen können Sie den Radius des Kontrollkästchens und die Rahmenbreite festlegen. Mit diesen Einstellungen können Sie das Aussehen des Kontrollkästchens ändern und es eher quadratisch gestalten, ähnlich wie bei anderen Spam-Schutzmethoden. _(Hinzugefügt in v1.4)_
 
+#### Schriftgrösse und Zeilenhöhe
+
+Auf der dritten Registerkarte der Grösseneinstellungen können Sie die Schriftgrösse und die Zeilenhöhe des Textes innerhalb des mosparo-Box festlegen. Mit diesen Einstellungen können Sie das Erscheinungsbild der mosparo-Box weiter anpassen, damit es sich nahtlos in Ihre Website einfügt. _(Hinzugefügt in v1.5)_
+
 #### Farben
 
 Wählen Sie die verschiedenen Farben für die Box in den jeweiligen Zuständen aus. Falls Sie für eine Farbe einen transparenten Wert verwenden möchten, können Sie im Farbwähler auf das schwarze X klicken.
+
+Mit Version 1.5 haben wir die Farben für den unsichtbaren Modus auch im sichtbaren Modus hinzugefügt. Dies ist erforderlich, wenn Sie mosparo in einem mehrstufigen Formular verwenden möchten. Sie müssen dies nicht konfigurieren, wenn Sie mosparo in einem einfachen einstufigen Formular verwenden.
 
 #### mosparo-Logo
 
@@ -325,3 +335,27 @@ Beim Speichern der Darstellung werden die gewählten Werte in der Datenbank gesp
 Sobald ein Benutzer ein Formular auf Ihrer Website aufruft, wird diese bereits vorbereitete Datei geladen und der Benutzer hat automatisch die korrekte Darstellung.
 
 Nachdem Sie die Darstellung angepasst haben, wird eine neue solche Datei mit einem neuen Dateinamen gespeichert. Alle Anfragen an die alte Datei werden automatisch an die neue Datei weitergeleitet, so dass beim Anpassen der Darstellung keine Unterbrüche feststellbar sind und trotzdem immer die neueste Version verwendet wird.
+
+## Übersetzungen
+
+Vor Version 1.5 mussten Sie den Integrationscode anpassen, um eigene Übersetzungen zu konfigurieren. Ab Version 1.5 können Sie Ihre benutzerdefinierten Übersetzungen direkt in einem mosparo-Projekt verwalten. Um Übersetzungen zu verwalten, gehen Sie bitte zu den Projekteinstellungen und wählen Sie "Übersetzungen" aus. Dort können Sie eine neue Übersetzung hinzufügen oder die vorhandenen verwalten.
+
+:::info
+Falls wir eine Sprache nicht standardmässig anbieten und Sie die Übersetzungen dafür hinzufügen, würden wir uns freuen, wenn Sie diese mit uns teilen würden, damit wir sie für alle anderen Nutzer in den Code integrieren können. Weitere Informationen dazu finden Sie unter [Übersetzen](../translating).
+:::
+
+### Übersetzung hinzufügen (oder ändern)
+
+Um eine Übersetzung hinzuzufügen, klicken Sie auf die grüne Schaltfläche oben rechts. Es erscheint das Formular zum Hinzufügen einer neuen Übersetzung. Bitte geben Sie die Sprache als zweistelligen Sprachcode (ISO 639-1, zum Beispiel "en") oder als Sprach-Länder-Kombination (zum Beispiel "en_US") ein. Wählen Sie den Ausgangstext aus, den Sie übersetzen möchten. Mit dieser Funktion können Sie nur die Frontend-Übersetzungen übersetzen, nicht die im mosparo-Backend. Geben Sie bitte im Feld "Übersetzter Text" die Übersetzung für die ausgewählte Sprache ein.
+
+Sie können beliebig viele Übersetzungen für beliebig viele Sprachen hinzufügen. Wenn der Benutzer das Formular öffnet, bestimmt die Sprache des Browsers oder die Sprache des HTML-Dokuments, welche Sprache verwendet wird.
+
+Sie müssen nicht jeden Ausgangstext übersetzen. Wenn Sie nur den Hauptsatz in der mosparo-Box übersetzen möchten, können Sie einfach diesen übersetzen und die übrigen Sätze den Standardübersetzungen von mosparo überlassen.
+
+### Übersetzung löschen
+
+Wenn Sie eine Übersetzung löschen möchten, klicken Sie in der Liste der Übersetzungen auf die Schaltfläche rechts neben der Übersetzung und bestätigen Sie, dass Sie die Übersetzung löschen möchten.
+
+### Importieren und Exportieren
+
+Mit der Import- und Exportfunktion können Sie Übersetzungen importieren und exportieren. Auf diese Weise können Sie Ihre Übersetzungen für mehrere Projekte nutzen.

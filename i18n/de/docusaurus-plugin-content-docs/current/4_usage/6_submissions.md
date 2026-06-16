@@ -36,7 +36,7 @@ Wenn Sie eine Einsendung anschauen, sehen Sie viele weitere Informationen zur Ei
 | **Überprüfung** (Box)              |
 | Ist gültig                         | Gibt an, ob die Einsendung korrekt vom Backend einer Website überprüft wurde.                                                                                                        |
 | Überprüft am                       | Gibt an, wann die Einsendung überprüft wurde.                                                                                                                                        |
-| **Allgemeine Überprüfungen** (Box) | Zeigt das Ergebnis der allgemein verifizierten aktiven Sicherheitsmerkmale an.                                                                                      |
+| **Allgemeine Überprüfungen** (Box) | Zeigt das Ergebnis der allgemein verifizierten aktiven Sicherheitsmerkmale an.                                                                                                       |
 | **Quelle** (Box)                   |
 | Seiten-Titel                       | Titel der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                      |
 | Seiten-URL                         | Adresse der Webseite, auf welcher das Formular untergebracht ist.                                                                                                                    |
@@ -49,6 +49,7 @@ Wenn Sie eine Einsendung anschauen, sehen Sie viele weitere Informationen zur Ei
 | AS Nummer                          | Nummer der Organisation, welcher als Besitzer einer IP-Adresse eingetragen ist.                                                                                                      |
 | AS Organisation                    | Name der Organisation, welche als Besitzer einer IP-Adresse eingetragen ist.                                                                                                         |
 | Land                               | Das Land, welchem die IP-Adresse aufgrund der AS Organisation zugeordnet ist.                                                                                                        |
+| **Metadaten** (Box)                | Zeigt alle empfangenen Metadaten an. Die Box wird nicht angezeigt, wenn keine Metadaten übermittelt wurden oder wenn die Metadaten für ein Projekt deaktiviert sind.                 |
 
 ### Formulardaten
 
@@ -71,6 +72,10 @@ Weiter sehen Sie hinter dem Namen eines Feldes eine Statusanzeige. Diese Statusa
 Seit Version 1.4 markiert mosparo Leerzeichen am Anfang und am Ende eines Werts sowie unsichtbare Sonderzeichen im Feldwert. Diese Zeichen sind durch einen farbigen Rahmen sichtbar. Wenn Sie mit der Maus darüber fahren, wird ein Tooltip mit dem Namen des Zeichens angezeigt.
 
 Der Grund für diese Markierung ist, Sie darauf hinzuweisen, dass der Wert Leerzeichen (am Anfang bzw. Ende) oder Sonderzeichen enthält. Wenn die Validierung einer solchen Eingabe fehlschlägt, kann es an diesen Zeichen liegen.
+
+### Details zur Bewertung
+
+Mit den in Version 1.5 hinzugefügten Einsenderegeln haben wir am Ende der Einsende-Detailseite eine neue Bewertungsübersicht hinzugefügt. Hier können Sie sehen, welche Regel wie viele Punkte ergeben hat und wie diese berechnet wurden. Ausserdem werden die übereinstimmenden Einsende- und Feldregeln angezeigt (sofern welche übereinstimmen). Wenn keine Regeln übereinstimmen, wird die Bewertung nicht angezeigt.
 
 ### Probleme bei der Überprüfung
 

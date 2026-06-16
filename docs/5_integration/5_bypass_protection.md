@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 sidebar_label: Bypass protection
 description: The frontend part of mosparo could be bypassed. Read here how to protect your form.
 ---

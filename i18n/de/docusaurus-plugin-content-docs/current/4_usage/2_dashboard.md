@@ -18,3 +18,6 @@ Sie können den sichtbaren Datumsbereich mit dem Datumsbereichselektor in der ob
 
 Der Hinweis unterhalb des Diagramms gibt an, wann die Datenbank von mosparo zuletzt gesäubert wurde. Bei der Datenbankbereinigung werden veraltete Daten automatisch entfernt.
 
+## Verzögerte oder blockierte Anfragen _(Hinzugefügt in Version 1.5)_
+
+Unterhalb des Diagramms "Einsendungen" sehen Sie ein weiteres Diagramm mit den verzögerten und blockierten Anfragen. Diese Zahlen stammen aus den Sicherheitsfunktionen "Anfrageverzögerung" und "IP-Sperre". Wenn Sie diese Funktionen nicht aktiviert haben, wird das Diagramm leer angezeigt. Das Diagramm verwendet denselben Datumsbereich wie das Diagramm "Einsendungen".

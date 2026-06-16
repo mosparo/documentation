@@ -54,18 +54,22 @@ A host is a domain without the protocol and the path. You can use a star (`*`) a
 
 Some additional settings are available in the advanced settings.
 
-| Field                                | Description                                                                                                                                                                                                                                                                                                                                                      |
-|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Spam&nbsp;detection&nbsp;options** |
-| Status                               | If active, mosparo will block submissions that were detected as spam. If inactive, mosparo will rate all submissions but not block them. You can also turn the status on or off in an [origin-based security policy](#origin-based-security-settings).                                                                                                           |
-| Spam score                           | The spam score determines the points at which a submission is recognized as spam. You can also adjust the spam score in an [origin-based security policy](#origin-based-security-settings).                                                                                                                                                                                                         |
-| **Language&nbsp;options**            |
-| Language source                      | Defines how mosparo determines the language for the frontend box. mosparo uses the browser language by default. With this option, it's possible to use the website's language as a fallback or use the website's language as the main source and use the browser language as a fallback. _(Added in v1.3)_                                                       |
-| **Statistic&nbsp;options**           |
-| Statistic storage                    | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                         |
-| **Developer&nbsp;options**           |
-| API debug mode                       | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                   |
-| Verification simulation mode         | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_ |
+| Field                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Spam&nbsp;detection&nbsp;options**  |
+| Status                                | If active, mosparo will block submissions that were detected as spam. If inactive, mosparo will rate all submissions but not block them. You can also turn the status on or off in an [origin-based security policy](#origin-based-security-settings).                                                                                                                                                                              |
+| Spam score                            | The spam score determines the points at which a submission is recognized as spam. You can also adjust the spam score in an [origin-based security policy](#origin-based-security-settings).                                                                                                                                                                                                                                         |
+| Enable the silent mode                | The silent mode is a new detection mode added in version 1.5. Instead of letting the user know that the submission contains spam, mosparo shows nothing that suggests the submission is blocked. Instead, mosparo accepts everything. When the website's backend verifies the submission with mosparo, mosparo will notify the backend that the submission is invalid. The backend can now decide what to do and how to process it. |
+| **Language&nbsp;options**             |
+| Language source                       | Defines how mosparo determines the language for the frontend box. mosparo uses the browser language by default. With this option, it's possible to use the website's language as a fallback or use the website's language as the main source and use the browser language as a fallback. _(Added in v1.3)_                                                                                                                          |
+| **Statistic&nbsp;options**            |
+| Statistic storage                     | Defines how long mosparo stores the statistical data for a project. After the selected time range, mosparo deletes the statistical data automatically. _(Added in v1.1)_                                                                                                                                                                                                                                                            |
+| **Metadata&nbsp;options**             |
+| Metadata allowed                      | Decides if it is possible to submit metadata via the API or not. If you do not want to receive any metadata, leave it disabled. _(Added in v1.5)_                                                                                                                                                                                                                                                                                   |
+| Add metadata to verification response | If metadata is enabled and this option is enabled, the saved metadata will be added to the verification response your backend receives when it verifies the submitted form data. _(Added in v1.5)_                                                                                                                                                                                                                                  |
+| **Developer&nbsp;options**            |
+| API debug mode                        | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                                                                                      |
+| Verification simulation mode          | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_                                                                   |
 
 ## Project members
 
@@ -100,11 +104,11 @@ The general security settings of a project are the base settings for every proje
 
 #### Origin-based security settings
 
-The origin-based security settings allow you to adjust the security settings based on the origin of a user. This can be done by defining special security settings based on the IP address of a user. If you have configured GeoIP2, you can also use the AS number and the country to match a user.
+Origin-based security settings let you adjust security settings based on a user's IP address or the form. This can be done by defining special security settings based on the user's IP address, the form page URL, the form action URL, or the form ID. If you have configured GeoIP2, you can also use the AS number and the country to match a user. _(The form-based criteria were added in v1.5.)_
+
+You can create as many guidelines as you want. In every guideline, you can define as many criteria as you wish. The criteria will be applied to a request as soon as a single criterion matches. If you defined IP-based **and** form-based criteria in a security guideline, one of each category must match (one IP-based and one form-based) to apply the security guideline.
 
 With the priority, you can specify in which order the guidelines should be applied. The matching guideline with the highest priority will be used for a user.
-
-You can create as many guidelines as you want. In every guideline, you can define as many criteria as you wish. The criteria will be used for a user as soon as one of the criteria matches.
 
 If you want to adjust one of the security settings, check the override checkbox in the top right corner of the security settings box. If you wish to disable one of the security settings enabled in the general security settings, override the security settings and uncheck the enabled checkbox.
 
@@ -285,11 +289,17 @@ You can adjust the radius of the box to suit your website best. If you do not wa
 
 #### Checkbox radius and border width
 
-In the second tab of the size settings, you can define the radius of the checkbox and the border width. With these settings, you can change the look and feel of the checkbox to a more square checkbox, similar to other spam protection methods. _(Added in v1.4)_
+In the second tab of the dimensions settings, you can define the radius of the checkbox and the border width. With these settings, you can change the look and feel of the checkbox to a more square checkbox, similar to other spam protection methods. _(Added in v1.4)_
+
+#### Font size and line height
+
+In the third tab of the dimensions settings, you can define the font size and the line height of the text inside the mosparo box. With these settings, you can further adjust the look and feel of the mosparo box to fit it into your website. _(Added in v1.5)_
 
 #### Colors
 
 Select the different colors for the box in each state. You can click the black X in the color picker if you want to use a transparent value for a color.
+
+With v1.5, we've added the colors for the invisible mode in the visible mode as well. This is needed if you want to use mosparo in a multi-step form. You do not have to configure it if you use mosparo in a simple single-step form.
 
 #### mosparo logo
 
@@ -329,3 +339,26 @@ When a user calls up a form on your website, this already prepared file is loade
 
 After you customize the appearance, a new file is saved with a new name. All requests from the old file are automatically forwarded to the new file so that no interruptions can be detected when adjusting the display, and the latest version is always used.
 
+## Translations
+
+Before version 1.5, you needed to adjust the integration code to configure your own translations. Starting with version 1.5, you can manage your custom translations directly within a mosparo project. To manage translations, please head to the project settings and select "Translations". There, you can add a new translation or manage the existing ones.
+
+:::info
+If we don't offer a language out of the box and you add translations for it, please share the translations so we can add them to the code for all other users. Read more about it under [Translating](../translating).
+:::
+
+### Add (or modify) a translation
+
+To add a translation, click the green button in the top-right corner. You'll see the form to add a new translation. Please enter the locale as a two-character language code (ISO 639-1, for example, "en") or as a language-country combination (for example, "en_US"). Choose the base text that you want to translate. With this feature, you can only translate the frontend translations, not the ones in the mosparo backend. In the field "Translated text", please enter the translation for the selected locale.
+
+You can add as many translations as you want, for as many locales as you want. When the user opens the form, the browser's language or the HTML document's language determines which language is used.
+
+You do not have to translate every base text. If you want to translate the main sentence in the box, then you can simply translate this one and leave the others to the mosparo default translations.
+
+### Delete a translation
+
+If you want to delete a translation, you can click the button on the right side of the translation in the list of translations and confirm that you want to delete the translation. 
+
+### Import and export
+
+You can import and export the translations with the import and export functionality. With this, you can share your translation between multiple projects.

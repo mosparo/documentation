@@ -73,11 +73,13 @@ Es ist keine Authentifizierung erforderlich. Um das Projekt zu identifizieren, m
 
 #### Argumente
 
-| Name          | Typ    | Erforderlich | Beschreibung                                                                                                 |
-|---------------|--------|--------------|--------------------------------------------------------------------------------------------------------------|
-| `publicKey`   | String | Erforderlich | Der öffentliche Schlüssel des Projekts.                                                                      |
-| `submitToken` | String | Erforderlich | Der Einsendecode, welcher mit der Methode [`request-submit-token`](#request-submit-token) angefordert wurde. |
-| `formData`    | Array  | Erforderlich | Ein Array mit allen Formulardaten, siehe [Struktur von `formData`](#struktur-von-formdata).                  |
+| Name                | Typ     | Erforderlich | Beschreibung                                                                                                                                                                           |
+|---------------------|---------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `publicKey`         | String  | Erforderlich | Der öffentliche Schlüssel des Projekts.                                                                                                                                                |
+| `submitToken`       | String  | Erforderlich | Der Einsendecode, welcher mit der Methode [`request-submit-token`](#request-submit-token) angefordert wurde.                                                                           |
+| `formData`          | Array   | Erforderlich | Ein Array mit allen Formulardaten, siehe [Struktur von `formData`](#struktur-von-formdata).                                                                                            |
+| `metadata`          | Objekt  | Optional     | Ein Objekt, das alle Metadaten enthält. Die Metadaten werden nur dann in mosparo gespeichert, wenn dies in den erweiterten Projekteinstellungen aktiviert ist. _(Hinzugefügt in v1.5)_ |
+| `proofOfWorkNumber` | Integer | Optional     | Enthält das Ergebnis der Proof-of-Work-Sicherheitsmethode. _(Hinzugefügt in v1.3)_                                                                                                     |
 
 :::info Leere Objekte
 Einige Sprachen und Frameworks behandeln leere Objekte oder Arrays bei der Umwandlung in JSON als Arrays. Die mosparo-API erwartet, dass leere Arrays und Objekte als JSON-Objekte dargestellt werden, also als `{}`. Die API-Clients kümmern sich in der Regel um diese Umwandlung. Wenn Sie mit Ihrem eigenen Code auf die API zugreifen, stellen Sie bitte sicher, dass leere Arrays (`[]`) als leere Objekte (`{}`) geschrieben werden.

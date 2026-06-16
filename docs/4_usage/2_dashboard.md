@@ -17,3 +17,7 @@ You can choose the visible date range with the date range selector in the top ri
 ## Last database cleanup _(Added in v1.4)_
 
 The note below the diagram indicates when the mosparo database was last cleaned up. During database cleanup, outdated data is automatically removed.
+
+## Delayed or blocked requests _(Added in v1.5)_
+
+Below the Submission chart, you see another chart with the delayed and blocked requests. These numbers are from the security features "Request delaying" and "IP Lockout". If you haven't enabled these features, you will see an empty chart. The chart will use the same date range as the submission chart.

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: Content security policy (CSP)
 description: If CSP protects your website, add these additional options to ensure mosparo works correctly.
 ---

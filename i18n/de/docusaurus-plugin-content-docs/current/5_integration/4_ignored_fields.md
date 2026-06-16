@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 sidebar_label: Ignorierte Felder
 description: Erfahren Sie, welche Felder von mosparo ignoriert werden.
 ---

@@ -45,7 +45,7 @@ Verwenden Sie diesen Befehl in einem Cron-Job, um diese Funktion automatisch aus
 
 ### Health
 
-Der Health-Befehl überprüft den Zustand der Mosparo-Installation.
+Der Health-Befehl überprüft den Zustand der mosparo-Installation.
 
 ```shell
 ./bin/console mosparo:health
