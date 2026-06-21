@@ -22,11 +22,13 @@ No authentication is required. Each request must contain the public key of a pro
 
 #### Arguments
 
-| Name        | Type   | Required | Description                                         |
-|-------------|--------|----------|-----------------------------------------------------|
-| `publicKey` | String | Required | The public key of the project.                      |
-| `pageTitle` | String | Required | The title of the page on which the form is visible. |
-| `pageUrl`   | String | Required | The URL of the page on which the form is visible.   |
+| Name            | Type   | Required | Description                                                                                           |
+|-----------------|--------|----------|-------------------------------------------------------------------------------------------------------|
+| `publicKey`     | String | Required | The public key of the project.                                                                        |
+| `pageTitle `    | String | Required | The title of the page on which the form is visible.                                                   |
+| `pageUrl`       | String | Required | The URL of the page on which the form is visible.                                                     |
+| `formActionUrl` | String | Optional | The URL of the form action. This can be empty, for example, when a form is processed via XHR request. |
+| `formId`        | String | Optional | The ID of the form. This can be empty since the form does not need to have an ID.                     |
 
 ### Response
 

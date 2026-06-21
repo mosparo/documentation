@@ -22,11 +22,13 @@ Es ist keine Authentifizierung erforderlich. Um das Projekt zu identifizieren, m
 
 #### Argumente
 
-| Name        | Typ    | Erforderlich  | Beschreibung                                            |
-|-------------|--------|---------------|---------------------------------------------------------|
-| `publicKey` | String | Erforderlich  | Der öffentliche Schlüssel des Projekts.                 |
-| `pageTitle` | String | Erforderlich  | Der Titel der Seite, auf der das Formular sichtbar ist. |
-| `pageUrl`   | String | Erforderlich  | Die URL der Seite, auf der das Formular sichtbar ist.   |
+| Name            | Typ    | Erforderlich | Beschreibung                                                                                               |
+|-----------------|--------|--------------|------------------------------------------------------------------------------------------------------------|
+| `publicKey`     | String | Erforderlich | Der öffentliche Schlüssel des Projekts.                                                                    |
+| `pageTitle`     | String | Erforderlich | Der Titel der Seite, auf der das Formular sichtbar ist.                                                    |
+| `pageUrl`       | String | Erforderlich | Die URL der Seite, auf der das Formular sichtbar ist.                                                      |
+| `formActionUrl` | String | Optional     | Die URL der Formularaktion. Dies kann leer sein, zum Beispiel, wenn ein Formular via XHR verarbeitet wird. |
+| `formId`        | String | Optional     | Die ID des Formulars. Dies kann leer sein, da ein Formular keine ID haben muss.                            |
 
 ### Antwort
 
