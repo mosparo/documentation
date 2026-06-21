@@ -13,7 +13,6 @@ Alternatively, you can install mosparo directly from our Git repository. The ins
 In addition to the requirements described in the [requirements](../requirements) regarding your web hosting, you need for this method
 - Git
 - Composer
-- Yarn
 - Node.js (18)
 
 ## Installation
@@ -30,17 +29,17 @@ git checkout tags/[lastVersionTag]
 :::note
 Please replace `[lastversionTag]` with the name of the latest tag (see https://github.com/mosparo/mosparo/tags).
 :::
-4. Run
+4. Execute composer
 ```
 composer install –-no-dev
 ```
-5. Install all frontend packages
+5. Install the frontend dependencies
 ```
-yarn install
+npm install
 ```
-6. Generate all frontend resources
+6. Build the frontend resources (use `npm run dev` if you build it for development purposes)
 ```
-yarn encore production
+npm run build
 ```
 7. If you want to run mosparo in production, create the file `.env.local` and add the following content:
 ```dotenv title=.env.local
