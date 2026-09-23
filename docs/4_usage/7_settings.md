@@ -71,6 +71,10 @@ Some additional settings are available in the advanced settings.
 | API debug mode                        | Enables the API debug mode. When enabled, the APIs will respond with additional information to make it easier to understand why the API returned the response or error message. See [API debug mode](../api/api_debug_mode). _(Added in v1.1)_                                                                                                                                                                                      |
 | Verification simulation mode          | Enables the verification simulation mode. When enabled, the verification simulation will explain which data the mosparo verification API expects to verify the request. The verification simulation mode is visible on the submission detail page when enabled. See [Verification simulation mode](./submissions#verification-simulation-mode). _(Added in v1.1)_                                                                   |
 
+:::caution
+The API debug mode should only be used in development environments. It can give an attacker some information about your project and can be dangerous in production environments.
+:::
+
 ## Project members
 
 Project members are users who have access to a project. The users can have different permissions and sometimes only view projects but can not change anything. Users can be added as project members in more than one project.

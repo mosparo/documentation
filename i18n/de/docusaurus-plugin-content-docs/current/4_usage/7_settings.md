@@ -71,6 +71,11 @@ In den allgemeinen Einstellungen können die wichtigsten Informationen zum Proje
 | API-Debugging-Modus                             | Aktiviert den API-Debug-Modus. Wenn dieser Modus aktiviert ist, antworten die APIs mit zusätzlichen Informationen, damit leichter nachvollzogen werden kann, warum die API die Antwort oder Fehlermeldung zurückgegeben hat. Siehe [API-Debugging-Modus](../api/api_debug_mode). _(Hinzugefügt in v1.1)_                                                                                                                                                                                                                        |
 | Verifizierungs-Simulations-Modus                | Aktiviert den Verifikations-Simulations-Modus. Wenn dieser Modus aktiviert ist, erklärt die Verifizierungs-Simulation, welche Daten die mosparo Verifizierungs-API zur Verifizierung der Einsendung erwartet. Der Verifizierungs-Simulations-Modus ist auf der Detailseite der Einsendung sichtbar, sofern er aktiviert ist. Siehe [Verifizierungs-Simulations-Modus](./submissions#verifizierungs-simulations-modus). _(Hinzugefügt in v1.1)_                                                                                  |
 
+:::caution
+Der API-Debugging-Modus sollte ausschliesslich in Entwicklungsumgebungen verwendet werden. Er kann einem Angreifer Informationen über Ihr Projekt liefern und kann in Produktionsumgebungen ein Sicherheitsrisiko darstellen.
+:::
+
+
 ## Projektmitglieder
 
 Projektmitglieder sind Benutzer, welche auf ein Projekt Zugriff haben. Die Benutzer können verschiedene Berechtigungen haben und zum Teil nur Projekte anschauen, jedoch nichts verändern. Benutzer können in mehr als einem Projekt als Projektmitglied hinzugefügt werden.
