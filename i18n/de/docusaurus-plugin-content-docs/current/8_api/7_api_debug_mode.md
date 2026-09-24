@@ -6,6 +6,9 @@ description: Der API-Debugging-Modus fügt den API-Antworten weitere Details hin
 
 # API-Debugging-Modus
 
+:::caution
+Der API-Debugging-Modus sollte ausschliesslich in Entwicklungsumgebungen verwendet werden. Er kann einem Angreifer Informationen über Ihr Projekt liefern und kann in Produktionsumgebungen ein Sicherheitsrisiko darstellen.
+:::
 
 ## Aktivieren des API-Debugging-Modus
 

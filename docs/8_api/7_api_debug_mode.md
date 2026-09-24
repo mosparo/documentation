@@ -6,6 +6,10 @@ description: The API debug mode will add more details to the API responses to ex
 
 # API debug mode
 
+:::caution
+The API debug mode should only be used in development environments. It can give an attacker some information about your project and can be dangerous in production environments.
+:::
+
 ## Enable the API debug mode
 
 To use the API debug mode, you have to enable it. You can find this setting in the [project settings](../usage/settings), and you have to enable it for every project for which you want to use the API debug mode.
