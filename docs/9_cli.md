@@ -82,27 +82,31 @@ Use this command to update your mosparo installation.
 With the import command, you can import the settings from a previously exported project into a project. You can use this command to make a backup of the settings.
 
 ```shell
-./bin/console mosparo:import [--generalSettings|--no-generalSettings] [--designSettings|--no-designSettings] [--securitySettings|--no-securitySettings] [--rules|--no-rules] [--handlingExistingRules HANDLINGEXISTINGRULES] [--rulePackages|--no-rulePackages] [-f|--force] [--] <projectId> <filePath>
+./bin/console mosparo:import [--generalSettings|--no-generalSettings] [--designSettings|--no-designSettings] [--securitySettings|--no-securitySettings] [--translations|--no-translations] [--submissionRules|--no-submissionRules] [--fieldRules|--no-fieldRules] [--handlingExistingFieldRules HANDLINGEXISTINGFIELDRULES] [--rulePackages|--no-rulePackages] [-f|--force] [--] <projectId> <filePath>
 ```
 
 #### Arguments
 
-| Argument                | Required | Description                                                                                                                                                                                                                |
-|-------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| projectId               | Required | The project ID of the project into which you want to import the settings. You can find the ID of a project in the project list in mosparo.                                                                                 |
-| filePath                | Required | The location of the file you want to import.                                                                                                                                                                               |
-| --generalSettings       | Optional | Import the general settings of a project.                                                                                                                                                                                  |
-| --no-generalSettings    | Optional | Do not import the general settings of a project.                                                                                                                                                                           |
-| --designSettings        | Optional | Import the design settings of a project.                                                                                                                                                                                   |
-| --no-designSettings     | Optional | Do not import the design settings of a project.                                                                                                                                                                            |
-| --securitySettings      | Optional | Import the security settings of a project.                                                                                                                                                                                 |
-| --no-securitySettings   | Optional | Do not import the security settings of a project.                                                                                                                                                                          |
-| --rules                 | Optional | Import the rules of a project.                                                                                                                                                                                             |
-| --no-rules              | Optional | Do not import the rules of a project.                                                                                                                                                                                      |
-| --handlingExistingRules | Optional | Defines how mosparo should handle existing rules. Use `override`, to override a rule that already exists. Use `append` to append the rule items if a rule already exists. Use `add` to add an existing rule as a new rule. |
-| --rulePackages          | Optional | Import the rule packages of a project.                                                                                                                                                                                     |
-| --no-rulePackages       | Optional | Do not import the rule packages of a project.                                                                                                                                                                              |
-| --force                 | Optional | If force is set, the command will execute all changes without asking. Otherwise, the command will be executed interactively, and you need to tell the command which changes to apply.                           |
+| Argument                     | Required | Description                                                                                                                                                                                                                                              |
+|------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| projectId                    | Required | The project ID of the project into which you want to import the settings. You can find the ID of a project in the project list in mosparo.                                                                                                            |
+| filePath                     | Required | The location of the file you want to import.                                                                                                                                                                                                             |
+| --generalSettings            | Optional | Import the general settings of a project.                                                                                                                                                                                                                |
+| --no-generalSettings         | Optional | Do not import the general settings of a project.                                                                                                                                                                                                         |
+| --designSettings             | Optional | Import the design settings of a project.                                                                                                                                                                                                                 |
+| --no-designSettings          | Optional | Do not import the design settings of a project.                                                                                                                                                                                                          |
+| --securitySettings           | Optional | Import the security settings of a project.                                                                                                                                                                                                               |
+| --no-securitySettings        | Optional | Do not import the security settings of a project.                                                                                                                                                                                                        |
+| --translations               | Optional | Import the translations of a project.                                                                                                                                                                                                                    |
+| --no-translations            | Optional | Do not import the translations of a project.                                                                                                                                                                                                             |
+| --submissionRules            | Optional | Import the submission rules of a project.                                                                                                                                                                                                                |
+| --no-submissionRules         | Optional | Do not import the submission rules of a project.                                                                                                                                                                                                         |
+| --fieldRules                 | Optional | Import the field rules of a project.                                                                                                                                                                                                                     |
+| --no-fieldRules              | Optional | Do not import the field rules of a project.                                                                                                                                                                                                              |
+| --handlingExistingFieldRules | Optional | Defines how mosparo should handle existing field rules. Use `override`, to override a field rule that already exists. Use `append` to append the rule items if a field rule already exists. Use `add` to add an existing field rule as a new field rule. |
+| --rulePackages               | Optional | Import the rule packages of a project.                                                                                                                                                                                                                   |
+| --no-rulePackages            | Optional | Do not import the rule packages of a project.                                                                                                                                                                                                            |
+| --force                      | Optional | If force is set, the command will execute all changes without asking. Otherwise, the command will be executed interactively, and you need to tell the command which changes to apply.                                                                    |
 
 #### Use case
 
@@ -115,7 +119,7 @@ With the export command, you can export the settings of a project. You can later
 mosparo will not export any sensitive data, such as submitted form data or the UUID, public or private key of a project.
 
 ```shell
-./bin/console mosparo:export [--generalSettings|--no-generalSettings] [--designSettings|--no-designSettings] [--securitySettings|--no-securitySettings] [--rules|--no-rules] [--rulePackages|--no-rulePackages] [--] <projectId> [<filePath>]
+./bin/console mosparo:export [--generalSettings|--no-generalSettings] [--designSettings|--no-designSettings] [--securitySettings|--no-securitySettings] [--translations|--no-translations] [--submissionRules|--no-submissionRules] [--fieldRules|--no-fieldRules] [--rulePackages|--no-rulePackages] [--] <projectId> [<filePath>]
 ```
 
 #### Arguments
@@ -130,8 +134,12 @@ mosparo will not export any sensitive data, such as submitted form data or the U
 | --no-designSettings   | Optional | Do not export the design settings of a project.                                                                    |
 | --securitySettings    | Optional | Export the security settings of a project.                                                                         |
 | --no-securitySettings | Optional | Do not export the security settings of a project.                                                                  |
-| --rules               | Optional | Export the rules of a project.                                                                                     |
-| --no-rules            | Optional | Do not export the rules of a project.                                                                              |
+| --translations        | Optional | Export the translations of a project.                                                                              |
+| --no-translations     | Optional | Do not export the translations of a project.                                                                       |
+| --submissionRules     | Optional | Export the submission rules of a project.                                                                          |
+| --no-submissionRules  | Optional | Do not export the submission rules of a project.                                                                   |
+| --fieldRules          | Optional | Export the field rules of a project.                                                                               |
+| --no-fieldRules       | Optional | Do not export the field rules of a project.                                                                        |
 | --rulePackages        | Optional | Export the rule packages of a project.                                                                             |
 | --no-rulePackages     | Optional | Do not export the rule packages of a project.                                                                      |
 
