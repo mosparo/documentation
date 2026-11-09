@@ -75,7 +75,98 @@ _Dieser Befehl bietet keine Argumente an._
 
 Verwenden Sie diesen Befehl, um Ihre mosparo-Installation zu aktualisieren.
 
-## Importieren & Exportieren
+### Update abschliessen
+
+Der Befehl `finalize-update` kann nach der Aktualisierung von mosparo ausgeführt werden. Der Befehl führt dieselben Schritte aus wie im Frontend, wenn der Benutzer nach einer Aktualisierung die Weboberfläche öffnet.
+
+Der Befehl führt Folgendes aus:
+
+- Aktualisierung der Datenbank
+- Leeren des Caches
+- Überprüfung auf weitere Aktualisierungsschritte, beispielsweise zur Neuberechnung der vorbereiteten Regelelemente
+
+```shell
+./bin/console mosparo:finalize-update
+```
+
+#### Argumente
+
+| Argument         | Erforderlich | Beschreibung                                                                                                                                                              |
+|---------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --force            | Optional | Schliesst die Aktualisierung ab, auch wenn die installierte Version bereits die aktuelle Version ist.                                                                     |
+| --wait-for-database | Optional | Wartet die angegebene Anzahl von Sekunden, bis die Datenbank verfügbar ist. Dies ist nützlich, wenn mosparo und die Datenbank gleichzeitig gestartet werden. Bei 0 wird nicht gewartet. _Standard: 0_ |
+
+#### Anwendungsfall
+
+Verwenden Sie diesen Befehl, um ein Update Ihrer mosparo-Installation abzuschliessen.
+
+### Frontend-Ressourcen aktualisieren
+
+Aktualisiert die Frontend-Ressourcen aller Projekte. Die Frontend-Ressourcen enthalten die Projektdesigns und werden aus den Assets der installierten Version erstellt; daher müssen sie nach einem Update aktualisiert werden. Das Update über die Administrationsoberfläche führt dies automatisch durch. Bei einer Installation, die durch Ersetzen der Dateien aktualisiert wird – beispielsweise durch das Starten eines neuen Container-Images –, wird dieses Update jedoch nie ausgeführt; stattdessen aktualisiert dieser Befehl die Ressourcen.
+
+```shell
+./bin/console mosparo:refresh-frontend-resources
+```
+
+#### Argumente
+
+_Dieser Befehl bietet keine Argumente an._
+
+#### Anwendungsfall
+
+Verwenden Sie diesen Befehl, um die Frontend-Ressourcen aller Projekte Ihrer mosparo-Installation nach einem Update zu aktualisieren.
+
+## Benutzer
+
+### Benutzer erstellen
+
+Der Befehl legt einen Benutzer ohne den Einrichtungsassistenten oder die Verwaltungsoberfläche an, sodass eine Installation im Rahmen einer automatisierten Bereitstellung vorbereitet werden kann.
+
+```shell
+./bin/console mosparo:user:create [--password PASSWORD] [--password-from-stdin] [--role ROLE] [--update] [--] <email>
+```
+
+#### Argumente
+
+| Argument              | Erforderlich | Beschreibung                                                     |
+|-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| email                | Erforderlich | Die E-Mail-Adresse des Benutzers, die gleichzeitig auch der Benutzername ist.|
+| --password            | Optional | Das Passwort des Benutzers. Der Befehl fordert zur Eingabe des Passworts auf, falls dies erforderlich ist und weder diese Option noch die Option --password-from-stdin verwendet wird. |
+| --password-from-stdin | Optional | Das Passwort wird statt über die Option --password aus der Standardeingabe eingelesen. |
+| --role | Optional | Die Rolle des Benutzers. Kann mehrfach verwendet werden um mehrere Rollen zu definieren. Jeder Benutzer erhält die Rolle ROLE_USER. Ohne diese Option erhält ein neuer Benutzer nur die Rolle ROLE_USER. Mit der Option --update bleiben die bestehenden Rollen erhalten. |
+| --update | Optional | Einen bestehenden Benutzer aktualisieren, anstatt den Vorgang mit einer Fehlermeldung abzubrechen. Das Passwort wird geändert, wenn die Option --password oder --password-from-stdin verwendet wird, und die Rollen werden geändert, wenn die Option --role verwendet wird. Ohne eine dieser Optionen fordert der Befehl zur Eingabe eines neuen Passworts auf. |
+
+#### Anwendungsfall
+
+Verwenden Sie diesen Befehl, um beispielsweise in einer Automatisierung einen Benutzer anzulegen oder zu aktualisieren.
+
+## Projekt
+
+### Projekt erstellen
+
+Der Befehl erstellt ein Projekt, sodass eine Installation im Rahmen einer automatisierten Bereitstellung vorbereitet werden kann. Die UUID und die Schlüssel werden generiert, sofern sie nicht angegeben werden; aus diesem Grund gibt der Befehl sie aus.
+
+```shell
+./bin/console mosparo:project:create [--owner OWNER] [--host HOST] [--description DESCRIPTION] [--uuid UUID] [--public-key PUBLIC-KEY] [--private-key PRIVATE-KEY] [--private-key-from-stdin] [--update] [--] <name>
+```
+
+#### Argumente
+
+| Argument                | Erforderlich | Beschreibung                                                                                                                                             |
+|--------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name               | Erforderlich | Der Name des Projekts.|
+| --owner         | Optional | Die E-Mail-Adresse des Benutzers, der Inhaber des Projekts wird.                                                                                    |
+| --host         | Optional | Ein Host, der das Projekt nutzen wird; kann mehrfach verwendet werden.                                                                                 |
+| --description | Optional | Die Beschreibung des Projekts.|
+| --uuid | Optional | Die UUID des Projekts. Wird diese Option nicht verwendet, wird eine zufällige UUID generiert.|
+| --public-key | Optional | Der öffentliche Schlüssel des Projekts, der zusammen mit den Optionen --private-key oder --private-key-from-stdin verwendet wird. Werden diese Optionen nicht verwendet, werden beide Schlüssel generiert. |
+| --private-key | Optional | Der private Schlüssel des Projekts, der zusammen mit --public-key verwendet werden soll. Wird in der Prozessliste angezeigt; --private-key-from-stdin sollte bevorzugt verwendet werden. |
+| --private-key-from-stdin | Optional | Liest den privaten Schlüssel aus der Standardeingabe anstelle der Option --private-key ein; diese Option ist in Verbindung mit --public-key zu verwenden. |
+| --update | Optional | Aktualisiert den Namen, die Beschreibung, die Hosts und die Schlüssel des Projekts mit der angegebenen UUID, anstatt den Vorgang mit einer Fehlermeldung abzubrechen. Erfordert die Option --uuid. |
+
+#### Anwendungsfall
+
+Verwenden Sie diesen Befehl, um beispielsweise im Rahmen einer Automatisierung ein Projekt zu erstellen oder zu aktualisieren.
 
 ### Projekteinstellungen importieren
 

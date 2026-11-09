@@ -75,7 +75,98 @@ _This command does not offer any arguments._
 
 Use this command to update your mosparo installation.
 
-## Import & Export
+### Finalize update
+
+The `finalize-update` command can be executed after updating mosparo. The command executes the same steps as in the frontend when the user opens the web interface after an update.
+
+The command will:
+
+- Update the database
+- Clear the cache
+- Check for other upgrade steps, for example to recalculate the prepared rule items
+
+```shell
+./bin/console mosparo:finalize-update
+```
+
+#### Arguments
+
+| Argument         | Required | Description                                                                                                                                                              |
+|---------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --force            | Optional | Finalizes the update although the installed version is already the current version.                                                                                     |
+| --wait-for-database | Optional | Waits for the given number of seconds until the database is available, which is useful if mosparo and the database are started at the same time. 0 does not wait at all. _Default: 0_ |
+
+#### Use case
+
+Use this command to finalize an update of your mosparo installation.
+
+### Refresh frontend resources
+
+Refreshes the frontend resources of all projects. The frontend resources contain the project designs and are built from the assets of the installed version, so they must be refreshed after an update. The update in the administration interface does that on its own. An installation that is updated by replacing the files, for example by starting a new container image, never runs that update, and this command refreshes the resources instead.
+
+```shell
+./bin/console mosparo:refresh-frontend-resources
+```
+
+#### Arguments
+
+_This command does not offer any arguments._
+
+#### Use case
+
+Use this command to refresh the frontend resources of all projects of your mosparo installation after an update.
+
+## User
+
+### Create a user
+
+The command creates a user without the setup wizard or the administration interface so that an installation can be prepared in an automated deployment.
+
+```shell
+./bin/console mosparo:user:create [--password PASSWORD] [--password-from-stdin] [--role ROLE] [--update] [--] <email>
+```
+
+#### Arguments
+
+| Argument              | Required | Description                                                     |
+|-----------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| email                | Required | The email address of the user, which is also the username.|
+| --password            | Optional | The password of the user. The command asks for the password if it is needed and neither this option nor --password-from-stdin is used. |
+| --password-from-stdin | Optional | Read the password from the standard input instead of the --password option. |
+| --role | Optional | The role of the user, usable multiple times. Every user gets ROLE_USER. Without this option, a new user gets only ROLE_USER, and --update keeps the existing roles. |
+| --update | Optional | Update an existing user instead of stopping with an error. The password is changed if --password or --password-from-stdin is used, and the roles if --role is used. Without any of these options, the command asks for a new password. |
+
+#### Use case
+
+Use this command to create or update a user, for example, in any automation.
+
+## Project
+
+### Create a project
+
+The command creates a project so that an installation can be prepared in an automated deployment. The UUID and the keys are generated if they are not given, which is why the command prints them.
+
+```shell
+./bin/console mosparo:project:create [--owner OWNER] [--host HOST] [--description DESCRIPTION] [--uuid UUID] [--public-key PUBLIC-KEY] [--private-key PRIVATE-KEY] [--private-key-from-stdin] [--update] [--] <name>
+```
+
+#### Arguments
+
+| Argument                | Required | Description                                                                                                                                             |
+|--------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name               | Required | The name of the project.|
+| --owner         | Optional | The email address of the user who becomes the owner of the project.                                                                                    |
+| --host         | Optional | A host that is allowed to use the project, usable multiple times.                                                                                 |
+| --description | Optional | The description of the project.|
+| --uuid | Optional | The UUID of the project. A random UUID is generated if the option is not used.|
+| --public-key | Optional | The public key of the project, to be used together with --private-key or --private-key-from-stdin. Both keys are generated if the options are not used. |
+| --private-key | Optional | The private key of the project, to be used together with --public-key. Visible in the process list; prefer --private-key-from-stdin. |
+| --private-key-from-stdin | Optional | Read the private key from the standard input instead of the --private-key option, to be used together with --public-key. |
+| --update | Optional | Set the name, the description, the hosts, and the keys of the project with the given UUID instead of stopping with an error. Requires --uuid. |
+
+#### Use case
+
+Use this command to create or update a project, for example, as part of any automation.
 
 ### Import project settings
 
